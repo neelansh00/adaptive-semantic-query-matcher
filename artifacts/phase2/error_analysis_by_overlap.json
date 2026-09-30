@@ -1,0 +1,110 @@
+{
+  "model": "lr_tfidf_pair_lexical",
+  "threshold": 0.32,
+  "fpr_by_band_and_tag": [
+    {
+      "overlap_band": "<=0.4",
+      "tag": "entity_diff",
+      "negatives_with_tag": 9375,
+      "fpr_with_tag": 0.0521,
+      "negatives_without_tag": 8547,
+      "fpr_without_tag": 0.1868
+    },
+    {
+      "overlap_band": "<=0.4",
+      "tag": "number_diff",
+      "negatives_with_tag": 3291,
+      "fpr_with_tag": 0.0377,
+      "negatives_without_tag": 14631,
+      "fpr_without_tag": 0.134
+    },
+    {
+      "overlap_band": "<=0.4",
+      "tag": "negation_diff",
+      "negatives_with_tag": 2695,
+      "fpr_with_tag": 0.0523,
+      "negatives_without_tag": 15227,
+      "fpr_without_tag": 0.1277
+    },
+    {
+      "overlap_band": "<=0.4",
+      "tag": "any_constraint_diff",
+      "negatives_with_tag": 11535,
+      "fpr_with_tag": 0.0573,
+      "negatives_without_tag": 6387,
+      "fpr_without_tag": 0.223
+    },
+    {
+      "overlap_band": "0.4-0.6",
+      "tag": "entity_diff",
+      "negatives_with_tag": 850,
+      "fpr_with_tag": 0.3365,
+      "negatives_without_tag": 2513,
+      "fpr_without_tag": 0.6188
+    },
+    {
+      "overlap_band": "0.4-0.6",
+      "tag": "number_diff",
+      "negatives_with_tag": 336,
+      "fpr_with_tag": 0.3452,
+      "negatives_without_tag": 3027,
+      "fpr_without_tag": 0.5699
+    },
+    {
+      "overlap_band": "0.4-0.6",
+      "tag": "negation_diff",
+      "negatives_with_tag": 211,
+      "fpr_with_tag": 0.4645,
+      "negatives_without_tag": 3152,
+      "fpr_without_tag": 0.553
+    },
+    {
+      "overlap_band": "0.4-0.6",
+      "tag": "any_constraint_diff",
+      "negatives_with_tag": 1250,
+      "fpr_with_tag": 0.368,
+      "negatives_without_tag": 2113,
+      "fpr_without_tag": 0.6536
+    },
+    {
+      "overlap_band": ">0.6",
+      "tag": "entity_diff",
+      "negatives_with_tag": 1425,
+      "fpr_with_tag": 0.4386,
+      "negatives_without_tag": 1847,
+      "fpr_without_tag": 0.6454
+    },
+    {
+      "overlap_band": ">0.6",
+      "tag": "number_diff",
+      "negatives_with_tag": 300,
+      "fpr_with_tag": 0.5133,
+      "negatives_without_tag": 2972,
+      "fpr_without_tag": 0.5596
+    },
+    {
+      "overlap_band": ">0.6",
+      "tag": "negation_diff",
+      "negatives_with_tag": 61,
+      "fpr_with_tag": 0.6393,
+      "negatives_without_tag": 3211,
+      "fpr_without_tag": 0.5537
+    },
+    {
+      "overlap_band": ">0.6",
+      "tag": "any_constraint_diff",
+      "negatives_with_tag": 1742,
+      "fpr_with_tag": 0.4592,
+      "negatives_without_tag": 1530,
+      "fpr_without_tag": 0.6647
+    }
+  ],
+  "high_overlap_false_positives": 1817,
+  "share_of_all_false_positives_that_are_high_overlap": 0.3164,
+  "tag_share_among_high_overlap_false_positives": {
+    "entity_diff": 0.344,
+    "number_diff": 0.0848,
+    "negation_diff": 0.0215,
+    "any_constraint_diff": 0.4403
+  }
+}

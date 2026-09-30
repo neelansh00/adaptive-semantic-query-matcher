@@ -1,0 +1,393 @@
+{
+  "majority": {
+    "val": {
+      "threshold": 0.5,
+      "f1": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "accuracy": 0.6438984739629766,
+      "roc_auc": 0.5,
+      "pr_auc": 0.35610152603702344,
+      "fpr": 0.0,
+      "fnr": 1.0,
+      "tp": 0,
+      "fp": 0,
+      "tn": 24557,
+      "fn": 13581
+    },
+    "notes": "always predicts the train majority class (0)"
+  },
+  "cosine_tfidf": {
+    "val_at_0.5": {
+      "threshold": 0.5,
+      "f1": 0.4555408494765973,
+      "precision": 0.5002642706131079,
+      "recall": 0.4181577203445991,
+      "accuracy": 0.644055797367455,
+      "roc_auc": 0.7031907424448947,
+      "pr_auc": 0.479052801002922,
+      "fpr": 0.23101356028830883,
+      "fnr": 0.5818422796554009,
+      "tp": 5679,
+      "fp": 5673,
+      "tn": 18884,
+      "fn": 7902
+    },
+    "val_at_tuned_threshold": {
+      "threshold": 0.2,
+      "f1": 0.6180952137058567,
+      "precision": 0.47384953667347257,
+      "recall": 0.888594359767322,
+      "accuracy": 0.6089726781687556,
+      "roc_auc": 0.7031907424448947,
+      "pr_auc": 0.479052801002922,
+      "fpr": 0.5456692592743413,
+      "fnr": 0.111405640232678,
+      "tp": 12068,
+      "fp": 13400,
+      "tn": 11157,
+      "fn": 1513
+    },
+    "tuned_threshold": 0.2,
+    "threshold_transfer": {
+      "cross_half_f1_mean": 0.6170332022400145,
+      "cross_half_f1": [
+        0.6109174168704793,
+        0.6231489876095497
+      ]
+    }
+  },
+  "lr_lexical": {
+    "val_at_0.5": {
+      "threshold": 0.5,
+      "f1": 0.5393175981411276,
+      "precision": 0.6041095890410959,
+      "recall": 0.4870775347912525,
+      "accuracy": 0.7036813676647963,
+      "roc_auc": 0.7864102773692351,
+      "pr_auc": 0.61370181211366,
+      "fpr": 0.17652807753390073,
+      "fnr": 0.5129224652087475,
+      "tp": 6615,
+      "fp": 4335,
+      "tn": 20222,
+      "fn": 6966
+    },
+    "val_at_tuned_threshold": {
+      "threshold": 0.23,
+      "f1": 0.6594428881019081,
+      "precision": 0.5143257616358164,
+      "recall": 0.9186363301671453,
+      "accuracy": 0.6621217683150663,
+      "roc_auc": 0.7864102773692351,
+      "pr_auc": 0.61370181211366,
+      "fpr": 0.47974101070977726,
+      "fnr": 0.08136366983285473,
+      "tp": 12476,
+      "fp": 11781,
+      "tn": 12776,
+      "fn": 1105
+    },
+    "tuned_threshold": 0.23,
+    "threshold_transfer": {
+      "cross_half_f1_mean": 0.6594528210328785,
+      "cross_half_f1": [
+        0.6535802860007387,
+        0.6653253560650183
+      ]
+    },
+    "calibration": {
+      "brier": 0.1781393043324964,
+      "ece": 0.04522986183584184
+    },
+    "C": 0.1,
+    "c_grid": [
+      {
+        "C": 0.1,
+        "val_pr_auc": 0.61370181211366,
+        "val_roc_auc": 0.7864102773692351,
+        "fit_seconds": 0.7
+      },
+      {
+        "C": 0.3,
+        "val_pr_auc": 0.6136361937186169,
+        "val_roc_auc": 0.7863447918048847,
+        "fit_seconds": 0.7
+      },
+      {
+        "C": 1.0,
+        "val_pr_auc": 0.613642774654309,
+        "val_roc_auc": 0.7863710040211644,
+        "fit_seconds": 0.7
+      },
+      {
+        "C": 3.0,
+        "val_pr_auc": 0.6136106264563858,
+        "val_roc_auc": 0.7863384141585763,
+        "fit_seconds": 0.7
+      },
+      {
+        "C": 10.0,
+        "val_pr_auc": 0.613662521820363,
+        "val_roc_auc": 0.7863638917611535,
+        "fit_seconds": 0.7
+      }
+    ],
+    "coefficients_standardised": {
+      "word_jaccard": -4.5554,
+      "content_jaccard": 0.6207,
+      "common_word_count": 0.0671,
+      "common_ratio_min": 1.8263,
+      "common_ratio_max": 2.1356,
+      "char3_jaccard": 1.0659,
+      "word_count_absdiff": -0.3059,
+      "char_len_absdiff": -0.1019,
+      "length_ratio": -0.072,
+      "first_word_equal": -0.0746,
+      "last_word_equal": 0.3226
+    }
+  },
+  "lr_tfidf_pair": {
+    "val_at_0.5": {
+      "threshold": 0.5,
+      "f1": 0.6204227448645431,
+      "precision": 0.734393878372936,
+      "recall": 0.5370738531772329,
+      "accuracy": 0.7659814358382715,
+      "roc_auc": 0.8457253489795138,
+      "pr_auc": 0.7355701116815649,
+      "fpr": 0.10742354522132182,
+      "fnr": 0.4629261468227671,
+      "tp": 7294,
+      "fp": 2638,
+      "tn": 21919,
+      "fn": 6287
+    },
+    "val_at_tuned_threshold": {
+      "threshold": 0.25,
+      "f1": 0.6975665544189593,
+      "precision": 0.6134547689556908,
+      "recall": 0.8084088064207349,
+      "accuracy": 0.7503801982274897,
+      "roc_auc": 0.8457253489795138,
+      "pr_auc": 0.7355701116815649,
+      "fpr": 0.28171193549700696,
+      "fnr": 0.19159119357926516,
+      "tp": 10979,
+      "fp": 6918,
+      "tn": 17639,
+      "fn": 2602
+    },
+    "tuned_threshold": 0.25,
+    "threshold_transfer": {
+      "cross_half_f1_mean": 0.6975652320953742,
+      "cross_half_f1": [
+        0.6934028219143257,
+        0.7017276422764228
+      ]
+    },
+    "calibration": {
+      "brier": 0.15633472800254822,
+      "ece": 0.054935886940642935
+    },
+    "C": 3.0,
+    "c_grid": [
+      {
+        "C": 0.1,
+        "val_pr_auc": 0.6813907974907724,
+        "val_roc_auc": 0.8058702243366624,
+        "fit_seconds": 6.2
+      },
+      {
+        "C": 0.3,
+        "val_pr_auc": 0.7130687192871771,
+        "val_roc_auc": 0.8289090233611565,
+        "fit_seconds": 9.9
+      },
+      {
+        "C": 1.0,
+        "val_pr_auc": 0.7290657101513057,
+        "val_roc_auc": 0.8415734637525123,
+        "fit_seconds": 11.8
+      },
+      {
+        "C": 3.0,
+        "val_pr_auc": 0.7355701116815649,
+        "val_roc_auc": 0.8457253489795138,
+        "fit_seconds": 20.4
+      },
+      {
+        "C": 10.0,
+        "val_pr_auc": 0.7233993929793517,
+        "val_roc_auc": 0.8383011420061749,
+        "fit_seconds": 22.4
+      }
+    ],
+    "n_features": 713044,
+    "latency_ms_per_pair_batch": 0.041495197701637954
+  },
+  "lr_tfidf_pair_lexical": {
+    "val_at_0.5": {
+      "threshold": 0.5,
+      "f1": 0.6806295302550959,
+      "precision": 0.7460930640913082,
+      "recall": 0.6257271187688682,
+      "accuracy": 0.7908909748806964,
+      "roc_auc": 0.8738753472747604,
+      "pr_auc": 0.7704647994500425,
+      "fpr": 0.1177668281956265,
+      "fnr": 0.3742728812311317,
+      "tp": 8498,
+      "fp": 2892,
+      "tn": 21665,
+      "fn": 5083
+    },
+    "val_at_tuned_threshold": {
+      "threshold": 0.32,
+      "f1": 0.729895823063525,
+      "precision": 0.6591286799620133,
+      "recall": 0.8176864737500921,
+      "accuracy": 0.7844931564319052,
+      "roc_auc": 0.8738753472747604,
+      "pr_auc": 0.7704647994500425,
+      "fpr": 0.23386407134421958,
+      "fnr": 0.18231352624990796,
+      "tp": 11105,
+      "fp": 5743,
+      "tn": 18814,
+      "fn": 2476
+    },
+    "tuned_threshold": 0.32,
+    "threshold_transfer": {
+      "cross_half_f1_mean": 0.729072053411304,
+      "cross_half_f1": [
+        0.7255554077424504,
+        0.7325886990801577
+      ]
+    },
+    "calibration": {
+      "brier": 0.14002190390194277,
+      "ece": 0.03265436505148243
+    },
+    "C": 1.0,
+    "c_grid": [
+      {
+        "C": 0.1,
+        "val_pr_auc": 0.7375355226298844,
+        "val_roc_auc": 0.8557821416050546,
+        "fit_seconds": 38.1
+      },
+      {
+        "C": 0.3,
+        "val_pr_auc": 0.7590145732937782,
+        "val_roc_auc": 0.8676015543550408,
+        "fit_seconds": 48.3
+      },
+      {
+        "C": 1.0,
+        "val_pr_auc": 0.7704647994500425,
+        "val_roc_auc": 0.8738753472747604,
+        "fit_seconds": 86.4
+      },
+      {
+        "C": 3.0,
+        "val_pr_auc": 0.7699099910889945,
+        "val_roc_auc": 0.8725444191446484,
+        "fit_seconds": 128.2
+      },
+      {
+        "C": 10.0,
+        "val_pr_auc": 0.7579327801203344,
+        "val_roc_auc": 0.8628843239153848,
+        "fit_seconds": 204.4
+      }
+    ],
+    "n_features": 713056
+  },
+  "best_model_by_val_pr_auc": "lr_tfidf_pair_lexical",
+  "config": {
+    "tfidf": {
+      "tokenizer": "<function tokenize at 0x000002B4842E6E80>",
+      "lowercase": "False",
+      "token_pattern": "None",
+      "ngram_range": "(1, 2)",
+      "min_df": "2",
+      "sublinear_tf": "True",
+      "dtype": "<class 'numpy.float32'>"
+    },
+    "tfidf_vocab_size": 356522,
+    "c_grid": [
+      0.1,
+      0.3,
+      1.0,
+      3.0,
+      10.0
+    ],
+    "seed": 42
+  },
+  "sanity_probes": [
+    {
+      "type": "identical",
+      "question1": "What is formwork?",
+      "question2": "What is formwork?",
+      "cosine_tfidf": 1.0,
+      "lr_lexical": 0.4596,
+      "lr_tfidf_pair": 9.999999747378752e-05,
+      "lr_tfidf_pair_lexical": 0.0001
+    },
+    {
+      "type": "identical",
+      "question1": "Who founded Microsoft?",
+      "question2": "Who founded Microsoft?",
+      "cosine_tfidf": 1.0,
+      "lr_lexical": 0.4596,
+      "lr_tfidf_pair": 0.7480999827384949,
+      "lr_tfidf_pair_lexical": 0.7172
+    },
+    {
+      "type": "paraphrase",
+      "question1": "How can I lose weight quickly?",
+      "question2": "What is the fastest way to lose weight?",
+      "cosine_tfidf": 0.3131999969482422,
+      "lr_lexical": 0.1419,
+      "lr_tfidf_pair": 0.9294000267982483,
+      "lr_tfidf_pair_lexical": 0.8209
+    },
+    {
+      "type": "entity_mismatch",
+      "question1": "Who founded Microsoft?",
+      "question2": "Who founded Apple?",
+      "cosine_tfidf": 0.6697999835014343,
+      "lr_lexical": 0.328,
+      "lr_tfidf_pair": 0.27639999985694885,
+      "lr_tfidf_pair_lexical": 0.1594
+    },
+    {
+      "type": "number_mismatch",
+      "question1": "How can I lose 5 kg in a month?",
+      "question2": "How can I lose 20 kg in a month?",
+      "cosine_tfidf": 0.6279000043869019,
+      "lr_lexical": 0.5912,
+      "lr_tfidf_pair": 0.383899986743927,
+      "lr_tfidf_pair_lexical": 0.4985
+    },
+    {
+      "type": "negation_mismatch",
+      "question1": "Why do people believe in God?",
+      "question2": "Why do people not believe in God?",
+      "cosine_tfidf": 0.7179999947547913,
+      "lr_lexical": 0.5279,
+      "lr_tfidf_pair": 0.3684999942779541,
+      "lr_tfidf_pair_lexical": 0.3605
+    },
+    {
+      "type": "broader_narrower",
+      "question1": "How do I learn programming?",
+      "question2": "How do I learn Python programming for data science?",
+      "cosine_tfidf": 0.35929998755455017,
+      "lr_lexical": 0.5222,
+      "lr_tfidf_pair": 0.33970001339912415,
+      "lr_tfidf_pair_lexical": 0.611
+    }
+  ]
+}

@@ -1,0 +1,545 @@
+{
+  "model": "lr_tfidf_pair_lexical",
+  "threshold": 0.32,
+  "tag_share_by_outcome": {
+    "TP": {
+      "number_diff": 0.0374,
+      "entity_diff": 0.1463,
+      "negation_diff": 0.0299,
+      "high_overlap": 0.308,
+      "low_overlap": 0.0439,
+      "n": 11105.0
+    },
+    "FP": {
+      "number_diff": 0.0686,
+      "entity_diff": 0.2436,
+      "negation_diff": 0.0484,
+      "high_overlap": 0.3458,
+      "low_overlap": 0.0414,
+      "n": 5743.0
+    },
+    "TN": {
+      "number_diff": 0.1878,
+      "entity_diff": 0.5449,
+      "negation_diff": 0.1429,
+      "high_overlap": 0.0845,
+      "low_overlap": 0.5259,
+      "n": 18814.0
+    },
+    "FN": {
+      "number_diff": 0.1018,
+      "entity_diff": 0.2742,
+      "negation_diff": 0.107,
+      "high_overlap": 0.101,
+      "low_overlap": 0.1809,
+      "n": 2476.0
+    }
+  },
+  "tag_conditional_error_rates": {
+    "number_diff": {
+      "negatives_with_tag": 3927.0,
+      "fpr_with_tag": 0.1003,
+      "fpr_without_tag": 0.2593,
+      "positives_with_tag": 667.0,
+      "fnr_with_tag": 0.3778,
+      "fnr_without_tag": 0.1722
+    },
+    "entity_diff": {
+      "negatives_with_tag": 11650.0,
+      "fpr_with_tag": 0.1201,
+      "fpr_without_tag": 0.3366,
+      "positives_with_tag": 2304.0,
+      "fnr_with_tag": 0.2947,
+      "fnr_without_tag": 0.1594
+    },
+    "negation_diff": {
+      "negatives_with_tag": 2967.0,
+      "fpr_with_tag": 0.0937,
+      "fpr_without_tag": 0.2531,
+      "positives_with_tag": 597.0,
+      "fnr_with_tag": 0.4439,
+      "fnr_without_tag": 0.1703
+    },
+    "high_overlap": {
+      "negatives_with_tag": 3575.0,
+      "fpr_with_tag": 0.5555,
+      "fpr_without_tag": 0.1791,
+      "positives_with_tag": 3670.0,
+      "fnr_with_tag": 0.0681,
+      "fnr_without_tag": 0.2246
+    },
+    "low_overlap": {
+      "negatives_with_tag": 10133.0,
+      "fpr_with_tag": 0.0235,
+      "fpr_without_tag": 0.3817,
+      "positives_with_tag": 935.0,
+      "fnr_with_tag": 0.4791,
+      "fnr_without_tag": 0.1604
+    }
+  },
+  "error_rates_by_word_jaccard": [
+    {
+      "word_jaccard": "(-0.01, 0.2]",
+      "n": 11927.0,
+      "prevalence": 0.0975,
+      "fpr": 0.0288,
+      "fnr": 0.4549
+    },
+    {
+      "word_jaccard": "(0.2, 0.4]",
+      "n": 12127.0,
+      "prevalence": 0.4097,
+      "fpr": 0.248,
+      "fnr": 0.2441
+    },
+    {
+      "word_jaccard": "(0.4, 0.6]",
+      "n": 7464.0,
+      "prevalence": 0.5494,
+      "fpr": 0.5474,
+      "fnr": 0.1227
+    },
+    {
+      "word_jaccard": "(0.6, 0.8]",
+      "n": 4418.0,
+      "prevalence": 0.5387,
+      "fpr": 0.5653,
+      "fnr": 0.0689
+    },
+    {
+      "word_jaccard": "(0.8, 1.0]",
+      "n": 2202.0,
+      "prevalence": 0.4396,
+      "fpr": 0.5389,
+      "fnr": 0.0692
+    }
+  ],
+  "most_confident_false_positives": [
+    {
+      "id": 337948,
+      "question1": "How would Donald Trump and Hillary Clinton react, respectively, if they lose the 2016 presidential election?",
+      "question2": "Is Hillary Clinton going to lose the election?",
+      "score": 0.9887246912100821
+    },
+    {
+      "id": 109681,
+      "question1": "As universe expands without limit, dark/vacuum energies are created too so is the energy that can be created (potential energy/potentiality) infinite?",
+      "question2": "If dark/vacuum energy is created with expansion and it has no limit, could infinite energy be created then?",
+      "score": 0.982297287637682
+    },
+    {
+      "id": 394548,
+      "question1": "How 2000 rupee note stops black money?",
+      "question2": "Do you think the 2000 rupee notes will increase black money?",
+      "score": 0.9779222110044614
+    },
+    {
+      "id": 303633,
+      "question1": "Why India Should not attack Pakistan?",
+      "question2": "Why is India not attacking on Pakistan?",
+      "score": 0.9728581530154212
+    },
+    {
+      "id": 255270,
+      "question1": "How do I get free traffic for my website?",
+      "question2": "How do you get good free traffic to your website?",
+      "score": 0.9681167310811589
+    },
+    {
+      "id": 67203,
+      "question1": "What is your favorite thing in the world?",
+      "question2": "What's your favorite thing in this world?",
+      "score": 0.9679406955427563
+    },
+    {
+      "id": 160263,
+      "question1": "Do people really suffer because of demonetizing 500&1000 rupees notes?",
+      "question2": "How many people have died because of demonetization of 500 and 1000 rupee notes till now?",
+      "score": 0.9665556350252745
+    },
+    {
+      "id": 5567,
+      "question1": "How could I gain weight quickly?",
+      "question2": "How can I lose weight quickly?",
+      "score": 0.9647224222439488
+    },
+    {
+      "id": 96654,
+      "question1": "Why do you answer questions in Quora?",
+      "question2": "How do you answer questions on Quora?",
+      "score": 0.9644539488825323
+    },
+    {
+      "id": 263859,
+      "question1": "How do you delete a question or an answer on Quora?",
+      "question2": "How do I delete my own question from Quora?",
+      "score": 0.9634777845795125
+    },
+    {
+      "id": 376516,
+      "question1": "What are some ways to take anabolic steroids?",
+      "question2": "What are anabolic steroids?",
+      "score": 0.9625195290479386
+    },
+    {
+      "id": 85770,
+      "question1": "Does Quora earn money?",
+      "question2": "How can I use Quora to make money?",
+      "score": 0.960112679413145
+    },
+    {
+      "id": 320165,
+      "question1": "When India will be corruption free?",
+      "question2": "Can India ever be corruption free?",
+      "score": 0.959014459151473
+    },
+    {
+      "id": 251735,
+      "question1": "What are the views of Pakistani\u2019s about Uri terror attack?",
+      "question2": "What is your opinion about Uri attack?",
+      "score": 0.9581834438815671
+    },
+    {
+      "id": 168911,
+      "question1": "How do you add a picture to your question on Quora?",
+      "question2": "How do I add a pic in Quora question?",
+      "score": 0.9551343500546781
+    }
+  ],
+  "most_confident_false_negatives": [
+    {
+      "id": 359381,
+      "question1": "Why is a quadratic equation called 'quadratic', though it has a degree of two and quad means four (eg : x^2-2x-3)?",
+      "question2": "Why do quadratic equation gives only two roots when quad mean 4?",
+      "score": 0.003285089901094691
+    },
+    {
+      "id": 60481,
+      "question1": "How was NEET II paper?",
+      "question2": "What are the reactions on neet 2?",
+      "score": 0.005865464189381395
+    },
+    {
+      "id": 361426,
+      "question1": "Why do you calculate the square root of a number?",
+      "question2": "What is a use of square root (underroot) in our daily life?",
+      "score": 0.007087800050683309
+    },
+    {
+      "id": 301114,
+      "question1": "What is formwork?",
+      "question2": "What is the formwork?",
+      "score": 0.009011008103464701
+    },
+    {
+      "id": 181816,
+      "question1": "Can a boy join the Indian armed forces after a BSc degree?",
+      "question2": "How do I join IAF after mbbs?",
+      "score": 0.00927003325431065
+    },
+    {
+      "id": 272272,
+      "question1": "How do I join defence after graduation in mechanical engineer?",
+      "question2": "How do I join IAF after mbbs?",
+      "score": 0.011655362586189953
+    },
+    {
+      "id": 305124,
+      "question1": "If the Washington Redskins team name is offensive, can't the same be said for many other sports teams?",
+      "question2": "Why is there so much scrutiny and push to change the Washington Redskins name when there are so many other professional sports barring the same type of name (i.e. Chicago Blackhawks, Atlanta Braves, Cleveland Indians)?",
+      "score": 0.011655929935170896
+    },
+    {
+      "id": 36460,
+      "question1": "How do I join defence after graduation in mechanical engineer?",
+      "question2": "How do I join army after hotel management?",
+      "score": 0.011772373258092514
+    },
+    {
+      "id": 236679,
+      "question1": "Is it racist to say that you don't want to date an Asian?",
+      "question2": "Are you a racist if you only date within your race?",
+      "score": 0.011984032595056123
+    },
+    {
+      "id": 36745,
+      "question1": "What will be the fees for SRM college management quota Chennai for CSE in B.Tech?",
+      "question2": "How do I apply for management quota SRM?",
+      "score": 0.013268291912595463
+    },
+    {
+      "id": 233809,
+      "question1": "How do you backup photos on iPhone but delete them from the device?",
+      "question2": "Can I remove photos from my iPhone without removing them from my iCloud storage?",
+      "score": 0.013404091538245538
+    },
+    {
+      "id": 336663,
+      "question1": "Can I run gta 5 on core i3 and 4 GB of ram?",
+      "question2": "Can I play GTA 5 on I 3 processor with 4 gb ram and 2.00GHz prossesor?",
+      "score": 0.013956999545004881
+    },
+    {
+      "id": 398871,
+      "question1": "How do you backup photos on iPhone but delete them from the device?",
+      "question2": "I need to clear off a computer. The photos on it are already in iCloud. Will deleting them off the computer also delete them from icloud?",
+      "score": 0.014099817967161163
+    },
+    {
+      "id": 57405,
+      "question1": "How do you backup photos on iPhone but delete them from the device?",
+      "question2": "If I have an iCloud, can I delete all the photos from my phone?",
+      "score": 0.014511259489161323
+    },
+    {
+      "id": 20711,
+      "question1": "How do you backup photos on iPhone but delete them from the device?",
+      "question2": "Can I delete photos once I upload them to iCloud Drive?",
+      "score": 0.015718677198894717
+    }
+  ],
+  "random_false_positives": [
+    {
+      "id": 308634,
+      "question1": "How would you answer this question?",
+      "question2": "How do you answer this question?",
+      "score": 0.7073737242356222
+    },
+    {
+      "id": 286785,
+      "question1": "Is Henry Girard a real life person?",
+      "question2": "Is Mr Darcy based on a real person?",
+      "score": 0.33134721577458887
+    },
+    {
+      "id": 82787,
+      "question1": "What is the full form of CBI and FBI?",
+      "question2": "What is the full form of CBI?",
+      "score": 0.4737280072481477
+    },
+    {
+      "id": 394548,
+      "question1": "How 2000 rupee note stops black money?",
+      "question2": "Do you think the 2000 rupee notes will increase black money?",
+      "score": 0.9779222110044614
+    },
+    {
+      "id": 338437,
+      "question1": "What are the best photographs?",
+      "question2": "What are the best photographs of people?",
+      "score": 0.6280447182938204
+    },
+    {
+      "id": 304211,
+      "question1": "What is the best way to learn content writing?",
+      "question2": "What is content writing?",
+      "score": 0.8659183107463275
+    },
+    {
+      "id": 51998,
+      "question1": "Do you believe in sun signs and horoscopes? Is it relevant in any way?",
+      "question2": "Do you put faith in horoscopes?",
+      "score": 0.5645860683074339
+    },
+    {
+      "id": 36280,
+      "question1": "What should someone expect during their seventh post-op tonsillectomy day?",
+      "question2": "What should someone expect during their sixth post-op tonsillectomy day?",
+      "score": 0.6818082611266225
+    },
+    {
+      "id": 261327,
+      "question1": "What advice would you give to your 15 year old self?",
+      "question2": "What advice would you give to your 17 year old self?",
+      "score": 0.43982409661076405
+    },
+    {
+      "id": 204658,
+      "question1": "World of Warcraft (2004 video game): What is it like to play as Tauren Tank in World of Warcraft?",
+      "question2": "World of Warcraft (2004 video game): What is it like to play as Dwarf Tank in World of Warcraft?",
+      "score": 0.4708991841986373
+    },
+    {
+      "id": 170768,
+      "question1": "What is the difference between transistor and triode?",
+      "question2": "What are the differences between diodes and transistors?",
+      "score": 0.3371875548328356
+    },
+    {
+      "id": 35136,
+      "question1": "How can I stop watching porn?",
+      "question2": "Should I stop watching porn?",
+      "score": 0.6918409663736553
+    },
+    {
+      "id": 179174,
+      "question1": "How can you get pregnant? And why can't you?",
+      "question2": "What is the best way to get pregnant?",
+      "score": 0.4164866650095011
+    },
+    {
+      "id": 346007,
+      "question1": "What is the capital of telangana? And why did the capital city of andhra Pradesh changed from Hydrabad to Amravati?",
+      "question2": "What is new capital of andhra pradesh?",
+      "score": 0.3740030115833268
+    },
+    {
+      "id": 38813,
+      "question1": "How can you determine the chemical formula for calcium dinitrate?",
+      "question2": "How can you determine the chemical formula for calcium dioxide?",
+      "score": 0.32922925100991535
+    },
+    {
+      "id": 293652,
+      "question1": "How come some people don't get high the first time they smoke?",
+      "question2": "How did the first person to smoke weed discover marijuana?",
+      "score": 0.38347791361346056
+    },
+    {
+      "id": 314724,
+      "question1": "Which is the best programming language for beginners?",
+      "question2": "Which programming language is considered to be the easiest for beginners?",
+      "score": 0.9207826161321748
+    },
+    {
+      "id": 173849,
+      "question1": "How do I delete my Wargaming account?",
+      "question2": "How do I delete my SNOW account?",
+      "score": 0.42463633253894095
+    },
+    {
+      "id": 278941,
+      "question1": "When, and why, did the word 'sure' become so ubiquitous at the start of answering a question?",
+      "question2": "When, and why, did the word \"so\" become so ubiquitous at the start of answering a question?",
+      "score": 0.5302350018121912
+    },
+    {
+      "id": 209700,
+      "question1": "How do I sweat easily for a person who is suffering with cholinergic urticaria or hives?",
+      "question2": "Which is the most effective treatment for urticaria/hives?",
+      "score": 0.44127927931887856
+    }
+  ],
+  "random_false_negatives": [
+    {
+      "id": 275213,
+      "question1": "What are the most important things VCs look for before investing in a startup?",
+      "question2": "What do you look for in a startup before investing?",
+      "score": 0.3039404908843008
+    },
+    {
+      "id": 306357,
+      "question1": "How do zodiac signs affect our personality?",
+      "question2": "How do zodiac signs influence behaviour?",
+      "score": 0.3067757497796701
+    },
+    {
+      "id": 25066,
+      "question1": "What are the fee structure of top private medical colleges in India (on averag)?",
+      "question2": "What is the average fee in private medical college in india?",
+      "score": 0.23282146576196397
+    },
+    {
+      "id": 359447,
+      "question1": "How many seat are available in IIT for civil engineering?",
+      "question2": "How many seats are available in IIT for civil branch?",
+      "score": 0.27207423630722216
+    },
+    {
+      "id": 188497,
+      "question1": "How are Invicta watches made? How can you determine how good they are?",
+      "question2": "How good are Invicta watches and how are they manufactured?",
+      "score": 0.2987080994260987
+    },
+    {
+      "id": 316712,
+      "question1": "What is Smart Parking?",
+      "question2": "What is Smart Parking Concept?",
+      "score": 0.21195919244649553
+    },
+    {
+      "id": 283884,
+      "question1": "How do you measure usability?",
+      "question2": "What are the models for measuring or quantifying usability?",
+      "score": 0.037054743290839944
+    },
+    {
+      "id": 70301,
+      "question1": "Do you believe that Christopher Columbus was a Jew?",
+      "question2": "Was Christopher Columbus a Sephardic Jew? I read he was and heard he was from several sources? What do you say?",
+      "score": 0.2974488046442607
+    },
+    {
+      "id": 180172,
+      "question1": "What are some good songs for a song lyric prank?",
+      "question2": "What's a good song to do a song lyrics prank?",
+      "score": 0.2720390035710251
+    },
+    {
+      "id": 83039,
+      "question1": "What is the difference between rational no. And fractions?",
+      "question2": "What is the difference between fractions and rational numbers?",
+      "score": 0.21852889364103217
+    },
+    {
+      "id": 254976,
+      "question1": "Can any nation on earth lay claim to any of the planets and on what grounds?",
+      "question2": "If a particular nation were to successfully land on a distant habitable planet, can they lay claim to the entire planet?",
+      "score": 0.266404632248612
+    },
+    {
+      "id": 65142,
+      "question1": "Should a wife divorce porn addict husband?",
+      "question2": "Should I divorce my husband over his online porn addiction?",
+      "score": 0.28991206269419056
+    },
+    {
+      "id": 308146,
+      "question1": "Can a child be sentenced to death in a prison in the UK?",
+      "question2": "Can a child in the UK be sentenced to death in prison?",
+      "score": 0.23930307064807305
+    },
+    {
+      "id": 145786,
+      "question1": "How can I get traffic to my new website www.cyclistlove.com?",
+      "question2": "What is the best way to get traffic to your new website?",
+      "score": 0.23030301327490196
+    },
+    {
+      "id": 14625,
+      "question1": "How can I delete photos from my iPhone but keep them in iCloud?",
+      "question2": "Can I remove photos from my iPhone without removing them from my iCloud storage?",
+      "score": 0.10225150499091416
+    },
+    {
+      "id": 201105,
+      "question1": "Why do we love to crib/ complain?",
+      "question2": "Why do we love to Crib?",
+      "score": 0.17662018659443773
+    },
+    {
+      "id": 390365,
+      "question1": "Can I delete photos once I upload them to iCloud Drive?",
+      "question2": "Once I upload my iPhone 5s photos to the iCloud, can I delete it from my iPhone 5s?",
+      "score": 0.16901813432515866
+    },
+    {
+      "id": 302587,
+      "question1": "Technical reason why whatsapp on ios does not allow sending messages i.e send button disable, without internet?",
+      "question2": "What is the reason for WhatsApp sending a text in Android but not on iOS when the Internet is absent?",
+      "score": 0.06568028365451686
+    },
+    {
+      "id": 222264,
+      "question1": "What're some good songs to make a lyric text prank?",
+      "question2": "What are some good lyric prank songs for your best friend?",
+      "score": 0.08232826703814604
+    },
+    {
+      "id": 149496,
+      "question1": "Should the U.S lower the corporate tax rate?",
+      "question2": "Should Federal corporate tax be lowered?",
+      "score": 0.12701838524629244
+    }
+  ]
+}

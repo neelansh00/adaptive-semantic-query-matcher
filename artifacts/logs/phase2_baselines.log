@@ -1,0 +1,51 @@
+train=304384 val=38138
+normalised in 9.2s
+lexical features in 0.6s
+tfidf vocab=356522 in 24.4s
+lr_lexical
+  [lr_lexical] C=0.1: PR-AUC=0.6137 (0.7s)
+  [lr_lexical] C=0.3: PR-AUC=0.6136 (0.7s)
+  [lr_lexical] C=1.0: PR-AUC=0.6136 (0.7s)
+  [lr_lexical] C=3.0: PR-AUC=0.6136 (0.7s)
+  [lr_lexical] C=10.0: PR-AUC=0.6137 (0.7s)
+lr_tfidf_pair
+  [lr_tfidf_pair] C=0.1: PR-AUC=0.6814 (6.2s)
+  [lr_tfidf_pair] C=0.3: PR-AUC=0.7131 (9.9s)
+  [lr_tfidf_pair] C=1.0: PR-AUC=0.7291 (11.8s)
+  [lr_tfidf_pair] C=3.0: PR-AUC=0.7356 (20.4s)
+  [lr_tfidf_pair] C=10.0: PR-AUC=0.7234 (22.4s)
+lr_tfidf_pair_lexical
+  [lr_tfidf_pair_lexical] C=0.1: PR-AUC=0.7375 (38.1s)
+  [lr_tfidf_pair_lexical] C=0.3: PR-AUC=0.7590 (48.3s)
+  [lr_tfidf_pair_lexical] C=1.0: PR-AUC=0.7705 (86.4s)
+  [lr_tfidf_pair_lexical] C=3.0: PR-AUC=0.7699 (128.2s)
+  [lr_tfidf_pair_lexical] C=10.0: PR-AUC=0.7579 (204.4s)
+cosine_tfidf             thr=0.20 F1=0.6181 P=0.4738 R=0.8886 ROC=0.7032 PR=0.4791
+lr_lexical               thr=0.23 F1=0.6594 P=0.5143 R=0.9186 ROC=0.7864 PR=0.6137
+lr_tfidf_pair            thr=0.25 F1=0.6976 P=0.6135 R=0.8084 ROC=0.8457 PR=0.7356
+lr_tfidf_pair_lexical    thr=0.32 F1=0.7299 P=0.6591 R=0.8177 ROC=0.8739 PR=0.7705
+                type                        question1  cosine_tfidf  lr_lexical  lr_tfidf_pair  lr_tfidf_pair_lexical
+0          identical                What is formwork?         1.000       0.460          0.000                  0.000
+1          identical           Who founded Microsoft?         1.000       0.460          0.748                  0.717
+2         paraphrase   How can I lose weight quickly?         0.313       0.142          0.929                  0.821
+3    entity_mismatch           Who founded Microsoft?         0.670       0.328          0.276                  0.159
+4    number_mismatch  How can I lose 5 kg in a month?         0.628       0.591          0.384                  0.498
+5  negation_mismatch    Why do people believe in God?         0.718       0.528          0.368                  0.361
+6   broader_narrower      How do I learn programming?         0.359       0.522          0.340                  0.611
+best: lr_tfidf_pair_lexical
+               negatives_with_tag  fpr_with_tag  ...  fnr_with_tag  fnr_without_tag
+number_diff                3927.0         0.100  ...         0.378            0.172
+entity_diff               11650.0         0.120  ...         0.295            0.159
+negation_diff              2967.0         0.094  ...         0.444            0.170
+high_overlap               3575.0         0.556  ...         0.068            0.225
+low_overlap               10133.0         0.023  ...         0.479            0.160
+
+[5 rows x 6 columns]
+                    n  prevalence    fpr    fnr
+word_jaccard                                   
+(-0.01, 0.2]  11927.0       0.098  0.029  0.455
+(0.2, 0.4]    12127.0       0.410  0.248  0.244
+(0.4, 0.6]     7464.0       0.549  0.547  0.123
+(0.6, 0.8]     4418.0       0.539  0.565  0.069
+(0.8, 1.0]     2202.0       0.440  0.539  0.069
+exit 0
