@@ -1,0 +1,106 @@
+{
+  "strategy": "hybrid_component",
+  "config": {
+    "raw_train_path": "data/raw/train.csv",
+    "processed_dir": "data/processed",
+    "split_dir": "data/processed/splits",
+    "seed": 42,
+    "ratios": {
+      "train": 0.8,
+      "val": 0.1,
+      "test": 0.1
+    },
+    "large_component_cap": 500,
+    "size_buckets": [
+      1,
+      2,
+      5,
+      10,
+      50,
+      100,
+      500
+    ],
+    "final_strategy": "hybrid_component"
+  },
+  "raw_sha256": "5f28dbe0bb01b39a793f36567d18fe7cf34d20bbca69ff85b131d7c2186f9914",
+  "raw_rows": 404290,
+  "excluded_invalid_ids": [
+    105780,
+    201841,
+    363362
+  ],
+  "counts": {
+    "train": 304384,
+    "test": 38420,
+    "val": 38138,
+    "dropped_cross_split": 23345,
+    "excluded_invalid": 3
+  },
+  "positive_rate": {
+    "train": 0.34778766295206054,
+    "val": 0.35610152603702344,
+    "test": 0.35929203539823007
+  },
+  "split_id_sha256": {
+    "train": "901f418ffc563fc8916ca083943b55f933e5d3f1616bd0029ab9db6d0a56fecb",
+    "val": "516f80ed364c21aa6f6e92d669070317d7bc05fd6ff1dbfce00a328a32635192",
+    "test": "712c89b4bdf77d7f7c3d89a4607c3a13c46b9e4f56f1eb3814dd2dc55aef4e3d"
+  },
+  "split_file_sha256": {
+    "train": "6bfa10718b1c4c7423c494bc4d227fa7593e96b7c1d95d976bd1d1d67eb90563",
+    "val": "0b3b5b38d9498980608bb4510cae19e6d0be9f276d825706e83833f38f69d807",
+    "test": "50eff73e29180180b2fa436d9682b7d1f18db6f80633382147ecf1af5543a8d9"
+  },
+  "leakage": {
+    "val": {
+      "overlap_with_train": {
+        "unique_questions": 53591,
+        "questions_seen_in_ref": 0,
+        "question_overlap_rate": 0.0,
+        "pairs_any_question_seen": 0.0,
+        "pairs_both_questions_seen": 0.0
+      },
+      "overlap_with_train_loose_key": {
+        "unique_questions": 53482,
+        "questions_seen_in_ref": 24,
+        "question_overlap_rate": 0.0004487491118507161,
+        "pairs_any_question_seen": 0.0021763070952855418,
+        "pairs_both_questions_seen": 0.00020976453930463056
+      },
+      "transitive_label_leakage": {
+        "rule_fires_on_pairs": 0.0,
+        "rule_precision": 0.0,
+        "share_of_positives_recovered": 0.0
+      }
+    },
+    "test": {
+      "overlap_with_train": {
+        "unique_questions": 53624,
+        "questions_seen_in_ref": 0,
+        "question_overlap_rate": 0.0,
+        "pairs_any_question_seen": 0.0,
+        "pairs_both_questions_seen": 0.0
+      },
+      "overlap_with_train_loose_key": {
+        "unique_questions": 53530,
+        "questions_seen_in_ref": 26,
+        "question_overlap_rate": 0.0004857089482533159,
+        "pairs_any_question_seen": 0.001041124414367517,
+        "pairs_both_questions_seen": 7.808433107756377e-05
+      },
+      "transitive_label_leakage": {
+        "rule_fires_on_pairs": 0.0,
+        "rule_precision": 0.0,
+        "share_of_positives_recovered": 0.0
+      },
+      "overlap_with_val": {
+        "unique_questions": 53624,
+        "questions_seen_in_ref": 0,
+        "question_overlap_rate": 0.0,
+        "pairs_any_question_seen": 0.0,
+        "pairs_both_questions_seen": 0.0
+      }
+    }
+  },
+  "note": "Test split is frozen. Use only in Phase 8 final evaluation."
+}

@@ -1,0 +1,23 @@
+# Phase 1 data + split configuration.
+# Changing anything here changes the frozen split -> re-run scripts/make_splits.py
+# and expect tests/test_splits.py to flag the change.
+
+raw_train_path: data/raw/train.csv      # the ONLY labelled file in the Kaggle archive
+processed_dir: data/processed
+split_dir: data/processed/splits
+
+seed: 42
+ratios:
+  train: 0.80
+  val: 0.10
+  test: 0.10
+
+# Components of the question graph with more than this many pairs are split at the
+# node (question) level instead of being assigned whole (see docs/split_strategy.md).
+large_component_cap: 500
+
+# Component-size buckets used to stratify whole-component assignment so that every
+# split sees a similar mix of isolated pairs vs. heavily reused questions.
+size_buckets: [1, 2, 5, 10, 50, 100, 500]
+
+final_strategy: hybrid_component

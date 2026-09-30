@@ -1,0 +1,326 @@
+{
+  "archive_inventory": [
+    {
+      "name": "sample_submission.csv.zip",
+      "bytes": 5190322
+    },
+    {
+      "name": "test.csv",
+      "bytes": 314015126
+    },
+    {
+      "name": "test.csv.zip",
+      "bytes": 181827196
+    },
+    {
+      "name": "train.csv.zip",
+      "bytes": 22202741
+    }
+  ],
+  "raw_train_path": "data/raw/train.csv",
+  "raw_sha256": "5f28dbe0bb01b39a793f36567d18fe7cf34d20bbca69ff85b131d7c2186f9914",
+  "shape": [
+    404290,
+    6
+  ],
+  "columns": [
+    "id",
+    "qid1",
+    "qid2",
+    "question1",
+    "question2",
+    "is_duplicate"
+  ],
+  "dtypes": {
+    "id": "int64",
+    "qid1": "int64",
+    "qid2": "int64",
+    "question1": "object",
+    "question2": "object",
+    "is_duplicate": "int64"
+  },
+  "missing_values": {
+    "id": 0,
+    "qid1": 0,
+    "qid2": 0,
+    "question1": 0,
+    "question2": 2,
+    "is_duplicate": 0
+  },
+  "rows_with_missing_question": [
+    {
+      "id": 105780,
+      "qid1": 174363,
+      "qid2": 174364,
+      "question1": "How can I develop android app?",
+      "question2": "<NaN>",
+      "is_duplicate": 0
+    },
+    {
+      "id": 201841,
+      "qid1": 303951,
+      "qid2": 174364,
+      "question1": "How can I create an Android app?",
+      "question2": "<NaN>",
+      "is_duplicate": 0
+    }
+  ],
+  "invalid_pairs_excluded_from_splits": [
+    {
+      "id": 105780,
+      "qid1": 174363,
+      "qid2": 174364,
+      "question1": "How can I develop android app?",
+      "question2": "<empty>",
+      "is_duplicate": 0
+    },
+    {
+      "id": 201841,
+      "qid1": 303951,
+      "qid2": 174364,
+      "question1": "How can I create an Android app?",
+      "question2": "<empty>",
+      "is_duplicate": 0
+    },
+    {
+      "id": 363362,
+      "qid1": 493340,
+      "qid2": 493341,
+      "question1": "n/a",
+      "question2": "My Chinese name is Haichao Yu. What English name is most suitable for me considering the pronounciation of my Chinese name?",
+      "is_duplicate": 0
+    }
+  ],
+  "literal_null_like_questions": 1,
+  "integrity": {
+    "duplicate_rows_all_columns": 0,
+    "duplicate_rows_excluding_id": 0,
+    "duplicate_ids": 0,
+    "duplicate_pairs_unordered_qid": 0,
+    "duplicate_pairs_unordered_normalized_text": 539,
+    "self_pairs_same_qid": 0,
+    "pairs_identical_after_normalization": 37,
+    "label_of_identical_pairs": {
+      "1": 32,
+      "0": 5
+    },
+    "labels_values": [
+      0,
+      1
+    ],
+    "repeated_text_pairs_with_conflicting_labels": 10,
+    "qids_with_multiple_texts": 0,
+    "normalized_texts_with_multiple_qids": 715
+  },
+  "label_distribution": {
+    "counts": {
+      "0": 255027,
+      "1": 149263
+    },
+    "positive_rate": 0.369197853026293
+  },
+  "questions": {
+    "unique_qids": 537933,
+    "unique_raw_texts": 537362,
+    "unique_normalized_texts": 537151,
+    "question_slots_total": 808580,
+    "qids_appearing_more_than_once": 111780,
+    "share_of_qids_repeated": 0.20779539459375052,
+    "max_appearances": 157,
+    "appearance_quantiles": {
+      "0.5": 1.0,
+      "0.9": 2.0,
+      "0.99": 9.0,
+      "0.999": 26.0
+    },
+    "pairs_where_a_question_is_repeated": 0.6128422666897524,
+    "top_repeated": [
+      {
+        "question": "What are the best ways to lose weight?",
+        "count": 157
+      },
+      {
+        "question": "How can you look at someone's private Instagram account without following them?",
+        "count": 120
+      },
+      {
+        "question": "How can I lose weight quickly?",
+        "count": 111
+      },
+      {
+        "question": "What's the easiest way to make money online?",
+        "count": 88
+      },
+      {
+        "question": "Can you see who views your Instagram?",
+        "count": 79
+      },
+      {
+        "question": "What are some things new employees should know going into their first day at AT&T?",
+        "count": 77
+      },
+      {
+        "question": "What do you think of the decision by the Indian Government to demonetize 500 and 1000 rupee notes?",
+        "count": 68
+      },
+      {
+        "question": "Which is the best digital marketing course?",
+        "count": 66
+      },
+      {
+        "question": "How can you increase your height?",
+        "count": 63
+      },
+      {
+        "question": "How do l see who viewed my videos on Instagram?",
+        "count": 61
+      }
+    ]
+  },
+  "question_graph": {
+    "nodes": 537151,
+    "components": 200338,
+    "largest_components_pairs": [
+      17624,
+      3840,
+      3092,
+      2522,
+      2035,
+      1727,
+      1459,
+      1067,
+      1045,
+      732
+    ],
+    "largest_component_share": 0.04359247075119345,
+    "positive_rate_by_component_size": {
+      "(0.0, 1.0]": {
+        "pairs": 156139,
+        "positive_rate": 0.2243
+      },
+      "(1.0, 2.0]": {
+        "pairs": 44326,
+        "positive_rate": 0.1815
+      },
+      "(2.0, 5.0]": {
+        "pairs": 54292,
+        "positive_rate": 0.3538
+      },
+      "(5.0, 10.0]": {
+        "pairs": 29765,
+        "positive_rate": 0.4462
+      },
+      "(10.0, 50.0]": {
+        "pairs": 43221,
+        "positive_rate": 0.5208
+      },
+      "(50.0, 100.0]": {
+        "pairs": 11863,
+        "positive_rate": 0.6283
+      },
+      "(100.0, 500.0]": {
+        "pairs": 24234,
+        "positive_rate": 0.6533
+      },
+      "(500.0, 1000.0]": {
+        "pairs": 6039,
+        "positive_rate": 0.8705
+      },
+      "(1000.0, 5000.0]": {
+        "pairs": 16787,
+        "positive_rate": 0.7949
+      },
+      "(5000.0, inf]": {
+        "pairs": 17624,
+        "positive_rate": 0.5284
+      }
+    },
+    "auc_of_max_question_frequency_alone": 0.6983200996311724
+  },
+  "lengths": {
+    "chars": {
+      "mean": 59.82254075045141,
+      "median": 51.0,
+      "min": 0,
+      "p1": 19.0,
+      "p99": 157.0,
+      "max": 1169
+    },
+    "words": {
+      "mean": 11.06209775161394,
+      "median": 10.0,
+      "min": 0,
+      "p1": 4.0,
+      "p99": 31.0,
+      "max": 237
+    }
+  },
+  "length_extremes": {
+    "shortest": [
+      "",
+      "?",
+      "o",
+      "\u2018",
+      "i",
+      "H",
+      ".",
+      "I",
+      "A",
+      "Q?"
+    ],
+    "longest_chars": [
+      1169,
+      1169,
+      1169
+    ],
+    "longest_preview": [
+      "I have been married almost 15 years. We have two children, 11 and 8. My childhood was horrible, seven years of sexual, physical, and mental/emotional abuse followed by instability and low self esteem  ...",
+      "Heartbreak? Heartbreak? She's my girlfriend for two months, I chose her over my girlfriend for 2 years. I like her so much to the point that I can't let her go even if she wants to end our relationshi ...",
+      "Regarding Google Plus Profile  Privacy Settings:  Here's the scenario: An individual finds my Google Plus page. They go to my profile. They take a screen shot of it. The screen shot includes a portion ..."
+    ],
+    "questions_under_10_chars": 110,
+    "questions_over_500_chars": 33
+  },
+  "length_by_label": {
+    "0": 3.0,
+    "1": 2.0
+  },
+  "text_issues_question_slots": {
+    "non_ascii": 9612,
+    "mojibake_like": 0,
+    "html_entity": 0,
+    "latex_math_tag": 949,
+    "url": 294,
+    "control_char": 0,
+    "newline": 11,
+    "no_letters": 30,
+    "no_question_mark": 1020,
+    "multiple_question_marks": 41863
+  },
+  "word_jaccard_by_label": {
+    "0": {
+      "count": 255027.0,
+      "mean": 0.307,
+      "std": 0.239,
+      "min": 0.0,
+      "25%": 0.125,
+      "50%": 0.238,
+      "75%": 0.444,
+      "max": 1.0
+    },
+    "1": {
+      "count": 149263.0,
+      "mean": 0.472,
+      "std": 0.207,
+      "min": 0.056,
+      "25%": 0.308,
+      "50%": 0.444,
+      "75%": 0.615,
+      "max": 1.0
+    }
+  },
+  "difficulty_counts": {
+    "positives_word_jaccard_lt_0.2": 9645,
+    "negatives_word_jaccard_gt_0.8": 13454
+  }
+}

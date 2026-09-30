@@ -1,0 +1,186 @@
+{
+  "duplicate_pairs": [
+    {
+      "id": 310788,
+      "question1": "How do I deal with extreme Social anxiety disorder?",
+      "question2": "How do I deal with my social anxiety?",
+      "is_duplicate": 1
+    },
+    {
+      "id": 176031,
+      "question1": "How did J.K. Rowling got to supervise the movies?",
+      "question2": "What was J.K. Rowling's involvement in the Harry Potter movies?",
+      "is_duplicate": 1
+    },
+    {
+      "id": 262720,
+      "question1": "What is the best first car?",
+      "question2": "What would be a good first car?",
+      "is_duplicate": 1
+    },
+    {
+      "id": 35747,
+      "question1": "What is an interface icon?",
+      "question2": "What is interface icon?",
+      "is_duplicate": 1
+    },
+    {
+      "id": 173621,
+      "question1": "What is digital matte painting? How are digital matte paintings used in movies?",
+      "question2": "How are digital matte paintings used in movies?",
+      "is_duplicate": 1
+    }
+  ],
+  "non_duplicate_pairs": [
+    {
+      "id": 394838,
+      "question1": "How would I find the necessary number of turns on a transformer primary if the secondary voltage required is 120 V at 60 Hz?",
+      "question2": "A distribution transformer is rated at 18 kVA, 20,000/480 V, and 60 hz. can this transformer safely supply 15kVA to a 415-V load at 50hz? Why or not?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 38311,
+      "question1": "What is the meaning of \"for your reference\"?",
+      "question2": "What is the meaning of everything that we do?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 213789,
+      "question1": "My Motorola Moto G phone fell down and the glass is broken, the screen is blank in the upper half but the touch works fine all over the screen. Do I need to replace the screen too along with the glass?",
+      "question2": "I've broken my moto G3 screen (one week old), and there are many cracks on the screen. But touch and display are working properly. How can I replace the screen?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 308963,
+      "question1": "How can I convince my parents to take me to the doctor?",
+      "question2": "How could I convince my parents to take me to Japan?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 298561,
+      "question1": "Why would anyone want to visit Saturn? What would they wear?",
+      "question2": "Why does Saturn look so fake?",
+      "is_duplicate": 0
+    }
+  ],
+  "difficult_positives_low_overlap": [
+    {
+      "id": 336399,
+      "question1": "Which is the best Alternative Rock band and Why?",
+      "question2": "What are some alternative rock bands?",
+      "is_duplicate": 1
+    },
+    {
+      "id": 372137,
+      "question1": "How can human activities have an effect on biodiversity?",
+      "question2": "What are the common human threats to biodiversity?",
+      "is_duplicate": 1
+    },
+    {
+      "id": 200168,
+      "question1": "Which are some of the best performing penny stocks in India?",
+      "question2": "Is it worth investing in penny stocks trading in BSE or NSE?",
+      "is_duplicate": 1
+    },
+    {
+      "id": 180523,
+      "question1": "How can you lose 40 pounds in 30 days?",
+      "question2": "Why is losing 40 pounds in a week an unrealistic goal?",
+      "is_duplicate": 1
+    },
+    {
+      "id": 148716,
+      "question1": "What app for music without wifi for iPod?",
+      "question2": "How can I listen to music offline without it stopping when I turn off the device or open up another app or tab?",
+      "is_duplicate": 1
+    },
+    {
+      "id": 71903,
+      "question1": "Is it possible to hack fb?",
+      "question2": "How do we hack a Facebook account?",
+      "is_duplicate": 1
+    }
+  ],
+  "difficult_negatives_high_overlap": [
+    {
+      "id": 349485,
+      "question1": "What would the world be like if Austria had won the War of Spanish Succession?",
+      "question2": "What would the world be like if France had won the War of Spanish Succession?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 225797,
+      "question1": "What are some examples of non-movable joints?",
+      "question2": "What are some examples of movable joints?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 93429,
+      "question1": "What song plays over the end credits to the 2002 movie Chance?",
+      "question2": "What song plays over the end credits to the 2002 movie The Rookie?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 361538,
+      "question1": "How are careers in biology changing and what's necessary to stay current?",
+      "question2": "How are careers in English changing, and what's necessary to stay current?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 181462,
+      "question1": "How do birthday traditions in Germany compare to the ones in Belgium?",
+      "question2": "How do birthday traditions in Germany compare to the ones in Argentina?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 36438,
+      "question1": "What were the advantages and disadvantages that India received as a result of its split with Pakistan?",
+      "question2": "What were the advantages and disadvantages that Pakistan received as a result of its split with India?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 183914,
+      "question1": "What are the best and worst things about public transit in Susano, Brazil? How could it be improved?",
+      "question2": "What are the best and worst things about public transit in Ara\u00e7atuba, Brazil? How could it be improved?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 25208,
+      "question1": "What are the rules and regulations when visiting an inmate at Valdosta prison and how does it compare to prisons in Arizona?",
+      "question2": "What are the rules and regulations when visiting an inmate at Valdosta prison and how does it compare to prisons in Florida?",
+      "is_duplicate": 0
+    }
+  ],
+  "identical_text_labelled_non_duplicate": [
+    {
+      "id": 115053,
+      "question1": "What are the chances I could be pregnant?",
+      "question2": "What are the chances I could be pregnant? ",
+      "is_duplicate": 0
+    },
+    {
+      "id": 194310,
+      "question1": "How would you rephrase this sentence? ",
+      "question2": "How would you rephrase this sentence?",
+      "is_duplicate": 0
+    },
+    {
+      "id": 299649,
+      "question1": "Who is this?",
+      "question2": "Who is this? ",
+      "is_duplicate": 0
+    },
+    {
+      "id": 359339,
+      "question1": "What is the meaning of this sentence below?",
+      "question2": "What is the meaning of this sentence below? ",
+      "is_duplicate": 0
+    },
+    {
+      "id": 386629,
+      "question1": "What does my birth chart say about me?",
+      "question2": "What does my birth chart say about me? ",
+      "is_duplicate": 0
+    }
+  ]
+}

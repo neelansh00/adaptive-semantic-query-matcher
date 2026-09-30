@@ -1,0 +1,8 @@
+# Phase 1 (data audit, splits, metrics). Later phases will extend this list.
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.18.1
+scikit-learn==1.9.1
+matplotlib==3.9.0
+pyyaml==6.0.3
+pytest==9.1.1

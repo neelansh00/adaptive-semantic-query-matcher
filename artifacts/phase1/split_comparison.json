@@ -1,0 +1,410 @@
+{
+  "random_row": {
+    "report": {
+      "retention": 1.0,
+      "splits": {
+        "train": {
+          "pairs": 323429,
+          "share_of_retained": 0.7999985159057798,
+          "positive_rate": 0.3692031326813613,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.3867,
+            "small(2-10)": 0.317,
+            "medium(11-500)": 0.1963,
+            "large(>500)": 0.1
+          }
+        },
+        "val": {
+          "pairs": 40429,
+          "share_of_retained": 0.1000007420471101,
+          "positive_rate": 0.369190432610255,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.3872,
+            "small(2-10)": 0.3202,
+            "medium(11-500)": 0.195,
+            "large(>500)": 0.0976
+          },
+          "overlap_with_train": {
+            "unique_questions": 73249,
+            "questions_seen_in_ref": 28568,
+            "question_overlap_rate": 0.39001215033652337,
+            "pairs_any_question_seen": 0.5773825719161988,
+            "pairs_both_questions_seen": 0.29802864280590663
+          },
+          "overlap_with_train_loose_key": {
+            "unique_questions": 73136,
+            "questions_seen_in_ref": 28555,
+            "question_overlap_rate": 0.3904369940931962,
+            "pairs_any_question_seen": 0.5776546538375918,
+            "pairs_both_questions_seen": 0.2990675010512256
+          },
+          "transitive_label_leakage": {
+            "rule_fires_on_pairs": 0.21049246827772145,
+            "rule_precision": 0.9988249118683902,
+            "share_of_positives_recovered": 0.5694760820045558
+          }
+        },
+        "test": {
+          "pairs": 40429,
+          "share_of_retained": 0.1000007420471101,
+          "positive_rate": 0.369190432610255,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.3814,
+            "small(2-10)": 0.3196,
+            "medium(11-500)": 0.1963,
+            "large(>500)": 0.1026
+          },
+          "overlap_with_train": {
+            "unique_questions": 73034,
+            "questions_seen_in_ref": 28612,
+            "question_overlap_rate": 0.39176274064134514,
+            "pairs_any_question_seen": 0.5835415172277326,
+            "pairs_both_questions_seen": 0.29931484825249205
+          },
+          "overlap_with_train_loose_key": {
+            "unique_questions": 72902,
+            "questions_seen_in_ref": 28580,
+            "question_overlap_rate": 0.39203314038023646,
+            "pairs_any_question_seen": 0.5839125380296322,
+            "pairs_both_questions_seen": 0.3004773800984442
+          },
+          "transitive_label_leakage": {
+            "rule_fires_on_pairs": 0.21103663212050755,
+            "rule_precision": 0.9990623534927332,
+            "share_of_positives_recovered": 0.5710840144713922
+          },
+          "overlap_with_val": {
+            "unique_questions": 73034,
+            "questions_seen_in_ref": 8903,
+            "question_overlap_rate": 0.12190212777610428,
+            "pairs_any_question_seen": 0.2538276979395978,
+            "pairs_both_questions_seen": 0.07660342823220956
+          }
+        }
+      },
+      "dropped_pairs": 0,
+      "dropped_positive_rate": null
+    }
+  },
+  "component_whole": {
+    "report": {
+      "retention": 1.0,
+      "splits": {
+        "train": {
+          "pairs": 320559,
+          "share_of_retained": 0.7928995985525135,
+          "positive_rate": 0.3609319969178841,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.3897,
+            "small(2-10)": 0.3204,
+            "medium(11-500)": 0.1971,
+            "large(>500)": 0.0928
+          }
+        },
+        "val": {
+          "pairs": 41840,
+          "share_of_retained": 0.10349083695493548,
+          "positive_rate": 0.4100621414913958,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.3732,
+            "small(2-10)": 0.3068,
+            "medium(11-500)": 0.1911,
+            "large(>500)": 0.1289
+          },
+          "overlap_with_train": {
+            "unique_questions": 53191,
+            "questions_seen_in_ref": 0,
+            "question_overlap_rate": 0.0,
+            "pairs_any_question_seen": 0.0,
+            "pairs_both_questions_seen": 0.0
+          },
+          "overlap_with_train_loose_key": {
+            "unique_questions": 53082,
+            "questions_seen_in_ref": 22,
+            "question_overlap_rate": 0.0004144531102822049,
+            "pairs_any_question_seen": 0.001601338432122371,
+            "pairs_both_questions_seen": 0.00019120458891013384
+          },
+          "transitive_label_leakage": {
+            "rule_fires_on_pairs": 0.0,
+            "rule_precision": 0.0,
+            "share_of_positives_recovered": 0.0
+          }
+        },
+        "test": {
+          "pairs": 41888,
+          "share_of_retained": 0.10360956449255108,
+          "positive_rate": 0.3916634835752483,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.3728,
+            "small(2-10)": 0.3067,
+            "medium(11-500)": 0.1941,
+            "large(>500)": 0.1265
+          },
+          "overlap_with_train": {
+            "unique_questions": 54200,
+            "questions_seen_in_ref": 0,
+            "question_overlap_rate": 0.0,
+            "pairs_any_question_seen": 0.0,
+            "pairs_both_questions_seen": 0.0
+          },
+          "overlap_with_train_loose_key": {
+            "unique_questions": 54101,
+            "questions_seen_in_ref": 26,
+            "question_overlap_rate": 0.0004805826139997412,
+            "pairs_any_question_seen": 0.0009549274255156608,
+            "pairs_both_questions_seen": 9.549274255156608e-05
+          },
+          "transitive_label_leakage": {
+            "rule_fires_on_pairs": 0.0,
+            "rule_precision": 0.0,
+            "share_of_positives_recovered": 0.0
+          },
+          "overlap_with_val": {
+            "unique_questions": 54200,
+            "questions_seen_in_ref": 0,
+            "question_overlap_rate": 0.0,
+            "pairs_any_question_seen": 0.0,
+            "pairs_both_questions_seen": 0.0
+          }
+        }
+      },
+      "dropped_pairs": 0,
+      "dropped_positive_rate": null
+    },
+    "stability_over_10_seeds": {
+      "test": {
+        "share_min": 0.1008,
+        "share_max": 0.1424,
+        "pos_min": 0.3711,
+        "pos_max": 0.4261
+      },
+      "train": {
+        "share_min": 0.7598,
+        "share_max": 0.7995,
+        "pos_min": 0.3581,
+        "pos_max": 0.3682
+      },
+      "val": {
+        "share_min": 0.09,
+        "share_max": 0.1337,
+        "pos_min": 0.3358,
+        "pos_max": 0.4015
+      }
+    }
+  },
+  "node_level": {
+    "report": {
+      "retention": 0.4299495160616097,
+      "splits": {
+        "train": {
+          "pairs": 139158,
+          "share_of_retained": 0.8005729966690254,
+          "positive_rate": 0.3673091018841892,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.3857,
+            "small(2-10)": 0.3183,
+            "medium(11-500)": 0.1979,
+            "large(>500)": 0.0981
+          }
+        },
+        "val": {
+          "pairs": 17530,
+          "share_of_retained": 0.10084971493991014,
+          "positive_rate": 0.37227609811751283,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.3851,
+            "small(2-10)": 0.3107,
+            "medium(11-500)": 0.1974,
+            "large(>500)": 0.1068
+          },
+          "overlap_with_train": {
+            "unique_questions": 29280,
+            "questions_seen_in_ref": 0,
+            "question_overlap_rate": 0.0,
+            "pairs_any_question_seen": 0.0,
+            "pairs_both_questions_seen": 0.0
+          },
+          "overlap_with_train_loose_key": {
+            "unique_questions": 29239,
+            "questions_seen_in_ref": 30,
+            "question_overlap_rate": 0.0010260268819043059,
+            "pairs_any_question_seen": 0.002738163148887621,
+            "pairs_both_questions_seen": 0.00039931545921277807
+          },
+          "transitive_label_leakage": {
+            "rule_fires_on_pairs": 0.0,
+            "rule_precision": 0.0,
+            "share_of_positives_recovered": 0.0
+          }
+        },
+        "test": {
+          "pairs": 17135,
+          "share_of_retained": 0.09857728839106447,
+          "positive_rate": 0.36976947767726875,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.3945,
+            "small(2-10)": 0.3257,
+            "medium(11-500)": 0.1853,
+            "large(>500)": 0.0945
+          },
+          "overlap_with_train": {
+            "unique_questions": 29291,
+            "questions_seen_in_ref": 0,
+            "question_overlap_rate": 0.0,
+            "pairs_any_question_seen": 0.0,
+            "pairs_both_questions_seen": 0.0
+          },
+          "overlap_with_train_loose_key": {
+            "unique_questions": 29243,
+            "questions_seen_in_ref": 28,
+            "question_overlap_rate": 0.0009574941011524125,
+            "pairs_any_question_seen": 0.002276043186460461,
+            "pairs_both_questions_seen": 0.0004085205719288007
+          },
+          "transitive_label_leakage": {
+            "rule_fires_on_pairs": 0.0,
+            "rule_precision": 0.0,
+            "share_of_positives_recovered": 0.0
+          },
+          "overlap_with_val": {
+            "unique_questions": 29291,
+            "questions_seen_in_ref": 0,
+            "question_overlap_rate": 0.0,
+            "pairs_any_question_seen": 0.0,
+            "pairs_both_questions_seen": 0.0
+          }
+        }
+      },
+      "dropped_pairs": 230464,
+      "dropped_positive_rate": 0.37006647459039155
+    },
+    "stability_over_10_seeds": {
+      "test": {
+        "share_min": 0.0421,
+        "share_max": 0.0436,
+        "pos_min": 0.365,
+        "pos_max": 0.3772
+      },
+      "train": {
+        "share_min": 0.3412,
+        "share_max": 0.3468,
+        "pos_min": 0.3656,
+        "pos_max": 0.3732
+      },
+      "val": {
+        "share_min": 0.042,
+        "share_max": 0.044,
+        "pos_min": 0.3569,
+        "pos_max": 0.3789
+      }
+    }
+  },
+  "hybrid_component": {
+    "report": {
+      "retention": 0.9422563673825772,
+      "splits": {
+        "train": {
+          "pairs": 304384,
+          "share_of_retained": 0.7990297735613295,
+          "positive_rate": 0.34778766295206054,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.4104,
+            "small(2-10)": 0.3374,
+            "medium(11-500)": 0.2076,
+            "large(>500)": 0.0446
+          }
+        },
+        "val": {
+          "pairs": 38138,
+          "share_of_retained": 0.10011497813315413,
+          "positive_rate": 0.35610152603702344,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.4094,
+            "small(2-10)": 0.3366,
+            "medium(11-500)": 0.2096,
+            "large(>500)": 0.0443
+          },
+          "overlap_with_train": {
+            "unique_questions": 53591,
+            "questions_seen_in_ref": 0,
+            "question_overlap_rate": 0.0,
+            "pairs_any_question_seen": 0.0,
+            "pairs_both_questions_seen": 0.0
+          },
+          "overlap_with_train_loose_key": {
+            "unique_questions": 53482,
+            "questions_seen_in_ref": 24,
+            "question_overlap_rate": 0.0004487491118507161,
+            "pairs_any_question_seen": 0.0021763070952855418,
+            "pairs_both_questions_seen": 0.00020976453930463056
+          },
+          "transitive_label_leakage": {
+            "rule_fires_on_pairs": 0.0,
+            "rule_precision": 0.0,
+            "share_of_positives_recovered": 0.0
+          }
+        },
+        "test": {
+          "pairs": 38420,
+          "share_of_retained": 0.10085524830551633,
+          "positive_rate": 0.35929203539823007,
+          "component_size_profile": {
+            "isolated_pair(1)": 0.4064,
+            "small(2-10)": 0.3343,
+            "medium(11-500)": 0.2116,
+            "large(>500)": 0.0477
+          },
+          "overlap_with_train": {
+            "unique_questions": 53624,
+            "questions_seen_in_ref": 0,
+            "question_overlap_rate": 0.0,
+            "pairs_any_question_seen": 0.0,
+            "pairs_both_questions_seen": 0.0
+          },
+          "overlap_with_train_loose_key": {
+            "unique_questions": 53530,
+            "questions_seen_in_ref": 26,
+            "question_overlap_rate": 0.0004857089482533159,
+            "pairs_any_question_seen": 0.001041124414367517,
+            "pairs_both_questions_seen": 7.808433107756377e-05
+          },
+          "transitive_label_leakage": {
+            "rule_fires_on_pairs": 0.0,
+            "rule_precision": 0.0,
+            "share_of_positives_recovered": 0.0
+          },
+          "overlap_with_val": {
+            "unique_questions": 53624,
+            "questions_seen_in_ref": 0,
+            "question_overlap_rate": 0.0,
+            "pairs_any_question_seen": 0.0,
+            "pairs_both_questions_seen": 0.0
+          }
+        }
+      },
+      "dropped_pairs": 23345,
+      "dropped_positive_rate": 0.6860998072392375
+    },
+    "stability_over_10_seeds": {
+      "test": {
+        "share_min": 0.094,
+        "share_max": 0.0956,
+        "pos_min": 0.3392,
+        "pos_max": 0.3615
+      },
+      "train": {
+        "share_min": 0.7524,
+        "share_max": 0.7557,
+        "pos_min": 0.3472,
+        "pos_max": 0.3518
+      },
+      "val": {
+        "share_min": 0.0933,
+        "share_max": 0.0946,
+        "pos_min": 0.3393,
+        "pos_max": 0.3583
+      }
+    }
+  }
+}

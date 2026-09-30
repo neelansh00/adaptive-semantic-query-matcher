@@ -1,0 +1,25 @@
+# Data: raw archive and extracted/derived data are not versioned (large; reproducible from the archive)
+*.zip
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+# Keep the small split metadata so the frozen split is verifiable from git
+!data/processed/splits/
+data/processed/splits/*
+!data/processed/splits/split_metadata.json
+
+# Large model artifacts (later phases)
+artifacts/**/*.pt
+artifacts/**/*.bin
+artifacts/**/*.npy
+artifacts/**/*.joblib
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.vscode/
