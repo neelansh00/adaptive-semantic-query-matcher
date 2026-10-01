@@ -1,0 +1,81 @@
+{
+  "variant": "C_no_spacy_hgb",
+  "model": "hgb",
+  "uses_spacy": false,
+  "threshold": 0.35000000000000003,
+  "feature_groups": {
+    "number": [
+      "num_any",
+      "num_both",
+      "num_unmatched_total",
+      "num_unmatched_max_side",
+      "num_mismatch",
+      "num_one_sided"
+    ],
+    "date_heuristic": [
+      "dateh_any",
+      "dateh_both",
+      "dateh_unmatched_total",
+      "dateh_unmatched_max_side",
+      "dateh_mismatch",
+      "dateh_one_sided"
+    ],
+    "entity_heuristic": [
+      "enth_any",
+      "enth_both",
+      "enth_unmatched_total",
+      "enth_unmatched_max_side",
+      "enth_mismatch",
+      "enth_one_sided"
+    ],
+    "negation": [
+      "neg_xor",
+      "neg_count_diff"
+    ],
+    "intent_word": [
+      "wh_mismatch"
+    ],
+    "specificity": [
+      "extra_content_max",
+      "extra_content_min",
+      "content_subset",
+      "log_len_ratio",
+      "word_count_absdiff"
+    ]
+  },
+  "design_columns_in_order": [
+    "base_logit",
+    "num_any",
+    "num_both",
+    "num_unmatched_total",
+    "num_unmatched_max_side",
+    "num_mismatch",
+    "num_one_sided",
+    "dateh_any",
+    "dateh_both",
+    "dateh_unmatched_total",
+    "dateh_unmatched_max_side",
+    "dateh_mismatch",
+    "dateh_one_sided",
+    "enth_any",
+    "enth_both",
+    "enth_unmatched_total",
+    "enth_unmatched_max_side",
+    "enth_mismatch",
+    "enth_one_sided",
+    "neg_xor",
+    "neg_count_diff",
+    "wh_mismatch",
+    "extra_content_max",
+    "extra_content_min",
+    "content_subset",
+    "log_len_ratio",
+    "word_count_absdiff"
+  ],
+  "canonicalisation": {
+    "base_logit": "logit(float32(base_probability)), eps=1e-6",
+    "all_inputs": "round to 6 decimals in MetaModel.design()"
+  },
+  "text_preprocessing": "src/preprocessing/text.py normalize()/tokenize(); questions whitespace-cleaned first",
+  "matching_rule": "item matched if present in the other question's annotation or as whole words in its text"
+}

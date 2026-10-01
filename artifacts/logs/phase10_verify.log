@@ -1,0 +1,6 @@
+[verify] frozen artifacts vs Phase 8 freeze manifest + registry
+registry check: 22 entries, changed=[], missing final-system artifacts=[]
+[freeze] existing split found -> reproduced exactly
+[verify] freeze manifest: OK
+[verify] test metrics recomputed from saved scores: {'baseline': {'f1': (0.77502, 0.77502, True), 'pr_auc': (0.82434, 0.82434, True), 'roc_auc': (0.90643, 0.90643, True), 'macro_cluster_f1': (np.float64(0.77088), 0.77088, np.True_), 'worst_cluster_f1': (np.float64(0.6684), 0.6684, np.True_)}, 'final': {'f1': (0.78559, 0.78559, True), 'pr_auc': (0.83355, 0.83355, True), 'roc_auc': (0.91439, 0.91439, True), 'macro_cluster_f1': (np.float64(0.78238), 0.78238, np.True_), 'worst_cluster_f1': (np.float64(0.69537), 0.69537, np.True_)}}
+[verify] summary: {'registry': True, 'freeze_manifest': True, 'test_results_recomputed': True, 'split_reproduces': True, 'tests': True}

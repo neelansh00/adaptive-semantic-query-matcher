@@ -1,0 +1,180 @@
+{
+  "system": "frozen Phase 8 final system via src/service/matcher.py",
+  "tolerance": 1e-05,
+  "probes": [
+    {
+      "question_a": "How can I lose weight quickly?",
+      "question_b": "What is the fastest way to lose weight?",
+      "base_probability": 0.818387508392334,
+      "final_probability": 0.8035862361913458,
+      "decision": true,
+      "semantic_similarity": 0.868198037147522,
+      "cluster_id": 3,
+      "signal_types": [
+        "question word differs",
+        "different content words"
+      ]
+    },
+    {
+      "question_a": "Is it possible to hack fb?",
+      "question_b": "How do we hack a Facebook account?",
+      "base_probability": 0.5262353420257568,
+      "final_probability": 0.5623875396796433,
+      "decision": true,
+      "semantic_similarity": 0.7571328282356262,
+      "cluster_id": 2,
+      "signal_types": [
+        "named entities only in one question",
+        "question word differs",
+        "different content words"
+      ]
+    },
+    {
+      "question_a": "Who founded Microsoft?",
+      "question_b": "Who founded Apple?",
+      "base_probability": 0.03132907673716545,
+      "final_probability": 0.05347407514487801,
+      "decision": false,
+      "semantic_similarity": 0.6081897020339966,
+      "cluster_id": 7,
+      "signal_types": [
+        "named entities mismatch",
+        "different content words"
+      ]
+    },
+    {
+      "question_a": "What is the temperament of a Doberman/Lab mix?",
+      "question_b": "What is the temperament of a Lab/Pitbull mix?",
+      "base_probability": 0.40278515219688416,
+      "final_probability": 0.2023077957036344,
+      "decision": false,
+      "semantic_similarity": 0.866421103477478,
+      "cluster_id": 0,
+      "signal_types": [
+        "named entities mismatch",
+        "different content words"
+      ]
+    },
+    {
+      "question_a": "How can I lose 5 kg in a month?",
+      "question_b": "How can I lose 20 kg in a month?",
+      "base_probability": 0.3362727761268616,
+      "final_probability": 0.11413209674558746,
+      "decision": false,
+      "semantic_similarity": 0.8799124956130981,
+      "cluster_id": 3,
+      "signal_types": [
+        "numbers mismatch",
+        "different content words"
+      ]
+    },
+    {
+      "question_a": "What is the best phone under 10000 rupees?",
+      "question_b": "What is the best phone under 20000 rupees?",
+      "base_probability": 0.6161261200904846,
+      "final_probability": 0.36031330472818,
+      "decision": true,
+      "semantic_similarity": 0.9264021515846252,
+      "cluster_id": 8,
+      "signal_types": [
+        "numbers mismatch",
+        "different content words"
+      ]
+    },
+    {
+      "question_a": "Who won the 2012 US presidential election?",
+      "question_b": "Who won the 2016 US presidential election?",
+      "base_probability": 0.037734758108854294,
+      "final_probability": 0.0163077403668545,
+      "decision": false,
+      "semantic_similarity": 0.7678379416465759,
+      "cluster_id": 1,
+      "signal_types": [
+        "numbers mismatch",
+        "dates mismatch",
+        "different content words"
+      ]
+    },
+    {
+      "question_a": "What are the best hotels in Delhi?",
+      "question_b": "What are the best hotels in Mumbai?",
+      "base_probability": 0.002152097877115011,
+      "final_probability": 0.011169550315680957,
+      "decision": false,
+      "semantic_similarity": 0.725812554359436,
+      "cluster_id": 9,
+      "signal_types": [
+        "named entities mismatch",
+        "different content words"
+      ]
+    },
+    {
+      "question_a": "Why do people believe in God?",
+      "question_b": "Why do people not believe in God?",
+      "base_probability": 0.3203355669975281,
+      "final_probability": 0.12340412849010335,
+      "decision": false,
+      "semantic_similarity": 0.8980931639671326,
+      "cluster_id": 1,
+      "signal_types": [
+        "negation mismatch"
+      ]
+    },
+    {
+      "question_a": "How do I learn programming?",
+      "question_b": "How do I learn Python programming for data science?",
+      "base_probability": 0.26488953828811646,
+      "final_probability": 0.3128358011359964,
+      "decision": false,
+      "semantic_similarity": 0.6600900888442993,
+      "cluster_id": 10,
+      "signal_types": [
+        "named entities only in one question",
+        "broader / narrower"
+      ]
+    },
+    {
+      "question_a": "What are the best places to visit in india?",
+      "question_b": "What are the best places to visit in India?",
+      "base_probability": 0.9753438830375671,
+      "final_probability": 0.9168213893347331,
+      "decision": true,
+      "semantic_similarity": 0.9999936819076538,
+      "cluster_id": 9,
+      "signal_types": []
+    },
+    {
+      "question_a": "How do I apply to the U.S. army?",
+      "question_b": "How do I apply to the US Army?",
+      "base_probability": 0.8803613185882568,
+      "final_probability": 0.8639469067667449,
+      "decision": true,
+      "semantic_similarity": 0.9899038076400757,
+      "cluster_id": 6,
+      "signal_types": []
+    },
+    {
+      "question_a": "Can two introverted parents produce an extroverted child?",
+      "question_b": "If parents are extroverts, can their child be an introvert?",
+      "base_probability": 0.5585588216781616,
+      "final_probability": 0.6445039565620406,
+      "decision": true,
+      "semantic_similarity": 0.8375067114830017,
+      "cluster_id": 4,
+      "signal_types": [
+        "numbers only in one question",
+        "different content words"
+      ]
+    },
+    {
+      "question_a": "What is formwork?",
+      "question_b": "What is formwork?",
+      "base_probability": 0.9588169455528259,
+      "final_probability": 0.9414111907600261,
+      "decision": true,
+      "semantic_similarity": 1.0000075101852417,
+      "cluster_id": 0,
+      "signal_types": []
+    }
+  ]
+}

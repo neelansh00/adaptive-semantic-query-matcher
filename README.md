@@ -6,8 +6,8 @@ embedding-similarity threshold?
 
 Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_audit.md](docs/data_audit.md)).
 
-> **Status: Phase 9 complete:** Streamlit demo of the frozen final system (Phases 1-8: audit and splits, baselines, deep models,
-> clustering, cluster error analysis, constraint features, calibration, one-time test evaluation).
+> **Status: Phase 10 complete:** testing and reproducibility (`python scripts/reproduce.py --verify`, 133 tests). Phases 1-9: audit and splits,
+> baselines, deep models, clustering, cluster error analysis, constraint features, calibration, one-time test evaluation, demo.
 
 **Demo:** `streamlit run app/main.py`. It shows the duplicate probability and decision, semantic similarity, discovered query group, thresholds,
 extracted constraints, mismatch signals, a model-based what-if and a deterministic rationale (no LLM). See [docs/demo.md](docs/demo.md). The full README (architecture, results, demo) is written in Phase 11.
@@ -140,8 +140,12 @@ extracted constraints, mismatch signals, a model-based what-if and a determinist
 | [docs/calibration_experiments.md](docs/calibration_experiments.md) | Phase 7 global vs cluster thresholds (cross-fitted), decision, frozen Phase 8 config |
 | [docs/final_evaluation.md](docs/final_evaluation.md) | Phase 8 freeze protocol, one-time test results, per-cluster and slice analysis, remaining failures |
 | [docs/demo.md](docs/demo.md) | Phase 9 Streamlit demo: outputs, explanation method, examples incl. known failures |
+| [docs/reproducibility.md](docs/reproducibility.md) | Phase 10 versioned artifacts, model registry, test coverage, what is and is not bit-reproducible |
 
 ## Reproduce
+
+Quick check of the committed frozen state: `python scripts/reproduce.py --verify`. The full pipeline is listed by `python scripts/reproduce.py --list`
+and run step by step with `--run <step>` / `--from <step> --to <step>`. The individual commands are:
 
 ```bash
 pip install -r requirements.txt
@@ -206,6 +210,7 @@ against the hashes in `data/processed/splits/split_metadata.json`.
 ```
 configs/data.yaml          split configuration (seed, ratios, cap)
 configs/clustering.yaml    clustering configuration (K grid, chosen K = 12, HDBSCAN settings)
+configs/models.yaml        versioned final-system description (pinned encoder revision, artifacts, canonicalisation)
 data/raw/                  extracted Kaggle files (not versioned, never modified)
 data/processed/splits/     frozen train/val/test + split_metadata.json
 scripts/                   Phase 1-2: audit_dataset, make_splits, run_baselines, analyze_baseline_errors
@@ -215,6 +220,7 @@ scripts/                   Phase 1-2: audit_dataset, make_splits, run_baselines,
                            Phase 6: build_constraint_features, crossfit_base, train_meta
                            Phase 7: calibration_experiments
                            Phase 8: freeze_manifest, final_evaluation
+                           Phase 10: reproduce (pipeline + --verify), build_registry, make_golden
 src/utils/                 data loading (data.py), split strategies + leakage metrics (splits.py)
 src/evaluation/            metrics.py (F1/PR/ROC, threshold sweep, ECE, per-cluster metrics)
 src/preprocessing/         minimal text normalisation + tokenisation
@@ -229,7 +235,7 @@ src/evaluation/cluster_analysis.py   per-cluster metrics, bootstrap CIs, random-
 src/calibration/           thresholds.py: global / per-cluster threshold policy with fallback, cross-fitting
 src/service/matcher.py     demo service layer: frozen final system + deterministic explanations
 app/main.py                Streamlit UI (thin renderer)
-tests/                     Phase 1-9 tests
+tests/                     133 tests (Phases 1-10), incl. golden outputs in tests/golden/
 docs/                      documentation + figures
 artifacts/phase1/          audit statistics, split comparison
 artifacts/phase2/          baseline metrics, val predictions, error analysis, fitted models (joblib)
@@ -240,4 +246,6 @@ artifacts/phase5/          per-cluster metrics, null, threshold reliability, pai
 artifacts/phase6/          meta-model bundle, variant results + bootstraps, slices, probes, cross-fit report, latency
 artifacts/phase7/          calibration results, frozen Phase 8 threshold policies
 artifacts/phase8/          freeze manifest, dry run, test results/scores, latency, manual error labels, TEST_EVALUATED marker
+artifacts/MODEL_REGISTRY.json   every artifact: role, hash, size, git-tracked, regenerate command; environment
+artifacts/feature_config.json   final model's feature groups, ordered design columns, canonicalisation
 ```

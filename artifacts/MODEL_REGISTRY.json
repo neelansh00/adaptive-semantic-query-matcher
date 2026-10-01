@@ -1,0 +1,265 @@
+{
+  "encoder": {
+    "name": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "weights_sha256": "53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db",
+    "matches_freeze_manifest": true
+  },
+  "artifacts": [
+    {
+      "path": "data/processed/splits/split_metadata.json",
+      "phase": 1,
+      "role": "frozen split definition + hashes",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "e4bf960ef75008ccff7e3501a0e3b88146f0d22c9aa715f6ef69d3c1ebf8bdf9",
+      "size_kb": 3.2,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/make_splits.py"
+    },
+    {
+      "path": "artifacts/phase2/lr_tfidf_pair_lexical.joblib",
+      "phase": 2,
+      "role": "reference model: TF-IDF pair + lexical LR",
+      "used_by_final_system": false,
+      "exists": true,
+      "sha256": "50d55ac0a012ad49ce72cc865568af75fa3481ecdf77b4f5908d91dda18ba40a",
+      "size_kb": 7850.6,
+      "git_tracked": false,
+      "regenerate_with": "python scripts/run_baselines.py"
+    },
+    {
+      "path": "artifacts/phase2/lr_tfidf_pair.joblib",
+      "phase": 2,
+      "role": "reference model: TF-IDF pair LR",
+      "used_by_final_system": false,
+      "exists": true,
+      "sha256": "dff4d77fdfeb72203e014baf2d22a79ee1c8556e73362afd5cc544c4640133eb",
+      "size_kb": 5887.9,
+      "git_tracked": false,
+      "regenerate_with": "python scripts/run_baselines.py"
+    },
+    {
+      "path": "artifacts/phase2/lr_lexical.joblib",
+      "phase": 2,
+      "role": "reference model: lexical-feature LR",
+      "used_by_final_system": false,
+      "exists": true,
+      "sha256": "4221c22e6ae31ea3780af2cff4a925ca19cdd12d33926b810c888228e313512b",
+      "size_kb": 2.2,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/run_baselines.py"
+    },
+    {
+      "path": "artifacts/phase3/bilstm/model.pt",
+      "phase": 3,
+      "role": "reference model: Siamese BiLSTM weights",
+      "used_by_final_system": false,
+      "exists": true,
+      "sha256": "2a509ab5437e40ab51594543681695934c6ce0b44a7557a33f5f35a415df3c60",
+      "size_kb": 35518.1,
+      "git_tracked": false,
+      "regenerate_with": "python scripts/train_bilstm.py"
+    },
+    {
+      "path": "artifacts/phase3/bilstm/vocab.json",
+      "phase": 3,
+      "role": "reference model: BiLSTM vocabulary (tokenizer)",
+      "used_by_final_system": false,
+      "exists": true,
+      "sha256": "888b818118b34489531c28e8c5d5eed2ce54373ebf10793c9a6305c8a13efe04",
+      "size_kb": 466.6,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/train_bilstm.py"
+    },
+    {
+      "path": "artifacts/phase3/bilstm/config.json",
+      "phase": 3,
+      "role": "reference model: BiLSTM hyper-parameters",
+      "used_by_final_system": false,
+      "exists": true,
+      "sha256": "7c03cabd8a8868b4814757b9ca80782406cd9e1eb87e75550ed2eeb84b5654e6",
+      "size_kb": 0.2,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/train_bilstm.py"
+    },
+    {
+      "path": "artifacts/phase3/sbert_all-MiniLM-L6-v2/mlp.pt",
+      "phase": 3,
+      "role": "BASE MODEL head weights (MiniLM + MLP)",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "2de43be7b3cc6dbd4a13d2bd50e924c4a1ec757077e72e3487aabe46d356c2f2",
+      "size_kb": 773.2,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/run_sbert.py"
+    },
+    {
+      "path": "artifacts/phase3/sbert_all-MiniLM-L6-v2/mlp_config.json",
+      "phase": 3,
+      "role": "base model head architecture",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "77a975d59f663c13f36f7527bf874e20279d2859b7a3def2739f052ed3865519",
+      "size_kb": 0.0,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/run_sbert.py"
+    },
+    {
+      "path": "artifacts/phase3/sbert_all-MiniLM-L6-v2/lr.joblib",
+      "phase": 3,
+      "role": "reference: MiniLM + LR head",
+      "used_by_final_system": false,
+      "exists": true,
+      "sha256": "0b1f4fffb10c68a9841e61441378630dab976db0b86fa27968a6349c4bcb0468",
+      "size_kb": 3.8,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/run_sbert.py"
+    },
+    {
+      "path": "artifacts/phase4/cluster_model/centroids.npy",
+      "phase": 4,
+      "role": "frozen K-Means centroids (12 query groups)",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "5dca2324c185ebc8ea177a4d5b6f263118d948bb95500a3e2423252e3b1c3083",
+      "size_kb": 18.1,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/build_clusters.py --refit"
+    },
+    {
+      "path": "artifacts/phase4/cluster_model/cluster_model.json",
+      "phase": 4,
+      "role": "cluster model metadata",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "8d7b7b4dbdc0b0f096ff1416634f5f42bc34d8c3ba85435145d9840d3996af33",
+      "size_kb": 0.4,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/build_clusters.py --refit"
+    },
+    {
+      "path": "artifacts/phase4/cluster_names.json",
+      "phase": 4,
+      "role": "post-hoc cluster names (manual)",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "661c595d354d3caa7c559442eba8cdb7d8808df62ba46e823b094565b0be0c2e",
+      "size_kb": 2.1,
+      "git_tracked": true,
+      "regenerate_with": "written by hand after inspection (Phase 4)"
+    },
+    {
+      "path": "artifacts/phase6/meta_model.joblib",
+      "phase": 6,
+      "role": "FINAL MODEL: constraint-aware meta-classifier",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "80345bb1d7f975b0c5b09361c0e42481e7efd7586f863a4251aa30c655a94c50",
+      "size_kb": 353.5,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/crossfit_base.py && python scripts/train_meta.py"
+    },
+    {
+      "path": "artifacts/phase7/frozen_policy_baseline.json",
+      "phase": 7,
+      "role": "baseline threshold policy (global tau 0.32)",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "30214253f9d5ac963b58b293be9222badfbbba4f3f1da0ec1f69f37930598863",
+      "size_kb": 0.2,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/calibration_experiments.py"
+    },
+    {
+      "path": "artifacts/phase7/frozen_policy_final.json",
+      "phase": 7,
+      "role": "FINAL threshold policy (global tau 0.35)",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "dbc8fc485df972415dc6b9628fd5c5e0b9cce2a3b1f3dbf8b7903f3770fd6f35",
+      "size_kb": 0.2,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/calibration_experiments.py"
+    },
+    {
+      "path": "artifacts/phase8/freeze_manifest.json",
+      "phase": 8,
+      "role": "freeze manifest (hashes of everything evaluated)",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "b240e5a1352917e53a382d5a5300005714edb0e0173d5b2d894bc3fa1f05d530",
+      "size_kb": 5.4,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/freeze_manifest.py"
+    },
+    {
+      "path": "artifacts/phase8/test_scores.csv",
+      "phase": 8,
+      "role": "per-pair test scores from the single test run",
+      "used_by_final_system": false,
+      "exists": true,
+      "sha256": "4f4c73f219a03504a409848b5b5d0ee886d713ae8d927f0dff383c9d333d4398",
+      "size_kb": 2095.9,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/final_evaluation.py (runs once)"
+    },
+    {
+      "path": "artifacts/phase8/test_results.json",
+      "phase": 8,
+      "role": "reported test metrics",
+      "used_by_final_system": false,
+      "exists": true,
+      "sha256": "39d18ec0b47513eac3520b77dcd28b6490608186720992ef52ede1702c203030",
+      "size_kb": 23.0,
+      "git_tracked": true,
+      "regenerate_with": "python scripts/final_evaluation.py (runs once)"
+    },
+    {
+      "path": "configs/data.yaml",
+      "phase": 1,
+      "role": "split configuration",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "48f7a2712384ed8b9bc2ad1df0acdd5791da11f7538bcba00a013e2861834e51",
+      "size_kb": 0.8,
+      "git_tracked": true,
+      "regenerate_with": "hand-written"
+    },
+    {
+      "path": "configs/clustering.yaml",
+      "phase": 4,
+      "role": "clustering configuration",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "844320f4b6521c751f8093ad34f75dddc5a8e068c9b4eef8fa96f28b4be876d2",
+      "size_kb": 0.7,
+      "git_tracked": true,
+      "regenerate_with": "hand-written"
+    },
+    {
+      "path": "configs/models.yaml",
+      "phase": 10,
+      "role": "versioned description of the final system",
+      "used_by_final_system": true,
+      "exists": true,
+      "sha256": "115503703fe4d4353c965bf331b3488f7c2234ddce2589b7ec228711463c9bd8",
+      "size_kb": 1.7,
+      "git_tracked": true,
+      "regenerate_with": "hand-written"
+    }
+  ],
+  "environment": {
+    "python": "3.12.2",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "numpy": "2.5.3",
+    "pandas": "2.2.2",
+    "sklearn": "1.9.1",
+    "scipy": "1.18.1",
+    "torch": "2.14.1+cpu",
+    "sentence_transformers": "6.1.0",
+    "transformers": "5.18.0",
+    "streamlit": "1.64.0"
+  },
+  "note": "Hashes are line-ending-normalised for text files (src/utils/data.py::content_sha256). Untracked artifacts are large reference models or data-derived files, reproducible with 'regenerate_with'."
+}
