@@ -60,11 +60,11 @@
   "C_no_spacy_hgb": {
     "FP": {
       "n": 60,
-      "fixed": 14,
+      "fixed": 13,
       "fixed_by_category": {
         "entity_mismatch": 4,
-        "broader_narrower": 3,
         "different_aspect_same_topic": 3,
+        "broader_narrower": 2,
         "attribute_swap": 1,
         "negation_mismatch": 1,
         "likely_label_noise": 1,
@@ -84,10 +84,10 @@
     },
     "FN": {
       "n": 60,
-      "fixed": 11,
+      "fixed": 16,
       "fixed_by_category": {
+        "paraphrase_low_overlap": 9,
         "broader_narrower": 6,
-        "paraphrase_low_overlap": 4,
         "debatable_topical_merge": 1
       },
       "total_by_category": {

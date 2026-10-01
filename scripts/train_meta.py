@@ -30,7 +30,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.compare_phase3 import paired_bootstrap  # noqa: E402
 from src.evaluation.cluster_analysis import cluster_table, robustness_summary  # noqa: E402
 from src.evaluation.metrics import validation_report  # noqa: E402
-from src.models.meta import GROUP_ABLATIONS, HGB_ABLATIONS, LEXICAL, VARIANTS, MetaModel, logit, variant_by_name  # noqa: E402
+from src.models.meta import GROUP_ABLATIONS, HGB_ABLATIONS, LEXICAL, VARIANTS, MetaModel, base_logit, variant_by_name  # noqa: E402
 from src.utils.data import PROJECT_ROOT  # noqa: E402
 
 ART = PROJECT_ROOT / "artifacts" / "phase6"
@@ -68,7 +68,7 @@ def load_frames() -> tuple[pd.DataFrame, pd.DataFrame]:
     va = va.merge(pd.read_csv(FEAT / "lexical_val.csv")[["id"] + LEXICAL], on="id")
     va["base_prob"] = va["sbert_mlp"]
     for d in (tr, va):
-        d["base_logit"] = logit(d["base_prob"])
+        d["base_logit"] = base_logit(d["base_prob"])
     assert not tr.isna().any().any() and not va.isna().any().any()
     return tr, va
 

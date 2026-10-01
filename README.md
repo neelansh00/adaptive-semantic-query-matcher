@@ -79,13 +79,15 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
 |---|---|---|---|
 | A. cosine similarity only | 0.735 | 0.765 | 0.651 |
 | B. semantic model probability (Phase 3) | 0.771 | 0.824 | 0.708 |
-| **C. semantic model + constraint features (boosted trees, spaCy-free)** | **0.783** | **0.839** | **0.719** |
+| **C. semantic model + constraint features (boosted trees, spaCy-free)** | **0.784** | **0.838** | **0.721** |
 
-- **The gain is significant:** C vs B is +0.012 F1 [+0.009, +0.015]. Controls show re-fitting or boosting the base score alone adds nothing.
-- **High-overlap false positives roughly halve** for entity (0.22 → 0.12), number (0.47 → 0.18) and negation (0.72 → 0.33) differences.
-  The cost is more false negatives on true duplicates that contain a superficial constraint difference.
-- **Specificity/length signals are the largest contributor**; numbers, negation and entities add smaller, significant gains.
+- **The gain is significant:** C vs B is +0.013 F1 [+0.010, +0.016], and both FPR and FNR fall. Controls show re-fitting or boosting the base score alone adds nothing.
+- **High-overlap false positives roughly halve** for entity (0.22 → 0.13), number (0.47 → 0.19) and negation (0.72 → 0.34) differences.
+  Within those slices, true duplicates with a superficial constraint difference are rejected more often.
+- **Specificity/length signals are the largest contributor**, and numbers are the only explicit-constraint group significant on its own.
   spaCy NER added only +0.001 PR-AUC and was dropped.
+- **Train/serve skew** (CSV round-trip vs fresh features flipping tree splits) was found by the Phase 8 validation dry run and fixed
+  by canonicalising meta-model inputs; validation results were regenerated before the test split was read.
 - **Stacking without leakage:** base scores for training the meta-model come from 5-fold, question-disjoint cross-fitting.
 
 ## Phase 7 key findings (cross-fitted within validation, 20 repetitions)
@@ -94,14 +96,14 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
 |---|---|---|---|
 | Semantic model + global τ | 0.771 | 0.770 | 0.707 |
 | Semantic model + cluster τ | 0.767 | 0.766 | 0.708 |
-| **Constraint-aware model + global τ** | **0.781** | **0.779** | **0.717** |
-| Constraint-aware model + cluster τ | 0.779 | 0.777 | 0.711 |
+| **Constraint-aware model + global τ** | **0.783** | **0.782** | **0.719** |
+| Constraint-aware model + cluster τ | 0.781 | 0.778 | 0.714 |
 
 - **Central hypothesis: not supported.** Out of sample, per-cluster thresholds *lower* macro-cluster F1 for both models
-  (−0.003 [−0.005, −0.001] and −0.002 [−0.004, −0.001]) and do not help the worst cluster. Their in-sample advantage is an artefact.
+  (−0.003 [−0.005, −0.001] for both) and do not help the worst cluster. Their in-sample advantage is an artefact.
 - **Why:** each cluster threshold, fitted on 2–4k pairs, moves by up to ±0.06 between folds, while the true differences are small.
-- **What improves robustness instead:** the entity/constraint-aware model at a single threshold (+0.010 macro-cluster F1).
-  Frozen for Phase 8: baseline = semantic model at τ 0.32; final = constraint-aware model at global τ 0.38.
+- **What improves robustness instead:** the entity/constraint-aware model at a single threshold (+0.012 macro-cluster F1).
+  Frozen for Phase 8: baseline = semantic model at τ 0.32; final = constraint-aware model at global τ 0.35.
 
 ## Documentation
 

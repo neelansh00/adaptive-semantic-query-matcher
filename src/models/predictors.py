@@ -121,7 +121,7 @@ class MetaPredictor:
         from src.clustering.pairs import assign_pairs
         from src.features.constraints import annotate, pair_constraint_features
         from src.features.lexical import lexical_features
-        from src.models.meta import logit
+        from src.models.meta import base_logit
         from src.models.sentence_encoder import clean, embedding_pair_features
         q1, q2 = [clean(q) for q in q1], [clean(q) for q in q2]  # same text the training annotations used
         u, v = self.base.embed(q1), self.base.embed(q2)
@@ -133,7 +133,7 @@ class MetaPredictor:
         rows = [pair_constraint_features(annotate(a, da), annotate(b, db), use_spacy=self.uses_spacy)
                 for a, b, da, db in zip(q1, q2, docs_a, docs_b)]
         f = pd.DataFrame(rows)
-        f["base_prob"], f["base_logit"] = base_prob, logit(base_prob)
+        f["base_prob"], f["base_logit"] = base_prob, base_logit(base_prob)
         f["cosine"] = embedding_pair_features(u, v)[:, -1]
         f["cluster"] = assign_pairs(u, v, self.clusters, "pair_avg")
         from src.models.meta import LEXICAL

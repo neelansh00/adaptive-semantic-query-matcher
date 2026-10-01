@@ -107,4 +107,4 @@ def test_frozen_phase8_policies():
     assert final.mode == res["final_threshold_mode"]
     assert base.mode == "global" and base.global_threshold == pytest.approx(0.32)   # Phase 3 threshold reproduced
     if final.mode == "global":
-        assert final.cluster_thresholds == {} and final.global_threshold == pytest.approx(0.38)  # Phase 6 threshold
+        assert final.cluster_thresholds == {} and final.global_threshold == pytest.approx(0.35)  # Phase 6 threshold (after input canonicalisation)

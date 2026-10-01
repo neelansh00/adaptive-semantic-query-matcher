@@ -22,7 +22,7 @@ def test_final_system_is_frozen_global_threshold_meta_model():
     m = json.loads(MANIFEST.read_text())
     assert m["systems"]["final"]["score"] == "C_no_spacy_hgb"
     pol = json.loads((PROJECT_ROOT / m["systems"]["final"]["policy"]).read_text())
-    assert pol["mode"] == "global" and pol["global_threshold"] == pytest.approx(0.38)
+    assert pol["mode"] == "global" and pol["global_threshold"] == pytest.approx(0.35)
 
 
 def test_test_split_evaluated_at_most_once_and_after_freeze():

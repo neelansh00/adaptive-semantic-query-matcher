@@ -146,3 +146,30 @@ def test_train_serve_feature_parity_without_spacy():
         f = pair_constraint_features(annotate(clean(row.question1)), annotate(clean(row.question2)), use_spacy=False)
         for c in cols:
             assert f[c] == pytest.approx(s[c]), (row.id, c)
+
+
+def test_meta_inputs_exactly_reproducible_on_all_validation_pairs():
+    """Strict train/serve parity (added after the Phase 8 dry run found 1-ulp CSV differences flipping tree splits):
+    the canonicalised design matrix built through the inference path must EXACTLY equal the training-time one
+    for every validation pair, and so must the decisions."""
+    import joblib
+    from src.features.constraints import pair_frame
+    from src.models.meta import base_logit
+    from src.models.sentence_encoder import clean
+    feats_path = PROJECT_ROOT / "data" / "processed" / "features" / "constraints_val.csv"
+    bundle_path = PROJECT_ROOT / "artifacts" / "phase6" / "meta_model.joblib"
+    if not feats_path.exists() or not bundle_path.exists():
+        pytest.skip("Phase 6 features/model not built")
+    bundle = joblib.load(bundle_path)
+    model = bundle["model"]
+    val = pd.read_csv(PROJECT_ROOT / "data" / "processed" / "splits" / "val.csv", keep_default_na=False, na_values=[""])
+    base = val[["id"]].merge(pd.read_csv(PROJECT_ROOT / "artifacts" / "phase3" / "sbert_all-MiniLM-L6-v2" / "val_scores.csv"),
+                             on="id")["sbert_mlp"].to_numpy()
+    stored = pd.read_csv(feats_path).set_index("id").loc[val["id"]].reset_index()
+    stored["base_logit"] = base_logit(base)                        # training path: float64 read from CSV
+    texts = pd.unique(pd.concat([val.question1, val.question2]).map(clean))
+    fresh = pair_frame(val, {q: annotate(q, None) for q in texts}, use_spacy=False)
+    fresh["base_logit"] = base_logit(base.astype(np.float32))      # inference path: float32 straight from the head
+    assert np.array_equal(model.design(fresh), model.design(stored))
+    t = bundle["threshold"]
+    assert np.array_equal(model.predict_proba(fresh) >= t, model.predict_proba(stored) >= t)

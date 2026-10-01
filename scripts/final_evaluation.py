@@ -42,7 +42,7 @@ from src.evaluation.error_analysis import error_tags  # noqa: E402
 from src.evaluation.metrics import calibration_metrics, classification_metrics  # noqa: E402
 from src.features.constraints import annotate, pair_frame  # noqa: E402
 from src.features.lexical import lexical_features  # noqa: E402
-from src.models.meta import logit  # noqa: E402
+from src.models.meta import base_logit  # noqa: E402
 from src.models.sentence_encoder import EmbeddingCache, clean, embedding_pair_features  # noqa: E402
 from src.utils.data import PROJECT_ROOT, content_sha256, file_sha256, identity_key, load_config, resolve  # noqa: E402
 
@@ -112,7 +112,7 @@ def score_split(df: pd.DataFrame, name: str) -> pd.DataFrame:
     texts = pd.unique(pd.concat([df.question1, df.question2]).map(clean))
     annotations = {q: annotate(q, None) for q in texts}  # spaCy-free, as the chosen meta-model requires
     feats = pair_frame(df, annotations, use_spacy=False)
-    feats["base_logit"] = logit(base)
+    feats["base_logit"] = base_logit(base)
     bundle = __import__("joblib").load(ART / "phase6" / "meta_model.joblib")
     assert not bundle["uses_spacy"]
     meta = bundle["model"].predict_proba(feats)

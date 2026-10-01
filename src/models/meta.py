@@ -27,6 +27,13 @@ def logit(p: np.ndarray, eps: float = 1e-6) -> np.ndarray:
     return np.log(p / (1 - p))
 
 
+def base_logit(prob) -> np.ndarray:
+    """Canonical meta-model input from a base-model probability. The head outputs float32; at training time the
+    probabilities were read back from CSV as float64 decimals (~3e-8 away). Casting to float32 first restores the
+    exact original value on every path, so training and inference compute bit-identical logits."""
+    return logit(np.asarray(prob, dtype=np.float32))
+
+
 @dataclass(frozen=True)
 class Variant:
     name: str
@@ -101,7 +108,11 @@ class MetaModel:
     clf: object = field(default=None)
 
     def design(self, feats: pd.DataFrame) -> np.ndarray:
-        X = feats[self.variant.columns()].to_numpy(dtype=float)
+        # Canonicalise inputs to 6 decimals, identically at fit and predict time. Without this, a feature
+        # computed fresh at inference can differ by ~1 ulp from the same feature read back from a CSV at
+        # training time, and tree bin edges that sit exactly on a training value then flip decisions
+        # (found by the Phase 8 validation dry run: 90 of 38,138 decisions).
+        X = np.round(feats[self.variant.columns()].to_numpy(dtype=float), 6)
         if self.variant.cluster_onehot:
             X = np.hstack([X, np.eye(self.n_clusters)[feats["cluster"].to_numpy().astype(int)]])
         return X
