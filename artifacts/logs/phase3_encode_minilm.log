@@ -1,0 +1,6 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2627.66it/s]
+[done] val: {'model': 'sentence-transformers/all-MiniLM-L6-v2', 'n_texts': 53610, 'dim': 384, 'seconds': 179.9, 'texts_per_second': 298.0}
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 2775.88it/s]
+[done] train: {'model': 'sentence-transformers/all-MiniLM-L6-v2', 'n_texts': 424012, 'dim': 384, 'seconds': 1443.9, 'texts_per_second': 293.7}
+exit 0

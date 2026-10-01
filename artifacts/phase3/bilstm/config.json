@@ -1,0 +1,13 @@
+{
+  "vocab_size": 43109,
+  "embed_dim": 200,
+  "hidden_dim": 128,
+  "head_dim": 256,
+  "dropout": 0.2,
+  "max_len": 40,
+  "best_epoch": 5,
+  "seed": 42,
+  "lr": 0.001,
+  "batch_size": 256,
+  "min_freq": 2
+}

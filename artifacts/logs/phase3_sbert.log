@@ -1,0 +1,36 @@
+fit=289164 dev=15220 val=38138 dim=769 device=cpu
+  [lr] C=0.1: dev PR-AUC=0.7861
+  [lr] C=1.0: dev PR-AUC=0.7864
+  [lr] C=10.0: dev PR-AUC=0.7796
+  [mlp] epoch 1: dev PR-AUC=0.7885
+  [mlp] epoch 2: dev PR-AUC=0.7913
+  [mlp] epoch 3: dev PR-AUC=0.7907
+  [mlp] epoch 4: dev PR-AUC=0.7913
+  [mlp] epoch 5: dev PR-AUC=0.7941
+  [mlp] epoch 6: dev PR-AUC=0.7961
+  [mlp] epoch 7: dev PR-AUC=0.7991
+  [mlp] epoch 8: dev PR-AUC=0.8016
+  [mlp] epoch 9: dev PR-AUC=0.8014
+  [mlp] epoch 10: dev PR-AUC=0.8032
+  [mlp] epoch 11: dev PR-AUC=0.8032
+  [mlp] epoch 12: dev PR-AUC=0.8046
+  [mlp] epoch 13: dev PR-AUC=0.8030
+  [mlp] epoch 14: dev PR-AUC=0.8051
+  [mlp] epoch 15: dev PR-AUC=0.8058
+  [mlp] epoch 16: dev PR-AUC=0.8068
+  [mlp] epoch 17: dev PR-AUC=0.8078
+  [mlp] epoch 18: dev PR-AUC=0.8077
+  [mlp] epoch 19: dev PR-AUC=0.8082
+  [mlp] epoch 20: dev PR-AUC=0.8100
+  [mlp] epoch 21: dev PR-AUC=0.8090
+  [mlp] epoch 22: dev PR-AUC=0.8113
+  [mlp] epoch 23: dev PR-AUC=0.8084
+  [mlp] epoch 24: dev PR-AUC=0.8102
+  [mlp] epoch 25: dev PR-AUC=0.8113
+  [mlp] epoch 26: dev PR-AUC=0.8110
+  [mlp] epoch 27: dev PR-AUC=0.8094
+  [mlp] epoch 28: dev PR-AUC=0.8079
+sbert_cosine   thr=0.76 F1=0.7347 P=0.6395 R=0.8632 ROC=0.8760 PR=0.7645
+sbert_lr       thr=0.33 F1=0.7500 P=0.6585 R=0.8711 ROC=0.8910 PR=0.7924
+sbert_mlp      thr=0.32 F1=0.7711 P=0.6935 R=0.8683 ROC=0.9066 PR=0.8237
+exit 0

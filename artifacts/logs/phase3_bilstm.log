@@ -1,0 +1,13 @@
+device=cpu threads=6 cuda_available=False
+fit=289164 dev=15220 val=38138
+vocab=43109 unk_rate={'fit': 0.006555721317523837, 'dev': 0.011073349158013158, 'val': 0.01134968853159484}
+parameters=9,091,561
+{"epoch": 1, "train_loss": 0.4701612858907349, "dev_pr_auc": 0.6990661990533359, "dev_roc_auc": 0.8323837803497154, "seconds": 664.2}
+{"epoch": 2, "train_loss": 0.3824009950014448, "dev_pr_auc": 0.7307109320479095, "dev_roc_auc": 0.8486863541358158, "seconds": 1542.7}
+{"epoch": 3, "train_loss": 0.34624437349293646, "dev_pr_auc": 0.7433198152094422, "dev_roc_auc": 0.8533646305015457, "seconds": 1444.0}
+{"epoch": 4, "train_loss": 0.31868805144995754, "dev_pr_auc": 0.7372121831471533, "dev_roc_auc": 0.8530376960621642, "seconds": 668.8}
+{"epoch": 5, "train_loss": 0.29800815726486296, "dev_pr_auc": 0.7471427176701456, "dev_roc_auc": 0.8574853722787397, "seconds": 903.5}
+{"epoch": 6, "train_loss": 0.27973611993074804, "dev_pr_auc": 0.7404034417609443, "dev_roc_auc": 0.8555203367475833, "seconds": 1006.6}
+{"epoch": 7, "train_loss": 0.26430811220121053, "dev_pr_auc": 0.7447235967462095, "dev_roc_auc": 0.855103888638118, "seconds": 1462.5}
+VAL thr=0.57 F1=0.7323 P=0.6615 R=0.8200 ROC=0.8742 PR=0.7730
+exit 0

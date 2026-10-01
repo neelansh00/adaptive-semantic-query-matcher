@@ -222,3 +222,20 @@ def split_report(df: pd.DataFrame, split: pd.Series, g: QuestionGraph) -> dict:
     assert report["splits"]["train"]["pairs"] + report["splits"]["val"]["pairs"] + \
         report["splits"]["test"]["pairs"] + report["dropped_pairs"] == n
     return report
+
+
+# --------------------------------------------------------------------------- train-internal dev slice
+
+def train_dev_split(train: pd.DataFrame, dev_frac: float = 0.05, seed: int = 42) -> tuple[np.ndarray, np.ndarray]:
+    """Question-disjoint dev slice carved out of TRAIN (whole components), used for early stopping
+    and head hyper-parameters so that the validation split stays reserved for threshold tuning and
+    model comparison. Returns boolean masks (is_train, is_dev) over `train` rows."""
+    g = build_graph(train)
+    rng = np.random.default_rng(seed)
+    comps = np.unique(g.pair_component)
+    comps = comps[rng.permutation(len(comps))]
+    w = g.component_pairs[comps].astype(float)
+    start = (np.cumsum(w) - w) / w.sum()
+    dev_comps = comps[start < dev_frac]
+    is_dev = np.isin(g.pair_component, dev_comps)
+    return ~is_dev, is_dev

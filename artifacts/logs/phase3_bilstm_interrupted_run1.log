@@ -1,0 +1,5 @@
+device=cpu threads=6 cuda_available=False
+fit=289164 dev=15220 val=38138
+vocab=43109 unk_rate={'fit': 0.006555721317523837, 'dev': 0.011073349158013158, 'val': 0.01134968853159484}
+parameters=9,091,561
+{"epoch": 1, "train_loss": 0.4701612858907349, "dev_pr_auc": 0.6990661990533359, "dev_roc_auc": 0.8323837803497154, "seconds": 442.5}

@@ -1,0 +1,2226 @@
+{
+  "models": {
+    "lr_tfidf_pair_lexical": {
+      "tuned_threshold": 0.32,
+      "val_at_tuned_threshold": {
+        "threshold": 0.32,
+        "f1": 0.729895823063525,
+        "precision": 0.6591286799620133,
+        "recall": 0.8176864737500921,
+        "accuracy": 0.7844931564319052,
+        "roc_auc": 0.8738753472747604,
+        "pr_auc": 0.7704647994500425,
+        "fpr": 0.23386407134421958,
+        "fnr": 0.18231352624990796,
+        "tp": 11105,
+        "fp": 5743,
+        "tn": 18814,
+        "fn": 2476
+      },
+      "val_at_0.5": {
+        "threshold": 0.5,
+        "f1": 0.6806295302550959,
+        "precision": 0.7460930640913082,
+        "recall": 0.6257271187688682,
+        "accuracy": 0.7908909748806964,
+        "roc_auc": 0.8738753472747604,
+        "pr_auc": 0.7704647994500425,
+        "fpr": 0.1177668281956265,
+        "fnr": 0.3742728812311317,
+        "tp": 8498,
+        "fp": 2892,
+        "tn": 21665,
+        "fn": 5083
+      },
+      "threshold_transfer": {
+        "cross_half_f1_mean": 0.729072053411304,
+        "cross_half_f1": [
+          0.7255554077424504,
+          0.7325886990801577
+        ]
+      },
+      "calibration": {
+        "brier": 0.14002190390194277,
+        "ece": 0.032654365051482434
+      },
+      "errors_by_overlap": {
+        "jaccard<=0.2": {
+          "fpr": 0.028799702712746192,
+          "fnr": 0.45485812553740324,
+          "negatives": 10764,
+          "positives": 1163
+        },
+        "0.2-0.4": {
+          "fpr": 0.24797429449566918,
+          "fnr": 0.24411350372308316,
+          "negatives": 7158,
+          "positives": 4969
+        },
+        "0.4-0.6": {
+          "fpr": 0.5474278917633065,
+          "fnr": 0.12265301146061935,
+          "negatives": 3363,
+          "positives": 4101
+        },
+        ">0.6": {
+          "fpr": 0.5553178484107579,
+          "fnr": 0.06899641577060933,
+          "negatives": 3272,
+          "positives": 3348
+        },
+        "fpr_entity_diff_overlap>0.6": 0.43859649122807015,
+        "fpr_entity_diff_overlap0.4-0.6": 0.33647058823529413,
+        "fpr_number_diff_overlap>0.6": 0.5133333333333333,
+        "fpr_number_diff_overlap0.4-0.6": 0.34523809523809523,
+        "fpr_negation_diff_overlap>0.6": 0.639344262295082,
+        "fpr_negation_diff_overlap0.4-0.6": 0.46445497630331756,
+        "fpr_any_constraint_diff_overlap>0.6": 0.4592422502870264,
+        "fpr_any_constraint_diff_overlap0.4-0.6": 0.368
+      },
+      "confident_errors": {
+        "false_positives": [
+          {
+            "question1": "How would Donald Trump and Hillary Clinton react, respectively, if they lose the 2016 presidential election?",
+            "question2": "Is Hillary Clinton going to lose the election?",
+            "lr_tfidf_pair_lexical": 0.989,
+            "word_jaccard": 0.263
+          },
+          {
+            "question1": "As universe expands without limit, dark/vacuum energies are created too so is the energy that can be created (potential energy/potentiality) infinite?",
+            "question2": "If dark/vacuum energy is created with expansion and it has no limit, could infinite energy be created then?",
+            "lr_tfidf_pair_lexical": 0.982,
+            "word_jaccard": 0.267
+          },
+          {
+            "question1": "How 2000 rupee note stops black money?",
+            "question2": "Do you think the 2000 rupee notes will increase black money?",
+            "lr_tfidf_pair_lexical": 0.978,
+            "word_jaccard": 0.286
+          },
+          {
+            "question1": "Why India Should not attack Pakistan?",
+            "question2": "Why is India not attacking on Pakistan?",
+            "lr_tfidf_pair_lexical": 0.973,
+            "word_jaccard": 0.444
+          },
+          {
+            "question1": "How do I get free traffic for my website?",
+            "question2": "How do you get good free traffic to your website?",
+            "lr_tfidf_pair_lexical": 0.968,
+            "word_jaccard": 0.462
+          },
+          {
+            "question1": "What is your favorite thing in the world?",
+            "question2": "What's your favorite thing in this world?",
+            "lr_tfidf_pair_lexical": 0.968,
+            "word_jaccard": 0.5
+          },
+          {
+            "question1": "Do people really suffer because of demonetizing 500&1000 rupees notes?",
+            "question2": "How many people have died because of demonetization of 500 and 1000 rupee notes till now?",
+            "lr_tfidf_pair_lexical": 0.967,
+            "word_jaccard": 0.3
+          },
+          {
+            "question1": "How could I gain weight quickly?",
+            "question2": "How can I lose weight quickly?",
+            "lr_tfidf_pair_lexical": 0.965,
+            "word_jaccard": 0.5
+          },
+          {
+            "question1": "Why do you answer questions in Quora?",
+            "question2": "How do you answer questions on Quora?",
+            "lr_tfidf_pair_lexical": 0.964,
+            "word_jaccard": 0.556
+          },
+          {
+            "question1": "How do you delete a question or an answer on Quora?",
+            "question2": "How do I delete my own question from Quora?",
+            "lr_tfidf_pair_lexical": 0.963,
+            "word_jaccard": 0.333
+          }
+        ],
+        "false_negatives": [
+          {
+            "question1": "Why is a quadratic equation called 'quadratic', though it has a degree of two and quad means four (eg : x^2-2x-3)?",
+            "question2": "Why do quadratic equation gives only two roots when quad mean 4?",
+            "lr_tfidf_pair_lexical": 0.003,
+            "word_jaccard": 0.185
+          },
+          {
+            "question1": "How was NEET II paper?",
+            "question2": "What are the reactions on neet 2?",
+            "lr_tfidf_pair_lexical": 0.006,
+            "word_jaccard": 0.091
+          },
+          {
+            "question1": "Why do you calculate the square root of a number?",
+            "question2": "What is a use of square root (underroot) in our daily life?",
+            "lr_tfidf_pair_lexical": 0.007,
+            "word_jaccard": 0.222
+          },
+          {
+            "question1": "What is formwork?",
+            "question2": "What is the formwork?",
+            "lr_tfidf_pair_lexical": 0.009,
+            "word_jaccard": 0.75
+          },
+          {
+            "question1": "Can a boy join the Indian armed forces after a BSc degree?",
+            "question2": "How do I join IAF after mbbs?",
+            "lr_tfidf_pair_lexical": 0.009,
+            "word_jaccard": 0.125
+          },
+          {
+            "question1": "How do I join defence after graduation in mechanical engineer?",
+            "question2": "How do I join IAF after mbbs?",
+            "lr_tfidf_pair_lexical": 0.012,
+            "word_jaccard": 0.417
+          },
+          {
+            "question1": "If the Washington Redskins team name is offensive, can't the same be said for many other sports teams?",
+            "question2": "Why is there so much scrutiny and push to change the Washington Redskins name when there are so many other professional sports barring the same type of name (i.e. Chicago Blackhawks, Atlanta Braves, Cleveland Indians)?",
+            "lr_tfidf_pair_lexical": 0.012,
+            "word_jaccard": 0.22
+          },
+          {
+            "question1": "How do I join defence after graduation in mechanical engineer?",
+            "question2": "How do I join army after hotel management?",
+            "lr_tfidf_pair_lexical": 0.012,
+            "word_jaccard": 0.385
+          },
+          {
+            "question1": "Is it racist to say that you don't want to date an Asian?",
+            "question2": "Are you a racist if you only date within your race?",
+            "lr_tfidf_pair_lexical": 0.012,
+            "word_jaccard": 0.15
+          },
+          {
+            "question1": "What will be the fees for SRM college management quota Chennai for CSE in B.Tech?",
+            "question2": "How do I apply for management quota SRM?",
+            "lr_tfidf_pair_lexical": 0.013,
+            "word_jaccard": 0.211
+          }
+        ]
+      }
+    },
+    "siamese_bilstm": {
+      "tuned_threshold": 0.5700000000000001,
+      "val_at_tuned_threshold": {
+        "threshold": 0.5700000000000001,
+        "f1": 0.7323119410836402,
+        "precision": 0.6615384615384615,
+        "recall": 0.8200427067226272,
+        "accuracy": 0.7865121401227122,
+        "roc_auc": 0.8742155993528647,
+        "pr_auc": 0.7730442340519291,
+        "fpr": 0.2320315999511341,
+        "fnr": 0.1799572932773728,
+        "tp": 11137,
+        "fp": 5698,
+        "tn": 18859,
+        "fn": 2444
+      },
+      "val_at_0.5": {
+        "threshold": 0.5,
+        "f1": 0.7307838660578386,
+        "precision": 0.6417710944026733,
+        "recall": 0.8484647669538325,
+        "accuracy": 0.7773873826629608,
+        "roc_auc": 0.8742155993528647,
+        "pr_auc": 0.7730442340519291,
+        "fpr": 0.26192124445168385,
+        "fnr": 0.15153523304616745,
+        "tp": 11523,
+        "fp": 6432,
+        "tn": 18125,
+        "fn": 2058
+      },
+      "threshold_transfer": {
+        "cross_half_f1_mean": 0.7320888435228281,
+        "cross_half_f1": [
+          0.732386995486361,
+          0.7317906915592953
+        ]
+      },
+      "calibration": {
+        "brier": 0.15767568391676973,
+        "ece": 0.1064173910909324
+      },
+      "errors_by_overlap": {
+        "jaccard<=0.2": {
+          "fpr": 0.052675585284280936,
+          "fnr": 0.33705932932072225,
+          "negatives": 10764,
+          "positives": 1163
+        },
+        "0.2-0.4": {
+          "fpr": 0.2486728136350936,
+          "fnr": 0.24532099013886088,
+          "negatives": 7158,
+          "positives": 4969
+        },
+        "0.4-0.6": {
+          "fpr": 0.4977698483496878,
+          "fnr": 0.14337966349670817,
+          "negatives": 3363,
+          "positives": 4101
+        },
+        ">0.6": {
+          "fpr": 0.5125305623471883,
+          "fnr": 0.07317801672640378,
+          "negatives": 3272,
+          "positives": 3348
+        },
+        "fpr_entity_diff_overlap>0.6": 0.36,
+        "fpr_entity_diff_overlap0.4-0.6": 0.32235294117647056,
+        "fpr_number_diff_overlap>0.6": 0.39666666666666667,
+        "fpr_number_diff_overlap0.4-0.6": 0.26785714285714285,
+        "fpr_negation_diff_overlap>0.6": 0.5245901639344263,
+        "fpr_negation_diff_overlap0.4-0.6": 0.41706161137440756,
+        "fpr_any_constraint_diff_overlap>0.6": 0.3742824339839265,
+        "fpr_any_constraint_diff_overlap0.4-0.6": 0.3328
+      },
+      "confident_errors": {
+        "false_positives": [
+          {
+            "question1": "How 2000 rupee note stops black money?",
+            "question2": "Do you think the 2000 rupee notes will increase black money?",
+            "siamese_bilstm": 0.998,
+            "word_jaccard": 0.286
+          },
+          {
+            "question1": "As universe expands without limit, dark/vacuum energies are created too so is the energy that can be created (potential energy/potentiality) infinite?",
+            "question2": "If dark/vacuum energy is created with expansion and it has no limit, could infinite energy be created then?",
+            "siamese_bilstm": 0.997,
+            "word_jaccard": 0.267
+          },
+          {
+            "question1": "Why is this Christian question marked as needing improvement?",
+            "question2": "Why does my question keep getting marked as needing improvement?",
+            "siamese_bilstm": 0.996,
+            "word_jaccard": 0.462
+          },
+          {
+            "question1": "Will Ae Dil Hai Mushkil become an all time blockbuster for Ranbir Kapoor?",
+            "question2": "Will Ae Dil Hai Mushkil be an all time hit for Ranbir Kapoor?",
+            "siamese_bilstm": 0.996,
+            "word_jaccard": 0.733
+          },
+          {
+            "question1": "How can I speak English more fluently?",
+            "question2": "I have no one to speak english to. What should I do to speak english more fluently?",
+            "siamese_bilstm": 0.995,
+            "word_jaccard": 0.357
+          },
+          {
+            "question1": "What are the best sport to lose weight quickly?",
+            "question2": "How can I lose weight quickly?",
+            "siamese_bilstm": 0.995,
+            "word_jaccard": 0.25
+          },
+          {
+            "question1": "How can I hack Facebook or Gmail account?",
+            "question2": "How do I hack a Gmail account?",
+            "siamese_bilstm": 0.995,
+            "word_jaccard": 0.5
+          },
+          {
+            "question1": "Who do you think will win, Trump or Hillary?",
+            "question2": "Who do you think should be president? Trump or Hillary?",
+            "siamese_bilstm": 0.995,
+            "word_jaccard": 0.583
+          },
+          {
+            "question1": "What is the best way to write a CV?",
+            "question2": "How should I write a CV?",
+            "siamese_bilstm": 0.995,
+            "word_jaccard": 0.25
+          },
+          {
+            "question1": "Is it possible to prepare for IAS in an year?",
+            "question2": "How do I prepare for IAS in one year?",
+            "siamese_bilstm": 0.994,
+            "word_jaccard": 0.357
+          }
+        ],
+        "false_negatives": [
+          {
+            "question1": "How is WinRAR able to make a profit with a virtually free product?",
+            "question2": "How does WinRar make money?",
+            "siamese_bilstm": 0.0,
+            "word_jaccard": 0.214
+          },
+          {
+            "question1": "Reince Priebus told Trump if he doesn't do better he will lose the support of the RNC. Are Trump and the RNC heading toward a divorce?",
+            "question2": "Reince Preibus told Trump he would have been better off going on vacation after the convention. Is Trump in free-fall and is the GOP ready to bail?",
+            "siamese_bilstm": 0.0,
+            "word_jaccard": 0.175
+          },
+          {
+            "question1": "What does \"sociodemographic\" mean? How is it used in marketing?",
+            "question2": "What does \"sociodemographic\" mean? How is it used in social sciences?",
+            "siamese_bilstm": 0.0,
+            "word_jaccard": 0.75
+          },
+          {
+            "question1": "What is the shear stress conceptually?",
+            "question2": "Shear stresses what is?",
+            "siamese_bilstm": 0.0,
+            "word_jaccard": 0.429
+          },
+          {
+            "question1": "Which programming language should we use at server side for a web based startup among Python, Ruby, and Node.js?",
+            "question2": "Which is the best server side language to learn for Web development?",
+            "siamese_bilstm": 0.001,
+            "word_jaccard": 0.231
+          },
+          {
+            "question1": "If a police officer wrongly arrested someone based on false testimony could the department be sued?",
+            "question2": "How do you sue a police officer for false arrest?",
+            "siamese_bilstm": 0.001,
+            "word_jaccard": 0.182
+          },
+          {
+            "question1": "Why apple is so expensive?",
+            "question2": "Are Apple products overrated and overpriced?",
+            "siamese_bilstm": 0.001,
+            "word_jaccard": 0.1
+          },
+          {
+            "question1": "How do I use hyphens and dashes in sentences?",
+            "question2": "How do you use hyphens and dashes correctly?",
+            "siamese_bilstm": 0.001,
+            "word_jaccard": 0.545
+          },
+          {
+            "question1": "Why was MM kalburgi killed?",
+            "question2": "How did Kalburgi die?",
+            "siamese_bilstm": 0.001,
+            "word_jaccard": 0.125
+          },
+          {
+            "question1": "Does AWA score increases after reviewing it?",
+            "question2": "Has anyone applied for a review of AWA score in GRE?",
+            "siamese_bilstm": 0.001,
+            "word_jaccard": 0.125
+          }
+        ]
+      }
+    },
+    "sbert_cosine": {
+      "tuned_threshold": 0.76,
+      "val_at_tuned_threshold": {
+        "threshold": 0.76,
+        "f1": 0.7346849246388619,
+        "precision": 0.6394828714815622,
+        "recall": 0.8631912230321773,
+        "accuracy": 0.7779904557134616,
+        "roc_auc": 0.8759696529820098,
+        "pr_auc": 0.7644927713553213,
+        "fpr": 0.2691289652644867,
+        "fnr": 0.1368087769678227,
+        "tp": 11723,
+        "fp": 6609,
+        "tn": 17948,
+        "fn": 1858
+      },
+      "val_at_0.5": {
+        "threshold": 0.5,
+        "f1": 0.6320404879072696,
+        "precision": 0.4625204806116876,
+        "recall": 0.9977173993078565,
+        "accuracy": 0.5863181079238555,
+        "roc_auc": 0.8759696529820098,
+        "pr_auc": 0.7644927713553213,
+        "fpr": 0.6412021012338641,
+        "fnr": 0.0022826006921434355,
+        "tp": 13550,
+        "fp": 15746,
+        "tn": 8811,
+        "fn": 31
+      },
+      "threshold_transfer": {
+        "cross_half_f1_mean": 0.7339114410560404,
+        "cross_half_f1": [
+          0.730967583497053,
+          0.7368552986150279
+        ]
+      },
+      "errors_by_overlap": {
+        "jaccard<=0.2": {
+          "fpr": 0.05165366034931252,
+          "fnr": 0.35769561478933787,
+          "negatives": 10764,
+          "positives": 1163
+        },
+        "0.2-0.4": {
+          "fpr": 0.2652975691533948,
+          "fnr": 0.22076876635137854,
+          "negatives": 7158,
+          "positives": 4969
+        },
+        "0.4-0.6": {
+          "fpr": 0.568242640499554,
+          "fnr": 0.07510363326018044,
+          "negatives": 3363,
+          "positives": 4101
+        },
+        ">0.6": {
+          "fpr": 0.6855134474327629,
+          "fnr": 0.011051373954599764,
+          "negatives": 3272,
+          "positives": 3348
+        },
+        "fpr_entity_diff_overlap>0.6": 0.5964912280701754,
+        "fpr_entity_diff_overlap0.4-0.6": 0.38588235294117645,
+        "fpr_number_diff_overlap>0.6": 0.8133333333333334,
+        "fpr_number_diff_overlap0.4-0.6": 0.5416666666666666,
+        "fpr_negation_diff_overlap>0.6": 0.8360655737704918,
+        "fpr_negation_diff_overlap0.4-0.6": 0.5971563981042654,
+        "fpr_any_constraint_diff_overlap>0.6": 0.6417910447761194,
+        "fpr_any_constraint_diff_overlap0.4-0.6": 0.4568
+      },
+      "confident_errors": {
+        "false_positives": [
+          {
+            "question1": "What will be the output of the following program ?",
+            "question2": "What will be the output of the following program?",
+            "sbert_cosine": 1.0,
+            "word_jaccard": 1.0
+          },
+          {
+            "question1": "Is \u606c\u8389 a good Chinese name?",
+            "question2": "Is \u73b2\u8389 a good Chinese name?",
+            "sbert_cosine": 1.0,
+            "word_jaccard": 0.714
+          },
+          {
+            "question1": "I have read lots of books but forgotten most of them.What's the purpose of reading?",
+            "question2": "I have read lots of books but forgotten most of them. What's the purpose of reading?",
+            "sbert_cosine": 1.0,
+            "word_jaccard": 1.0
+          },
+          {
+            "question1": "Why didn\u2019t TATA manufacture a highly secured Jaguar/Landrover for PM Narendra Modi? Why does PM still have to use foreign brand car like a BMW?",
+            "question2": "Why didn\u2019t TATA manufacture a highly secured Jaguar/Landrover for PM Narendra Modi ? Why PM still have to use foreign brand car like a BMW ?",
+            "sbert_cosine": 0.999,
+            "word_jaccard": 0.958
+          },
+          {
+            "question1": "Codecademy: What is the solution to JavaScript Quick Start Guide, Lesson 5 Question 3?",
+            "question2": "Codecademy: What is the solution to JavaScript Quick Start Guide, Lesson 3 Question 3?",
+            "sbert_cosine": 0.999,
+            "word_jaccard": 0.929
+          },
+          {
+            "question1": "Codecademy: What is the solution to JavaScript Quick Start Guide, Lesson 4 Question 7?",
+            "question2": "Codecademy: What is the solution to JavaScript Quick Start Guide, Lesson 4 Question 6?",
+            "sbert_cosine": 0.999,
+            "word_jaccard": 0.867
+          },
+          {
+            "question1": "I got selected for internship at INRIA (15th June to 15th Aug). Am I eligible for Charpak research scholarship? If so, please specify for how long?",
+            "question2": "I got selected for internship at INRIA (15th June to 15th Sep). Am I eligible for Charpak research scholarship? If so, please specify for how long?",
+            "sbert_cosine": 0.999,
+            "word_jaccard": 0.917
+          },
+          {
+            "question1": "Do Indian women find American men attractive?",
+            "question2": "Do Indian men find American women attractive?",
+            "sbert_cosine": 0.998,
+            "word_jaccard": 1.0
+          },
+          {
+            "question1": "Codecademy: What is the solution to JavaScript Quick Start Guide, Lesson 5 Question 3?",
+            "question2": "Codecademy: What is the solution to JavaScript Quick Start Guide, Lesson 6 Question 5?",
+            "sbert_cosine": 0.998,
+            "word_jaccard": 0.867
+          },
+          {
+            "question1": "How is Melbourne better than Perth?",
+            "question2": "How is Perth better than Melbourne?",
+            "sbert_cosine": 0.998,
+            "word_jaccard": 1.0
+          }
+        ],
+        "false_negatives": [
+          {
+            "question1": "What is the difference between \"at\" and \"on\" in the following sentences?",
+            "question2": "What is the difference between the following sentences with \"to\" and \"for\"?",
+            "sbert_cosine": 0.323,
+            "word_jaccard": 0.571
+          },
+          {
+            "question1": "Why does my question need to be improved and how to improve it?",
+            "question2": "What happens to a Quora question noted as being in need of revision?",
+            "sbert_cosine": 0.372,
+            "word_jaccard": 0.136
+          },
+          {
+            "question1": "I have been selected in tech m.But in application form I selected EEE instead of ENTC.Can in create problem?",
+            "question2": "I have entered my 12 th percentage wrong in L&T ECC application form as 90.6 instead of 90.2 , will it create any problem?",
+            "sbert_cosine": 0.378,
+            "word_jaccard": 0.281
+          },
+          {
+            "question1": "Can a boy join the Indian armed forces after a BSc degree?",
+            "question2": "How do I join IAF after mbbs?",
+            "sbert_cosine": 0.394,
+            "word_jaccard": 0.125
+          },
+          {
+            "question1": "what can i do to become fair?",
+            "question2": "How can I become more white?",
+            "sbert_cosine": 0.405,
+            "word_jaccard": 0.3
+          },
+          {
+            "question1": "Reince Priebus told Trump if he doesn't do better he will lose the support of the RNC. Are Trump and the RNC heading toward a divorce?",
+            "question2": "Reince Preibus told Trump he would have been better off going on vacation after the convention. Is Trump in free-fall and is the GOP ready to bail?",
+            "sbert_cosine": 0.42,
+            "word_jaccard": 0.175
+          },
+          {
+            "question1": "Why doesn't the last stage in Tour De France count for the entire competition?",
+            "question2": "Though ungentlemanly to attack the yellow jersey on the last stage of Tour de France, will the time actually count if the attack was successful?",
+            "sbert_cosine": 0.42,
+            "word_jaccard": 0.25
+          },
+          {
+            "question1": "What are all the All India rank 1s in IIT - JEE doing with their lives?",
+            "question2": "What JEE toppers are doing now?",
+            "sbert_cosine": 0.43,
+            "word_jaccard": 0.235
+          },
+          {
+            "question1": "Does the freelancing website addanyproject provide fake leads?",
+            "question2": "Can you provide me the list of freelancing websites?",
+            "sbert_cosine": 0.431,
+            "word_jaccard": 0.214
+          },
+          {
+            "question1": "How do I join defence after graduation in mechanical engineer?",
+            "question2": "How do I join IAF after mbbs?",
+            "sbert_cosine": 0.431,
+            "word_jaccard": 0.417
+          }
+        ]
+      }
+    },
+    "sbert_lr": {
+      "tuned_threshold": 0.33,
+      "val_at_tuned_threshold": {
+        "threshold": 0.33,
+        "f1": 0.7500158498700311,
+        "precision": 0.6585026440300584,
+        "recall": 0.8710698770340918,
+        "accuracy": 0.7932246053804605,
+        "roc_auc": 0.8909922183509879,
+        "pr_auc": 0.7923833222633961,
+        "fpr": 0.2498269332573197,
+        "fnr": 0.12893012296590825,
+        "tp": 11830,
+        "fp": 6135,
+        "tn": 18422,
+        "fn": 1751
+      },
+      "val_at_0.5": {
+        "threshold": 0.5,
+        "f1": 0.7304449392269227,
+        "precision": 0.7242327735958309,
+        "recall": 0.7367645975995877,
+        "accuracy": 0.8063611096544129,
+        "roc_auc": 0.8909922183509879,
+        "pr_auc": 0.7923833222633961,
+        "fpr": 0.1551492446145702,
+        "fnr": 0.2632354024004123,
+        "tp": 10006,
+        "fp": 3810,
+        "tn": 20747,
+        "fn": 3575
+      },
+      "threshold_transfer": {
+        "cross_half_f1_mean": 0.7498170746515183,
+        "cross_half_f1": [
+          0.7454339337448042,
+          0.7542002155582325
+        ]
+      },
+      "calibration": {
+        "brier": 0.12921143178417843,
+        "ece": 0.014130407675409006
+      },
+      "errors_by_overlap": {
+        "jaccard<=0.2": {
+          "fpr": 0.05667038275733928,
+          "fnr": 0.31556319862424764,
+          "negatives": 10764,
+          "positives": 1163
+        },
+        "0.2-0.4": {
+          "fpr": 0.2548197820620285,
+          "fnr": 0.19822901992352582,
+          "negatives": 7158,
+          "positives": 4969
+        },
+        "0.4-0.6": {
+          "fpr": 0.5263157894736842,
+          "fnr": 0.08363813703974643,
+          "negatives": 3363,
+          "positives": 4101
+        },
+        ">0.6": {
+          "fpr": 0.590158924205379,
+          "fnr": 0.016726403823178027,
+          "negatives": 3272,
+          "positives": 3348
+        },
+        "fpr_entity_diff_overlap>0.6": 0.43087719298245614,
+        "fpr_entity_diff_overlap0.4-0.6": 0.30117647058823527,
+        "fpr_number_diff_overlap>0.6": 0.7466666666666667,
+        "fpr_number_diff_overlap0.4-0.6": 0.49107142857142855,
+        "fpr_negation_diff_overlap>0.6": 0.819672131147541,
+        "fpr_negation_diff_overlap0.4-0.6": 0.5497630331753555,
+        "fpr_any_constraint_diff_overlap>0.6": 0.4954075774971297,
+        "fpr_any_constraint_diff_overlap0.4-0.6": 0.3856
+      },
+      "confident_errors": {
+        "false_positives": [
+          {
+            "question1": "How can I change my Life?",
+            "question2": "How should I change my life entirely?",
+            "sbert_lr": 0.908,
+            "word_jaccard": 0.625
+          },
+          {
+            "question1": "How can I meditate more?",
+            "question2": "How do I meditate?",
+            "sbert_lr": 0.902,
+            "word_jaccard": 0.5
+          },
+          {
+            "question1": "How do I to meditate?",
+            "question2": "How can I meditate more?",
+            "sbert_lr": 0.9,
+            "word_jaccard": 0.429
+          },
+          {
+            "question1": "How can I stop using whatsapp?",
+            "question2": "How do I stop using WhatsApp?",
+            "sbert_lr": 0.896,
+            "word_jaccard": 0.714
+          },
+          {
+            "question1": "How should I start learning C++ effectively?",
+            "question2": "How can I start learning C++?",
+            "sbert_lr": 0.895,
+            "word_jaccard": 0.625
+          },
+          {
+            "question1": "What do people think about the Indian media?",
+            "question2": "As an Indian, what do you think about Indian media?",
+            "sbert_lr": 0.893,
+            "word_jaccard": 0.545
+          },
+          {
+            "question1": "What do you think about indian media?",
+            "question2": "As an Indian, what do you think about Indian media?",
+            "sbert_lr": 0.889,
+            "word_jaccard": 0.778
+          },
+          {
+            "question1": "How we can stop feeling?",
+            "question2": "How can one just stop feeling?",
+            "sbert_lr": 0.889,
+            "word_jaccard": 0.571
+          },
+          {
+            "question1": "What change you would bring to your country if you were given a chance to become Prime Minister or President?",
+            "question2": "What changes would you like to bring in your country if you were given a chance to become its prime minister/president?",
+            "sbert_lr": 0.889,
+            "word_jaccard": 0.727
+          },
+          {
+            "question1": "Why is India so hostile towards China?",
+            "question2": "Is China hostile towards India? Why?",
+            "sbert_lr": 0.887,
+            "word_jaccard": 0.857
+          }
+        ],
+        "false_negatives": [
+          {
+            "question1": "How do I join defence after graduation in mechanical engineer?",
+            "question2": "How do I join IAF after mbbs?",
+            "sbert_lr": 0.002,
+            "word_jaccard": 0.417
+          },
+          {
+            "question1": "Can a boy join the Indian armed forces after a BSc degree?",
+            "question2": "How do I join IAF after mbbs?",
+            "sbert_lr": 0.003,
+            "word_jaccard": 0.125
+          },
+          {
+            "question1": "What is the difference between \"at\" and \"on\" in the following sentences?",
+            "question2": "What is the difference between the following sentences with \"to\" and \"for\"?",
+            "sbert_lr": 0.004,
+            "word_jaccard": 0.571
+          },
+          {
+            "question1": "Why doesn't the last stage in Tour De France count for the entire competition?",
+            "question2": "Though ungentlemanly to attack the yellow jersey on the last stage of Tour de France, will the time actually count if the attack was successful?",
+            "sbert_lr": 0.005,
+            "word_jaccard": 0.25
+          },
+          {
+            "question1": "Why does my question need to be improved and how to improve it?",
+            "question2": "What happens to a Quora question noted as being in need of revision?",
+            "sbert_lr": 0.006,
+            "word_jaccard": 0.136
+          },
+          {
+            "question1": "How do you backup photos on iPhone but delete them from the device?",
+            "question2": "I need to clear off a computer. The photos on it are already in iCloud. Will deleting them off the computer also delete them from icloud?",
+            "sbert_lr": 0.007,
+            "word_jaccard": 0.214
+          },
+          {
+            "question1": "I have been selected in tech m.But in application form I selected EEE instead of ENTC.Can in create problem?",
+            "question2": "I have entered my 12 th percentage wrong in L&T ECC application form as 90.6 instead of 90.2 , will it create any problem?",
+            "sbert_lr": 0.008,
+            "word_jaccard": 0.281
+          },
+          {
+            "question1": "Should I drop a year after engineering for GATE preparation or join Infosys as a fresher?",
+            "question2": "Should i join TCS or drop a year and prepare for CAT?",
+            "sbert_lr": 0.008,
+            "word_jaccard": 0.421
+          },
+          {
+            "question1": "Should I drop a year after engineering for GATE preparation or join Infosys as a fresher?",
+            "question2": "Should I drop one year after BCA for MBA preparations?",
+            "sbert_lr": 0.009,
+            "word_jaccard": 0.316
+          },
+          {
+            "question1": "what can i do to become fair?",
+            "question2": "How can I become more white?",
+            "sbert_lr": 0.011,
+            "word_jaccard": 0.3
+          }
+        ]
+      }
+    },
+    "sbert_mlp": {
+      "tuned_threshold": 0.32,
+      "val_at_tuned_threshold": {
+        "threshold": 0.32,
+        "f1": 0.7710969429458885,
+        "precision": 0.6934838861444366,
+        "recall": 0.8682718503792063,
+        "accuracy": 0.8164298075410352,
+        "roc_auc": 0.9066313614919281,
+        "pr_auc": 0.8236736384040861,
+        "fpr": 0.21224090890581096,
+        "fnr": 0.13172814962079377,
+        "tp": 11792,
+        "fp": 5212,
+        "tn": 19345,
+        "fn": 1789
+      },
+      "val_at_0.5": {
+        "threshold": 0.5,
+        "f1": 0.7465409990574929,
+        "precision": 0.7649103831891224,
+        "recall": 0.7290332081584566,
+        "accuracy": 0.8237191252818711,
+        "roc_auc": 0.9066313614919281,
+        "pr_auc": 0.8236736384040861,
+        "fpr": 0.1239157877590911,
+        "fnr": 0.2709667918415433,
+        "tp": 9901,
+        "fp": 3043,
+        "tn": 21514,
+        "fn": 3680
+      },
+      "threshold_transfer": {
+        "cross_half_f1_mean": 0.7707212297457409,
+        "cross_half_f1": [
+          0.7660735160410443,
+          0.7753689434504375
+        ]
+      },
+      "calibration": {
+        "brier": 0.11982489810060398,
+        "ece": 0.024027818905712015
+      },
+      "errors_by_overlap": {
+        "jaccard<=0.2": {
+          "fpr": 0.05555555555555555,
+          "fnr": 0.2785898538263113,
+          "negatives": 10764,
+          "positives": 1163
+        },
+        "0.2-0.4": {
+          "fpr": 0.23847443419949707,
+          "fnr": 0.1881666331253773,
+          "negatives": 7158,
+          "positives": 4969
+        },
+        "0.4-0.6": {
+          "fpr": 0.45108534046981863,
+          "fnr": 0.09436722750548643,
+          "negatives": 3363,
+          "positives": 4101
+        },
+        ">0.6": {
+          "fpr": 0.4248166259168704,
+          "fnr": 0.04271206690561524,
+          "negatives": 3272,
+          "positives": 3348
+        },
+        "fpr_entity_diff_overlap>0.6": 0.216140350877193,
+        "fpr_entity_diff_overlap0.4-0.6": 0.24235294117647058,
+        "fpr_number_diff_overlap>0.6": 0.47,
+        "fpr_number_diff_overlap0.4-0.6": 0.375,
+        "fpr_negation_diff_overlap>0.6": 0.7213114754098361,
+        "fpr_negation_diff_overlap0.4-0.6": 0.44075829383886256,
+        "fpr_any_constraint_diff_overlap>0.6": 0.27210103329506313,
+        "fpr_any_constraint_diff_overlap0.4-0.6": 0.3024
+      },
+      "confident_errors": {
+        "false_positives": [
+          {
+            "question1": "How did non-Americans react upon hearing about the 9/11?",
+            "question2": "How did non-Americans react upon hearing about 9/11?",
+            "sbert_mlp": 0.977,
+            "word_jaccard": 0.909
+          },
+          {
+            "question1": "I have read lots of books but forgotten most of them.What's the purpose of reading?",
+            "question2": "I have read lots of books but forgotten most of them. What's the purpose of reading?",
+            "sbert_mlp": 0.973,
+            "word_jaccard": 1.0
+          },
+          {
+            "question1": "How can I stop using whatsapp?",
+            "question2": "How do I stop using WhatsApp?",
+            "sbert_mlp": 0.969,
+            "word_jaccard": 0.714
+          },
+          {
+            "question1": "What are the best ways to forget the past?",
+            "question2": "How can one forget the past?",
+            "sbert_mlp": 0.966,
+            "word_jaccard": 0.273
+          },
+          {
+            "question1": "Is there a book like The 33 Strategies of War that covers a wide variety of the major political conspiracies, plots and scheming in human history?",
+            "question2": "Is there a book like The 33 strategies of WAR that covers all of the major political conspiracies, plots and scheming in human history?",
+            "sbert_mlp": 0.963,
+            "word_jaccard": 0.875
+          },
+          {
+            "question1": "Why is India so hostile towards China?",
+            "question2": "Is China hostile towards India? Why?",
+            "sbert_mlp": 0.963,
+            "word_jaccard": 0.857
+          },
+          {
+            "question1": "What parts should I upgrade on my PC?",
+            "question2": "What part should I upgrade on my PC?",
+            "sbert_mlp": 0.959,
+            "word_jaccard": 0.778
+          },
+          {
+            "question1": "How should I start learning C++ effectively?",
+            "question2": "How can I start learning C++?",
+            "sbert_mlp": 0.955,
+            "word_jaccard": 0.625
+          },
+          {
+            "question1": "Which smartphone has the best camera?",
+            "question2": "What is the smartphone with the best camera?",
+            "sbert_mlp": 0.955,
+            "word_jaccard": 0.444
+          },
+          {
+            "question1": "Why didn\u2019t TATA manufacture a highly secured Jaguar/Landrover for PM Narendra Modi? Why does PM still have to use foreign brand car like a BMW?",
+            "question2": "Why didn\u2019t TATA manufacture a highly secured Jaguar/Landrover for PM Narendra Modi ? Why PM still have to use foreign brand car like a BMW ?",
+            "sbert_mlp": 0.955,
+            "word_jaccard": 0.958
+          }
+        ],
+        "false_negatives": [
+          {
+            "question1": "What is the difference between \"at\" and \"on\" in the following sentences?",
+            "question2": "What is the difference between the following sentences with \"to\" and \"for\"?",
+            "sbert_mlp": 0.0,
+            "word_jaccard": 0.571
+          },
+          {
+            "question1": "Are there any other straight men diagnosed with histrionic personality disorder?",
+            "question2": "Why are women three times more likely than men to be diagnosed with borderline personality disorder?",
+            "sbert_mlp": 0.0,
+            "word_jaccard": 0.286
+          },
+          {
+            "question1": "Why do we keep on mainstreaming our lives?",
+            "question2": "Do we have to keep track of everything in our lives? And why?",
+            "sbert_mlp": 0.0,
+            "word_jaccard": 0.4
+          },
+          {
+            "question1": "How can I hack what's app messages using IMIE?",
+            "question2": "Is there any way to hack WhatsApp using web.whatsapp?",
+            "sbert_mlp": 0.001,
+            "word_jaccard": 0.125
+          },
+          {
+            "question1": "Why doesn't the last stage in Tour De France count for the entire competition?",
+            "question2": "Though ungentlemanly to attack the yellow jersey on the last stage of Tour de France, will the time actually count if the attack was successful?",
+            "sbert_mlp": 0.001,
+            "word_jaccard": 0.25
+          },
+          {
+            "question1": "Should I drop a year after engineering for GATE preparation or join Infosys as a fresher?",
+            "question2": "Should I drop one year after BCA for MBA preparations?",
+            "sbert_mlp": 0.001,
+            "word_jaccard": 0.316
+          },
+          {
+            "question1": "What does super or ultra super critical technology mean?",
+            "question2": "What is super critical boiler?",
+            "sbert_mlp": 0.001,
+            "word_jaccard": 0.3
+          },
+          {
+            "question1": "How do web apps with lots of users developed with Ruby on Rails perform?",
+            "question2": "Does Ruby on Rails scale?",
+            "sbert_mlp": 0.001,
+            "word_jaccard": 0.2
+          },
+          {
+            "question1": "Why does my question need to be improved and how to improve it?",
+            "question2": "What happens to a Quora question noted as being in need of revision?",
+            "sbert_mlp": 0.001,
+            "word_jaccard": 0.136
+          },
+          {
+            "question1": "Should I drop a year after engineering for GATE preparation or join Infosys as a fresher?",
+            "question2": "Should I drop one year after my BBA for CAT preparation?",
+            "sbert_mlp": 0.002,
+            "word_jaccard": 0.368
+          }
+        ]
+      }
+    }
+  },
+  "vs_phase2_baseline": {
+    "siamese_bilstm": {
+      "fixed": {
+        "n": 2935,
+        "false_negatives_among": 1140,
+        "false_positives_among": 1795,
+        "median_jaccard": 0.4,
+        "examples_positives": [
+          {
+            "question1": "How do you teach your child to handle bullies?",
+            "question2": "How can a highly disciplined child handle a bully?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.3,
+            "siamese_bilstm": 0.862
+          },
+          {
+            "question1": "How can I manage money?",
+            "question2": "What are some good ways of managing your money?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.123,
+            "siamese_bilstm": 0.716
+          },
+          {
+            "question1": "How should I convince a startup investor that he should invest in my idea?",
+            "question2": "How can I invite investors to invest money for my idea?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.284,
+            "siamese_bilstm": 0.903
+          },
+          {
+            "question1": "How do you organize your clothes closet?",
+            "question2": "What is the best way to organize my closet?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.224,
+            "siamese_bilstm": 0.57
+          },
+          {
+            "question1": "Why are Google investing in 'Google Loon' communication balloons instead of satellites?",
+            "question2": "Why did Google use weather balloon instead of satellites?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.238,
+            "siamese_bilstm": 0.632
+          },
+          {
+            "question1": "How do I avoid watching porn?",
+            "question2": "How do I stop addiction to porn?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.259,
+            "siamese_bilstm": 0.628
+          },
+          {
+            "question1": "I don't know what I want to do with my life. Every day, week or month I want to do something different. What should I do?",
+            "question2": "What if I don't know what I want to do with my life?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.141,
+            "siamese_bilstm": 0.827
+          },
+          {
+            "question1": "Which questions should I ask on the first date with a girl for an arranged marriage?",
+            "question2": "What questions should I not ask a girl during an arranged marriage meeting or on a first date?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.234,
+            "siamese_bilstm": 0.815
+          }
+        ],
+        "examples_negatives": [
+          {
+            "question1": "What do prokaryote do with macromolecules?",
+            "question2": "What is the macromolecules?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.437,
+            "siamese_bilstm": 0.349
+          },
+          {
+            "question1": "What is the temperament of a Pitbull Pomeranian mix?",
+            "question2": "What is the temperament of a Lab/Pitbull mix?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.342,
+            "siamese_bilstm": 0.162
+          },
+          {
+            "question1": "How do I improve my skin texture?",
+            "question2": "How can I improve my skin tone?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.467,
+            "siamese_bilstm": 0.146
+          },
+          {
+            "question1": "Who qualifies to be a top developer on Google Play Store?",
+            "question2": "How developers get paid for putting free apps on the Google Play Store?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.357,
+            "siamese_bilstm": 0.53
+          },
+          {
+            "question1": "Which language would you choose to be your second language and why?",
+            "question2": "If you have the power to start your life again, which year will you choose and why?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.464,
+            "siamese_bilstm": 0.487
+          },
+          {
+            "question1": "How do I unlink Facebook from my Instagram?",
+            "question2": "How can I link my Instagram to my Facebook?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.464,
+            "siamese_bilstm": 0.456
+          },
+          {
+            "question1": "What character in the Big Bang Theory is actually the smartest?",
+            "question2": "Who is the best character on The Big Bang Theory?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.357,
+            "siamese_bilstm": 0.517
+          },
+          {
+            "question1": "What will be the biggest mobile app design trends in 2017?",
+            "question2": "What will be the biggest mobile app design trends in 2016?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.527,
+            "siamese_bilstm": 0.089
+          }
+        ]
+      },
+      "broken": {
+        "n": 2858,
+        "false_negatives_among": 1108,
+        "false_positives_among": 1750,
+        "median_jaccard": 0.3636363636363636,
+        "examples_positives": [
+          {
+            "question1": "How can I get rid of blackheads?",
+            "question2": "I have alot of blackheads on my nose, how do I get rid of them?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.663,
+            "siamese_bilstm": 0.467
+          },
+          {
+            "question1": "What does a document analyst do?",
+            "question2": "What does a documention analyst do?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.612,
+            "siamese_bilstm": 0.173
+          },
+          {
+            "question1": "Can chihuahuas eat peanuts? Why or why not?",
+            "question2": "Is it safe for dogs to eat peanuts?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.504,
+            "siamese_bilstm": 0.555
+          },
+          {
+            "question1": "How can green tea help you reduce belly fat?",
+            "question2": "Does green chai tea assist with weight loss?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.334,
+            "siamese_bilstm": 0.206
+          },
+          {
+            "question1": "Can someone download a whole playlist from YouTube?",
+            "question2": "How do I add videos from youtube to a playlist and then download that playlist?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.395,
+            "siamese_bilstm": 0.159
+          },
+          {
+            "question1": "What are the best ways to learn web development for free?",
+            "question2": "What is the best way to learn web development?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.82,
+            "siamese_bilstm": 0.515
+          },
+          {
+            "question1": "I am interested in deep learning and robotics. How should I get started in this field?",
+            "question2": "I am in Mechanical Department and I am highly interested in Robotics, but where should I start learning from?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.456,
+            "siamese_bilstm": 0.421
+          },
+          {
+            "question1": "Many people say Islam is a religion of peace. Do you agree or disagree?",
+            "question2": "Is Islam really a religion of peace?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.452,
+            "siamese_bilstm": 0.459
+          }
+        ],
+        "examples_negatives": [
+          {
+            "question1": "What are some lesser-known facts about the IPL?",
+            "question2": "What are some of the lesser known facts about IPL fixing?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.261,
+            "siamese_bilstm": 0.906
+          },
+          {
+            "question1": "What is the scope of BMC remedy tool?",
+            "question2": "What is the scope of BMC Remedy?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.295,
+            "siamese_bilstm": 0.956
+          },
+          {
+            "question1": "Why women over 40 can't lose weight?",
+            "question2": "Why don't people who are so overweight they can barely move have a greater interest in losing weight?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.158,
+            "siamese_bilstm": 0.664
+          },
+          {
+            "question1": "If you had to hit a person, whom would you hit?",
+            "question2": "If you had a chance to slap a celebrity, who would it be and why?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.263,
+            "siamese_bilstm": 0.87
+          },
+          {
+            "question1": "How do I update my Microsoft account payment information?",
+            "question2": "How do I updates my Microsoft account?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.185,
+            "siamese_bilstm": 0.62
+          },
+          {
+            "question1": "In one sentence, can you give a good reason why Quora should not auto-collapse short answers?",
+            "question2": "Why does Quora collapse short answers though they are relevant?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.313,
+            "siamese_bilstm": 0.663
+          },
+          {
+            "question1": "What is the best thing about being a teacher?",
+            "question2": "What's the best thing about being an Indonesian?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.132,
+            "siamese_bilstm": 0.642
+          },
+          {
+            "question1": "Does alcohol increase my depression?",
+            "question2": "Does alcohol increase anxiety?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.268,
+            "siamese_bilstm": 0.935
+          }
+        ]
+      }
+    },
+    "sbert_cosine": {
+      "fixed": {
+        "n": 3660,
+        "false_negatives_among": 1706,
+        "false_positives_among": 1954,
+        "median_jaccard": 0.3636363636363636,
+        "examples_positives": [
+          {
+            "question1": "Do I look more accurate in a mirror or picture?",
+            "question2": "Is a mirror reflection or photograph a more accurate interpretation of the way a person looks?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.143,
+            "sbert_cosine": 0.833
+          },
+          {
+            "question1": "What do I need to check before buying a leather jacket for a guy?",
+            "question2": "What should I watch for when buying a leather jacket?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.28,
+            "sbert_cosine": 0.787
+          },
+          {
+            "question1": "Is it possible to date a Brit if I live in New York?",
+            "question2": "Is dating a Brit in NYC a possible thing to do?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.065,
+            "sbert_cosine": 0.896
+          },
+          {
+            "question1": "What was your reaction to Rogue One: A Star Wars Story (Happy, Ambivalent, and/or Angry)?",
+            "question2": "Did you enjoy \u201cRogue One: A Star Wars Story\u201d?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.255,
+            "sbert_cosine": 0.803
+          },
+          {
+            "question1": "Can someone yawn or sneeze while he is asleep?",
+            "question2": "Do we sneeze while sleeping?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.106,
+            "sbert_cosine": 0.811
+          },
+          {
+            "question1": "I am working on a web development. Which server side scripting language is best for it?",
+            "question2": "What are best languages for server side programming?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.11,
+            "sbert_cosine": 0.845
+          },
+          {
+            "question1": "Why should cigarettes not be banned?",
+            "question2": "Why is smoking cigarettes still legal?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.08,
+            "sbert_cosine": 0.817
+          },
+          {
+            "question1": "Who is better, Randy Orton or Brock Lesnar?",
+            "question2": "Will Brock Lesnar win against Randy Orton in WWE Summerslam 2016?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.108,
+            "sbert_cosine": 0.763
+          }
+        ],
+        "examples_negatives": [
+          {
+            "question1": "How does a first kiss feel?",
+            "question2": "How do I have my first kiss?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.346,
+            "sbert_cosine": 0.694
+          },
+          {
+            "question1": "Why shouldn't we vote for Donald Trump?",
+            "question2": "Are there any legitimate reasons why one would vote for Donald Trump?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.801,
+            "sbert_cosine": 0.758
+          },
+          {
+            "question1": "What is the difference between x265 & x264 video coding? Which is advantageous?",
+            "question2": "What is the difference between a time-lapse and a speed up video?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.35,
+            "sbert_cosine": 0.421
+          },
+          {
+            "question1": "What does 1.61k views mean in Quora?",
+            "question2": "What does Quora mean by a view?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.821,
+            "sbert_cosine": 0.687
+          },
+          {
+            "question1": "Has anyone used real estate crowdfunding?",
+            "question2": "What are some examples of commercial real estate crowdfunding?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.379,
+            "sbert_cosine": 0.713
+          },
+          {
+            "question1": "What are your thoughts about imaginary vs real time as Stephen Hawking describes?",
+            "question2": "What is Stephen Hawking's imaginary time?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.504,
+            "sbert_cosine": 0.752
+          },
+          {
+            "question1": "What are the best photographs?",
+            "question2": "What are the best photographs of cars?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.639,
+            "sbert_cosine": 0.757
+          },
+          {
+            "question1": "How do I get a guy?",
+            "question2": "How do you get a guy to take you seriously?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.665,
+            "sbert_cosine": 0.531
+          }
+        ]
+      },
+      "broken": {
+        "n": 3908,
+        "false_negatives_among": 1088,
+        "false_positives_among": 2820,
+        "median_jaccard": 0.3636363636363636,
+        "examples_positives": [
+          {
+            "question1": "What are your views on India banning 500 and 1000 notes? In what way it will affect Indian economy?",
+            "question2": "What can be the possible effects of removing 500 and 1000 rupee currency notes?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.943,
+            "sbert_cosine": 0.76
+          },
+          {
+            "question1": "Do running increase your height?",
+            "question2": "Can skipping increase my height?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.899,
+            "sbert_cosine": 0.637
+          },
+          {
+            "question1": "Are U.S. Elections rigged? Will my vote count?",
+            "question2": "Can anyone prove that the 2016 U.S. Presidential election is not rigged?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.38,
+            "sbert_cosine": 0.693
+          },
+          {
+            "question1": "How do you arrange a marriage with a rich woman?",
+            "question2": "How can I get a rich woman?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.387,
+            "sbert_cosine": 0.759
+          },
+          {
+            "question1": "What are the pros and cons of the Industrial Revolution?",
+            "question2": "What were the results of the Industrial Revolution?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.673,
+            "sbert_cosine": 0.748
+          },
+          {
+            "question1": "What can be the reasons for discontinuation of 500 and 1000 rupee notes? What can be the future effects of it?",
+            "question2": "What effect will the rupee 500 and 1000 currency note ban have on the Indian economy?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.917,
+            "sbert_cosine": 0.732
+          },
+          {
+            "question1": "What the purpose of life on earth?",
+            "question2": "What do you feel is your purpose in life?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.826,
+            "sbert_cosine": 0.716
+          },
+          {
+            "question1": "Do you think Donald Trump or Hillary Clinton will be the next president of the US?",
+            "question2": "How's the outlook for Donald Trump looking at becoming our next president?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.622,
+            "sbert_cosine": 0.595
+          }
+        ],
+        "examples_negatives": [
+          {
+            "question1": "What is 7Up?",
+            "question2": "Why is 7up called 7up?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.115,
+            "sbert_cosine": 0.909
+          },
+          {
+            "question1": "What is the Personal Property Security Act and how is Nova Scotia's different from Saskatchewan's?",
+            "question2": "What is the Personal Property Security Act and how is Nova Scotia's different from the Northwest Territory's?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.211,
+            "sbert_cosine": 0.923
+          },
+          {
+            "question1": "What does error code 80710723 mean on PS3 and what is the easiest way to fix it?",
+            "question2": "How do you fix the error code 80710A06 on a PS3?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.183,
+            "sbert_cosine": 0.942
+          },
+          {
+            "question1": "Why doesn't depression lower your IQ?",
+            "question2": "Does your IQ drop while you're going through depression?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.123,
+            "sbert_cosine": 0.832
+          },
+          {
+            "question1": "What is a suitable inpatient drug and alcohol rehab center near Brunswick County NC?",
+            "question2": "What is a suitable inpatient drug and alcohol rehab center near Dare County NC?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.141,
+            "sbert_cosine": 0.946
+          },
+          {
+            "question1": "Can I change board to CBSE board in 11th and 12th if I studied 10th in state board?",
+            "question2": "Can I change board from 11th state to 12th CBSE?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.152,
+            "sbert_cosine": 0.948
+          },
+          {
+            "question1": "Can sugar be cocaine?",
+            "question2": "Is brown sugar and cocaine the same thing?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.112,
+            "sbert_cosine": 0.81
+          },
+          {
+            "question1": "What are some interesting life hacks?",
+            "question2": "What are the best life hacks with everyday objects?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.315,
+            "sbert_cosine": 0.774
+          }
+        ]
+      }
+    },
+    "sbert_lr": {
+      "fixed": {
+        "n": 3840,
+        "false_negatives_among": 1701,
+        "false_positives_among": 2139,
+        "median_jaccard": 0.375,
+        "examples_positives": [
+          {
+            "question1": "Do I look more accurate in a mirror or picture?",
+            "question2": "Is a mirror reflection or photograph a more accurate interpretation of the way a person looks?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.143,
+            "sbert_lr": 0.607
+          },
+          {
+            "question1": "Why do advertisements often use the time 10:10 on clocks and watches?",
+            "question2": "Why all clocks shows 10:10 timing in advertisements?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.11,
+            "sbert_lr": 0.636
+          },
+          {
+            "question1": "Why do we get a runny nose when we eat something spicy?",
+            "question2": "Why do we get runny noses when we eat spicy food?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.302,
+            "sbert_lr": 0.805
+          },
+          {
+            "question1": "How semaphore and mutex are implemented?",
+            "question2": "What is mutex implementation?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.094,
+            "sbert_lr": 0.473
+          },
+          {
+            "question1": "Why does Quora collapse short answers though they are relevant?",
+            "question2": "Why does Quora collapse short answers, which are at times the perfect ones that convey the message in a few words?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.294,
+            "sbert_lr": 0.473
+          },
+          {
+            "question1": "What is the meaning of my life?",
+            "question2": "What is the meaning of \"Life\"?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.193,
+            "sbert_lr": 0.528
+          },
+          {
+            "question1": "If a police officer wrongly arrested someone based on false testimony could the department be sued?",
+            "question2": "How do you sue a police officer for false arrest?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.058,
+            "sbert_lr": 0.369
+          },
+          {
+            "question1": "What are some visible signs of pregnancy?",
+            "question2": "What are the common first signs of pregnancy? How can I tell if I'm pregnant? What are the symptoms?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.31,
+            "sbert_lr": 0.481
+          }
+        ],
+        "examples_negatives": [
+          {
+            "question1": "How can one join DRDO?",
+            "question2": "How can I join DRDO being nanotechnologist?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.355,
+            "sbert_lr": 0.091
+          },
+          {
+            "question1": "How important is SEO?",
+            "question2": "How important is consistency for SEO?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.559,
+            "sbert_lr": 0.063
+          },
+          {
+            "question1": "What is Stephen Hawking's imaginary time?",
+            "question2": "What is the meaning of Stephen Hawking's book \"A Brief History of Time\"",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.537,
+            "sbert_lr": 0.327
+          },
+          {
+            "question1": "Do you believe in the Illuminati?",
+            "question2": "Conspiracy Theories: Why do people believe in the Illuminati?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.643,
+            "sbert_lr": 0.208
+          },
+          {
+            "question1": "How do I pass time in Office?",
+            "question2": "What are the best ways to pass time in the office if you are on bench or don't have any work?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.394,
+            "sbert_lr": 0.285
+          },
+          {
+            "question1": "Why did Quora delete my account?",
+            "question2": "Why doesn't Quora delete troll accounts?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.764,
+            "sbert_lr": 0.217
+          },
+          {
+            "question1": "Why specifically did MySpace fall so fast and so far?",
+            "question2": "Why did Myspace become unpopular?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.393,
+            "sbert_lr": 0.267
+          },
+          {
+            "question1": "How can we calculate GDP GROWTH?",
+            "question2": "How can GST add to 1% GDP growth?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.394,
+            "sbert_lr": 0.194
+          }
+        ]
+      },
+      "broken": {
+        "n": 3507,
+        "false_negatives_among": 976,
+        "false_positives_among": 2531,
+        "median_jaccard": 0.3529411764705882,
+        "examples_positives": [
+          {
+            "question1": "How healthy is Lipton's bottled citrus green tea? Is it useful for losing weight?",
+            "question2": "Does green tea really help in losing weight?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.519,
+            "sbert_lr": 0.32
+          },
+          {
+            "question1": "Do running increase your height?",
+            "question2": "Can skipping increase my height?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.899,
+            "sbert_lr": 0.119
+          },
+          {
+            "question1": "Does green tea really reduces weight?",
+            "question2": "How does green tea burn belly fat?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.568,
+            "sbert_lr": 0.232
+          },
+          {
+            "question1": "What's the best plan to lose weight?",
+            "question2": "How can I lose 4kg weight?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.831,
+            "sbert_lr": 0.105
+          },
+          {
+            "question1": "Why is Quora mostly questions about one's level of beauty now? Is Quora dead?",
+            "question2": "Why is my news feed on Quora mostly about superficial questions about beauty?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.441,
+            "sbert_lr": 0.15
+          },
+          {
+            "question1": "Can I earn money on Quora?",
+            "question2": "What is the best way to make money on Quora?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.871,
+            "sbert_lr": 0.293
+          },
+          {
+            "question1": "Does the freelancing website addanyproject provide fake leads?",
+            "question2": "Can you provide me the list of freelancing websites?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.393,
+            "sbert_lr": 0.014
+          },
+          {
+            "question1": "What are the chances of ww3?",
+            "question2": "Are we on the verge of WW3?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.556,
+            "sbert_lr": 0.321
+          }
+        ],
+        "examples_negatives": [
+          {
+            "question1": "My laptop is not connecting to any wi-fi network, not even to my mobile hotspot. What should I do?",
+            "question2": "Why doesn't my laptop connect to Wi-Fi networks?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.18,
+            "sbert_lr": 0.477
+          },
+          {
+            "question1": "Where do I find an investor who would invest in a business plan and idea?",
+            "question2": "Where can I find investors if I have a good Idea?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.295,
+            "sbert_lr": 0.502
+          },
+          {
+            "question1": "How do tequila and rum differ from each other?",
+            "question2": "What's the difference among whiskey, rum, vodka, tequila, etc?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.031,
+            "sbert_lr": 0.487
+          },
+          {
+            "question1": "What are the different stages in startup funding?",
+            "question2": "What is the hiring strategy difference for a startup in different funding stages?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.229,
+            "sbert_lr": 0.348
+          },
+          {
+            "question1": "How do I convert between percentages, decimals and fractions?",
+            "question2": "How do you convert fractions to decimals?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.284,
+            "sbert_lr": 0.477
+          },
+          {
+            "question1": "Hinduism: Why are dead Hindu children buried instead of cremated?",
+            "question2": "According to Hindu rituals, why are the married adults and some unmarried teenagers cremated (burnt) while the unmarried (saints & babies) buried after they die?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.103,
+            "sbert_lr": 0.441
+          },
+          {
+            "question1": "What is the best way to estimate?",
+            "question2": "How can I estimate myself?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.196,
+            "sbert_lr": 0.587
+          },
+          {
+            "question1": "What does it feel like to be in a coma?",
+            "question2": "Are you conscious during a coma?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.032,
+            "sbert_lr": 0.377
+          }
+        ]
+      }
+    },
+    "sbert_mlp": {
+      "fixed": {
+        "n": 4255,
+        "false_negatives_among": 1658,
+        "false_positives_among": 2597,
+        "median_jaccard": 0.4,
+        "examples_positives": [
+          {
+            "question1": "Where can I get expert interior house painters in Brisbane?",
+            "question2": "Where can I get finest residential painting job in Brisbane?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.113,
+            "sbert_mlp": 0.374
+          },
+          {
+            "question1": "Porn addiction: I want to quit watching porn and masturbate. How do I stop it and not feeling empty?",
+            "question2": "My father caught me watching porn again. I want to quit it. Is there an easy or rather any way?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.171,
+            "sbert_mlp": 0.395
+          },
+          {
+            "question1": "What advice would you give a 17 year old girl?",
+            "question2": "What advice would you give to a newly turned 17-year-old girl?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.309,
+            "sbert_mlp": 0.718
+          },
+          {
+            "question1": "Austan Goolsbee: Has Barack Obama improved the United States economy over the past 8 years and if yes, to what degree?",
+            "question2": "Obama has presided over the American economy for 8 years. Is the American economy booming?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.102,
+            "sbert_mlp": 0.321
+          },
+          {
+            "question1": "What are some famous flute songs?",
+            "question2": "What is some famous flute music?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.299,
+            "sbert_mlp": 0.928
+          },
+          {
+            "question1": "What is so bad about genetically modified crops?",
+            "question2": "Genetically Modified Foods: What are some concerns with GMOs?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.303,
+            "sbert_mlp": 0.518
+          },
+          {
+            "question1": "Is watching porn a sin?",
+            "question2": "Is watching porn bad during your college life?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.18,
+            "sbert_mlp": 0.326
+          },
+          {
+            "question1": "How is Cengage Books for JEE Advanced?",
+            "question2": "Are the cengage books for math and phy good enough for JEE advanced 2017?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.31,
+            "sbert_mlp": 0.328
+          }
+        ],
+        "examples_negatives": [
+          {
+            "question1": "What is climate and weather?",
+            "question2": "How is the climate and weather predicted?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.384,
+            "sbert_mlp": 0.205
+          },
+          {
+            "question1": "What is the difference between logical thinking and logical reasoning? Are they interchangeable?",
+            "question2": "What is the difference between logic and reason?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.385,
+            "sbert_mlp": 0.228
+          },
+          {
+            "question1": "Is 6.126 rational?",
+            "question2": "Is anyone out there rational?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.406,
+            "sbert_mlp": 0.013
+          },
+          {
+            "question1": "How can one reduce IgE level naturally?",
+            "question2": "How do I increase my oestrogen level naturally?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.672,
+            "sbert_mlp": 0.035
+          },
+          {
+            "question1": "What causes the energy losses in a centrifugal pump?",
+            "question2": "What is a centrifugal pump?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.438,
+            "sbert_mlp": 0.163
+          },
+          {
+            "question1": "How can I prepare for the JEE exam? Which material should I prefer?",
+            "question2": "How can I prepare for the CAPM certification exam? What are the best study materials?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.428,
+            "sbert_mlp": 0.012
+          },
+          {
+            "question1": "Which company provides the best SEO and SMO services in India?",
+            "question2": "What company provides the best SEO services in India?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.896,
+            "sbert_mlp": 0.158
+          },
+          {
+            "question1": "What reputation do Brown CS grads have among Stanford and MIT grads?",
+            "question2": "What reputation do Berkeley CS grads have among Stanford and MIT grads?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.349,
+            "sbert_mlp": 0.205
+          }
+        ]
+      },
+      "broken": {
+        "n": 3037,
+        "false_negatives_among": 971,
+        "false_positives_among": 2066,
+        "median_jaccard": 0.3333333333333333,
+        "examples_positives": [
+          {
+            "question1": "What is your question today?",
+            "question2": "What questions did you ask today?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.735,
+            "sbert_mlp": 0.042
+          },
+          {
+            "question1": "How can I monitor my girlfriend WhatsApp?",
+            "question2": "How do I hack WhatsApp?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.451,
+            "sbert_mlp": 0.016
+          },
+          {
+            "question1": "What are some good pyschological movies?",
+            "question2": "What are some of the best psychological movies?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.798,
+            "sbert_mlp": 0.231
+          },
+          {
+            "question1": "Does Quora means\" question or answer\"?",
+            "question2": "What Quora mean?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.401,
+            "sbert_mlp": 0.253
+          },
+          {
+            "question1": "Why don't Republicans believe in climate change?",
+            "question2": "Why does the right-wing often deny climate change?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.438,
+            "sbert_mlp": 0.079
+          },
+          {
+            "question1": "Can India be a corruption free country?",
+            "question2": "What I can do for corruption free India?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.583,
+            "sbert_mlp": 0.121
+          },
+          {
+            "question1": "What were the goals of the Federalists?",
+            "question2": "What were some of the Federalist ideas?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.553,
+            "sbert_mlp": 0.293
+          },
+          {
+            "question1": "What\u2019s some advice for a 18-year-old solo female traveller?",
+            "question2": "Do you have any tips for solo female travellers?",
+            "is_duplicate": 1,
+            "lr_tfidf_pair_lexical": 0.61,
+            "sbert_mlp": 0.2
+          }
+        ],
+        "examples_negatives": [
+          {
+            "question1": "How can I solve this maths problem?",
+            "question2": "How do I solve this math problem?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.316,
+            "sbert_mlp": 0.359
+          },
+          {
+            "question1": "What is the pay based on for YouTube? Is it the number of subscribers?",
+            "question2": "How much does YouTube pay per subscriber?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.03,
+            "sbert_mlp": 0.527
+          },
+          {
+            "question1": "Which is better i5-7th generation or i7-6th generation?",
+            "question2": "Which is better 4th generation i7 or 6th generation i5?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.133,
+            "sbert_mlp": 0.39
+          },
+          {
+            "question1": "Which is the best IT company?",
+            "question2": "Which IT company is the best for a fresher?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.307,
+            "sbert_mlp": 0.437
+          },
+          {
+            "question1": "What are the good universities in europe for studying MA in finance?",
+            "question2": "Where can I study MA in Finance for free in Europe?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.156,
+            "sbert_mlp": 0.422
+          },
+          {
+            "question1": "Is being an introvert similar to being lazy?",
+            "question2": "Do introverts think they are little bit lazy compared to their extrovert counterparts?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.081,
+            "sbert_mlp": 0.634
+          },
+          {
+            "question1": "I know a girl likes me but how do I start conversation?",
+            "question2": "What are some of the best ways to start a conversation with a girl?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.288,
+            "sbert_mlp": 0.633
+          },
+          {
+            "question1": "How do I stop feeling sad?",
+            "question2": "How do i stop feeling depressed?",
+            "is_duplicate": 0,
+            "lr_tfidf_pair_lexical": 0.192,
+            "sbert_mlp": 0.614
+          }
+        ]
+      }
+    }
+  },
+  "bootstrap_vs_phase2_baseline": {
+    "siamese_bilstm": {
+      "delta_f1_mean": 0.0024043457361316092,
+      "delta_f1_ci95": [
+        -0.002335631144800296,
+        0.006856256302055194
+      ],
+      "delta_pr_auc_mean": 0.0024791200144022216,
+      "delta_pr_auc_ci95": [
+        -0.0036645537091211126,
+        0.008245217673420147
+      ],
+      "p_new_f1_not_better": 0.167,
+      "n_boot": 1000
+    },
+    "sbert_cosine": {
+      "delta_f1_mean": 0.00487927108656529,
+      "delta_f1_ci95": [
+        -0.0005729563821537414,
+        0.010082333885689434
+      ],
+      "delta_pr_auc_mean": -0.006020239356575676,
+      "delta_pr_auc_ci95": [
+        -0.013889723363590664,
+        0.0016937415014913965
+      ],
+      "p_new_f1_not_better": 0.041,
+      "n_boot": 1000
+    },
+    "sbert_lr": {
+      "delta_f1_mean": 0.020305067795869405,
+      "delta_f1_ci95": [
+        0.014966224918409158,
+        0.02523292292323715
+      ],
+      "delta_pr_auc_mean": 0.02185301586157273,
+      "delta_pr_auc_ci95": [
+        0.01442047858183219,
+        0.029276447167829203
+      ],
+      "p_new_f1_not_better": 0.0,
+      "n_boot": 1000
+    },
+    "sbert_mlp": {
+      "delta_f1_mean": 0.04130662262190246,
+      "delta_f1_ci95": [
+        0.035804591966110744,
+        0.04696898294862911
+      ],
+      "delta_pr_auc_mean": 0.05307213318932165,
+      "delta_pr_auc_ci95": [
+        0.045646342671023354,
+        0.05994717745227367
+      ],
+      "p_new_f1_not_better": 0.0,
+      "n_boot": 1000
+    }
+  },
+  "phase2_bar": {
+    "f1": 0.73,
+    "pr_auc": 0.771
+  },
+  "latency_size": {
+    "lr_tfidf_pair_lexical": {
+      "single_pair_ms_median": 2.6748000000225147,
+      "single_pair_ms_p95": 6.760760002180175,
+      "batch_ms_per_pair": 0.13833764999981213,
+      "size_mb": 7.7,
+      "parameters": 713057
+    },
+    "siamese_bilstm": {
+      "single_pair_ms_median": 3.820250001808745,
+      "single_pair_ms_p95": 8.472494998386528,
+      "batch_ms_per_pair": 0.3273666499990213,
+      "size_mb": 35.8,
+      "parameters": 9091561
+    },
+    "sbert_cosine": {
+      "single_pair_ms_median": 24.86895000038203,
+      "single_pair_ms_p95": 38.65537499732452,
+      "batch_ms_per_pair": 6.225848149999365,
+      "size_mb": 86.6,
+      "parameters": 22713216
+    },
+    "sbert_lr": {
+      "single_pair_ms_median": 26.07519999946817,
+      "single_pair_ms_p95": 32.11010499908298,
+      "batch_ms_per_pair": 6.109980450000876,
+      "size_mb": 86.6,
+      "parameters": 22713986
+    },
+    "sbert_mlp": {
+      "single_pair_ms_median": 27.888599999641883,
+      "single_pair_ms_p95": 33.55075499985104,
+      "batch_ms_per_pair": 6.80422389999876,
+      "size_mb": 87.4,
+      "parameters": 22910593
+    }
+  },
+  "sanity_probes": [
+    {
+      "type": "identical",
+      "question1": "What is formwork?",
+      "question2": "What is formwork?",
+      "lr_tfidf_pair_lexical": 0.0,
+      "lr_tfidf_pair_lexical_dup": false,
+      "siamese_bilstm": 0.09700000286102295,
+      "siamese_bilstm_dup": false,
+      "sbert_cosine": 1.0,
+      "sbert_cosine_dup": true,
+      "sbert_lr": 0.8519999980926514,
+      "sbert_lr_dup": true,
+      "sbert_mlp": 0.9589999914169312,
+      "sbert_mlp_dup": true
+    },
+    {
+      "type": "identical",
+      "question1": "Who founded Microsoft?",
+      "question2": "Who founded Microsoft?",
+      "lr_tfidf_pair_lexical": 0.717,
+      "lr_tfidf_pair_lexical_dup": true,
+      "siamese_bilstm": 0.9419999718666077,
+      "siamese_bilstm_dup": true,
+      "sbert_cosine": 1.0,
+      "sbert_cosine_dup": true,
+      "sbert_lr": 0.8220000267028809,
+      "sbert_lr_dup": true,
+      "sbert_mlp": 0.9300000071525574,
+      "sbert_mlp_dup": true
+    },
+    {
+      "type": "paraphrase",
+      "question1": "How can I lose weight quickly?",
+      "question2": "What is the fastest way to lose weight?",
+      "lr_tfidf_pair_lexical": 0.821,
+      "lr_tfidf_pair_lexical_dup": true,
+      "siamese_bilstm": 0.953000009059906,
+      "siamese_bilstm_dup": true,
+      "sbert_cosine": 0.8679999709129333,
+      "sbert_cosine_dup": true,
+      "sbert_lr": 0.7929999828338623,
+      "sbert_lr_dup": true,
+      "sbert_mlp": 0.8180000185966492,
+      "sbert_mlp_dup": true
+    },
+    {
+      "type": "entity_mismatch",
+      "question1": "Who founded Microsoft?",
+      "question2": "Who founded Apple?",
+      "lr_tfidf_pair_lexical": 0.159,
+      "lr_tfidf_pair_lexical_dup": false,
+      "siamese_bilstm": 0.5849999785423279,
+      "siamese_bilstm_dup": true,
+      "sbert_cosine": 0.6079999804496765,
+      "sbert_cosine_dup": false,
+      "sbert_lr": 0.02800000086426735,
+      "sbert_lr_dup": false,
+      "sbert_mlp": 0.03099999949336052,
+      "sbert_mlp_dup": false
+    },
+    {
+      "type": "number_mismatch",
+      "question1": "How can I lose 5 kg in a month?",
+      "question2": "How can I lose 20 kg in a month?",
+      "lr_tfidf_pair_lexical": 0.498,
+      "lr_tfidf_pair_lexical_dup": true,
+      "siamese_bilstm": 0.7170000076293945,
+      "siamese_bilstm_dup": true,
+      "sbert_cosine": 0.8799999952316284,
+      "sbert_cosine_dup": true,
+      "sbert_lr": 0.5569999814033508,
+      "sbert_lr_dup": true,
+      "sbert_mlp": 0.335999995470047,
+      "sbert_mlp_dup": true
+    },
+    {
+      "type": "negation_mismatch",
+      "question1": "Why do people believe in God?",
+      "question2": "Why do people not believe in God?",
+      "lr_tfidf_pair_lexical": 0.361,
+      "lr_tfidf_pair_lexical_dup": true,
+      "siamese_bilstm": 0.7749999761581421,
+      "siamese_bilstm_dup": true,
+      "sbert_cosine": 0.8980000019073486,
+      "sbert_cosine_dup": true,
+      "sbert_lr": 0.7229999899864197,
+      "sbert_lr_dup": true,
+      "sbert_mlp": 0.3199999928474426,
+      "sbert_mlp_dup": true
+    },
+    {
+      "type": "broader_narrower",
+      "question1": "How do I learn programming?",
+      "question2": "How do I learn Python programming for data science?",
+      "lr_tfidf_pair_lexical": 0.611,
+      "lr_tfidf_pair_lexical_dup": true,
+      "siamese_bilstm": 0.06300000101327896,
+      "siamese_bilstm_dup": false,
+      "sbert_cosine": 0.6600000262260437,
+      "sbert_cosine_dup": false,
+      "sbert_lr": 0.2240000069141388,
+      "sbert_lr_dup": false,
+      "sbert_mlp": 0.26499998569488525,
+      "sbert_mlp_dup": false
+    }
+  ],
+  "bootstrap_sbert_mlp_vs_sbert_lr": {
+    "delta_f1_mean": 0.021001554826033053,
+    "delta_f1_ci95": [
+      0.017576792555922545,
+      0.02431641991333313
+    ],
+    "delta_pr_auc_mean": 0.031219117327748923,
+    "delta_pr_auc_ci95": [
+      0.027832290953079524,
+      0.03484703226158127
+    ],
+    "p_new_f1_not_better": 0.0,
+    "n_boot": 1000
+  }
+}

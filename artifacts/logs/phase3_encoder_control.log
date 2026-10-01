@@ -1,0 +1,4 @@
+all-MiniLM-L6-v2           cosine  F1=0.7347 ROC=0.8760 PR=0.7645
+all-MiniLM-L6-v2           lr_60k  F1=0.7434 ROC=0.8850 PR=0.7841
+nli-distilroberta-base-v2  cosine  F1=0.6896 ROC=0.8312 PR=0.6989
+nli-distilroberta-base-v2  lr_60k  F1=0.7131 ROC=0.8580 PR=0.7504

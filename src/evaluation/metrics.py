@@ -92,3 +92,27 @@ def group_summary(per_group: pd.DataFrame) -> dict:
     return {"macro_group_f1": float(per_group["f1"].mean()),
             "worst_group_f1": float(per_group["f1"].min()),
             "worst_group": per_group["f1"].idxmin()}
+
+
+def threshold_transfer(y_true, score, seed: int = 42) -> dict:
+    """Optimism check: tune the threshold on one random half of the data, evaluate on the other half."""
+    y_true, score = np.asarray(y_true), np.asarray(score, dtype=float)
+    idx = np.random.default_rng(seed).permutation(len(y_true))
+    halves = idx[: len(idx) // 2], idx[len(idx) // 2:]
+    f1s = []
+    for tune, ev in (halves, halves[::-1]):
+        t = best_f1_threshold(y_true[tune], score[tune])
+        f1s.append(classification_metrics(y_true[ev], score[ev], t)["f1"])
+    return {"cross_half_f1_mean": float(np.mean(f1s)), "cross_half_f1": [float(f) for f in f1s]}
+
+
+def validation_report(y_true, score, is_probability: bool = True) -> dict:
+    """Standard per-model report: metrics at 0.5 and at the validation-F1-optimal threshold."""
+    thr = best_f1_threshold(y_true, score)
+    report = {"tuned_threshold": thr,
+              "val_at_tuned_threshold": classification_metrics(y_true, score, thr),
+              "val_at_0.5": classification_metrics(y_true, score, 0.5),
+              "threshold_transfer": threshold_transfer(y_true, score)}
+    if is_probability:
+        report["calibration"] = calibration_metrics(y_true, score)
+    return report

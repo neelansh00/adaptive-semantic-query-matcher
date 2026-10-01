@@ -1,0 +1,19 @@
+lr_tfidf_pair_lexical  thr=0.32 F1=0.7299 P=0.6591 R=0.8177 ROC=0.8739 PR=0.7705 beats_0.730=False
+siamese_bilstm         thr=0.57 F1=0.7323 P=0.6615 R=0.8200 ROC=0.8742 PR=0.7730 beats_0.730=True
+sbert_cosine           thr=0.76 F1=0.7347 P=0.6395 R=0.8632 ROC=0.8760 PR=0.7645 beats_0.730=True
+sbert_lr               thr=0.33 F1=0.7500 P=0.6585 R=0.8711 ROC=0.8910 PR=0.7924 beats_0.730=True
+sbert_mlp              thr=0.32 F1=0.7711 P=0.6935 R=0.8683 ROC=0.9066 PR=0.8237 beats_0.730=True
+bootstrap siamese_bilstm   dF1=+0.0024 CI[-0.0023, 0.0069] dPR=+0.0025 CI[-0.0037, 0.0082]
+bootstrap sbert_cosine     dF1=+0.0049 CI[-0.0006, 0.0101] dPR=-0.0060 CI[-0.0139, 0.0017]
+bootstrap sbert_lr         dF1=+0.0203 CI[0.015, 0.0252] dPR=+0.0219 CI[0.0144, 0.0293]
+bootstrap sbert_mlp        dF1=+0.0413 CI[0.0358, 0.047] dPR=+0.0531 CI[0.0456, 0.0599]
+lr_tfidf_pair_lexical  single=2.67ms batch=0.138ms/pair size=7.7MB params=713,057
+siamese_bilstm         single=3.82ms batch=0.327ms/pair size=35.8MB params=9,091,561
+sbert_cosine           single=24.87ms batch=6.226ms/pair size=86.6MB params=22,713,216
+sbert_lr               single=26.08ms batch=6.110ms/pair size=86.6MB params=22,713,986
+sbert_mlp              single=27.89ms batch=6.804ms/pair size=87.4MB params=22,910,593
+lr_tfidf_pair_lexical  FNR(j<=0.2)=0.455 FPR(j>0.6)=0.555 FPR ent>0.6=0.439 num>0.6=0.513 neg>0.6=0.639
+siamese_bilstm         FNR(j<=0.2)=0.337 FPR(j>0.6)=0.513 FPR ent>0.6=0.360 num>0.6=0.397 neg>0.6=0.525
+sbert_cosine           FNR(j<=0.2)=0.358 FPR(j>0.6)=0.686 FPR ent>0.6=0.596 num>0.6=0.813 neg>0.6=0.836
+sbert_lr               FNR(j<=0.2)=0.316 FPR(j>0.6)=0.590 FPR ent>0.6=0.431 num>0.6=0.747 neg>0.6=0.820
+sbert_mlp              FNR(j<=0.2)=0.279 FPR(j>0.6)=0.425 FPR ent>0.6=0.216 num>0.6=0.470 neg>0.6=0.721

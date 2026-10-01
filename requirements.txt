@@ -1,8 +1,16 @@
-# Phase 1 (data audit, splits, metrics). Later phases will extend this list.
-numpy==1.26.4
+# Phases 1-2 (data audit, splits, metrics, lexical baselines)
+numpy==2.5.3            # upgraded from 1.26.4 by the Phase 3 install; frozen split re-verified identical
 pandas==2.2.2
 scipy==1.18.1
 scikit-learn==1.9.1
 matplotlib==3.9.0
 pyyaml==6.0.3
+joblib==1.6.0
 pytest==9.1.1
+
+# Phase 3 (deep models). CPU-only PyTorch build; CUDA is used automatically if a CUDA build/GPU is present:
+#   pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
+torch==2.14.1
+sentence-transformers==6.1.0   # pulls transformers, tokenizers, huggingface_hub, safetensors
+transformers==5.18.0
+huggingface_hub==1.33.0

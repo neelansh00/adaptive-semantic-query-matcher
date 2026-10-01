@@ -1,0 +1,6 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights:  11%|█         | 11/103 [00:00<00:00, 109.81it/s]Loading weights:  49%|████▊     | 50/103 [00:00<00:00, 226.13it/s]Loading weights:  70%|██████▉   | 72/103 [00:00<00:00, 205.15it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 240.90it/s]
+[done] val: {'model': 'sentence-transformers/nli-distilroberta-base-v2', 'n_texts': 53610, 'dim': 768, 'seconds': 2238.4, 'texts_per_second': 23.9}
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights:   5%|▍         | 5/103 [00:00<00:01, 49.86it/s]Loading weights:  16%|█▌        | 16/103 [00:00<00:01, 72.43it/s]Loading weights:  24%|██▍       | 25/103 [00:00<00:01, 72.26it/s]Loading weights:  32%|███▏      | 33/103 [00:00<00:01, 61.16it/s]Loading weights:  39%|███▉      | 40/103 [00:00<00:01, 55.86it/s]Loading weights:  70%|██████▉   | 72/103 [00:00<00:00, 125.88it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 131.69it/s]
+[done] train_subset: {'model': 'sentence-transformers/nli-distilroberta-base-v2', 'n_texts': 105090, 'dim': 768, 'seconds': 5287.1, 'texts_per_second': 19.9}
+exit 0
