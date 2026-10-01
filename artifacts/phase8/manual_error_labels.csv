@@ -1,0 +1,61 @@
+id,category,note
+260875,different_aspect_same_topic,care about Rio 2016 vs interesting facts about it
+210687,likely_label_noise,Enlightenment influence on vs ideas found in the Constitution
+176782,attribute_swap,direction reversed: I block him vs he blocked me
+348935,broader_narrower,healthy coffee vs coffee that does not increase fat
+34951,different_aspect_same_topic,cheat sheets you have vs what to put on an exam sheet
+37083,likely_label_noise,GPS needs relativity correction vs how relativity is used in GPS
+76085,attribute_swap,direct vs indirect subsidy vs tax vs subsidy
+336170,broader_narrower,get started in data science vs which first book
+319254,broader_narrower,manly vs manly hands
+282527,likely_label_noise,best cab service in Chennai (same question)
+53467,likely_label_noise,arranged-marriage fiancee not talking (same question)
+82876,broader_narrower,tour with friends vs place to visit
+394124,broader_narrower,PDPU entrance exam vs entrance exams in general
+206319,broader_narrower,an article vs a how-to article
+341742,likely_label_noise,most followed vs most followers on Instagram
+318219,likely_label_noise,options after BTech mech vs after bachelors in mech
+152750,different_aspect_same_topic,mistakes in a relationship vs when interacting with a girl
+300117,different_aspect_same_topic,what the act does vs why it is needed
+166687,different_aspect_same_topic,Bush better candidate vs Trump a bigger Bush
+178650,likely_label_noise,convince an atheist there is a God (same question)
+181042,attribute_swap,make people feel awkward vs am awkward around people
+218264,broader_narrower,coworking in Bangalore vs is it popular
+183473,likely_label_noise,absolute refractive index (same question)
+201880,context_dependent_reference,'this math problem' refers to an unseen problem
+313892,attribute_swap,why shouldn't anyone marry you vs why should I not marry
+379183,entity_mismatch,Muhammad Ali Jinnah vs Muhammad Ali (the boxer)
+291359,attribute_swap,role reversal: introvert parents/extrovert child vs the opposite
+263575,negation_mismatch,why people use Facebook vs why some do not like it
+33840,broader_narrower,GRE vs GRE and TOEFL
+309476,different_aspect_same_topic,dispose of CFL bulbs safely vs recycle them
+364460,debatable_topical_merge,do you believe in life after death vs what is it
+32297,paraphrase_low_overlap,creative writing prompts
+88052,paraphrase_low_overlap,Jio 4G SIM in a 3G phone
+381841,paraphrase_low_overlap,what Filipinos think of Duterte (misspelt)
+128769,paraphrase_low_overlap,UNIX-like kernel vs UNIX-like OS from scratch
+153629,likely_label_noise,index toe bigger vs index toe crossing over
+136173,paraphrase_low_overlap,UN Security Council vs 'security counsel' (misspelling)
+62908,paraphrase_low_overlap,hanging yourself vs being hanged
+232138,broader_narrower,dead-end career plus opportunities vs what they do after graduating
+193515,paraphrase_low_overlap,a guy vs a boy
+307233,constraint_false_alarm,GRE 299 vs 319 labelled duplicate (number mismatch)
+357124,constraint_false_alarm,stock market vs U.S. stock market (baseline correct; entity one-sided)
+257909,paraphrase_low_overlap,CSE student vs CS student tricks
+50658,constraint_false_alarm,freedom of speech on Quora vs why no freedom of speech (negation)
+315929,paraphrase_low_overlap,not virgin vs non-virgin
+272631,paraphrase_low_overlap,forgot Apple ID login vs retrieve Apple ID password
+270676,broader_narrower,Pit Bull puppies vs puppies
+150701,broader_narrower,RO purifier in India vs water purifier
+374808,constraint_false_alarm,who invented numbers vs numbers 0-9 (baseline correct; number one-sided)
+295778,paraphrase_low_overlap,how many dimensions exist
+187723,paraphrase_low_overlap,Arnab Goswami resigned vs quitting
+276442,paraphrase_low_overlap,hair turns white vs grey
+168421,paraphrase_low_overlap,EEE vs BTech electrical career options
+133045,likely_label_noise,recover deleted images vs delete cached copies
+284503,broader_narrower,the musical 'Hamilton' vs Hamilton
+190567,paraphrase_low_overlap,available vs publicly available data sets
+39912,paraphrase_low_overlap,'One Ring' vs ring Sauron has (world knowledge)
+177584,likely_label_noise,employees delink phone vs app developers delink numbers
+72534,likely_label_noise,Ancient Persia vs Ancient Egypt labelled duplicate
+332542,debatable_topical_merge,why India does not stop imports vs should India ban Chinese goods

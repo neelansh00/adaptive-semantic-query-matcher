@@ -1,0 +1,12 @@
+[freeze] 25 files + encoder verified against manifest from 2026-10-01T16:04:59+00:00
+[test] 38420 pairs; leakage check {'questions_shared_with_train': 0, 'questions_shared_with_val': 0}
+[encode] test: {'model': 'sentence-transformers/all-MiniLM-L6-v2', 'n_texts': 53654, 'dim': 384, 'seconds': 277.8, 'texts_per_second': 193.1}
+[score] constraint features + meta-model in 10s
+baseline           tau=0.32 F1=0.7750 P=0.6988 R=0.8700 ROC=0.9064 PR=0.8243 macro=0.7709 worst=0.6684(C6)
+final              tau=0.35 F1=0.7856 P=0.7154 R=0.8710 ROC=0.9144 PR=0.8336 macro=0.7824 worst=0.6954(C6)
+ref_tfidf_lexical  tau=0.32 F1=0.7322 P=0.6623 R=0.8185 ROC=0.8759 PR=0.7756 macro=0.7241 worst=0.5994(C6)
+ref_bilstm         tau=0.57 F1=0.7362 P=0.6690 R=0.8185 ROC=0.8783 PR=0.7810 macro=0.7295 worst=0.6011(C6)
+ref_cosine         tau=0.76 F1=0.7330 P=0.6338 R=0.8691 ROC=0.8735 PR=0.7666 macro=0.7298 worst=0.6444(C6)
+final - baseline: {'f1': '+0.0106 [+0.0076, +0.0136]', 'precision': '+0.0167 [+0.0132, +0.0200]', 'recall': '+0.0010 [-0.0032, +0.0050]', 'macro_cluster_f1': '+0.0115 [+0.0085, +0.0147]', 'worst_cluster_f1': '+0.0262 [+0.0097, +0.0417]', 'fpr': '-0.0161 [-0.0191, -0.0127]', 'fnr': '-0.0010 [-0.0050, +0.0032]', 'pr_auc': '+0.0092 [+0.0060, +0.0121]'}
+transitions: {'fp_fixed': 1000, 'fn_fixed': 416, 'new_fp': 605, 'new_fn': 402}
+[done] results -> C:\Users\neela\Desktop\Adaptive Semantic Query Matcher\artifacts\phase8

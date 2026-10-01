@@ -1,0 +1,43 @@
+{
+  "n_labelled": 60,
+  "annotation": "single annotator, model score visible, one primary category per pair",
+  "FP": {
+    "counts": {
+      "likely_label_noise": 8,
+      "broader_narrower": 8,
+      "different_aspect_same_topic": 6,
+      "attribute_swap": 5,
+      "context_dependent_reference": 1,
+      "entity_mismatch": 1,
+      "negation_mismatch": 1
+    },
+    "share": {
+      "likely_label_noise": 0.267,
+      "broader_narrower": 0.267,
+      "different_aspect_same_topic": 0.2,
+      "attribute_swap": 0.167,
+      "context_dependent_reference": 0.033,
+      "entity_mismatch": 0.033,
+      "negation_mismatch": 0.033
+    },
+    "share_explicit_constraint_mismatch": 0.06666666666666667,
+    "share_constraint_or_attribute_swap": 0.23333333333333334,
+    "share_likely_label_noise": 0.26666666666666666
+  },
+  "FN": {
+    "counts": {
+      "paraphrase_low_overlap": 16,
+      "broader_narrower": 4,
+      "likely_label_noise": 4,
+      "constraint_false_alarm": 4,
+      "debatable_topical_merge": 2
+    },
+    "share": {
+      "paraphrase_low_overlap": 0.533,
+      "broader_narrower": 0.133,
+      "likely_label_noise": 0.133,
+      "constraint_false_alarm": 0.133,
+      "debatable_topical_merge": 0.067
+    }
+  }
+}

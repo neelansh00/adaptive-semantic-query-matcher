@@ -1,0 +1,61 @@
+id,outcome,cluster,final_score,baseline_score,question1,question2
+260875,FP,5,0.392,0.124,Do you care about the Rio Olympics 2016?,Rio Olympics 2016: What are some interesting facts of the Rio Olympics 2016?
+210687,FP,5,0.59,0.542,How did Enlightenment thinkers influence the ideas of the Constitution?,What Enlightenment ideas can be found in the United States constitution?
+176782,FP,2,0.694,0.537,"If I block somebody on Instagram, will he still be able to see any direct messages I send him?",Can I still send direct message to someone who block me in instagram?
+348935,FP,3,0.559,0.476,How do you consume coffee in a healthy way?,"How can we consume coffee in a way, that it doesn't increase fats?"
+34951,FP,11,0.403,0.31,What all cheat sheets do you have on any topic?,What would you include in the single cheat sheet allowed for a final exam at university?
+37083,FP,0,0.483,0.463,Why wouldn't GPS work without correcting for effects due to Einstein's theory of relativity?,How is the theory of relativity used in GPS?
+76085,FP,0,0.811,0.772,What is the difference between a direct subsidy and a indirect subsidy?,Difference between tax and subsidy?
+336170,FP,10,0.473,0.382,How do I get started in data science?,What book should I buy first for learning data science from the basics?
+319254,FP,4,0.479,0.558,"What does it mean to be ""manly""?","What does it mean to have ""manly hands""?"
+282527,FP,9,0.728,0.731,What is the best cab service in chennai?,Which is the best call taxi and cab service in Chennai?
+53467,FP,4,0.398,0.323,Is it normal if the girl you are going to marry (arranged marriage) does not talk much with you?,Is it fine to not talk often to the girl you are going to marry through arranged marriage?
+82876,FP,9,0.581,0.536,Which is the best place in India for tour with friend?,What is the best place in India to visit?
+394124,FP,10,0.459,0.529,How do I prepare for the PDPU entrance exam?,How do you prepare for entrance exams?
+206319,FP,10,0.523,0.604,How could I write an article?,"How do I write a ""how to"" article?"
+341742,FP,11,0.705,0.631,Who is the most followed on Instagram?,Who has the most followers on Instagram?
+318219,FP,6,0.606,0.547,What is the best option after btech in mechanical engineering?,What are the career options after earning a Bachelors in mechanical engineering?
+152750,FP,4,0.485,0.453,What are some common mistakes guys make in a relationship?,What are common mistakes guys make while interacting with a girl?
+300117,FP,5,0.396,0.337,What does the Indiana Religious Freedom Restoration Act do?,Why does Indiana need or want the Indiana Religious Freedom Restoration Act?
+166687,FP,1,0.545,0.368,Was George W. Bush a better presidential candidate than Donald Trump?,Is Donald Trump just a bigger George W. Bush?
+178650,FP,4,0.606,0.41,How do I convince an atheist that there is a God?,How would you convince me of the existence of God knowing that I'm an atheist?
+181042,FP,4,0.891,0.91,Why do I make people feel awkward around me?,Why am I so awkward around people?
+218264,FP,9,0.597,0.666,Coworking in Bangalore?,Is coworking popular in Bangalore?
+183473,FP,0,0.751,0.8,What is the absolute refractive index?,What is absolute refractive index of any medium?
+201880,FP,2,0.421,0.503,Can anyone help with with a math problem?,How can I get help with this math problem?
+313892,FP,4,0.525,0.599,Why shouldn't anyone marry you?,Why should I not marry?
+379183,FP,1,0.471,0.344,Who was Muhammad Ali jinnah?,Who was Muhammad Ali and what did he do?
+291359,FP,4,0.645,0.559,Can two introverted parents produce an extroverted child?,"If parents are extroverts, can their child be an introvert?"
+263575,FP,2,0.431,0.42,Why are people using Facebook?,Why do some people not like to use Facebook?
+33840,FP,10,0.402,0.32,Which are the best books or learning resources to prepare for the GRE?,Which books and online sites are best for the GRE and TOEFL preparation?
+309476,FP,2,0.617,0.508,How do I dispose cfl bulbs safely?,Is there anyway to recycle CFL bulbs?
+364460,FN,1,0.306,0.345,Do you believe there is life after death?,What is the life after death.?
+32297,FN,11,0.182,0.237,What are some links to creative writing prompts?,What are some creative story-writing prompts?
+88052,FN,2,0.347,0.353,Can I use Jio 4G sim in a 3G phone?,How do I use Jio sim in 3G devices?
+381841,FN,1,0.25,0.17,What do Filipinos think of Rodrigo Duterte?,How do Fillipinos think about their current president Duterte?
+128769,FN,10,0.085,0.025,How can I build a UNIX-like kernel from scratch?,If I were to build a UNIX-like operating system from scratch where would I need to start?
+153629,FN,3,0.331,0.274,Why is my index toe bigger than my big toe?,Why does my index toe cross over my big toe?
+136173,FN,6,0.024,0.012,What is the UN Security Council?,What is security counsel?
+62908,FN,4,0.284,0.397,What does hanging yourself feel like?,What does being hanged feel like?
+232138,FN,6,0.308,0.198,Is chemical engineering a dead end career? What are opportunities after graduation?,What do chemical engineers do after their graduation?
+193515,FN,4,0.26,0.375,How do I start a conversation with a guy?,How do I start a conversation with a boy?
+307233,FN,6,0.063,0.216,Is 299 a good enough GRE score?,Is A score of 319 in GRE a good score?
+357124,FN,1,0.338,0.664,Is the stock market rigged?,Is the U.S. stock market rigged?
+257909,FN,10,0.086,0.037,What are tricks that each Cse student should know?,What are some computer tricks that a CS student must know?
+50658,FN,2,0.254,0.365,Is there freedom of speech on Quora?,Why does Quora have no freedom of speech?
+315929,FN,4,0.191,0.117,Will you marry a girl who is not virgin?,Why would you marry a non-virgin?
+272631,FN,2,0.185,0.097,What can you do if you forget your Apple ID login information?,How do you retrieve your Apple ID password?
+270676,FN,3,0.211,0.108,What should 6 week old Pit Bull puppies be eating?,What should 6 week old puppies be eating?
+150701,FN,8,0.191,0.186,Which is the best RO water purifier in India?,Which water purifier is best to buy?
+374808,FN,0,0.244,0.355,Who invented numbers?,Who invented the numbers 0-9?
+295778,FN,0,0.194,0.124,How many dimensions are there?,How many dimensions are reported to be existing in our Universe?
+187723,FN,1,0.343,0.367,Why Arnab Goswami resigned times now?,Is Arnab Goswami quitting from Times now?
+276442,FN,3,0.13,0.082,Why does hair turn white?,What causes older peoples' hair to turn grey?
+168421,FN,6,0.214,0.221,What are the career options after electrical and electronics engineering?,What are career options after B.tech in Electrical engineering?
+133045,FN,2,0.018,0.004,How do I recover my images deleted by mistake from my android phone?,How can I delete a cached copies from my android phone?
+284503,FN,1,0.043,0.087,Is the musical 'Hamilton' overrated?,Is Hamilton overrated?
+190567,FN,8,0.316,0.283,Are there available data sets online?,What are some interesting publicly available data sets?
+39912,FN,0,0.116,0.288,"What is the name of the ""One Ring"" in The Lord of the Rings?","What is the name of the ring Sauron has in ""The Lord of the Rings""?"
+177584,FN,2,0.017,0.052,Why don't cellphone employees tell their users before a customer returns a cellphone back to the store to delink the device phone number from apps?,When did app developers first give cellphone owners the means to delink old phone numbers from their apps?
+72534,FN,1,0.066,0.053,Has Ancient Persia been scientifically tested?,Has Ancient Egypt been scientifically tested?
+332542,FN,9,0.218,0.199,Why doesn't India stop importing goods from China?,Should India ban all Chinese goods or anything which is made in China?

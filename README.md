@@ -6,8 +6,23 @@ embedding-similarity threshold?
 
 Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_audit.md](docs/data_audit.md)).
 
-> **Status: Phase 7 complete** (1: audit and frozen splits; 2: lexical baselines; 3: deep models; 4: query clustering;
-> 5: cluster-level error analysis; 6: entity/constraint features; 7: threshold calibration). Frozen test evaluation is Phase 8. The full README (architecture, results, demo) is written in Phase 11.
+> **Status: Phase 8 complete:** frozen, one-time test evaluation done (1: audit and frozen splits; 2: lexical baselines;
+> 3: deep models; 4: query clustering; 5: cluster-level error analysis; 6: entity/constraint features; 7: threshold calibration). The full README (architecture, results, demo) is written in Phase 11.
+
+## Final result (held-out test split, evaluated once after freezing; see [docs/final_evaluation.md](docs/final_evaluation.md))
+
+| System (test, 38,420 pairs) | F1 | Precision | Recall | ROC-AUC | PR-AUC | Macro-cluster F1 | Worst-cluster F1 |
+|---|---|---|---|---|---|---|---|
+| Baseline: MiniLM + MLP head, global τ 0.32 | 0.775 | 0.699 | 0.870 | 0.906 | 0.824 | 0.771 | 0.668 |
+| **Final: + entity/constraint/specificity meta-model, global τ 0.35** | **0.786** | **0.715** | 0.871 | **0.914** | **0.834** | **0.782** | **0.695** |
+| Δ (95% CI) | +0.011 [+0.008, +0.014] | +0.017 | +0.001 (n.s.) | | +0.009 [+0.006, +0.012] | +0.012 [+0.009, +0.015] | +0.026 [+0.010, +0.042] |
+
+- **The research question, answered:**
+  - Entity/constraint consistency improves robustness on held-out data (10 of 12 clusters improve and none worsen; high-overlap entity, number and
+    negation false positives roughly halve).
+  - **Cluster-specific thresholds do not:** they lowered macro-cluster F1 out of sample (Phase 7) and were not deployed.
+- **Scope:** results hold for Quora Question Pairs under a question-disjoint split. The encoder saw Quora triplets in pretraining, so absolute
+  scores are optimistic; the comparison is like-for-like.
 
 ## Phase 1 key findings
 
@@ -120,6 +135,7 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
 | [docs/cluster_error_analysis.md](docs/cluster_error_analysis.md) | Phase 5 pair assignment, per-cluster metrics, threshold variation, error categories |
 | [docs/entity_constraint_features.md](docs/entity_constraint_features.md) | Phase 6 constraint features, cross-fitted meta-classifier, ablations, trade-offs |
 | [docs/calibration_experiments.md](docs/calibration_experiments.md) | Phase 7 global vs cluster thresholds (cross-fitted), decision, frozen Phase 8 config |
+| [docs/final_evaluation.md](docs/final_evaluation.md) | Phase 8 freeze protocol, one-time test results, per-cluster and slice analysis, remaining failures |
 
 ## Reproduce
 
@@ -166,7 +182,12 @@ python scripts/train_meta.py
 # 9. Phase 7 threshold calibration (validation only)
 python scripts/calibration_experiments.py
 
-# 10. Tests
+# 10. Phase 8 frozen test evaluation (runs ONCE; refuses to re-run)
+python scripts/freeze_manifest.py                  # hash everything (requires a clean git tree); commit it
+python scripts/final_evaluation.py --dry-run-on-val  # must reproduce validation exactly
+python scripts/final_evaluation.py                 # the single test evaluation
+
+# 11. Tests
 python -m pytest
 ```
 
@@ -186,6 +207,7 @@ scripts/                   Phase 1-2: audit_dataset, make_splits, run_baselines,
                            Phase 5: analyze_clusters, threshold_reliability, summarize_manual_errors
                            Phase 6: build_constraint_features, crossfit_base, train_meta
                            Phase 7: calibration_experiments
+                           Phase 8: freeze_manifest, final_evaluation
 src/utils/                 data loading (data.py), split strategies + leakage metrics (splits.py)
 src/evaluation/            metrics.py (F1/PR/ROC, threshold sweep, ECE, per-cluster metrics)
 src/preprocessing/         minimal text normalisation + tokenisation
@@ -198,7 +220,7 @@ src/clustering/core.py     K-Means fitting, frozen centroid model, metrics, stab
 src/clustering/pairs.py    pair-to-cluster rules (q1 / pair-average / same-only), assignment margin
 src/evaluation/cluster_analysis.py   per-cluster metrics, bootstrap CIs, random-partition null
 src/calibration/           thresholds.py: global / per-cluster threshold policy with fallback, cross-fitting
-tests/                     Phase 1-7 tests
+tests/                     Phase 1-8 tests
 docs/                      documentation + figures
 artifacts/phase1/          audit statistics, split comparison
 artifacts/phase2/          baseline metrics, val predictions, error analysis, fitted models (joblib)
@@ -208,4 +230,5 @@ artifacts/phase4/          K sweep, stability, HDBSCAN, frozen cluster centroids
 artifacts/phase5/          per-cluster metrics, null, threshold reliability, pair assignments, manual error labels
 artifacts/phase6/          meta-model bundle, variant results + bootstraps, slices, probes, cross-fit report, latency
 artifacts/phase7/          calibration results, frozen Phase 8 threshold policies
+artifacts/phase8/          freeze manifest, dry run, test results/scores, latency, manual error labels, TEST_EVALUATED marker
 ```

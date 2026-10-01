@@ -1,0 +1,19 @@
+{
+  "baseline_sbert_mlp": {
+    "single_ms_median": 50.642149999475805,
+    "single_ms_p95": 57.67359999517794,
+    "batch_ms_per_pair": 10.647461550001026
+  },
+  "final_meta": {
+    "single_ms_median": 69.22495000253548,
+    "single_ms_p95": 77.58635499885713,
+    "batch_ms_per_pair": 11.05338269999993
+  },
+  "note": "CPU (Intel i5-1335U), 10 threads, end-to-end from raw text incl. encoding both questions; timed side by side",
+  "artifact_sizes_mb": {
+    "encoder_fp32_weights": 86.6,
+    "base_head_mlp_pt": 0.76,
+    "meta_model_joblib": 0.35,
+    "cluster_centroids": 0.018
+  }
+}
