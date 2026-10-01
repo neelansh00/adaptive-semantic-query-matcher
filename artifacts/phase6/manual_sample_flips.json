@@ -1,0 +1,101 @@
+{
+  "B_base": {
+    "FP": {
+      "n": 60,
+      "fixed": 0,
+      "fixed_by_category": {},
+      "total_by_category": {
+        "likely_label_noise": 16,
+        "broader_narrower": 15,
+        "different_aspect_same_topic": 9,
+        "attribute_swap": 7,
+        "entity_mismatch": 6,
+        "date_time_mismatch": 2,
+        "negation_mismatch": 2,
+        "number_mismatch": 2,
+        "context_dependent_reference": 1
+      }
+    },
+    "FN": {
+      "n": 60,
+      "fixed": 0,
+      "fixed_by_category": {},
+      "total_by_category": {
+        "paraphrase_low_overlap": 34,
+        "broader_narrower": 15,
+        "debatable_topical_merge": 9,
+        "likely_label_noise": 2
+      }
+    }
+  },
+  "B_recal": {
+    "FP": {
+      "n": 60,
+      "fixed": 0,
+      "fixed_by_category": {},
+      "total_by_category": {
+        "likely_label_noise": 16,
+        "broader_narrower": 15,
+        "different_aspect_same_topic": 9,
+        "attribute_swap": 7,
+        "entity_mismatch": 6,
+        "date_time_mismatch": 2,
+        "negation_mismatch": 2,
+        "number_mismatch": 2,
+        "context_dependent_reference": 1
+      }
+    },
+    "FN": {
+      "n": 60,
+      "fixed": 0,
+      "fixed_by_category": {},
+      "total_by_category": {
+        "paraphrase_low_overlap": 34,
+        "broader_narrower": 15,
+        "debatable_topical_merge": 9,
+        "likely_label_noise": 2
+      }
+    }
+  },
+  "C_no_spacy_hgb": {
+    "FP": {
+      "n": 60,
+      "fixed": 14,
+      "fixed_by_category": {
+        "entity_mismatch": 4,
+        "broader_narrower": 3,
+        "different_aspect_same_topic": 3,
+        "attribute_swap": 1,
+        "negation_mismatch": 1,
+        "likely_label_noise": 1,
+        "number_mismatch": 1
+      },
+      "total_by_category": {
+        "likely_label_noise": 16,
+        "broader_narrower": 15,
+        "different_aspect_same_topic": 9,
+        "attribute_swap": 7,
+        "entity_mismatch": 6,
+        "date_time_mismatch": 2,
+        "negation_mismatch": 2,
+        "number_mismatch": 2,
+        "context_dependent_reference": 1
+      }
+    },
+    "FN": {
+      "n": 60,
+      "fixed": 11,
+      "fixed_by_category": {
+        "broader_narrower": 6,
+        "paraphrase_low_overlap": 4,
+        "debatable_topical_merge": 1
+      },
+      "total_by_category": {
+        "paraphrase_low_overlap": 34,
+        "broader_narrower": 15,
+        "debatable_topical_merge": 9,
+        "likely_label_noise": 2
+      }
+    }
+  }
+}

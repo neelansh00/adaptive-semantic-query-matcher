@@ -1,0 +1,119 @@
+[
+  {
+    "type": "paraphrase",
+    "question1": "How can I lose weight quickly?",
+    "question2": "What is the fastest way to lose weight?",
+    "base_prob": 0.818,
+    "base_dup": true,
+    "meta_prob": 0.796,
+    "meta_dup": true
+  },
+  {
+    "type": "paraphrase",
+    "question1": "Is it possible to hack fb?",
+    "question2": "How do we hack a Facebook account?",
+    "base_prob": 0.526,
+    "base_dup": true,
+    "meta_prob": 0.544,
+    "meta_dup": true
+  },
+  {
+    "type": "entity_mismatch",
+    "question1": "Who founded Microsoft?",
+    "question2": "Who founded Apple?",
+    "base_prob": 0.031,
+    "base_dup": false,
+    "meta_prob": 0.055,
+    "meta_dup": false
+  },
+  {
+    "type": "entity_mismatch",
+    "question1": "What is the temperament of a Doberman/Lab mix?",
+    "question2": "What is the temperament of a Lab/Pitbull mix?",
+    "base_prob": 0.403,
+    "base_dup": true,
+    "meta_prob": 0.196,
+    "meta_dup": false
+  },
+  {
+    "type": "number_mismatch",
+    "question1": "How can I lose 5 kg in a month?",
+    "question2": "How can I lose 20 kg in a month?",
+    "base_prob": 0.336,
+    "base_dup": true,
+    "meta_prob": 0.119,
+    "meta_dup": false
+  },
+  {
+    "type": "number_mismatch",
+    "question1": "What is the best phone under 10000 rupees?",
+    "question2": "What is the best phone under 20000 rupees?",
+    "base_prob": 0.616,
+    "base_dup": true,
+    "meta_prob": 0.321,
+    "meta_dup": false
+  },
+  {
+    "type": "date_mismatch",
+    "question1": "Who won the 2012 US presidential election?",
+    "question2": "Who won the 2016 US presidential election?",
+    "base_prob": 0.038,
+    "base_dup": false,
+    "meta_prob": 0.017,
+    "meta_dup": false
+  },
+  {
+    "type": "location_mismatch",
+    "question1": "What are the best hotels in Delhi?",
+    "question2": "What are the best hotels in Mumbai?",
+    "base_prob": 0.002,
+    "base_dup": false,
+    "meta_prob": 0.011,
+    "meta_dup": false
+  },
+  {
+    "type": "negation_mismatch",
+    "question1": "Why do people believe in God?",
+    "question2": "Why do people not believe in God?",
+    "base_prob": 0.32,
+    "base_dup": true,
+    "meta_prob": 0.097,
+    "meta_dup": false
+  },
+  {
+    "type": "negation_mismatch",
+    "question1": "What are some examples of movable joints?",
+    "question2": "What are some examples of non-movable joints?",
+    "base_prob": 0.309,
+    "base_dup": false,
+    "meta_prob": 0.141,
+    "meta_dup": false
+  },
+  {
+    "type": "broader_narrower",
+    "question1": "How do I learn programming?",
+    "question2": "How do I learn Python programming for data science?",
+    "base_prob": 0.265,
+    "base_dup": false,
+    "meta_prob": 0.312,
+    "meta_dup": false
+  },
+  {
+    "type": "identical_case",
+    "question1": "What are the best places to visit in india?",
+    "question2": "What are the best places to visit in India?",
+    "base_prob": 0.975,
+    "base_dup": true,
+    "meta_prob": 0.945,
+    "meta_dup": true
+  },
+  {
+    "type": "acronym_variant",
+    "question1": "How do I apply to the U.S. army?",
+    "question2": "How do I apply to the US Army?",
+    "base_prob": 0.88,
+    "base_dup": true,
+    "meta_prob": 0.868,
+    "meta_dup": true
+  }
+]

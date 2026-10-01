@@ -77,16 +77,68 @@ class SBERTPredictor:
             self.clf.eval()
 
     def embed(self, texts) -> np.ndarray:
+        """Embeddings rounded through float16, exactly like the on-disk cache that every training and
+        evaluation score was computed from (avoids train/serve skew; the boosted Phase 6 trees amplify
+        even 1e-4 differences in the base score at split points)."""
         from src.models.sentence_encoder import clean
-        return self.encoder.encode([clean(t) for t in texts], batch_size=128, normalize_embeddings=True,
-                                   show_progress_bar=False, convert_to_numpy=True)
+        emb = self.encoder.encode([clean(t) for t in texts], batch_size=128, normalize_embeddings=True,
+                                  show_progress_bar=False, convert_to_numpy=True)
+        return emb.astype(np.float16).astype(np.float32)
 
     def predict(self, q1, q2) -> np.ndarray:
+        return self.predict_from_embeddings(self.embed(q1), self.embed(q2))
+
+    def predict_from_embeddings(self, u: np.ndarray, v: np.ndarray) -> np.ndarray:
         from src.models.sentence_encoder import embedding_pair_features
-        X = embedding_pair_features(self.embed(q1), self.embed(q2))
+        X = embedding_pair_features(u, v)
         if self.head == "cosine":
             return X[:, -1]
         if self.head == "lr":
             return self.clf.predict_proba(X)[:, 1]
         with torch.no_grad():
             return torch.sigmoid(self.clf(torch.from_numpy(X))).numpy()
+
+
+class MetaPredictor:
+    """Phase 6: frozen base model (MiniLM + MLP) + deterministic constraint features -> meta-classifier.
+    `bundle` is the joblib written by scripts/train_meta.py (model, variant, threshold)."""
+
+    def __init__(self, bundle_path: Path = ART / "phase6" / "meta_model.joblib", device: str = "cpu"):
+        from src.clustering.core import CentroidModel
+        self.path = Path(bundle_path)
+        b = joblib.load(self.path)
+        self.meta, self.threshold, self.uses_spacy = b["model"], b["threshold"], b["uses_spacy"]
+        if self.uses_spacy:
+            import spacy
+        self.name = f"meta_{self.meta.variant.name}"
+        self.base = SBERTPredictor("mlp", device=device)
+        # spaCy is loaded only if the chosen variant actually uses spaCy-derived features
+        self.nlp = (spacy.load("en_core_web_sm", disable=["parser", "lemmatizer", "tagger", "attribute_ruler"])
+                    if self.uses_spacy else None)
+        self.clusters = CentroidModel.load(ART / "phase4" / "cluster_model")
+
+    def features(self, q1, q2) -> pd.DataFrame:
+        from src.clustering.pairs import assign_pairs
+        from src.features.constraints import annotate, pair_constraint_features
+        from src.features.lexical import lexical_features
+        from src.models.meta import logit
+        from src.models.sentence_encoder import clean, embedding_pair_features
+        q1, q2 = [clean(q) for q in q1], [clean(q) for q in q2]  # same text the training annotations used
+        u, v = self.base.embed(q1), self.base.embed(q2)
+        base_prob = self.base.predict_from_embeddings(u, v)  # reuse embeddings: encode each question once
+        if self.nlp is not None:
+            docs_a, docs_b = list(self.nlp.pipe(list(q1))), list(self.nlp.pipe(list(q2)))
+        else:
+            docs_a, docs_b = [None] * len(q1), [None] * len(q2)
+        rows = [pair_constraint_features(annotate(a, da), annotate(b, db), use_spacy=self.uses_spacy)
+                for a, b, da, db in zip(q1, q2, docs_a, docs_b)]
+        f = pd.DataFrame(rows)
+        f["base_prob"], f["base_logit"] = base_prob, logit(base_prob)
+        f["cosine"] = embedding_pair_features(u, v)[:, -1]
+        f["cluster"] = assign_pairs(u, v, self.clusters, "pair_avg")
+        from src.models.meta import LEXICAL
+        lex = lexical_features(pd.DataFrame({"question1": list(q1), "question2": list(q2)}))[LEXICAL]
+        return pd.concat([f, lex.reset_index(drop=True)], axis=1)  # LEXICAL only: avoids duplicate columns
+
+    def predict(self, q1, q2) -> np.ndarray:
+        return self.meta.predict_proba(self.features(q1, q2))

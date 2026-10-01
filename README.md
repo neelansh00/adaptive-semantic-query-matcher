@@ -6,8 +6,8 @@ embedding-similarity threshold?
 
 Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_audit.md](docs/data_audit.md)).
 
-> **Status: Phase 5 complete** (1: audit and frozen splits; 2: lexical baselines; 3: deep models;
-> 4: unsupervised query clustering; 5: cluster-level error analysis). Entity/constraint features start in Phase 6. The full README (architecture, results, demo) is written in Phase 11.
+> **Status: Phase 6 complete** (1: audit and frozen splits; 2: lexical baselines; 3: deep models; 4: query clustering;
+> 5: cluster-level error analysis; 6: entity/constraint features). Cluster-calibrated thresholds start in Phase 7. The full README (architecture, results, demo) is written in Phase 11.
 
 ## Phase 1 key findings
 
@@ -73,6 +73,21 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
 - **Manual error analysis (120 pairs):** among false positives, 27% likely label noise, 25% scope, 20% explicit constraint mismatch, 12% attribute
   swap. Among false negatives, 57% are low-overlap paraphrases.
 
+## Phase 6 key findings (validation)
+
+| Model | F1 | PR-AUC | Worst-cluster F1 |
+|---|---|---|---|
+| A. cosine similarity only | 0.735 | 0.765 | 0.651 |
+| B. semantic model probability (Phase 3) | 0.771 | 0.824 | 0.708 |
+| **C. semantic model + constraint features (boosted trees, spaCy-free)** | **0.783** | **0.839** | **0.719** |
+
+- **The gain is significant:** C vs B is +0.012 F1 [+0.009, +0.015]. Controls show re-fitting or boosting the base score alone adds nothing.
+- **High-overlap false positives roughly halve** for entity (0.22 → 0.12), number (0.47 → 0.18) and negation (0.72 → 0.33) differences.
+  The cost is more false negatives on true duplicates that contain a superficial constraint difference.
+- **Specificity/length signals are the largest contributor**; numbers, negation and entities add smaller, significant gains.
+  spaCy NER added only +0.001 PR-AUC and was dropped.
+- **Stacking without leakage:** base scores for training the meta-model come from 5-fold, question-disjoint cross-fitting.
+
 ## Documentation
 
 | Doc | Content |
@@ -86,6 +101,7 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
 | [docs/deep_models.md](docs/deep_models.md) | Phase 3 Siamese BiLSTM, sentence-transformer heads, contamination control, error analysis, latency |
 | [docs/clustering.md](docs/clustering.md) | Phase 4 K-Means vs HDBSCAN, K selection, stability, cluster interpretation |
 | [docs/cluster_error_analysis.md](docs/cluster_error_analysis.md) | Phase 5 pair assignment, per-cluster metrics, threshold variation, error categories |
+| [docs/entity_constraint_features.md](docs/entity_constraint_features.md) | Phase 6 constraint features, cross-fitted meta-classifier, ablations, trade-offs |
 
 ## Reproduce
 
@@ -123,7 +139,13 @@ python scripts/analyze_clusters.py
 python scripts/threshold_reliability.py
 python scripts/summarize_manual_errors.py
 
-# 8. Tests
+# 8. Phase 6 entity/constraint features (spaCy model needed only for the NER ablation)
+python -m spacy download en_core_web_sm
+python scripts/build_constraint_features.py
+python scripts/crossfit_base.py
+python scripts/train_meta.py
+
+# 9. Tests
 python -m pytest
 ```
 
@@ -141,18 +163,20 @@ scripts/                   Phase 1-2: audit_dataset, make_splits, run_baselines,
                            Phase 3: encode_questions, run_sbert, train_bilstm, run_encoder_control, compare_phase3
                            Phase 4: compare_clustering, stability_recheck, build_clusters
                            Phase 5: analyze_clusters, threshold_reliability, summarize_manual_errors
+                           Phase 6: build_constraint_features, crossfit_base, train_meta
 src/utils/                 data loading (data.py), split strategies + leakage metrics (splits.py)
 src/evaluation/            metrics.py (F1/PR/ROC, threshold sweep, ECE, per-cluster metrics)
 src/preprocessing/         minimal text normalisation + tokenisation
-src/features/              symmetric lexical pair features
+src/features/              symmetric lexical pair features (lexical.py), entity/number/date/negation/specificity features (constraints.py)
 src/evaluation/error_analysis.py   heuristic error tags (analysis only)
-src/models/                 siamese_bilstm.py, sentence_encoder.py (cached embeddings), predictors.py (raw text -> score)
+src/models/                 siamese_bilstm.py, sentence_encoder.py (cached embeddings), meta.py (Phase 6 variants),
+                           predictors.py (raw text -> score, incl. MetaPredictor)
 src/utils/torch_utils.py   device (CUDA if present, else CPU), seeding, threads
 src/clustering/core.py     K-Means fitting, frozen centroid model, metrics, stability, c-TF-IDF descriptions
 src/clustering/pairs.py    pair-to-cluster rules (q1 / pair-average / same-only), assignment margin
 src/evaluation/cluster_analysis.py   per-cluster metrics, bootstrap CIs, random-partition null
 src/calibration/           placeholder for later phases
-tests/                     Phase 1-5 tests
+tests/                     Phase 1-6 tests
 docs/                      documentation + figures
 artifacts/phase1/          audit statistics, split comparison
 artifacts/phase2/          baseline metrics, val predictions, error analysis, fitted models (joblib)
@@ -160,4 +184,5 @@ artifacts/phase3/          BiLSTM + SBERT heads, val scores, encoder control, co
 data/processed/embeddings/ cached MiniLM question embeddings (train, val)
 artifacts/phase4/          K sweep, stability, HDBSCAN, frozen cluster centroids, cluster descriptions/names
 artifacts/phase5/          per-cluster metrics, null, threshold reliability, pair assignments, manual error labels
+artifacts/phase6/          meta-model bundle, variant results + bootstraps, slices, probes, cross-fit report, latency
 ```

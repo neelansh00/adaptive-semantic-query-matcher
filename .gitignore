@@ -26,3 +26,7 @@ venv/
 
 # Frozen cluster centroids are small (18 KB) and are the source of truth (refits are not bit-reproducible)
 !artifacts/phase4/cluster_model/centroids.npy
+
+# Phase 6: the frozen meta-model bundle is small and versioned; OOF base scores are reproducible (crossfit_base.py)
+!artifacts/phase6/meta_model.joblib
+artifacts/phase6/train_oof_base.csv

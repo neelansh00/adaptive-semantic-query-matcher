@@ -1,0 +1,17 @@
+[val] annotating 53,610 unique questions
+[val] (38138, 42) pair features in 4s
+num_mismatch      0.0373
+num_one_sided     0.0836
+date_mismatch     0.0197
+date_one_sided    0.0622
+enth_mismatch     0.2110
+enth_one_sided    0.1496
+ents_mismatch     0.1678
+ents_one_sided    0.1542
+loc_mismatch      0.0363
+loc_one_sided     0.0932
+neg_xor           0.0889
+wh_mismatch       0.3339
+content_subset    0.0871
+[train] annotating 424,012 unique questions
+exit 127

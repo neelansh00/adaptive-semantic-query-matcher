@@ -1,0 +1,71 @@
+train=304384 val=38138
+A_cosine                 thr=0.76 F1=0.7347 P=0.6395 R=0.8632 PR=0.7645 ROC=0.8760 macroF1=0.7328 worst=0.6505(C6)
+B_base                   thr=0.32 F1=0.7711 P=0.6935 R=0.8683 PR=0.8237 ROC=0.9066 macroF1=0.7700 worst=0.7076(C6)
+B_recal                  thr=0.36 F1=0.7709 P=0.6947 R=0.8659 PR=0.8237 ROC=0.9066 macroF1=0.7699 worst=0.7086(C6)
+C_constraints            thr=0.38 F1=0.7749 P=0.7095 R=0.8535 PR=0.8313 ROC=0.9104 macroF1=0.7733 worst=0.7038(C6)
+C_no_spacy               thr=0.36 F1=0.7743 P=0.6995 R=0.8671 PR=0.8302 ROC=0.9100 macroF1=0.7729 worst=0.7070(C6)
+C_no_specificity         thr=0.35 F1=0.7731 P=0.6941 R=0.8723 PR=0.8288 ROC=0.9093 macroF1=0.7717 worst=0.7059(C6)
+C_plus_lexical           thr=0.40 F1=0.7780 P=0.7201 R=0.8460 PR=0.8329 ROC=0.9123 macroF1=0.7772 worst=0.7191(C6)
+C_plus_cluster           thr=0.36 F1=0.7739 P=0.7010 R=0.8638 PR=0.8306 ROC=0.9104 macroF1=0.7715 worst=0.6981(C6)
+C_hgb                    thr=0.34 F1=0.7839 P=0.7062 R=0.8807 PR=0.8395 ROC=0.9158 macroF1=0.7823 worst=0.7221(C2)
+C_minus_number           thr=0.38 F1=0.7730 P=0.7071 R=0.8526 PR=0.8283 ROC=0.9088 macroF1=0.7714 worst=0.6993(C6)
+C_minus_date             thr=0.37 F1=0.7750 P=0.7047 R=0.8608 PR=0.8311 ROC=0.9103 macroF1=0.7734 worst=0.7039(C6)
+C_minus_entity_heuristic thr=0.37 F1=0.7747 P=0.7047 R=0.8601 PR=0.8313 ROC=0.9103 macroF1=0.7731 worst=0.7040(C6)
+C_minus_entity_spacy     thr=0.38 F1=0.7748 P=0.7089 R=0.8541 PR=0.8313 ROC=0.9104 macroF1=0.7730 worst=0.7010(C6)
+C_minus_location         thr=0.36 F1=0.7742 P=0.6997 R=0.8664 PR=0.8302 ROC=0.9099 macroF1=0.7727 worst=0.7040(C6)
+C_minus_negation         thr=0.36 F1=0.7750 P=0.6996 R=0.8686 PR=0.8305 ROC=0.9101 macroF1=0.7735 worst=0.7060(C6)
+C_minus_intent_word      thr=0.37 F1=0.7751 P=0.7049 R=0.8608 PR=0.8310 ROC=0.9103 macroF1=0.7733 worst=0.6994(C6)
+C_minus_specificity      thr=0.35 F1=0.7731 P=0.6941 R=0.8723 PR=0.8288 ROC=0.9093 macroF1=0.7717 worst=0.7059(C6)
+bootstrap A_cosine_vs_B_base                 dF1=-0.0364 [-0.0402 -0.0327] dPR=-0.0591 [-0.0636 -0.0543]
+bootstrap B_recal_vs_B_base                  dF1=-0.0002 [-0.0007  0.0003] dPR=+0.0000 [-0.  0.]
+bootstrap C_constraints_vs_B_base            dF1=+0.0037 [0.0014 0.0057] dPR=+0.0077 [0.006  0.0092]
+bootstrap C_no_spacy_vs_B_base               dF1=+0.0032 [0.0013 0.005 ] dPR=+0.0065 [0.0051 0.0078]
+bootstrap C_no_specificity_vs_B_base         dF1=+0.0020 [0.0002 0.0037] dPR=+0.0051 [0.0037 0.0066]
+bootstrap C_plus_lexical_vs_B_base           dF1=+0.0069 [0.0043 0.0096] dPR=+0.0093 [0.0069 0.0116]
+bootstrap C_plus_cluster_vs_B_base           dF1=+0.0028 [0.0005 0.0052] dPR=+0.0069 [0.0051 0.0086]
+bootstrap C_hgb_vs_B_base                    dF1=+0.0128 [0.0097 0.0157] dPR=+0.0158 [0.0138 0.0179]
+bootstrap C_minus_number_vs_B_base           dF1=+0.0019 [-0.0001  0.0039] dPR=+0.0047 [0.0033 0.006 ]
+bootstrap C_minus_date_vs_B_base             dF1=+0.0039 [0.0017 0.006 ] dPR=+0.0074 [0.0059 0.009 ]
+bootstrap C_minus_entity_heuristic_vs_B_base dF1=+0.0036 [0.0014 0.0056] dPR=+0.0077 [0.0061 0.0091]
+bootstrap C_minus_entity_spacy_vs_B_base     dF1=+0.0036 [0.0014 0.0056] dPR=+0.0077 [0.0061 0.0092]
+bootstrap C_minus_location_vs_B_base         dF1=+0.0030 [0.001 0.005] dPR=+0.0065 [0.005  0.0079]
+bootstrap C_minus_negation_vs_B_base         dF1=+0.0039 [0.0019 0.0058] dPR=+0.0068 [0.0053 0.0083]
+bootstrap C_minus_intent_word_vs_B_base      dF1=+0.0040 [0.0018 0.006 ] dPR=+0.0073 [0.0058 0.0089]
+bootstrap C_minus_specificity_vs_B_base      dF1=+0.0020 [0.0002 0.0037] dPR=+0.0051 [0.0037 0.0066]
+bootstrap C_constraints_vs_C_no_spacy        dF1=+0.0005 [-0.0012  0.0022] dPR=+0.0012 [0.0004 0.002 ]
+bootstrap C_plus_lexical_vs_C_constraints    dF1=+0.0032 [0.0012 0.0052] dPR=+0.0016 [-0.0002  0.0034]
+bootstrap C_hgb_vs_C_constraints             dF1=+0.0091 [0.0063 0.0118] dPR=+0.0081 [0.0064 0.0099]
+bootstrap C_plus_lexical_vs_C_no_spacy       dF1=+0.0037 [0.0013 0.0059] dPR=+0.0028 [0.0007 0.0048]
+bootstrap C_hgb_vs_C_no_spacy                dF1=+0.0096 [0.0068 0.0121] dPR=+0.0093 [0.0077 0.0111]
+bootstrap C_constraints_vs_B_recal           dF1=+0.0039 [0.0016 0.0059] dPR=+0.0077 [0.006  0.0092]
+bootstrap C_no_spacy_vs_B_recal              dF1=+0.0034 [0.0014 0.0053] dPR=+0.0065 [0.0051 0.0078]
+spaCy not clearly helpful (dPR-AUC +0.0012, CI [0.0004418424891875106, 0.001977198247528153]): drop it
+C_plus_lexical does not clearly beat C_no_spacy (dPR-AUC +0.0028, CI [0.0007474939266431501, 0.004764436213462439]): keep C_no_spacy
+C_hgb beats C_no_spacy (dPR-AUC +0.0093): switch 
+CHOSEN: C_hgb
+Traceback (most recent call last):
+  File "C:\Users\neela\Desktop\Adaptive Semantic Query Matcher\scripts\train_meta.py", line 275, in <module>
+    main()
+  File "C:\Users\neela\Desktop\Adaptive Semantic Query Matcher\scripts\train_meta.py", line 266, in main
+    meta = mp.predict(q1, q2)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neela\Desktop\Adaptive Semantic Query Matcher\src\models\predictors.py", line 130, in predict
+    return self.meta.predict_proba(self.features(q1, q2))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neela\Desktop\Adaptive Semantic Query Matcher\src\models\meta.py", line 100, in predict_proba
+    return self.clf.predict_proba(X)[:, 1]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neela\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\ensemble\_hist_gradient_boosting\gradient_boosting.py", line 2163, in predict_proba
+    raw_predictions = self._raw_predict(X)
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neela\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\ensemble\_hist_gradient_boosting\gradient_boosting.py", line 1201, in _raw_predict
+    X = self._preprocess_X(X, reset=False)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neela\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\ensemble\_hist_gradient_boosting\gradient_boosting.py", line 266, in _preprocess_X
+    return validate_data(self, X, reset=False, **check_X_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\neela\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 3062, in validate_data
+    _check_n_features(_estimator, X, reset=reset)
+  File "C:\Users\neela\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\utils\validation.py", line 2926, in _check_n_features
+    raise ValueError(
+ValueError: X has 40 features, but HistGradientBoostingClassifier is expecting 39 features as input.

@@ -1,0 +1,27 @@
+{"fold": 0, "train_pairs": 243507, "oof_pairs": 60877, "oof_pr_auc": 0.8081345025073163, "oof_roc_auc": 0.906426761079891, "val_pr_auc_of_fold_model": 0.8195501352450858, "seconds": 107.3}
+{"fold": 1, "train_pairs": 243507, "oof_pairs": 60877, "oof_pr_auc": 0.806181755195944, "oof_roc_auc": 0.8946496999087649, "val_pr_auc_of_fold_model": 0.8176501524638252, "seconds": 109.9}
+{"fold": 2, "train_pairs": 243507, "oof_pairs": 60877, "oof_pr_auc": 0.8076115519125289, "oof_roc_auc": 0.9030632361053843, "val_pr_auc_of_fold_model": 0.8215560198491707, "seconds": 99.5}
+{"fold": 3, "train_pairs": 243507, "oof_pairs": 60877, "oof_pr_auc": 0.8012324676121804, "oof_roc_auc": 0.8962839525721262, "val_pr_auc_of_fold_model": 0.8205490984499499, "seconds": 98.7}
+{"fold": 4, "train_pairs": 243508, "oof_pairs": 60876, "oof_pr_auc": 0.8077744257657733, "oof_roc_auc": 0.8994423235088833, "val_pr_auc_of_fold_model": 0.8208913950772978, "seconds": 99.0}
+{
+ "n_folds": 5,
+ "epochs": 25,
+ "oof_overall": {
+  "pr_auc": 0.8044714422009479,
+  "roc_auc": 0.8989199045038199,
+  "f1": 0.753491310697934
+ },
+ "val_deployed": {
+  "pr_auc": 0.8236736384040861,
+  "roc_auc": 0.9066313614919281,
+  "f1": 0.7710969429458885
+ },
+ "val_fold_mean": {
+  "pr_auc": 0.8235973185046757,
+  "roc_auc": 0.9070518678682297,
+  "f1": 0.7690534136031766
+ },
+ "deployed_vs_fold_mean_pearson": 0.9944521654656219,
+ "deployed_minus_fold_mean_mean_abs": 0.02312129447343146
+}
+exit 0

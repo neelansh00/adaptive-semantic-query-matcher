@@ -1,0 +1,12 @@
+{
+  "sbert_mlp": {
+    "single_ms_median": 46.07834999842453,
+    "single_ms_p95": 56.55471500213025,
+    "batch_ms_per_pair": 10.698265049999463
+  },
+  "meta_C_no_spacy_hgb": {
+    "single_ms_median": 72.47560000178055,
+    "single_ms_p95": 80.63817000402196,
+    "batch_ms_per_pair": 11.152638650000881
+  }
+}

@@ -1,0 +1,86 @@
+train=304384 val=38138
+A_cosine                 thr=0.76 F1=0.7347 P=0.6395 R=0.8632 PR=0.7645 ROC=0.8760 macroF1=0.7328 worst=0.6505(C6)
+B_base                   thr=0.32 F1=0.7711 P=0.6935 R=0.8683 PR=0.8237 ROC=0.9066 macroF1=0.7700 worst=0.7076(C6)
+B_recal                  thr=0.36 F1=0.7709 P=0.6947 R=0.8659 PR=0.8237 ROC=0.9066 macroF1=0.7699 worst=0.7086(C6)
+C_constraints            thr=0.38 F1=0.7749 P=0.7095 R=0.8535 PR=0.8313 ROC=0.9104 macroF1=0.7733 worst=0.7038(C6)
+C_no_spacy               thr=0.36 F1=0.7743 P=0.6995 R=0.8671 PR=0.8302 ROC=0.9100 macroF1=0.7729 worst=0.7070(C6)
+C_no_specificity         thr=0.35 F1=0.7731 P=0.6941 R=0.8723 PR=0.8288 ROC=0.9093 macroF1=0.7717 worst=0.7059(C6)
+C_plus_lexical           thr=0.40 F1=0.7780 P=0.7201 R=0.8460 PR=0.8329 ROC=0.9123 macroF1=0.7772 worst=0.7191(C6)
+C_plus_cluster           thr=0.36 F1=0.7739 P=0.7010 R=0.8638 PR=0.8306 ROC=0.9104 macroF1=0.7715 worst=0.6981(C6)
+C_hgb                    thr=0.34 F1=0.7839 P=0.7062 R=0.8807 PR=0.8395 ROC=0.9158 macroF1=0.7823 worst=0.7221(C2)
+C_no_spacy_plus_lexical  thr=0.37 F1=0.7774 P=0.7053 R=0.8660 PR=0.8319 ROC=0.9119 macroF1=0.7763 worst=0.7125(C6)
+C_no_spacy_hgb           thr=0.36 F1=0.7839 P=0.7153 R=0.8670 PR=0.8385 ROC=0.9156 macroF1=0.7822 worst=0.7211(C6)
+B_hgb                    thr=0.34 F1=0.7711 P=0.6918 R=0.8709 PR=0.8221 ROC=0.9066 macroF1=0.7699 worst=0.7071(C6)
+C_minus_number           thr=0.38 F1=0.7730 P=0.7071 R=0.8526 PR=0.8283 ROC=0.9088 macroF1=0.7714 worst=0.6993(C6)
+C_minus_date             thr=0.37 F1=0.7750 P=0.7047 R=0.8608 PR=0.8311 ROC=0.9103 macroF1=0.7734 worst=0.7039(C6)
+C_minus_entity_heuristic thr=0.37 F1=0.7747 P=0.7047 R=0.8601 PR=0.8313 ROC=0.9103 macroF1=0.7731 worst=0.7040(C6)
+C_minus_entity_spacy     thr=0.38 F1=0.7748 P=0.7089 R=0.8541 PR=0.8313 ROC=0.9104 macroF1=0.7730 worst=0.7010(C6)
+C_minus_location         thr=0.36 F1=0.7742 P=0.6997 R=0.8664 PR=0.8302 ROC=0.9099 macroF1=0.7727 worst=0.7040(C6)
+C_minus_negation         thr=0.36 F1=0.7750 P=0.6996 R=0.8686 PR=0.8305 ROC=0.9101 macroF1=0.7735 worst=0.7060(C6)
+C_minus_intent_word      thr=0.37 F1=0.7751 P=0.7049 R=0.8608 PR=0.8310 ROC=0.9103 macroF1=0.7733 worst=0.6994(C6)
+C_minus_specificity      thr=0.35 F1=0.7731 P=0.6941 R=0.8723 PR=0.8288 ROC=0.9093 macroF1=0.7717 worst=0.7059(C6)
+HGB_minus_number         thr=0.36 F1=0.7809 P=0.7113 R=0.8655 PR=0.8347 ROC=0.9137 macroF1=0.7790 worst=0.7111(C6)
+HGB_minus_date           thr=0.37 F1=0.7832 P=0.7194 R=0.8594 PR=0.8379 ROC=0.9154 macroF1=0.7815 worst=0.7216(C6)
+HGB_minus_entity_heuristic thr=0.37 F1=0.7827 P=0.7186 R=0.8592 PR=0.8362 ROC=0.9146 macroF1=0.7810 worst=0.7183(C6)
+HGB_minus_negation       thr=0.37 F1=0.7835 P=0.7183 R=0.8616 PR=0.8378 ROC=0.9151 macroF1=0.7818 worst=0.7188(C6)
+HGB_minus_intent_word    thr=0.38 F1=0.7832 P=0.7243 R=0.8524 PR=0.8384 ROC=0.9153 macroF1=0.7814 worst=0.7131(C6)
+HGB_minus_specificity    thr=0.37 F1=0.7731 P=0.7045 R=0.8564 PR=0.8258 ROC=0.9093 macroF1=0.7720 worst=0.7049(C6)
+bootstrap A_cosine_vs_B_base                 dF1=-0.0364 [-0.0402 -0.0327] dPR=-0.0591 [-0.0636 -0.0543]
+bootstrap B_recal_vs_B_base                  dF1=-0.0002 [-0.0007  0.0003] dPR=+0.0000 [-0.  0.]
+bootstrap C_constraints_vs_B_base            dF1=+0.0037 [0.0014 0.0057] dPR=+0.0077 [0.006  0.0092]
+bootstrap C_no_spacy_vs_B_base               dF1=+0.0032 [0.0013 0.005 ] dPR=+0.0065 [0.0051 0.0078]
+bootstrap C_no_specificity_vs_B_base         dF1=+0.0020 [0.0002 0.0037] dPR=+0.0051 [0.0037 0.0066]
+bootstrap C_plus_lexical_vs_B_base           dF1=+0.0069 [0.0043 0.0096] dPR=+0.0093 [0.0069 0.0116]
+bootstrap C_plus_cluster_vs_B_base           dF1=+0.0028 [0.0005 0.0052] dPR=+0.0069 [0.0051 0.0086]
+bootstrap C_hgb_vs_B_base                    dF1=+0.0128 [0.0097 0.0157] dPR=+0.0158 [0.0138 0.0179]
+bootstrap C_no_spacy_plus_lexical_vs_B_base  dF1=+0.0063 [0.0039 0.0086] dPR=+0.0082 [0.006  0.0104]
+bootstrap C_no_spacy_hgb_vs_B_base           dF1=+0.0128 [0.0097 0.0158] dPR=+0.0149 [0.0126 0.0171]
+bootstrap B_hgb_vs_B_base                    dF1=-0.0000 [-0.0006  0.0006] dPR=-0.0016 [-0.0021 -0.001 ]
+bootstrap C_minus_number_vs_B_base           dF1=+0.0019 [-0.0001  0.0039] dPR=+0.0047 [0.0033 0.006 ]
+bootstrap C_minus_date_vs_B_base             dF1=+0.0039 [0.0017 0.006 ] dPR=+0.0074 [0.0059 0.009 ]
+bootstrap C_minus_entity_heuristic_vs_B_base dF1=+0.0036 [0.0014 0.0056] dPR=+0.0077 [0.0061 0.0091]
+bootstrap C_minus_entity_spacy_vs_B_base     dF1=+0.0036 [0.0014 0.0056] dPR=+0.0077 [0.0061 0.0092]
+bootstrap C_minus_location_vs_B_base         dF1=+0.0030 [0.001 0.005] dPR=+0.0065 [0.005  0.0079]
+bootstrap C_minus_negation_vs_B_base         dF1=+0.0039 [0.0019 0.0058] dPR=+0.0068 [0.0053 0.0083]
+bootstrap C_minus_intent_word_vs_B_base      dF1=+0.0040 [0.0018 0.006 ] dPR=+0.0073 [0.0058 0.0089]
+bootstrap C_minus_specificity_vs_B_base      dF1=+0.0020 [0.0002 0.0037] dPR=+0.0051 [0.0037 0.0066]
+bootstrap HGB_minus_number_vs_B_base         dF1=+0.0098 [0.0068 0.0126] dPR=+0.0111 [0.0093 0.0129]
+bootstrap HGB_minus_date_vs_B_base           dF1=+0.0121 [0.0089 0.0151] dPR=+0.0143 [0.0118 0.0166]
+bootstrap HGB_minus_entity_heuristic_vs_B_base dF1=+0.0116 [0.0084 0.0146] dPR=+0.0126 [0.0101 0.0149]
+bootstrap HGB_minus_negation_vs_B_base       dF1=+0.0123 [0.0092 0.0154] dPR=+0.0141 [0.0124 0.0161]
+bootstrap HGB_minus_intent_word_vs_B_base    dF1=+0.0121 [0.0089 0.0151] dPR=+0.0148 [0.0128 0.0167]
+bootstrap HGB_minus_specificity_vs_B_base    dF1=+0.0020 [-0.0002  0.0041] dPR=+0.0023 [-0.0006  0.0052]
+bootstrap C_constraints_vs_C_no_spacy        dF1=+0.0005 [-0.0012  0.0022] dPR=+0.0012 [0.0004 0.002 ]
+bootstrap C_plus_lexical_vs_C_constraints    dF1=+0.0032 [0.0012 0.0052] dPR=+0.0016 [-0.0002  0.0034]
+bootstrap C_hgb_vs_C_constraints             dF1=+0.0091 [0.0063 0.0118] dPR=+0.0081 [0.0064 0.0099]
+bootstrap C_no_spacy_plus_lexical_vs_C_no_spacy dF1=+0.0031 [0.0013 0.0051] dPR=+0.0017 [-0.0001  0.0036]
+bootstrap C_no_spacy_hgb_vs_C_no_spacy       dF1=+0.0096 [0.0067 0.0123] dPR=+0.0084 [0.0064 0.0104]
+bootstrap C_constraints_vs_B_recal           dF1=+0.0039 [0.0016 0.0059] dPR=+0.0077 [0.006  0.0092]
+bootstrap C_no_spacy_vs_B_recal              dF1=+0.0034 [0.0014 0.0053] dPR=+0.0065 [0.0051 0.0078]
+bootstrap C_no_spacy_hgb_vs_B_hgb            dF1=+0.0128 [0.0098 0.0157] dPR=+0.0165 [0.0143 0.0187]
+bootstrap B_hgb_vs_B_recal                   dF1=+0.0002 [-0.0006  0.001 ] dPR=-0.0016 [-0.0021 -0.001 ]
+bootstrap C_hgb_vs_C_no_spacy_hgb            dF1=+0.0000 [-0.0018  0.0017] dPR=+0.0009 [-0.0001  0.0022]
+bootstrap HGB_minus_number_vs_C_no_spacy_hgb dF1=-0.0030 [-0.0044 -0.0015] dPR=-0.0038 [-0.0052 -0.0023]
+bootstrap HGB_minus_date_vs_C_no_spacy_hgb   dF1=-0.0007 [-0.0021  0.0008] dPR=-0.0007 [-0.0027  0.0012]
+bootstrap HGB_minus_entity_heuristic_vs_C_no_spacy_hgb dF1=-0.0012 [-0.003   0.0006] dPR=-0.0023 [-0.0042 -0.0004]
+bootstrap HGB_minus_negation_vs_C_no_spacy_hgb dF1=-0.0004 [-0.0018  0.0009] dPR=-0.0008 [-0.0019  0.0007]
+bootstrap HGB_minus_intent_word_vs_C_no_spacy_hgb dF1=-0.0007 [-0.0023  0.001 ] dPR=-0.0002 [-0.0012  0.0012]
+bootstrap HGB_minus_specificity_vs_C_no_spacy_hgb dF1=-0.0108 [-0.0137 -0.0078] dPR=-0.0127 [-0.0155 -0.0095]
+spaCy not clearly helpful (dPR-AUC +0.0012, CI [0.0004, 0.002]): drop it
+C_no_spacy_plus_lexical does not clearly beat C_no_spacy (dPR-AUC +0.0017, CI [-0.0001, 0.0036]): keep C_no_spacy
+C_no_spacy_hgb beats C_no_spacy (dPR-AUC +0.0084, CI [0.0064, 0.0104]): switch 
+CHOSEN: C_no_spacy_hgb
+                 type  base_prob  base_dup  meta_prob  meta_dup
+0          paraphrase      0.818      True      0.799      True
+1          paraphrase      0.526      True      0.528      True
+2     entity_mismatch      0.031     False      0.053     False
+3     entity_mismatch      0.403      True      0.208     False
+4     number_mismatch      0.336      True      0.084     False
+5     number_mismatch      0.616      True      0.458      True
+6       date_mismatch      0.038     False      0.029     False
+7   location_mismatch      0.002     False      0.010     False
+8   negation_mismatch      0.320      True      0.114     False
+9   negation_mismatch      0.309     False      0.131     False
+10   broader_narrower      0.265     False      0.305     False
+11     identical_case      0.975      True      0.910      True
+12    acronym_variant      0.880      True      0.864      True

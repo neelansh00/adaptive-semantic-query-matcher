@@ -1,0 +1,35 @@
+[val] annotating 53,610 unique questions
+[val] (38138, 42) pair features in 4s
+num_mismatch      0.0364
+num_one_sided     0.0824
+date_mismatch     0.0197
+date_one_sided    0.0622
+enth_mismatch     0.2110
+enth_one_sided    0.1496
+ents_mismatch     0.1678
+ents_one_sided    0.1542
+loc_mismatch      0.0363
+loc_one_sided     0.0932
+neg_xor           0.0889
+wh_mismatch       0.3339
+content_subset    0.0871
+[train] annotating 424,012 unique questions
+  annotated 100,000 (535/s)
+  annotated 200,000 (659/s)
+  annotated 300,000 (714/s)
+  annotated 400,000 (731/s)
+[train] (304384, 42) pair features in 18s
+num_mismatch      0.0378
+num_one_sided     0.0841
+date_mismatch     0.0209
+date_one_sided    0.0636
+enth_mismatch     0.2306
+enth_one_sided    0.1429
+ents_mismatch     0.1847
+ents_one_sided    0.1487
+loc_mismatch      0.0434
+loc_one_sided     0.0900
+neg_xor           0.0872
+wh_mismatch       0.3279
+content_subset    0.0904
+exit 0

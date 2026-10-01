@@ -14,3 +14,8 @@ torch==2.14.1
 sentence-transformers==6.1.0   # pulls transformers, tokenizers, huggingface_hub, safetensors
 transformers==5.18.0
 huggingface_hub==1.33.0
+
+# Phase 6. spaCy is needed only to REPRODUCE the NER ablation (build_constraint_features.py);
+# the chosen meta-model is spaCy-free at inference time.
+#   python -m spacy download en_core_web_sm   (model 3.8.0)
+spacy==3.8.16
