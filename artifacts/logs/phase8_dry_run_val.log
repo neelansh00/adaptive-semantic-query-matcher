@@ -1,0 +1,12 @@
+[freeze] 25 files + encoder verified against manifest from 2026-10-01T16:04:59+00:00
+[val] 38138 pairs; leakage check {'questions_shared_with_train': 0}
+[score] constraint features + meta-model in 11s
+baseline           tau=0.32 F1=0.7711 P=0.6935 R=0.8683 ROC=0.9066 PR=0.8237 macro=0.7700 worst=0.7076(C6)
+final              tau=0.35 F1=0.7839 P=0.7113 R=0.8731 ROC=0.9155 PR=0.8378 macro=0.7822 worst=0.7209(C6)
+ref_tfidf_lexical  tau=0.32 F1=0.7299 P=0.6591 R=0.8177 ROC=0.8739 PR=0.7705 macro=0.7264 worst=0.6564(C0)
+ref_bilstm         tau=0.57 F1=0.7323 P=0.6615 R=0.8200 ROC=0.8742 PR=0.7730 macro=0.7287 worst=0.6555(C6)
+ref_cosine         tau=0.76 F1=0.7347 P=0.6395 R=0.8632 ROC=0.8760 PR=0.7645 macro=0.7328 worst=0.6505(C6)
+final - baseline: {'f1': '+0.0128 [+0.0096, +0.0157]', 'precision': '+0.0177 [+0.0143, +0.0211]', 'recall': '+0.0048 [+0.0006, +0.0086]', 'macro_cluster_f1': '+0.0122 [+0.0088, +0.0153]', 'worst_cluster_f1': '+0.0124 [-0.0063, +0.0280]', 'fpr': '-0.0162 [-0.0193, -0.0131]', 'fnr': '-0.0048 [-0.0086, -0.0006]', 'pr_auc': '+0.0142 [+0.0116, +0.0167]'}
+transitions: {'fp_fixed': 955, 'fn_fixed': 428, 'new_fp': 557, 'new_fn': 362}
+DRY RUN reproduces validation: True {'baseline': (0.771097, 0.771097), 'final': (0.783922, 0.783922), 'ref_tfidf_lexical': (0.729896, 0.729896), 'ref_bilstm': (0.732312, 0.732312), 'ref_cosine': (0.734685, 0.734685)} decision flips: {'baseline': 0, 'final': 0} max |score diff|: {'baseline_max_abs': 5.296173095636902e-07, 'final_max_abs': 4.999730763843857e-07}
+[done] results -> C:\Users\neela\Desktop\Adaptive Semantic Query Matcher\artifacts\phase8\dry_run_val

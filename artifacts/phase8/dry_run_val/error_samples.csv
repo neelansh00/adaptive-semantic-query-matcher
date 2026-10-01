@@ -1,0 +1,61 @@
+id,outcome,cluster,final_score,baseline_score,question1,question2
+254906,FP,2,0.392,0.406,Where is telephone country code 67?,What country is international calling code used 086 for?
+204393,FP,6,0.552,0.522,How do I score above 95% in ICSE 10th boards 2017?,How can I score above 95% in ICSE 10th boards when I have only 3 months more?
+166730,FP,10,0.389,0.389,What are the characteristics of a top 1% software developer?,What are the characteristics of a good software developer/engineer?
+344570,FP,3,0.507,0.417,How do I stop having panic attacks?,How can you prevent panic attacks or stop them once they start?
+35294,FP,11,0.619,0.491,What are some movies similar to Alice in Wonderland?,What is Alice In Wonderland based on?
+37386,FP,0,0.701,0.68,How can we convert sound enegy into electric energy?,How can we convert sound energy into electrical energy?
+70266,FP,4,0.93,0.934,How can I change my Life?,How should I change my life entirely?
+329107,FP,2,0.38,0.507,How do you log out of instagram on your phone?,How do I log out of instagram on my computer?
+313105,FP,6,0.525,0.413,Myers-Briggs Type Indicator: What happens if both you and your line manager are ENFPs?,Myers-Briggs Type Indicator: What are the crucial differences between ENFPs and ENTPs?
+276307,FP,6,0.865,0.888,How many branches are there in mechanical engineering?,What are the branches in mechanical engineering?
+51112,FP,3,0.737,0.684,How do I get rid of acne on my nose?,How can I get rid of a pimple on the bridge of my nose?
+78110,FP,4,0.781,0.807,How do you feel receiving a compliment? Why?,How do you feel giving a compliment? Why?
+392577,FP,10,0.691,0.768,How can I NOT simplify my life?,What's the best way to simplify your life?
+200003,FP,2,0.636,0.32,Is it possible to install Windows 10 for free even after July 29th 2016 and use it even without activation?,Is it illegal to use windows 10 without activation?
+337938,FP,3,0.54,0.35,What is the best recipe for fried chicken and French fries?,What is the best sauce for french fries?
+311151,FP,3,0.513,0.267,What is the best way to get fit at home?,What is the best way to stay fit when working in an office 60+ hours a week?
+143565,FP,3,0.407,0.516,What is the best way to spank my husband?,What is the best way to spank someone?
+292168,FP,1,0.656,0.695,How will it be to travel at the speed of light?,When will we be able to travel at the speed of light?
+155700,FP,7,0.712,0.683,How do I get paid for answering these questions?,How can I get paid to answer questions?
+168982,FP,8,0.827,0.803,"Which drone should I buy, the GoPro Karma, or the DJI Mavic?",Which new drone do you think is the best for amateur drone flying; Go Pro Karma or DJI Mavic?
+171741,FP,9,0.69,0.549,What is the reason for Virat Kohli's success?,What is the reason for Virat Kohli's failure in the India tour of England?
+213579,FP,10,0.499,0.545,What are the best small classes for freshmen at Connecticut College?,What are the best small classes for freshmen at Central Connecticut State?
+175040,FP,7,0.551,0.527,What is the pay based on for YouTube? Is it the number of subscribers?,How much does YouTube pay per subscriber?
+193911,FP,7,0.646,0.61,What's the value of a silver certificate dollar bill?,How do you find the value of a silver certificate dollar bill?
+306681,FP,4,0.592,0.658,Why doesn't depression lower your IQ?,Does your IQ drop while you're going through depression?
+374717,FP,11,0.575,0.541,What are some of the most exotic foods?,What are some of the most exotic food experiences?
+284726,FP,11,0.366,0.392,How brutal was medieval combat?,Were medieval battles as brutal as in the movies?
+257827,FP,8,0.423,0.287,Which test series is good for geography optional especially for paper 2?,Which test series is good for geography optional?
+34264,FP,1,0.481,0.655,Why are there evil people?,Are there evil people?
+302561,FP,3,0.556,0.567,Can peppermint oil keep mice away?,Why does peppermint keep mice away?
+363081,FN,10,0.117,0.104,What skills should I acquire before joining a B-school?,What pre-requisites/new skills can I have before I enter my MBA?
+29462,FN,6,0.05,0.187,How can I join Indian army after BBA?,What are the ways to join the Indian armed forces as an officer in final year of graduation and after that (especially engineering)?
+93628,FN,4,0.245,0.333,Does long distance relationships actually work?,Can you help me with tips for a successful long distance relationship?
+384153,FN,11,0.267,0.225,Do parents have a favorite kid?,Do you have a favorite child?
+129719,FN,6,0.086,0.04,How can I join Indian army after BBA?,How do I join army after hotel management?
+151156,FN,6,0.042,0.047,What are the ways to join the Indian armed forces as an officer in final year of graduation and after that (especially engineering)?,Can a boy join the Indian armed forces after a BSc degree?
+135825,FN,4,0.258,0.579,Could someone please motivate me?,Can you motivate me?
+64226,FN,6,0.172,0.12,What should I do to get an intership at Google?,How can I apply for internship at Google?
+224322,FN,0,0.174,0.145,What does cotton need to grow?,When and Where did cotton farming originate?
+190514,FN,4,0.348,0.283,Can long distance relationships work out?,How are long distance relationships maintained?
+308572,FN,6,0.024,0.004,Should I drop a year after engineering for GATE preparation or join Infosys as a fresher?,Should i join TCS or drop a year and prepare for CAT?
+358925,FN,3,0.174,0.114,Why does our body prefer a room temperature of 21 degrees while the body itself prefers to be 37 degrees?,"Why do we sweat when it's 37 degrees outside, even though that is our body temperature?"
+253852,FN,1,0.134,0.034,How did fivethirtyeight.com get its predictions about the 2016 race so wrong?,How did the 2016 US election polls get it so wrong?
+52656,FN,0,0.186,0.123,Why are answers and reviews on Quora collapsed?,Why my answer was collapsed?
+318708,FN,1,0.14,0.072,Can we store the energy from lightining?,Will we be able to gain energy from lightning?
+271999,FN,11,0.168,0.253,What is the meaning of my life?,What the meaning of this all life?
+269482,FN,4,0.186,0.26,What is the meaning of your so mean?,What is the meaning of “You are so mean!”?
+149903,FN,3,0.337,0.261,Does green tea help to lose weight?,How does green tea burn belly fat?
+375091,FN,3,0.283,0.175,What's the best plan to lose weight?,How do I suck it up and lose weight?
+294759,FN,10,0.348,0.203,How can I increase followers in Quora?,"How do you become famous and receive a lot of views, upvotes, and followers on Quora?"
+184586,FN,4,0.326,0.33,What is the trick to maintaining long distance relationships?,How will long distance relationship work?
+275798,FN,10,0.31,0.191,How do I start conversation with a girl at my workspace?,What are some of the best ways to start a conversation with a girl?
+164488,FN,8,0.043,0.016,How to use ANSYS software?,What is disadvantage of using ANSYS software?
+133114,FN,1,0.285,0.187,Is Dushka Zapata a full time writer now?,What does Dushka Zapata do for a living and how do I become an excellent writer like her?
+281904,FN,0,0.338,0.219,Why do we see the same face of the Moon from anywhere on Earth?,Is there an answer in physics to explain why our moon always displays the same surface aspect to the Earth?
+187416,FN,4,0.118,0.082,Is it possible for parents to not have a favorite child?,Do parents have a favorite child?
+38091,FN,7,0.134,0.156,How do I respond with credibility when my friends ask how much money I make?,How do I respond to friends and family when they ask how much money I make?
+176613,FN,3,0.317,0.26,Does a late period mean I'm pregnant?,What else could cause a late period besides pregnancy?
+75953,FN,6,0.109,0.035,What are effects of 1 or 2 year backlogs in graduation on one's career?,What are effects of having 1 or 2 year lags in graduation?
+332641,FN,10,0.322,0.21,How to read minds like mentalist?,How do you read someone's mind?
