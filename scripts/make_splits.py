@@ -123,6 +123,16 @@ def main() -> None:
         ok = frozen["split_id_sha256"] == new_hashes and frozen["raw_sha256"] == file_sha256(raw_path)
         print("[freeze] existing split found -> reproduced exactly" if ok else
               "[freeze] WARNING: regenerated split differs from frozen split; NOT overwriting")
+        missing = [s for s in SPLITS if not (split_dir / f"{s}.csv").exists()]
+        if ok and missing:
+            # Fresh clone: the split metadata is versioned but the CSVs are not. The regenerated split matches the
+            # frozen id hashes exactly, so materialise the files (metadata is never rewritten here).
+            assignments.to_csv(split_dir / "split_assignments.csv", index=False)
+            for s in SPLITS:
+                df[split == s].to_csv(split_dir / f"{s}.csv", index=False)
+            same_bytes = all(file_sha256(split_dir / f"{s}.csv") == frozen["split_file_sha256"][s] for s in SPLITS)
+            print(f"[freeze] wrote split CSVs {missing}; byte-identical to the frozen files: {same_bytes}"
+                  + ("" if same_bytes else " (ids match exactly; bytes differ, e.g. platform line endings)"))
         sys.exit(0 if ok else 1)
 
     split_dir.mkdir(parents=True, exist_ok=True)
