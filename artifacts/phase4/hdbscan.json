@@ -1,0 +1,57 @@
+[
+  {
+    "pca_dims": 50,
+    "min_cluster_size": 200,
+    "min_samples": 10,
+    "sample_size": 30000,
+    "n_clusters": 0,
+    "noise_share": 1.0,
+    "largest_cluster_share_of_sample": 0.0,
+    "median_cluster_size": 0.0,
+    "seconds": 227.6
+  },
+  {
+    "pca_dims": 50,
+    "min_cluster_size": 50,
+    "min_samples": 10,
+    "sample_size": 30000,
+    "n_clusters": 2,
+    "noise_share": 0.8270666666666666,
+    "largest_cluster_share_of_sample": 0.17083333333333334,
+    "median_cluster_size": 2594.0,
+    "seconds": 209.1
+  },
+  {
+    "pca_dims": 50,
+    "min_cluster_size": 15,
+    "min_samples": 5,
+    "sample_size": 30000,
+    "n_clusters": 5,
+    "noise_share": 0.40523333333333333,
+    "largest_cluster_share_of_sample": 0.5920333333333333,
+    "median_cluster_size": 22.0,
+    "seconds": 207.8
+  },
+  {
+    "pca_dims": 10,
+    "min_cluster_size": 50,
+    "min_samples": 10,
+    "sample_size": 30000,
+    "n_clusters": 4,
+    "noise_share": 0.6233,
+    "largest_cluster_share_of_sample": 0.3707,
+    "median_cluster_size": 64.5,
+    "seconds": 15.2
+  },
+  {
+    "pca_dims": 10,
+    "min_cluster_size": 15,
+    "min_samples": 5,
+    "sample_size": 30000,
+    "n_clusters": 3,
+    "noise_share": 0.3237,
+    "largest_cluster_share_of_sample": 0.6748666666666666,
+    "median_cluster_size": 23.0,
+    "seconds": 13.8
+  }
+]

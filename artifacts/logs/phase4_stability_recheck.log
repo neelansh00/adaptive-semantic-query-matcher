@@ -1,0 +1,8 @@
+K=8: seed ARI 0.650 [0.573, 0.994]  split-half ARI 0.860 [0.689, 0.946]
+K=10: seed ARI 0.658 [0.489, 0.997]  split-half ARI 0.721 [0.668, 0.776]
+K=12: seed ARI 0.792 [0.704, 0.992]  split-half ARI 0.803 [0.723, 0.940]
+K=15: seed ARI 0.719 [0.594, 0.816]  split-half ARI 0.698 [0.663, 0.765]
+exit 0
+K=5: seed ARI 0.519 [0.369, 0.999]  split-half ARI 0.645 [0.472, 0.951]
+K=20: seed ARI 0.668 [0.601, 0.780]  split-half ARI 0.700 [0.591, 0.809]
+exit 0

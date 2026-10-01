@@ -1,0 +1,11 @@
+{
+  "k": 12,
+  "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+  "seed": 42,
+  "n_init": 10,
+  "fitted_on": "train unique questions",
+  "n_train_questions": 424012,
+  "inertia": 369599.1875,
+  "assignment": "nearest centroid (Euclidean on L2-normalised embeddings)",
+  "centroids_sha256": "e360150f466711b0b0c9d8862c8681ad73e7aa9cba8305a715fc5936e0484413"
+}

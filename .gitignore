@@ -23,3 +23,6 @@ __pycache__/
 venv/
 .env
 .vscode/
+
+# Frozen cluster centroids are small (18 KB) and are the source of truth (refits are not bit-reproducible)
+!artifacts/phase4/cluster_model/centroids.npy

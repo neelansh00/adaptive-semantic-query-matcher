@@ -6,8 +6,8 @@ embedding-similarity threshold?
 
 Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_audit.md](docs/data_audit.md)).
 
-> **Status: Phase 3 complete** (Phase 1: audit, leakage, frozen splits; Phase 2: lexical baselines;
-> Phase 3: Siamese BiLSTM + sentence-transformer models). Clustering starts in Phase 4. The full README (architecture, results, demo) is written in Phase 11.
+> **Status: Phase 4 complete** (1: audit and frozen splits; 2: lexical baselines; 3: deep models;
+> 4: unsupervised query clustering). Cluster-level error analysis starts in Phase 5. The full README (architecture, results, demo) is written in Phase 11.
 
 ## Phase 1 key findings
 
@@ -51,6 +51,16 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
   Quora data listed scores 3–4.5 F1 points lower. Absolute scores are therefore optimistic (see [docs/deep_models.md](docs/deep_models.md)).
 - **Hardware:** CPU only (no CUDA GPU available). The frozen encoder costs ~28 ms per pair end to end; no fine-tuning was needed.
 
+## Phase 4 key findings (train questions only, no labels used)
+
+- **Method:** K-Means on 424,012 unique train-question embeddings, compared for K ∈ {5, 8, 10, 12, 15, 20}, plus HDBSCAN.
+- **No separated structure:** silhouette ≈ 0.02 at every K. HDBSCAN returns 32–100% noise or one dominant blob, so it is rejected for a measured reason.
+- **K = 12 chosen on stability.** Robust stability (6 seed pairs, 3 split-halves) peaks at K = 12 (ARI 0.79 / 0.80). It also has the most balanced
+  sizes (6.4–13.4%) and 10 of 12 clearly interpretable clusters. Single-run stability estimates were misleading; K = 5 looked perfectly stable but is the least stable.
+- **Clusters (named after inspection):** a mix of topic and intent, e.g. definitions, product "which is best", how-to accounts/apps, learning
+  and exam preparation, relationships, health, India-specific, and personal-experience questions.
+- **Soft boundaries:** a third of validation pairs straddle two clusters. The centroids are frozen because K-Means refits are not bit-reproducible.
+
 ## Documentation
 
 | Doc | Content |
@@ -62,6 +72,7 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
 | [docs/phase1_report.md](docs/phase1_report.md) | Phase 1 summary and verification |
 | [docs/baseline_results.md](docs/baseline_results.md) | Phase 2 preprocessing, lexical features, baselines, failure analysis |
 | [docs/deep_models.md](docs/deep_models.md) | Phase 3 Siamese BiLSTM, sentence-transformer heads, contamination control, error analysis, latency |
+| [docs/clustering.md](docs/clustering.md) | Phase 4 K-Means vs HDBSCAN, K selection, stability, cluster interpretation |
 
 ## Reproduce
 
@@ -89,7 +100,12 @@ python scripts/encode_questions.py --model sentence-transformers/nli-distilrober
 python scripts/run_encoder_control.py
 python scripts/compare_phase3.py
 
-# 6. Tests
+# 6. Phase 4 clustering (train questions only)
+python scripts/compare_clustering.py
+python scripts/stability_recheck.py --k 5 8 10 12 15 20
+python scripts/build_clusters.py        # uses frozen centroids; --refit to re-fit deliberately
+
+# 7. Tests
 python -m pytest
 ```
 
@@ -100,10 +116,12 @@ against the hashes in `data/processed/splits/split_metadata.json`.
 
 ```
 configs/data.yaml          split configuration (seed, ratios, cap)
+configs/clustering.yaml    clustering configuration (K grid, chosen K = 12, HDBSCAN settings)
 data/raw/                  extracted Kaggle files (not versioned, never modified)
 data/processed/splits/     frozen train/val/test + split_metadata.json
 scripts/                   Phase 1-2: audit_dataset, make_splits, run_baselines, analyze_baseline_errors
                            Phase 3: encode_questions, run_sbert, train_bilstm, run_encoder_control, compare_phase3
+                           Phase 4: compare_clustering, stability_recheck, build_clusters
 src/utils/                 data loading (data.py), split strategies + leakage metrics (splits.py)
 src/evaluation/            metrics.py (F1/PR/ROC, threshold sweep, ECE, per-cluster metrics)
 src/preprocessing/         minimal text normalisation + tokenisation
@@ -111,11 +129,13 @@ src/features/              symmetric lexical pair features
 src/evaluation/error_analysis.py   heuristic error tags (analysis only)
 src/models/                 siamese_bilstm.py, sentence_encoder.py (cached embeddings), predictors.py (raw text -> score)
 src/utils/torch_utils.py   device (CUDA if present, else CPU), seeding, threads
-src/{clustering,calibration}/   placeholders for later phases
-tests/                     Phase 1-3 tests
+src/clustering/core.py     K-Means fitting, frozen centroid model, metrics, stability, c-TF-IDF descriptions
+src/calibration/           placeholder for later phases
+tests/                     Phase 1-4 tests
 docs/                      documentation + figures
 artifacts/phase1/          audit statistics, split comparison
 artifacts/phase2/          baseline metrics, val predictions, error analysis, fitted models (joblib)
 artifacts/phase3/          BiLSTM + SBERT heads, val scores, encoder control, comparison.json
 data/processed/embeddings/ cached MiniLM question embeddings (train, val)
+artifacts/phase4/          K sweep, stability, HDBSCAN, frozen cluster centroids, cluster descriptions/names
 ```

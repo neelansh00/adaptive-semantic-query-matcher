@@ -1,0 +1,20 @@
+# Phase 4 clustering configuration. Clusters are fitted on TRAIN question embeddings only.
+encoder: sentence-transformers/all-MiniLM-L6-v2
+seed: 42
+k_grid: [5, 8, 10, 12, 15, 20]
+n_init_sweep: 5          # K-Means restarts per K during comparison
+n_init_final: 10         # restarts for the final model
+silhouette_sample: 20000
+
+# HDBSCAN is O(n^2)-ish in high dimension: run on a random subsample after PCA.
+hdbscan:
+  sample_size: 30000
+  settings:            # (pca_dims, min_cluster_size, min_samples): from coarse to fine-grained
+    - [50, 200, 10]
+    - [50, 50, 10]
+    - [50, 15, 5]
+    - [10, 50, 10]
+    - [10, 15, 5]
+
+# Chosen AFTER the K sweep (see docs/clustering.md); null until then.
+chosen_k: 12

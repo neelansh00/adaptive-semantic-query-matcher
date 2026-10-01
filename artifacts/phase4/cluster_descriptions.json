@@ -1,0 +1,539 @@
+{
+  "k": 12,
+  "metrics": {
+    "silhouette_sample": 0.019955087453126907,
+    "davies_bouldin": 5.201207718448262,
+    "calinski_harabasz": 3781.095815872332,
+    "coherence_mean_cos_to_centroid": 0.35183408856391907,
+    "coherence_worst_cluster": 0.2566303014755249
+  },
+  "size_stats": {
+    "min_share": 0.06353357923832344,
+    "max_share": 0.1338146090204994,
+    "max_to_min_ratio": 2.1062029028545974,
+    "size_entropy_normalised": 0.9894698958680738
+  },
+  "assignment_margin": {
+    "median": 0.09486283361911774,
+    "share_below_0.02": 0.13004820618284388,
+    "share_below_0.05": 0.2953029631236852
+  },
+  "clusters": {
+    "0": {
+      "train_questions": 56739,
+      "train_share": 0.1338146090204994,
+      "val_questions": 7056,
+      "val_share": 0.13161723559037494,
+      "coherence_mean_cos": 0.28763091564178467,
+      "top_terms": [
+        "mean",
+        "used",
+        "meaning",
+        "word",
+        "examples",
+        "differences",
+        "different",
+        "c",
+        "work",
+        "function",
+        "what's",
+        "water"
+      ],
+      "nearest_centroid": [
+        "What are its characteristics?",
+        "What does IT stand for?",
+        "What are its multiple functions?",
+        "What is meant by mechanism of machine?",
+        "What is coulums law eletricity?",
+        "What is noetics science?",
+        "What is a mechanism?",
+        "What is meant by apriculture?",
+        "What is engine in computer science?",
+        "What is the basic function of RAM & processor with an example?"
+      ],
+      "random_members": [
+        "What is the difference between information systems and management information systems?",
+        "6 (3x+2)-5 (6x-1) =3 (x-8)-5 (7x-6) +9x?",
+        "What does it mean when your MCV and MCHC are low?",
+        "What do roots do for a plant?",
+        "How do you prove tan theta, sine theta/ 1-cos = 1 + 1/ cos theta?",
+        "What is ARN number?",
+        "What does burning butane produce?",
+        "Are there any functional aspects to the design of military uniforms? What is the use of the (for example) Lanyard, or the belt worn diagonally across the torso in some military uniforms?"
+      ]
+    },
+    "1": {
+      "train_questions": 47267,
+      "train_share": 0.1114756186145675,
+      "val_questions": 5862,
+      "val_share": 0.10934527140458869,
+      "coherence_mean_cos": 0.2799934148788452,
+      "top_terms": [
+        "trump",
+        "donald",
+        "hillary",
+        "clinton",
+        "president",
+        "happen",
+        "god",
+        "earth",
+        "believe",
+        "win",
+        "true",
+        "universe"
+      ],
+      "nearest_centroid": [
+        "Does Christopher Walken have a high IQ?",
+        "Does Stephen Hawking believe in God?",
+        "Is Dan Bilzerian really living the life?",
+        "Does Hannibal Lecter believe in God?",
+        "Why do you think Hannibal Lecter become a psychologist?",
+        "Is the third child of Stephen Hawking his own?",
+        "Is Stephen Hawking a Christian?",
+        "How intelligent is Alex Jones?",
+        "Is Matt Damon smart in real life?",
+        "Would you trust Sam Vaknin's narcissism theories?"
+      ],
+      "random_members": [
+        "Are people using smartphones really smart?",
+        "Why didn\u2019t Jesus fulfill all of the messianic prophecies?",
+        "My boyfriend bought two mice from a pet store and let them loose in front of his cats as a Christmas present. I was appalled. Am I overreacting?",
+        "Is Putin a good guy or bad guy?",
+        "Who killed Colin Creevey from Harry Potter?",
+        "How do people die in plane crashes over ocean?",
+        "Dream of dead mother what does it mean?",
+        "What issues may arise if an atheist has to swear under oath with his/her hand on the Bible?"
+      ]
+    },
+    "2": {
+      "train_questions": 40759,
+      "train_share": 0.0961269964057621,
+      "val_questions": 5494,
+      "val_share": 0.10248088043275508,
+      "coherence_mean_cos": 0.2566303014755249,
+      "top_terms": [
+        "phone",
+        "account",
+        "facebook",
+        "iphone",
+        "quora",
+        "card",
+        "number",
+        "google",
+        "app",
+        "instagram",
+        "android",
+        "download"
+      ],
+      "nearest_centroid": [
+        "How do you set up a MyFreeCames account?",
+        "How do you hack Facebook on iPhone?",
+        "How do you set up a MyFreeCam account?",
+        "How do you spy on Facebook without a target phone?",
+        "How do you get a simple mobile account number?",
+        "How do you track a cell phone for free?",
+        "How do you spam someone's phone?",
+        "How do you download someone's hike messenger profile pic to your mobile?",
+        "How do you unlock a Public Mobile phone?",
+        "How do I hack a phone number or SIM?"
+      ],
+      "random_members": [
+        "How do I run a NodeJS app on Digital Ocean?",
+        "How do I use 'best regards' in English?",
+        "How do I write press release?",
+        "Is there a way to ship goods from Amazon to Ukraine?",
+        "Youngstown State Football Live Stream | Watch Youngstown State Penguins Football Game Today Live Streaming Online?",
+        "How should I install AutoCAD 2014 in Ubuntu?",
+        "How do I add 1001.001 and 1101.111?",
+        "On Snapchat, why does someone who deleted me appear as re-added me but I didn't get a notification?"
+      ]
+    },
+    "3": {
+      "train_questions": 35453,
+      "train_share": 0.08361319962642566,
+      "val_questions": 4696,
+      "val_share": 0.08759559783622459,
+      "coherence_mean_cos": 0.3184407353401184,
+      "top_terms": [
+        "eat",
+        "weight",
+        "hair",
+        "lose",
+        "rid",
+        "body",
+        "long",
+        "eating",
+        "food",
+        "sleep",
+        "water",
+        "cause"
+      ],
+      "nearest_centroid": [
+        "What are the remedies for veccing?",
+        "What are the health benefits of eating oxtails?",
+        "What are the active ingrediants of revived youth cream?",
+        "How do you suppress hunger?",
+        "What should someone eat to make a larger penis?",
+        "What is the best way to eat bananas?",
+        "What can smoking weed do to your body?",
+        "How do you eat a banana without puking?",
+        "What harmful effects can Boba Milk Tea have on your body?",
+        "How do you prevent food poisoning after eating?"
+      ],
+      "random_members": [
+        "How can you cook sausages in the microwave?",
+        "How can I get skinny as a teenager?",
+        "How can I lose 5 kg in 15 days?",
+        "How do you know you're pregnant without a test?",
+        "How do I fix water damage on my hardwood floor?",
+        "What is the cracking sound in our knuckles when we twist our fingers?",
+        "How do I use apple cider vinegar to lose weight?",
+        "Is a 32C bra size too big?"
+      ]
+    },
+    "4": {
+      "train_questions": 34030,
+      "train_share": 0.08025716253313585,
+      "val_questions": 4287,
+      "val_share": 0.07996642417459429,
+      "coherence_mean_cos": 0.34828004240989685,
+      "top_terms": [
+        "love",
+        "girl",
+        "feel",
+        "guy",
+        "girlfriend",
+        "friend",
+        "boyfriend",
+        "relationship",
+        "life",
+        "girls",
+        "friends",
+        "i'm"
+      ],
+      "nearest_centroid": [
+        "How do you embrace loneliness?",
+        "How do you make yourself fall in love with someone?",
+        "How do I become emotionally available to healthy relationships and stop self sabotage?",
+        "How can avoid getting emotionally attached to a person?",
+        "How does an introvert build a relationship with anyone?",
+        "How do you overcome emotional attachment?",
+        "How do you have amazing confidence with women, when you've been rejected your whole life?",
+        "How do you condition yourself to not fall in love easily?",
+        "How do you make yourself fall out of love with someone?",
+        "What do you do to overcome emotional attachments?"
+      ],
+      "random_members": [
+        "Why do I feel like throwing up when I see romance?",
+        "What is the first text message I should send to a woman I like?",
+        "Why do girls post so many selfies?",
+        "Why is it so difficult to ask to answer other people than those Quora selects for you?",
+        "Why does people do more critizing onsocial media than real live?",
+        "How can I ask my boyfriend to be more communicative in a LDR?",
+        "I LOVE a girl, all our friends think she likes another guy but she told me she doesn't. We are friends and finish HS in a month. What should I do?",
+        "I was speeding in the HOV lane(alone) and it is my first ticket since I started driving almost 10 years ago. How do I fight it?"
+      ]
+    },
+    "5": {
+      "train_questions": 32126,
+      "train_share": 0.07576672358329481,
+      "val_questions": 4117,
+      "val_share": 0.07679537399738855,
+      "coherence_mean_cos": 0.34669071435928345,
+      "top_terms": [
+        "world",
+        "country",
+        "countries",
+        "war",
+        "china",
+        "america",
+        "united",
+        "states",
+        "american",
+        "americans",
+        "chinese",
+        "compare"
+      ],
+      "nearest_centroid": [
+        "What are the disadvantages of country life?",
+        "What are some problems developed countries face?",
+        "What are the biggest culture shocks people face when coming to Colombia?",
+        "What do Australians think of China?",
+        "What are the reasons why Somalia is a poor country?",
+        "What buildings do other countries people live?",
+        "What are the biggest culture shocks people face when coming to Russia?",
+        "What do Cambodia people think about China?",
+        "What are the advantages of multiculturalism in Australia?",
+        "What do foreigners think about China?"
+      ],
+      "random_members": [
+        "What would happen to British military bases in Northern Ireland, Scotland or Wales if they left the UK?",
+        "Why is polygamy illegal in the U.S.?",
+        "Why should sex education be taught in school?",
+        "What should everyone know about guns and firearms?",
+        "What is Silicon Valley known for?",
+        "How was Europe cleared of landmines after World War Two?",
+        "How do you look demonetization? Was it necessary?",
+        "If America was a person, how would he or she spend the entire day?"
+      ]
+    },
+    "6": {
+      "train_questions": 31941,
+      "train_share": 0.07533041517692896,
+      "val_questions": 4002,
+      "val_share": 0.07465025181869055,
+      "coherence_mean_cos": 0.4615882337093353,
+      "top_terms": [
+        "engineering",
+        "university",
+        "job",
+        "college",
+        "mba",
+        "universities",
+        "engineer",
+        "student",
+        "degree",
+        "science",
+        "b",
+        "career"
+      ],
+      "nearest_centroid": [
+        "Is there any good placement at northern India engineering college?",
+        "How do iprepare for IAS from 2nd year engineering computer science?",
+        "How is the education in tier 3 engineering college in India?",
+        "What options other than the GATE are there for doing an M.Tech at a good college in India?",
+        "Passing marks in bba of calcutta university?",
+        "How can an Indian student get into a top international university?",
+        "How is Shiv Nadar University for a B.Tech?",
+        "What are the prospects after a Masters degree in Aerospace Engineering from IIT Bombay?",
+        "How is the placement for civil engineering in Nirma university?",
+        "How do you get admitted into Hult International Business School?"
+      ],
+      "random_members": [
+        "Can an INTP be successful?",
+        "Is it necessary to drop a year to score good marks in JEE mains?",
+        "MS in Business Analytics: How is Stevens for MS in Analytics? Is it worth to join?",
+        "Can a Btech degree holder apply for India Post Payment banks and what is the future and salary for Grade-1 officer(JMS) in IPBB?",
+        "What is the average salary of an assistant professor in Hong Kong?",
+        "Which college is better for B.A in psychology Honours, Zakir Hussain or Keshav Mahavidlaya?",
+        "I scored 114 /407 in the FIITJEE entrance test. The highest score is 296. Can I get a free scholarship?",
+        "Can we put up two research interest in mitacs?"
+      ]
+    },
+    "7": {
+      "train_questions": 31070,
+      "train_share": 0.07327622803128213,
+      "val_questions": 4110,
+      "val_share": 0.07666480134303301,
+      "coherence_mean_cos": 0.39382943511009216,
+      "top_terms": [
+        "money",
+        "business",
+        "company",
+        "companies",
+        "earn",
+        "start",
+        "cost",
+        "market",
+        "marketing",
+        "startup",
+        "invest",
+        "sell"
+      ],
+      "nearest_centroid": [
+        "How companies make money?",
+        "How do accelleraters make profit?",
+        "How does startupnation.com make money?",
+        "How does proterty site make money?",
+        "How does Invesco make money?",
+        "How do you make profit?",
+        "How does theatlantic.com make money?",
+        "What is the key to being a profitable marketing company in the US?",
+        "How will Trello make money?",
+        "How does Uncrate.com make money?"
+      ],
+      "random_members": [
+        "Why do hackers need to be hired?",
+        "Will Linkedin ever offer app install ads?",
+        "What are the fast growing Indian management consulting firms who could compete with McKinsey, BCG and Bain in the future?",
+        "How does one successfully rob a bank in America?",
+        "How should I start a wholesale business at 16?",
+        "NAME top small amount stocks for share market?",
+        "What's the catch with the Airbnb gold rush?",
+        "What are the contributions of Ancient philosophy in business world?"
+      ]
+    },
+    "8": {
+      "train_questions": 29834,
+      "train_share": 0.07036121619199456,
+      "val_questions": 3498,
+      "val_share": 0.06524902070509234,
+      "coherence_mean_cos": 0.3819544315338135,
+      "top_terms": [
+        "buy",
+        "better",
+        "app",
+        "android",
+        "laptop",
+        "software",
+        "apps",
+        "mobile",
+        "center",
+        "rehab",
+        "county",
+        "suitable"
+      ],
+      "nearest_centroid": [
+        "What's the best smartphone in the market right now?",
+        "What is the best phone on the market right now?",
+        "What is best smartphone in the smartphone industry right now?",
+        "What is the best smartphone in the market?",
+        "What is the best sworld?",
+        "Which is the best phone in the market?",
+        "What is the best smartphone till date?",
+        "Which is the best tablet in the market today?",
+        "Which is the best product from Google so far?",
+        "What is best mobile app?"
+      ],
+      "random_members": [
+        "Which custom ROM is stable for a Moto G Falcon? What are the best custom ROMs available for the device?",
+        "What is the best place to see rocket launching?",
+        "What are the pros and cons of open source?",
+        "What's the best sushi place in Chicago?",
+        "Who is best for online cake delivery in Hyderabad?",
+        "What is uTorrent and why do people use it so much?",
+        "Which are the best dating sites in USA?",
+        "What are some best PPD (Pay per download) sites that I can make money with?"
+      ]
+    },
+    "9": {
+      "train_questions": 29697,
+      "train_share": 0.07003811212890201,
+      "val_questions": 3768,
+      "val_share": 0.07028539451594852,
+      "coherence_mean_cos": 0.4605090320110321,
+      "top_terms": [
+        "india",
+        "indian",
+        "pakistan",
+        "indians",
+        "delhi",
+        "bangalore",
+        "bollywood",
+        "hindi",
+        "mumbai",
+        "modi",
+        "tamil",
+        "places"
+      ],
+      "nearest_centroid": [
+        "What are some of the best MUNs in India?",
+        "What has India done for Indians?",
+        "What are some insights on India?",
+        "What is the speciality of India?",
+        "What is the latest fad among the people of India?",
+        "How is India viewed outside India?",
+        "Which are the places in India to visit?",
+        "What good did Hindi do to India?",
+        "Why is India special?",
+        "What is the contribution of Bollywood in Indian economy?"
+      ],
+      "random_members": [
+        "What is the current situation in IIT Madras amid floods in Chennai?",
+        "Which state in Kyrgyzstan speaks pure Hindi?",
+        "What were the causes of Bengal partition in 1905?",
+        "Which places I should visit in jaipur?",
+        "Top preschools in Hyderabad?",
+        "Which is the best place to start a small scale granite manufacturing industry in India?",
+        "What was Anushka Sharma like growing up?",
+        "Will south india be better off economically by separating from north india?"
+      ]
+    },
+    "10": {
+      "train_questions": 28157,
+      "train_share": 0.06640613944888352,
+      "val_questions": 3414,
+      "val_share": 0.06368214885282597,
+      "coherence_mean_cos": 0.4218333661556244,
+      "top_terms": [
+        "learn",
+        "prepare",
+        "books",
+        "learning",
+        "improve",
+        "study",
+        "tips",
+        "start",
+        "book",
+        "exam",
+        "skills",
+        "programming"
+      ],
+      "nearest_centroid": [
+        "How can you make yourself study?",
+        "What is the best way to learn anything easily?",
+        "What is the best way to learn anything?",
+        "What are some tips for self study?",
+        "What is best way to learn?",
+        "How do I learn anything properly?",
+        "What is the best way to learn how to learn?",
+        "What is the best way of learning?",
+        "What is the good way of learning?",
+        "How can I start learning?"
+      ],
+      "random_members": [
+        "How do I prepare for the CCAT exam? What is the exam pattern?",
+        "How do I prepare for zoho?",
+        "How do I learn C++ if I only know Java?",
+        "What are the best ways to learn to speak Shakespearean English?",
+        "How do I start my career again after having one year experience on paper but no technical knowledge?",
+        "How do I top in class?",
+        "How can I learn martial arts at home through internet?",
+        "What are the best books for Digital Signal processing?"
+      ]
+    },
+    "11": {
+      "train_questions": 26939,
+      "train_share": 0.06353357923832344,
+      "val_questions": 3306,
+      "val_share": 0.061667599328483494,
+      "coherence_mean_cos": 0.40683457255363464,
+      "top_terms": [
+        "thing",
+        "favorite",
+        "life",
+        "you've",
+        "movies",
+        "movie",
+        "things",
+        "what's",
+        "examples",
+        "songs",
+        "worst",
+        "interesting"
+      ],
+      "nearest_centroid": [
+        "What are some favorite serendipitous moments from your life?",
+        "What is the most interesting thing you can think of?",
+        "What is the best story you can write in only one sentence?",
+        "What is the best 14 word story that you can come up with?",
+        "What movie can you relate to the most?",
+        "What is your favorite autobiography you have ever read ?",
+        "What are your favorite examples of great \"last laughs\"?",
+        "What is your favorite Quora clich\u00e9?",
+        "What are the top ten things you have experienced in life?",
+        "What is the best 16-word story that you can come up with?"
+      ],
+      "random_members": [
+        "What is the weirdest thing you seen?",
+        "Conversations: What are great responses to the question: \"What's going on?\"",
+        "What is your review of The Walking Dead Season 6 Episode 5 (Now)?",
+        "What records have you broken?",
+        "What is the best speech you've ever heard?",
+        "What is the strangest thing you've ever seen a girl do?",
+        "What will you do if you become invisible?",
+        "What are some painless ways to commit suicide?"
+      ]
+    }
+  }
+}

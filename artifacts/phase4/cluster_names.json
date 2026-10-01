@@ -1,0 +1,51 @@
+{
+  "0": {
+    "name": "Definitions & technical/science concepts",
+    "evidence": "what is / meaning / difference between; IT, capacitor, butane, C programs; broad (lowest coherence)"
+  },
+  "1": {
+    "name": "Opinions on public figures, beliefs & speculation",
+    "evidence": "Trump, Clinton, Stephen Hawking, God, celebrities, 'what would happen if'; broad catch-all"
+  },
+  "2": {
+    "name": "Accounts, apps & online-platform how-to",
+    "evidence": "Facebook/Instagram/Quora accounts, phone tracking, app setup, hacking"
+  },
+  "3": {
+    "name": "Health, body, food & remedies",
+    "evidence": "lose weight, hair, eating, sleep, medicine, body"
+  },
+  "4": {
+    "name": "Relationships, emotions & self",
+    "evidence": "love, girlfriend/boyfriend, loneliness, emotional attachment"
+  },
+  "5": {
+    "name": "Countries, culture & geopolitics",
+    "evidence": "countries, war, China, America, culture shock, comparisons between nations"
+  },
+  "6": {
+    "name": "Education, colleges & careers",
+    "evidence": "engineering colleges, MBA, GATE, universities, jobs, degrees (largely Indian context)"
+  },
+  "7": {
+    "name": "Money, business & companies",
+    "evidence": "how does X make money, startups, investing, marketing, working at companies"
+  },
+  "8": {
+    "name": "Product comparison & 'which is best'",
+    "evidence": "best smartphone/laptop/tablet, X vs Y, where to buy"
+  },
+  "9": {
+    "name": "India-specific",
+    "evidence": "India/Indian places, politics, Bollywood, cities, Pakistan relations"
+  },
+  "10": {
+    "name": "Learning, study & exam preparation",
+    "evidence": "how to learn, study tips, prepare for exam, books, programming language learning"
+  },
+  "11": {
+    "name": "Personal experiences, favourites & stories",
+    "evidence": "favourite/most interesting/weirdest thing you've seen, movies, songs, stories"
+  },
+  "_note": "Post-hoc human interpretation of K-Means clusters fitted on train question embeddings. Assigned AFTER clustering by reading top c-TF-IDF terms, questions nearest each centroid and random members. Names are dataset-derived descriptions, not universal question types."
+}
