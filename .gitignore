@@ -30,3 +30,8 @@ venv/
 # Phase 6: the frozen meta-model bundle is small and versioned; OOF base scores are reproducible (crossfit_base.py)
 !artifacts/phase6/meta_model.joblib
 artifacts/phase6/train_oof_base.csv
+
+# Phase 10: version the small decision-path weights so a fresh clone can run the final system and demo
+!artifacts/phase3/sbert_all-MiniLM-L6-v2/mlp.pt
+!artifacts/phase3/sbert_all-MiniLM-L6-v2/lr.joblib
+!artifacts/phase2/lr_lexical.joblib
