@@ -6,8 +6,11 @@ embedding-similarity threshold?
 
 Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_audit.md](docs/data_audit.md)).
 
-> **Status: Phase 8 complete:** frozen, one-time test evaluation done (1: audit and frozen splits; 2: lexical baselines;
-> 3: deep models; 4: query clustering; 5: cluster-level error analysis; 6: entity/constraint features; 7: threshold calibration). The full README (architecture, results, demo) is written in Phase 11.
+> **Status: Phase 9 complete:** Streamlit demo of the frozen final system (Phases 1-8: audit and splits, baselines, deep models,
+> clustering, cluster error analysis, constraint features, calibration, one-time test evaluation).
+
+**Demo:** `streamlit run app/main.py`. It shows the duplicate probability and decision, semantic similarity, discovered query group, thresholds,
+extracted constraints, mismatch signals, a model-based what-if and a deterministic rationale (no LLM). See [docs/demo.md](docs/demo.md). The full README (architecture, results, demo) is written in Phase 11.
 
 ## Final result (held-out test split, evaluated once after freezing; see [docs/final_evaluation.md](docs/final_evaluation.md))
 
@@ -136,6 +139,7 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
 | [docs/entity_constraint_features.md](docs/entity_constraint_features.md) | Phase 6 constraint features, cross-fitted meta-classifier, ablations, trade-offs |
 | [docs/calibration_experiments.md](docs/calibration_experiments.md) | Phase 7 global vs cluster thresholds (cross-fitted), decision, frozen Phase 8 config |
 | [docs/final_evaluation.md](docs/final_evaluation.md) | Phase 8 freeze protocol, one-time test results, per-cluster and slice analysis, remaining failures |
+| [docs/demo.md](docs/demo.md) | Phase 9 Streamlit demo: outputs, explanation method, examples incl. known failures |
 
 ## Reproduce
 
@@ -187,7 +191,10 @@ python scripts/freeze_manifest.py                  # hash everything (requires a
 python scripts/final_evaluation.py --dry-run-on-val  # must reproduce validation exactly
 python scripts/final_evaluation.py                 # the single test evaluation
 
-# 11. Tests
+# 11. Demo
+streamlit run app/main.py
+
+# 12. Tests
 python -m pytest
 ```
 
@@ -220,7 +227,9 @@ src/clustering/core.py     K-Means fitting, frozen centroid model, metrics, stab
 src/clustering/pairs.py    pair-to-cluster rules (q1 / pair-average / same-only), assignment margin
 src/evaluation/cluster_analysis.py   per-cluster metrics, bootstrap CIs, random-partition null
 src/calibration/           thresholds.py: global / per-cluster threshold policy with fallback, cross-fitting
-tests/                     Phase 1-8 tests
+src/service/matcher.py     demo service layer: frozen final system + deterministic explanations
+app/main.py                Streamlit UI (thin renderer)
+tests/                     Phase 1-9 tests
 docs/                      documentation + figures
 artifacts/phase1/          audit statistics, split comparison
 artifacts/phase2/          baseline metrics, val predictions, error analysis, fitted models (joblib)

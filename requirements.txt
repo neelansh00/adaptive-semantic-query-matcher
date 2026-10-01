@@ -19,3 +19,6 @@ huggingface_hub==1.33.0
 # the chosen meta-model is spaCy-free at inference time.
 #   python -m spacy download en_core_web_sm   (model 3.8.0)
 spacy==3.8.16
+
+# Phase 9 demo
+streamlit==1.64.0
