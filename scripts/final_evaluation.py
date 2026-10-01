@@ -44,7 +44,7 @@ from src.features.constraints import annotate, pair_frame  # noqa: E402
 from src.features.lexical import lexical_features  # noqa: E402
 from src.models.meta import logit  # noqa: E402
 from src.models.sentence_encoder import EmbeddingCache, clean, embedding_pair_features  # noqa: E402
-from src.utils.data import PROJECT_ROOT, file_sha256, identity_key, load_config, resolve  # noqa: E402
+from src.utils.data import PROJECT_ROOT, content_sha256, file_sha256, identity_key, load_config, resolve  # noqa: E402
 
 ART = PROJECT_ROOT / "artifacts"
 OUT = ART / "phase8"
@@ -63,7 +63,7 @@ EXPECTED_VAL_F1 = {"baseline": 0.7711, "final": 0.7829, "ref_tfidf_lexical": 0.7
 
 def verify_manifest() -> dict:
     manifest = json.loads((OUT / "freeze_manifest.json").read_text())
-    bad = [k for k, v in manifest["files"].items() if file_sha256(PROJECT_ROOT / v["path"]) != v["sha256"]]
+    bad = [k for k, v in manifest["files"].items() if content_sha256(PROJECT_ROOT / v["path"]) != v["sha256"]]
     if bad:
         raise SystemExit(f"FROZEN ARTIFACTS CHANGED since the manifest: {bad}")
     from huggingface_hub import hf_hub_download

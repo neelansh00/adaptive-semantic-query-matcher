@@ -82,3 +82,16 @@ def identity_key(text: str) -> str:
 def loose_key(text: str) -> str:
     """Aggressive key (alphanumerics only), used only to *measure* residual leakage."""
     return _NON_ALNUM.sub(" ", str(text).lower()).strip()
+
+
+TEXT_SUFFIXES = {".py", ".json", ".yaml", ".yml", ".md", ".txt", ".csv", ".toml", ".ini", ".cfg"}
+
+
+def content_sha256(path: str | Path) -> str:
+    """Platform-stable content hash: text files are hashed with CRLF normalised to LF (git stores LF and a Windows
+    working copy may hold CRLF); binary files (weights, joblib, npy) are hashed byte-for-byte."""
+    path = resolve(path)
+    data = path.read_bytes()
+    if path.suffix.lower() in TEXT_SUFFIXES:
+        data = data.replace(b"\r\n", b"\n")
+    return hashlib.sha256(data).hexdigest()

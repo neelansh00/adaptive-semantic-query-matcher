@@ -17,7 +17,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from src.utils.data import PROJECT_ROOT  # noqa: E402
+from src.utils.data import PROJECT_ROOT, content_sha256  # noqa: E402
 
 OUT = PROJECT_ROOT / "artifacts" / "phase8" / "freeze_manifest.json"
 ENCODER = "sentence-transformers/all-MiniLM-L6-v2"
@@ -83,7 +83,8 @@ def main() -> None:
                       "score": "C_no_spacy_hgb", "policy": FROZEN["policy_final"]},
         },
         "encoder": {"name": ENCODER, "model.safetensors_sha256": sha256(encoder_file)},
-        "files": {k: {"path": v, "sha256": sha256(PROJECT_ROOT / v)} for k, v in FROZEN.items()},
+        "files": {k: {"path": v, "sha256": content_sha256(PROJECT_ROOT / v)} for k, v in FROZEN.items()},
+        "hashing": "text files: SHA-256 of content with CRLF normalised to LF; binary files: raw bytes",
         "library_versions": {m.__name__: m.__version__ for m in (numpy, pandas, sklearn, torch, sentence_transformers, transformers)},
         "rules": ["test split read exactly once by scripts/final_evaluation.py",
                   "no model, feature, cluster, threshold or calibration change after this manifest",
