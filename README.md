@@ -6,8 +6,8 @@ embedding-similarity threshold?
 
 Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_audit.md](docs/data_audit.md)).
 
-> **Status: Phase 6 complete** (1: audit and frozen splits; 2: lexical baselines; 3: deep models; 4: query clustering;
-> 5: cluster-level error analysis; 6: entity/constraint features). Cluster-calibrated thresholds start in Phase 7. The full README (architecture, results, demo) is written in Phase 11.
+> **Status: Phase 7 complete** (1: audit and frozen splits; 2: lexical baselines; 3: deep models; 4: query clustering;
+> 5: cluster-level error analysis; 6: entity/constraint features; 7: threshold calibration). Frozen test evaluation is Phase 8. The full README (architecture, results, demo) is written in Phase 11.
 
 ## Phase 1 key findings
 
@@ -88,6 +88,21 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
   spaCy NER added only +0.001 PR-AUC and was dropped.
 - **Stacking without leakage:** base scores for training the meta-model come from 5-fold, question-disjoint cross-fitting.
 
+## Phase 7 key findings (cross-fitted within validation, 20 repetitions)
+
+| System | F1 | Macro-cluster F1 | Worst-cluster F1 |
+|---|---|---|---|
+| Semantic model + global τ | 0.771 | 0.770 | 0.707 |
+| Semantic model + cluster τ | 0.767 | 0.766 | 0.708 |
+| **Constraint-aware model + global τ** | **0.781** | **0.779** | **0.717** |
+| Constraint-aware model + cluster τ | 0.779 | 0.777 | 0.711 |
+
+- **Central hypothesis: not supported.** Out of sample, per-cluster thresholds *lower* macro-cluster F1 for both models
+  (−0.003 [−0.005, −0.001] and −0.002 [−0.004, −0.001]) and do not help the worst cluster. Their in-sample advantage is an artefact.
+- **Why:** each cluster threshold, fitted on 2–4k pairs, moves by up to ±0.06 between folds, while the true differences are small.
+- **What improves robustness instead:** the entity/constraint-aware model at a single threshold (+0.010 macro-cluster F1).
+  Frozen for Phase 8: baseline = semantic model at τ 0.32; final = constraint-aware model at global τ 0.38.
+
 ## Documentation
 
 | Doc | Content |
@@ -102,6 +117,7 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
 | [docs/clustering.md](docs/clustering.md) | Phase 4 K-Means vs HDBSCAN, K selection, stability, cluster interpretation |
 | [docs/cluster_error_analysis.md](docs/cluster_error_analysis.md) | Phase 5 pair assignment, per-cluster metrics, threshold variation, error categories |
 | [docs/entity_constraint_features.md](docs/entity_constraint_features.md) | Phase 6 constraint features, cross-fitted meta-classifier, ablations, trade-offs |
+| [docs/calibration_experiments.md](docs/calibration_experiments.md) | Phase 7 global vs cluster thresholds (cross-fitted), decision, frozen Phase 8 config |
 
 ## Reproduce
 
@@ -145,7 +161,10 @@ python scripts/build_constraint_features.py
 python scripts/crossfit_base.py
 python scripts/train_meta.py
 
-# 9. Tests
+# 9. Phase 7 threshold calibration (validation only)
+python scripts/calibration_experiments.py
+
+# 10. Tests
 python -m pytest
 ```
 
@@ -164,6 +183,7 @@ scripts/                   Phase 1-2: audit_dataset, make_splits, run_baselines,
                            Phase 4: compare_clustering, stability_recheck, build_clusters
                            Phase 5: analyze_clusters, threshold_reliability, summarize_manual_errors
                            Phase 6: build_constraint_features, crossfit_base, train_meta
+                           Phase 7: calibration_experiments
 src/utils/                 data loading (data.py), split strategies + leakage metrics (splits.py)
 src/evaluation/            metrics.py (F1/PR/ROC, threshold sweep, ECE, per-cluster metrics)
 src/preprocessing/         minimal text normalisation + tokenisation
@@ -175,8 +195,8 @@ src/utils/torch_utils.py   device (CUDA if present, else CPU), seeding, threads
 src/clustering/core.py     K-Means fitting, frozen centroid model, metrics, stability, c-TF-IDF descriptions
 src/clustering/pairs.py    pair-to-cluster rules (q1 / pair-average / same-only), assignment margin
 src/evaluation/cluster_analysis.py   per-cluster metrics, bootstrap CIs, random-partition null
-src/calibration/           placeholder for later phases
-tests/                     Phase 1-6 tests
+src/calibration/           thresholds.py: global / per-cluster threshold policy with fallback, cross-fitting
+tests/                     Phase 1-7 tests
 docs/                      documentation + figures
 artifacts/phase1/          audit statistics, split comparison
 artifacts/phase2/          baseline metrics, val predictions, error analysis, fitted models (joblib)
@@ -185,4 +205,5 @@ data/processed/embeddings/ cached MiniLM question embeddings (train, val)
 artifacts/phase4/          K sweep, stability, HDBSCAN, frozen cluster centroids, cluster descriptions/names
 artifacts/phase5/          per-cluster metrics, null, threshold reliability, pair assignments, manual error labels
 artifacts/phase6/          meta-model bundle, variant results + bootstraps, slices, probes, cross-fit report, latency
+artifacts/phase7/          calibration results, frozen Phase 8 threshold policies
 ```

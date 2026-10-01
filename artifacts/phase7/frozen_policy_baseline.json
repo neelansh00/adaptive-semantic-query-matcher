@@ -1,0 +1,10 @@
+{
+  "mode": "global",
+  "min_pairs": 1000,
+  "min_positives": 100,
+  "global_threshold": 0.32,
+  "cluster_thresholds": {},
+  "fallback_clusters": [],
+  "score_source": "phase3 sbert_mlp (B)",
+  "fitted_on": "full validation"
+}

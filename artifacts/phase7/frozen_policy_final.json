@@ -1,0 +1,10 @@
+{
+  "mode": "global",
+  "min_pairs": 1000,
+  "min_positives": 100,
+  "global_threshold": 0.38,
+  "cluster_thresholds": {},
+  "fallback_clusters": [],
+  "score_source": "phase6 meta C_no_spacy_hgb (C)",
+  "fitted_on": "full validation"
+}

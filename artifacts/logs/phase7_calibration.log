@@ -1,0 +1,14 @@
+val=38138 components=20456 folds=5 reps=20
+in-sample: {'B_global': 0.7711, 'B_cluster': 0.7768, 'C_global': 0.7829, 'C_cluster': 0.788}
+B_global   f1=0.7706 precision=0.6927 recall=0.8683 fpr=0.2130 fnr=0.1317 macro_cluster_f1=0.7695 worst_cluster_f1=0.7071
+B_cluster  f1=0.7674 precision=0.6973 recall=0.8531 fpr=0.2048 fnr=0.1469 macro_cluster_f1=0.7664 worst_cluster_f1=0.7075
+C_global   f1=0.7809 precision=0.7159 recall=0.8589 fpr=0.1885 fnr=0.1411 macro_cluster_f1=0.7793 worst_cluster_f1=0.7170
+C_cluster  f1=0.7793 precision=0.7155 recall=0.8555 fpr=0.1881 fnr=0.1445 macro_cluster_f1=0.7771 worst_cluster_f1=0.7111
+B_cluster_vs_B_global      df1=-0.0033[-0.0053,-0.0014] dmacro_cluster_f1=-0.0032[-0.0051,-0.0014] dworst_cluster_f1=-0.0000[-0.0095,+0.0072]
+C_global_vs_B_global       df1=+0.0103[+0.0074,+0.0132] dmacro_cluster_f1=+0.0098[+0.0067,+0.0127] dworst_cluster_f1=+0.0097[-0.0078,+0.0249]
+C_cluster_vs_B_global      df1=+0.0086[+0.0055,+0.0116] dmacro_cluster_f1=+0.0075[+0.0045,+0.0106] dworst_cluster_f1=+0.0060[-0.0074,+0.0200]
+C_cluster_vs_C_global      df1=-0.0017[-0.0034,-0.0001] dmacro_cluster_f1=-0.0022[-0.0038,-0.0006] dworst_cluster_f1=-0.0037[-0.0102,+0.0062]
+B min_pairs sensitivity: [(250, 12.0, 0.7662), (500, 12.0, 0.7662), (1000, 12.0, 0.7662), (2000, 10.8, 0.7667), (2500, 5.8, 0.7672), (3000, 1.4, 0.7694), (3500, 0.9, 0.7694)]
+C min_pairs sensitivity: [(250, 12.0, 0.777), (500, 12.0, 0.777), (1000, 12.0, 0.777), (2000, 10.8, 0.7774), (2500, 5.8, 0.7786), (3000, 1.4, 0.7789), (3500, 0.9, 0.779)]
+DECISION: {'B': False, 'C': False} final mode: global
+exit 0
