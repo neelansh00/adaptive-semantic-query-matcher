@@ -61,6 +61,8 @@ def test_frozen_split_reproduces_from_raw(raw_df, cfg, split_meta):
 
 
 def test_split_files_not_mutated(cfg, split_meta):
+    if not (resolve(cfg["split_dir"]) / "train.csv").exists():
+        pytest.skip("split CSVs not regenerated (python scripts/reproduce.py --run extract splits)")
     for s in SPLITS:
         assert file_sha256(resolve(cfg["split_dir"]) / f"{s}.csv") == split_meta["split_file_sha256"][s]
 

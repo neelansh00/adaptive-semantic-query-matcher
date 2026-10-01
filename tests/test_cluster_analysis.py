@@ -128,6 +128,8 @@ def test_phase5_outputs_cover_exactly_the_validation_split():
     if not pairs.exists():
         pytest.skip("Phase 5 analysis not run")
     split_dir = PROJECT_ROOT / "data" / "processed" / "splits"
+    if not (split_dir / "val.csv").exists():
+        pytest.skip("split CSVs not regenerated")
     val_ids = set(pd.read_csv(split_dir / "val.csv", usecols=["id"])["id"])
     out_ids = set(pd.read_csv(pairs, usecols=["id"])["id"])
     assert out_ids == val_ids

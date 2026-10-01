@@ -35,6 +35,8 @@ def split_meta(cfg):
 @pytest.fixture(scope="session")
 def split_frames(cfg, split_meta):
     d = resolve(cfg["split_dir"])
+    if not all((d / f"{s}.csv").exists() for s in ("train", "val", "test")):
+        pytest.skip("split CSVs not regenerated (python scripts/reproduce.py --run extract splits)")
     return {s: pd.read_csv(d / f"{s}.csv", keep_default_na=False, na_values=[""])
             for s in ("train", "val", "test")}
 

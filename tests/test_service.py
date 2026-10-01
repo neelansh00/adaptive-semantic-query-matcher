@@ -71,6 +71,8 @@ def test_empty_input_rejected(matcher):
 
 def test_demo_reproduces_evaluated_scores(matcher):
     """The demo must give the same decisions as the system evaluated in Phases 6-8."""
+    if not (PROJECT_ROOT / "data" / "processed" / "splits" / "val.csv").exists():
+        pytest.skip("split CSVs not regenerated (python scripts/reproduce.py --run extract splits)")
     val = pd.read_csv(PROJECT_ROOT / "data" / "processed" / "splits" / "val.csv",
                       keep_default_na=False, na_values=[""]).sample(25, random_state=7)
     stored = pd.read_csv(PROJECT_ROOT / "artifacts" / "phase6" / "val_scores.csv").set_index("id").loc[val["id"], "C_no_spacy_hgb"]

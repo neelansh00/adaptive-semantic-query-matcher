@@ -12,7 +12,13 @@ def test_nothing_changed_since_freeze():
     if not MANIFEST.exists():
         pytest.skip("Phase 8 freeze manifest not written yet")
     manifest = json.loads(MANIFEST.read_text())
-    changed = [k for k, v in manifest["files"].items() if content_sha256(PROJECT_ROOT / v["path"]) != v["sha256"]]
+    registry = json.loads((PROJECT_ROOT / "artifacts" / "MODEL_REGISTRY.json").read_text())
+    untracked_refs = {a["path"] for a in registry["artifacts"] if not a["git_tracked"] and not a["used_by_final_system"]}
+    missing = [v["path"] for v in manifest["files"].values() if not (PROJECT_ROOT / v["path"]).exists()]
+    # a fresh clone lacks only the large, deliberately untracked reference models; anything else missing is an error
+    assert set(missing) <= untracked_refs, f"frozen files missing: {set(missing) - untracked_refs}"
+    changed = [k for k, v in manifest["files"].items()
+               if (PROJECT_ROOT / v["path"]).exists() and content_sha256(PROJECT_ROOT / v["path"]) != v["sha256"]]
     assert not changed, f"frozen files changed after the freeze: {changed}"
 
 
