@@ -1,251 +1,220 @@
 # Adaptive Semantic Query Matcher
 
-**Research question:** can query type (semantic groups discovered from embeddings), entity/constraint
-consistency, and calibrated thresholds improve semantic duplicate detection beyond a single
-embedding-similarity threshold?
+Duplicate-question detection on Quora Question Pairs. The project tests whether **automatically discovered semantic query regions**,
+**entity/constraint consistency** and **calibrated thresholds** improve on a single embedding-similarity threshold. It uses a leakage-controlled split,
+pre-registered decisions and a frozen, one-time test evaluation.
 
-Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_audit.md](docs/data_audit.md)).
+**Result (held-out test, evaluated once):** the final system reaches **F1 0.786 / PR-AUC 0.834**, against **0.775 / 0.824** for the strongest
+non-adaptive semantic baseline:
+- F1 +0.011, 95% CI [+0.008, +0.014];
+- worst-cluster F1 +0.026 [+0.010, +0.042];
+- no query region gets worse.
 
-> **Status: Phase 10 complete:** testing and reproducibility (`python scripts/reproduce.py --verify`, 133 tests). Phases 1-9: audit and splits,
-> baselines, deep models, clustering, cluster error analysis, constraint features, calibration, one-time test evaluation, demo.
+The gain comes from **entity/constraint features**. **Cluster-specific thresholds did *not* help** when evaluated out of sample, so they were rejected
+before the test run. That negative result is part of the findings.
 
-**Demo:** `streamlit run app/main.py`. It shows the duplicate probability and decision, semantic similarity, discovered query group, thresholds,
-extracted constraints, mismatch signals, a model-based what-if and a deterministic rationale (no LLM). See [docs/demo.md](docs/demo.md). The full README (architecture, results, demo) is written in Phase 11.
+## Problem
 
-## Final result (held-out test split, evaluated once after freezing; see [docs/final_evaluation.md](docs/final_evaluation.md))
+Semantic duplicate detection usually embeds two questions and applies **one global similarity threshold**. That fails in two predictable ways:
 
-| System (test, 38,420 pairs) | F1 | Precision | Recall | ROC-AUC | PR-AUC | Macro-cluster F1 | Worst-cluster F1 |
-|---|---|---|---|---|---|---|---|
-| Baseline: MiniLM + MLP head, global τ 0.32 | 0.775 | 0.699 | 0.870 | 0.906 | 0.824 | 0.771 | 0.668 |
-| **Final: + entity/constraint/specificity meta-model, global τ 0.35** | **0.786** | **0.715** | 0.871 | **0.914** | **0.834** | **0.782** | **0.695** |
-| Δ (95% CI) | +0.011 [+0.008, +0.014] | +0.017 | +0.001 (n.s.) | | +0.009 [+0.006, +0.012] | +0.012 [+0.009, +0.015] | +0.026 [+0.010, +0.042] |
+- **High-overlap non-duplicates.** "Who founded **Microsoft**?" / "Who founded **Apple**?", "lose **5** kg" / "lose **20** kg",
+  "why do people **(not)** believe in God". These look almost identical to an embedding model but ask different things.
+- **Region-dependent behaviour.** Different kinds of questions (definitions, product comparisons, personal advice, …) might need different
+  decision thresholds.
 
-- **The research question, answered:**
-  - Entity/constraint consistency improves robustness on held-out data (10 of 12 clusters improve and none worsen; high-overlap entity, number and
-    negation false positives roughly halve).
-  - **Cluster-specific thresholds do not:** they lowered macro-cluster F1 out of sample (Phase 7) and were not deployed.
-- **Scope:** results hold for Quora Question Pairs under a question-disjoint split. The encoder saw Quora triplets in pretraining, so absolute
-  scores are optimistic; the comparison is like-for-like.
+**Research question:** can automatically discovered semantic query regions, entity/constraint consistency, and calibrated thresholds improve duplicate
+detection beyond a single embedding-similarity threshold?
 
-## Phase 1 key findings
+## Dataset
 
-- **Size and balance:** 404,290 labelled pairs, 36.9% duplicates. 3 rows are invalid (an empty or `n/a` question) and are excluded.
-- **Heavy question reuse:** 61% of pairs contain a question that appears in other pairs.
-- **Random splits leak badly:** under a random row split, 58% of test pairs share a question with train.
-  A text-free transitive-label rule then labels 21% of test pairs at 99.9% precision.
-- **Question frequency is a shortcut:** it predicts the label with ROC-AUC 0.70 without reading any text.
-  Frequency and graph features are therefore banned as model inputs.
-- **Chosen split:** a hybrid question-disjoint split. Question overlap between splits is 0, 94.2% of pairs are retained,
-  and the split is 80/10/10 with matched positive rates (34.8 / 35.6 / 35.9%) and matched component-size profiles.
+- **Quora Question Pairs** (Kaggle): 404,290 labelled pairs, 36.9% duplicates. Kaggle's own `test.csv` is unlabelled, so all train, validation and test data come from the labelled file.
+- **Leakage control.** 61.3% of pairs contain a question that appears in other pairs. Under a random row split:
+  - 58.4% of test pairs share a question with train;
+  - a text-free transitive-label rule (A≡B, B≡C ⇒ A≡C) labels 21.1% of test pairs at 99.9% precision.
+- **Question-disjoint split:** 80/10/10 (train 304,384 · validation 38,138 · test 38,420 pairs), with **zero questions shared** between splits.
+  It retains 94.2% of pairs; large hub components are split per question and some cross-split pairs dropped
+  ([docs/split_strategy.md](docs/split_strategy.md)).
+- **Excluded inputs:** question frequency alone predicts the label with ROC-AUC 0.70 without reading any text, so frequency and graph features are excluded.
+- **Test discipline:** the test split was read once, after every model, feature and threshold was frozen and hash-verified.
 
-## Phase 2 key findings (validation)
+Scores are **not comparable** to random-split or Kaggle leaderboard numbers. A question-disjoint split is harder and has no leakage.
 
-| Model | F1 (tuned τ) | PR-AUC |
+## Approach
+
+| # | Step | Outcome (validation unless stated) |
 |---|---|---|
-| cosine TF-IDF | 0.618 | 0.479 |
-| LR on 11 lexical features | 0.659 | 0.614 |
-| LR on TF-IDF pair vector | 0.698 | 0.736 |
-| **LR on TF-IDF pair + lexical** | **0.730** | **0.771** |
+| 1 | Lexical baseline: cosine TF-IDF, 11 overlap features | F1 0.618 / 0.659 |
+| 2 | TF-IDF pair vector `[|v1−v2|, v1⊙v2]` + lexical features, logistic regression | **F1 0.730**, PR-AUC 0.771 |
+| 3 | Siamese BiLSTM (PyTorch, shared encoder) | F1 0.732 (not significantly better than step 2) |
+| 4 | Frozen `all-MiniLM-L6-v2` sentence embeddings + MLP head | **F1 0.771**, PR-AUC 0.824 (+0.041 F1 vs step 2) |
+| 5 | Unsupervised K-Means query regions (K = 12) on train-question embeddings | stable regions, but silhouette ≈ 0.02 |
+| 6 | Cluster-level error analysis | F1 varies 0.708–0.808 across regions, largely tracking duplicate prevalence |
+| 7 | Entity/number/date/negation/specificity features + stacked meta-classifier | **F1 0.784**, PR-AUC 0.838 |
+| 8 | Global vs per-cluster thresholds (cross-fitted within validation) | per-cluster thresholds **worse**; global kept |
+| 9 | Frozen one-time test evaluation | **F1 0.786, PR-AUC 0.834** (test) |
+| 10 | Streamlit demo, model registry, hash-verified reproducibility | `python scripts/reproduce.py --verify` |
 
-- **Threshold:** the F1-optimal threshold is 0.20–0.32, not 0.5. Tuning it adds 5–16 F1 points.
-- **Overlap is non-monotonic:** near-identical pairs are *less* often duplicates (44%) than moderately similar ones (55%).
-  They are mostly templated questions that differ in one entity, number or attribute.
-- **Where the errors fall:** false positives concentrate at high overlap and false negatives at low overlap (synonyms, aliases).
-- **Template learning:** the best lexical model gives an exact duplicate ("What is formwork?" ×2) probability 0.00.
+## Architecture
 
-## Phase 3 key findings (validation; Phase 2 bar F1 0.730 / PR-AUC 0.771)
+```mermaid
+flowchart LR
+    Q["Question pair (A, B)"] --> P["Minimal preprocessing<br/>keeps negation, numbers, case for entities"]
+    P --> E["MiniLM sentence embeddings<br/>(frozen, pinned revision)"]
+    E --> S["Semantic model<br/>MLP on |u−v|, u⊙v, cos → base probability"]
+    P --> C["Entity / constraint features<br/>numbers · dates · entities · negation · question word · specificity"]
+    S --> M["Meta-classifier<br/>HistGradientBoosting (stacked, cross-fitted)"]
+    C --> M
+    E --> K["Pair → query region<br/>frozen K-Means centroids (context only)"]
+    M --> D["Decision logic<br/>one global threshold τ = 0.35<br/>(per-cluster τ rejected in Phase 7)"]
+    D --> O["Duplicate probability + decision<br/>+ signals, what-if, rationale"]
+    K --> O
+```
 
-| Model | F1 | PR-AUC | ΔF1 vs Phase 2 (95% CI) |
-|---|---|---|---|
-| Siamese BiLSTM (PyTorch, from scratch) | 0.732 | 0.773 | +0.002 [−0.002, +0.007]: not significant |
-| MiniLM cosine (single similarity threshold) | 0.735 | 0.765 | +0.005 [−0.001, +0.010]: not significant |
-| MiniLM + logistic-regression head | 0.750 | 0.792 | +0.020 [+0.015, +0.025] |
-| **MiniLM + MLP head (primary model)** | **0.771** | **0.824** | **+0.041 [+0.036, +0.047]** |
+## Key findings
 
-- **Paraphrases:** embeddings cut low-overlap false negatives from 46% to 28%.
-- **Constraints:** a raw embedding-similarity threshold is the *worst* model on high-overlap negatives. It accepts 81% of number
-  mismatches and 84% of negation mismatches. The best model still accepts 47% and 72%, which motivates Phase 6.
-- **Contamination:** `all-MiniLM-L6-v2` was pretrained on Quora duplicate triplets. In a control with identical heads, an encoder with no
-  Quora data listed scores 3–4.5 F1 points lower. Absolute scores are therefore optimistic (see [docs/deep_models.md](docs/deep_models.md)).
-- **Hardware:** CPU only (no CUDA GPU available). The frozen encoder costs ~28 ms per pair end to end; no fine-tuning was needed.
+All are measured, with sources in [docs/project_metrics.md](docs/project_metrics.md).
 
-## Phase 4 key findings (train questions only, no labels used)
+1. **Dense embeddings fix paraphrases.** MiniLM + MLP beats the best lexical model by +0.041 F1 (validation, CI [+0.036, +0.047]). False negatives on
+   low-overlap duplicates fall from 46% to 28%.
+2. **Raw embedding similarity is the weakest option on near-identical non-duplicates.** On high-overlap negatives, a cosine threshold wrongly accepts
+   81% of number mismatches and 84% of negation mismatches (validation).
+3. **Constraint features help where intended.** On the test split, false positives among high-overlap pairs with an entity, number or negation
+   difference fall by 57%, 57% and 51% (0.174 → 0.075, 0.502 → 0.218, 0.641 → 0.315). The cost: true duplicates with a superficial constraint
+   difference are rejected more often in those slices.
+4. **Adaptive thresholds did not help.** Cross-fitted within validation, per-cluster thresholds *lowered* macro-cluster F1 by 0.003
+   (CI [−0.005, −0.002]) for the final model. Their in-sample advantage was an artefact of fitting and scoring on the same pairs.
+5. **The specificity/length signal is the largest single contributor** in the final model; numbers are the only explicit-constraint group significant on its own.
+6. **The remaining errors are hard ones:**
+   - *false positives:* about 27% look mislabelled, plus broader/narrower scope, different aspects of one topic, and role swaps;
+   - *false negatives:* about 53% are paraphrases that need world knowledge or spelling robustness.
+7. **The encoder saw Quora triplets in pretraining** (per its model card). With identical heads on identical data, an encoder with no listed Quora data
+   scores 3.0–4.5 F1 points lower, so absolute scores are optimistic. The baseline-vs-final comparison is like-for-like.
 
-- **Method:** K-Means on 424,012 unique train-question embeddings, compared for K ∈ {5, 8, 10, 12, 15, 20}, plus HDBSCAN.
-- **No separated structure:** silhouette ≈ 0.02 at every K. HDBSCAN returns 32–100% noise or one dominant blob, so it is rejected for a measured reason.
-- **K = 12 chosen on stability.** Robust stability (6 seed pairs, 3 split-halves) peaks at K = 12 (ARI 0.79 / 0.80). It also has the most balanced
-  sizes (6.4–13.4%) and 10 of 12 clearly interpretable clusters. Single-run stability estimates were misleading; K = 5 looked perfectly stable but is the least stable.
-- **Clusters (named after inspection):** a mix of topic and intent, e.g. definitions, product "which is best", how-to accounts/apps, learning
-  and exam preparation, relationships, health, India-specific, and personal-experience questions.
-- **Soft boundaries:** a third of validation pairs straddle two clusters. The centroids are frozen because K-Means refits are not bit-reproducible.
+## Clustering: what the query regions are, and are not
 
-## Phase 5 key findings (validation; frozen clusters and model; nothing tuned)
+- **K-Means with K = 12** on 424,012 unique train-question embeddings. No duplicate labels were used to fit it, choose K, or name the clusters.
+- **K = 12 was chosen on stability** (seed ARI 0.79, split-half ARI 0.80, measured over repeated fits). It also has the most balanced sizes.
+  The usual internal metrics change monotonically with K and cannot pick it.
+- **Silhouette ≈ 0.02 at every K.** The questions form a continuum, not separated groups. HDBSCAN, tried at 5 settings, labelled 32–100% of points as
+  noise or found one dominant blob, so there is no usable density structure.
+- **Cluster names** ("Definitions & technical concepts", "Product comparison", "India-specific", …) were written *after* clustering by reading each
+  cluster. They describe regions of this dataset's embedding space, not universal question types.
+- **Boundaries are soft:** 13% of questions sit within 0.02 cosine of a second centroid, and a third of validation pairs straddle two clusters.
 
-- **Pairs are assigned by the pair-average embedding**, chosen on label-free grounds: it is symmetric and has full coverage. The question-1 rule changes a third
-  of assignments if the questions are swapped.
-- **Performance varies beyond chance.** Cluster F1 ranges 0.708–0.808 (std 0.033, against 0.009 for random groups), but F1 largely tracks
-  duplicate prevalence (ρ = 0.69). The lowest-F1 regions (Education, Definitions, Accounts/apps) rank pairs normally; the advice regions
-  (Learning, Relationships, Health) rank worst.
-- **Optimal thresholds vary from 0.20 to 0.46**, beyond chance, but F1 plateaus are wide. Only 3 of 12 clusters have CIs excluding the global
-  τ = 0.32, and the total in-sample headroom is just +0.006 F1. Thresholds tuned on fewer than about 500 pairs are mostly noise.
-- **Manual error analysis (120 pairs):** among false positives, 27% likely label noise, 25% scope, 20% explicit constraint mismatch, 12% attribute
-  swap. Among false negatives, 57% are low-overlap paraphrases.
+## Evaluation (held-out test split, frozen thresholds from validation)
 
-## Phase 6 key findings (validation)
+| System | τ | F1 | Precision | Recall | ROC-AUC | PR-AUC | Macro-cluster F1 | Worst-cluster F1 |
+|---|---|---|---|---|---|---|---|---|
+| TF-IDF pair + lexical LR (best Phase 2) | 0.32 | 0.7322 | 0.6623 | 0.8185 | 0.8759 | 0.7756 | 0.7241 | 0.5994 |
+| Siamese BiLSTM (Phase 3) | 0.57 | 0.7362 | 0.6690 | 0.8185 | 0.8783 | 0.7810 | 0.7295 | 0.6011 |
+| MiniLM cosine only (single similarity threshold) | 0.76 | 0.7330 | 0.6338 | 0.8691 | 0.8735 | 0.7666 | 0.7298 | 0.6444 |
+| **Baseline:** MiniLM + MLP (Phase 3) | 0.32 | 0.7750 | 0.6988 | 0.8700 | 0.9064 | 0.8243 | 0.7709 | 0.6684 |
+| **Final:** + entity/constraint meta-classifier | 0.35 | **0.7856** | **0.7154** | **0.8710** | **0.9144** | **0.8336** | **0.7824** | **0.6954** |
 
-| Model | F1 | PR-AUC | Worst-cluster F1 |
-|---|---|---|---|
-| A. cosine similarity only | 0.735 | 0.765 | 0.651 |
-| B. semantic model probability (Phase 3) | 0.771 | 0.824 | 0.708 |
-| **C. semantic model + constraint features (boosted trees, spaCy-free)** | **0.784** | **0.838** | **0.721** |
+- **Final − baseline** (paired bootstrap): F1 +0.0106 [+0.0076, +0.0136]; PR-AUC +0.0092 [+0.0060, +0.0121]; macro-cluster F1 +0.0115; worst-cluster F1
+  +0.0262 [+0.0097, +0.0417].
+- **Recall is unchanged;** false positives fall from 5,177 to 4,782.
+- **Calibration improves** (ECE 0.027 → 0.019). **Latency:** 11.1 vs 10.7 ms per pair in batch on CPU.
 
-- **The gain is significant:** C vs B is +0.013 F1 [+0.010, +0.016], and both FPR and FNR fall. Controls show re-fitting or boosting the base score alone adds nothing.
-- **High-overlap false positives roughly halve** for entity (0.22 → 0.13), number (0.47 → 0.19) and negation (0.72 → 0.34) differences.
-  Within those slices, true duplicates with a superficial constraint difference are rejected more often.
-- **Specificity/length signals are the largest contributor**, and numbers are the only explicit-constraint group significant on its own.
-  spaCy NER added only +0.001 PR-AUC and was dropped.
-- **Train/serve skew** (CSV round-trip vs fresh features flipping tree splits) was found by the Phase 8 validation dry run and fixed
-  by canonicalising meta-model inputs; validation results were regenerated before the test split was read.
-- **Stacking without leakage:** base scores for training the meta-model come from 5-fold, question-disjoint cross-fitting.
+Full report: [docs/final_evaluation.md](docs/final_evaluation.md).
 
-## Phase 7 key findings (cross-fitted within validation, 20 repetitions)
+## Demo
 
-| System | F1 | Macro-cluster F1 | Worst-cluster F1 |
-|---|---|---|---|
-| Semantic model + global τ | 0.771 | 0.770 | 0.707 |
-| Semantic model + cluster τ | 0.767 | 0.766 | 0.708 |
-| **Constraint-aware model + global τ** | **0.783** | **0.782** | **0.719** |
-| Constraint-aware model + cluster τ | 0.781 | 0.778 | 0.714 |
+```bash
+streamlit run app/main.py
+```
 
-- **Central hypothesis: not supported.** Out of sample, per-cluster thresholds *lower* macro-cluster F1 for both models
-  (−0.003 [−0.005, −0.001] for both) and do not help the worst cluster. Their in-sample advantage is an artefact.
-- **Why:** each cluster threshold, fitted on 2–4k pairs, moves by up to ±0.06 between folds, while the true differences are small.
-- **What improves robustness instead:** the entity/constraint-aware model at a single threshold (+0.012 macro-cluster F1).
-  Frozen for Phase 8: baseline = semantic model at τ 0.32; final = constraint-aware model at global τ 0.35.
+For any two questions the app shows:
+- the **duplicate probability** and **decision**, flagged as borderline when within 0.05 of the threshold;
+- the semantic model's probability alone, and the **semantic similarity**;
+- the **discovered query region**;
+- the **global threshold (0.35)**, with a note that **no cluster-specific threshold is applied** and why;
+- the extracted **numbers, dates, entities, negation and question word**, and the **mismatch signals**;
+- a model-based **what-if** ("if the numbers matched, the score would be 0.27") and a **deterministic rationale** (no language model).
+
+Built-in examples include a paraphrase, entity, number, date, location and negation mismatches, a broader/narrower pair, and two **known failures**.
+Guide: [docs/demo_guide.md](docs/demo_guide.md).
+
+## Reproducibility
+
+- **Model registry** (`artifacts/MODEL_REGISTRY.json`): 22 artifacts, each with role, content SHA-256, size, git status and the command that regenerates it.
+- **Frozen final system in git:** MLP head, meta-model, threshold policies, cluster centroids, configs. The **encoder is pinned** to Hugging Face revision
+  `1110a243…`, whose weight hash equals the one recorded at freeze time (`configs/models.yaml`).
+- **Feature configuration** (`artifacts/feature_config.json`): the feature groups, ordered model inputs and input-canonicalisation rules.
+- **Fixed expected outputs** (`tests/golden/`): 14 probe pairs whose scores, decisions, clusters and signals are re-checked to 1e-5.
+- **`python scripts/reproduce.py --verify`** checks registry and freeze hashes, recomputes the reported test metrics from the saved per-pair scores,
+  regenerates the split from the raw archive, and runs the tests.
+- **Fresh clone, tested:** a clone plus the Kaggle archive regenerates byte-identical split files, passes 129 tests and skips 4 (feature caches and
+  untracked reference models that need longer pipeline steps), and passes `--verify`.
+- **Retraining** (`python scripts/reproduce.py --list`) is numerically close but **not bit-identical** for the neural and K-Means steps, because
+  multithreaded floating-point reductions differ between runs. The committed frozen artifacts are the reference for every reported number.
+
+Details: [docs/reproducibility.md](docs/reproducibility.md).
+
+## Limitations
+
+- **Cluster boundaries are soft** (silhouette ≈ 0.02); the 12 regions are a coarse coordinate, not ground-truth categories.
+- **Cluster names are post-hoc interpretations,** not universal query types.
+- **Labels are noisy and sometimes ambiguous.** About a quarter of the remaining false positives look mislabelled, and scope differences are judged inconsistently.
+- **Results hold only for this frozen Quora Question Pairs split;** no claim is made about other datasets, domains or languages.
+- **This is not a production system.** Robustness to real-world traffic, drift or adversarial inputs was not evaluated.
+- **The encoder was pretrained partly on Quora data,** so absolute scores are optimistic.
+- **Retraining the neural and K-Means steps is not bit-identical;** the frozen artifacts are the reference.
+
+## Local setup
+
+Requires Python 3.12 (developed on 3.12.2, Windows 11, CPU only).
+
+```bash
+git clone <this repository> && cd "Adaptive Semantic Query Matcher"
+python -m venv .venv && .venv\Scripts\activate          # Linux/macOS: source .venv/bin/activate
+pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
+pip install -r requirements.txt
+
+# Demo and tests work right away (the first run downloads the pinned MiniLM encoder, ~90 MB)
+streamlit run app/main.py
+python -m pytest
+
+# With the Kaggle archive quora-question-pairs.zip placed in the repository root:
+python scripts/reproduce.py --run extract splits         # regenerates byte-identical split files
+python scripts/reproduce.py --verify                     # hashes, recomputed test metrics, split, tests
+python scripts/reproduce.py --list                       # the full pipeline, raw data -> final evaluation
+```
 
 ## Documentation
 
-| Doc | Content |
+| Document | Content |
 |---|---|
-| [docs/problem_definition.md](docs/problem_definition.md) | target, what "duplicate" means, mismatch types, excluded signals |
-| [docs/data_audit.md](docs/data_audit.md) | full dataset audit |
-| [docs/split_strategy.md](docs/split_strategy.md) | leakage analysis, 4 split strategies compared, final choice |
-| [docs/evaluation_plan.md](docs/evaluation_plan.md) | metrics, threshold analysis, cluster-level metrics |
-| [docs/phase1_report.md](docs/phase1_report.md) | Phase 1 summary and verification |
-| [docs/baseline_results.md](docs/baseline_results.md) | Phase 2 preprocessing, lexical features, baselines, failure analysis |
-| [docs/deep_models.md](docs/deep_models.md) | Phase 3 Siamese BiLSTM, sentence-transformer heads, contamination control, error analysis, latency |
-| [docs/clustering.md](docs/clustering.md) | Phase 4 K-Means vs HDBSCAN, K selection, stability, cluster interpretation |
-| [docs/cluster_error_analysis.md](docs/cluster_error_analysis.md) | Phase 5 pair assignment, per-cluster metrics, threshold variation, error categories |
-| [docs/entity_constraint_features.md](docs/entity_constraint_features.md) | Phase 6 constraint features, cross-fitted meta-classifier, ablations, trade-offs |
-| [docs/calibration_experiments.md](docs/calibration_experiments.md) | Phase 7 global vs cluster thresholds (cross-fitted), decision, frozen Phase 8 config |
-| [docs/final_evaluation.md](docs/final_evaluation.md) | Phase 8 freeze protocol, one-time test results, per-cluster and slice analysis, remaining failures |
-| [docs/demo.md](docs/demo.md) | Phase 9 Streamlit demo: outputs, explanation method, examples incl. known failures |
-| [docs/reproducibility.md](docs/reproducibility.md) | Phase 10 versioned artifacts, model registry, test coverage, what is and is not bit-reproducible |
-
-## Reproduce
-
-Quick check of the committed frozen state: `python scripts/reproduce.py --verify`. The full pipeline is listed by `python scripts/reproduce.py --list`
-and run step by step with `--run <step>` / `--from <step> --to <step>`. The individual commands are:
-
-```bash
-pip install -r requirements.txt
-
-# 1. Extract the Kaggle archive into data/raw/ (the archive itself is left untouched)
-python -c "import zipfile; z=zipfile.ZipFile('quora-question-pairs.zip'); z.extract('train.csv.zip','data/raw'); zipfile.ZipFile('data/raw/train.csv.zip').extractall('data/raw')"
-
-# 2. Audit (writes artifacts/phase1/audit_*.json and docs/figures/*.png)
-python scripts/audit_dataset.py
-
-# 3. Compare split strategies and create / verify the frozen split
-python scripts/make_splits.py
-
-# 4. Phase 2 baselines (~10 min) and overlap-controlled error analysis
-python scripts/run_baselines.py
-python scripts/analyze_baseline_errors.py
-
-# 5. Phase 3 deep models (CPU; see docs/deep_models.md for timings)
-python scripts/encode_questions.py --model sentence-transformers/all-MiniLM-L6-v2
-python scripts/run_sbert.py
-python scripts/train_bilstm.py
-python scripts/encode_questions.py --model sentence-transformers/nli-distilroberta-base-v2 --control-subset
-python scripts/run_encoder_control.py
-python scripts/compare_phase3.py
-
-# 6. Phase 4 clustering (train questions only)
-python scripts/compare_clustering.py
-python scripts/stability_recheck.py --k 5 8 10 12 15 20
-python scripts/build_clusters.py        # uses frozen centroids; --refit to re-fit deliberately
-
-# 7. Phase 5 cluster-level error analysis (validation only)
-python scripts/analyze_clusters.py
-python scripts/threshold_reliability.py
-python scripts/summarize_manual_errors.py
-
-# 8. Phase 6 entity/constraint features (spaCy model needed only for the NER ablation)
-python -m spacy download en_core_web_sm
-python scripts/build_constraint_features.py
-python scripts/crossfit_base.py
-python scripts/train_meta.py
-
-# 9. Phase 7 threshold calibration (validation only)
-python scripts/calibration_experiments.py
-
-# 10. Phase 8 frozen test evaluation (runs ONCE; refuses to re-run)
-python scripts/freeze_manifest.py                  # hash everything (requires a clean git tree); commit it
-python scripts/final_evaluation.py --dry-run-on-val  # must reproduce validation exactly
-python scripts/final_evaluation.py                 # the single test evaluation
-
-# 11. Demo
-streamlit run app/main.py
-
-# 12. Tests
-python -m pytest
-```
-
-`make_splits.py` never overwrites an existing frozen split. It regenerates the split and checks the result
-against the hashes in `data/processed/splits/split_metadata.json`.
+| [docs/project_summary.md](docs/project_summary.md) | the whole project in one page |
+| [docs/project_metrics.md](docs/project_metrics.md) | every measured number, with its source |
+| [docs/interview_notes.md](docs/interview_notes.md) | design decisions, alternatives, trade-offs, likely questions |
+| [docs/demo_guide.md](docs/demo_guide.md) | a 3–5 minute demo script |
+| [docs/data_audit.md](docs/data_audit.md) · [docs/split_strategy.md](docs/split_strategy.md) · [docs/problem_definition.md](docs/problem_definition.md) · [docs/evaluation_plan.md](docs/evaluation_plan.md) | Phase 1 |
+| [docs/baseline_results.md](docs/baseline_results.md) | Phase 2 lexical baselines |
+| [docs/deep_models.md](docs/deep_models.md) | Phase 3 BiLSTM and sentence transformers, contamination control |
+| [docs/clustering.md](docs/clustering.md) | Phase 4 K-Means vs HDBSCAN, stability, interpretation |
+| [docs/cluster_error_analysis.md](docs/cluster_error_analysis.md) | Phase 5 per-cluster metrics and error categories |
+| [docs/entity_constraint_features.md](docs/entity_constraint_features.md) | Phase 6 constraint features and meta-classifier |
+| [docs/calibration_experiments.md](docs/calibration_experiments.md) | Phase 7 global vs cluster thresholds |
+| [docs/final_evaluation.md](docs/final_evaluation.md) | Phase 8 frozen test evaluation |
+| [docs/demo.md](docs/demo.md) · [docs/reproducibility.md](docs/reproducibility.md) | Phases 9–10 |
+| [docs/final_verification.md](docs/final_verification.md) | final verification report |
 
 ## Project structure
 
 ```
-configs/data.yaml          split configuration (seed, ratios, cap)
-configs/clustering.yaml    clustering configuration (K grid, chosen K = 12, HDBSCAN settings)
-configs/models.yaml        versioned final-system description (pinned encoder revision, artifacts, canonicalisation)
-data/raw/                  extracted Kaggle files (not versioned, never modified)
-data/processed/splits/     frozen train/val/test + split_metadata.json
-scripts/                   Phase 1-2: audit_dataset, make_splits, run_baselines, analyze_baseline_errors
-                           Phase 3: encode_questions, run_sbert, train_bilstm, run_encoder_control, compare_phase3
-                           Phase 4: compare_clustering, stability_recheck, build_clusters
-                           Phase 5: analyze_clusters, threshold_reliability, summarize_manual_errors
-                           Phase 6: build_constraint_features, crossfit_base, train_meta
-                           Phase 7: calibration_experiments
-                           Phase 8: freeze_manifest, final_evaluation
-                           Phase 10: reproduce (pipeline + --verify), build_registry, make_golden
-src/utils/                 data loading (data.py), split strategies + leakage metrics (splits.py)
-src/evaluation/            metrics.py (F1/PR/ROC, threshold sweep, ECE, per-cluster metrics)
-src/preprocessing/         minimal text normalisation + tokenisation
-src/features/              symmetric lexical pair features (lexical.py), entity/number/date/negation/specificity features (constraints.py)
-src/evaluation/error_analysis.py   heuristic error tags (analysis only)
-src/models/                 siamese_bilstm.py, sentence_encoder.py (cached embeddings), meta.py (Phase 6 variants),
-                           predictors.py (raw text -> score, incl. MetaPredictor)
-src/utils/torch_utils.py   device (CUDA if present, else CPU), seeding, threads
-src/clustering/core.py     K-Means fitting, frozen centroid model, metrics, stability, c-TF-IDF descriptions
-src/clustering/pairs.py    pair-to-cluster rules (q1 / pair-average / same-only), assignment margin
-src/evaluation/cluster_analysis.py   per-cluster metrics, bootstrap CIs, random-partition null
-src/calibration/           thresholds.py: global / per-cluster threshold policy with fallback, cross-fitting
-src/service/matcher.py     demo service layer: frozen final system + deterministic explanations
-app/main.py                Streamlit UI (thin renderer)
-tests/                     133 tests (Phases 1-10), incl. golden outputs in tests/golden/
-docs/                      documentation + figures
-artifacts/phase1/          audit statistics, split comparison
-artifacts/phase2/          baseline metrics, val predictions, error analysis, fitted models (joblib)
-artifacts/phase3/          BiLSTM + SBERT heads, val scores, encoder control, comparison.json
-data/processed/embeddings/ cached MiniLM question embeddings (train, val)
-artifacts/phase4/          K sweep, stability, HDBSCAN, frozen cluster centroids, cluster descriptions/names
-artifacts/phase5/          per-cluster metrics, null, threshold reliability, pair assignments, manual error labels
-artifacts/phase6/          meta-model bundle, variant results + bootstraps, slices, probes, cross-fit report, latency
-artifacts/phase7/          calibration results, frozen Phase 8 threshold policies
-artifacts/phase8/          freeze manifest, dry run, test results/scores, latency, manual error labels, TEST_EVALUATED marker
-artifacts/MODEL_REGISTRY.json   every artifact: role, hash, size, git-tracked, regenerate command; environment
-artifacts/feature_config.json   final model's feature groups, ordered design columns, canonicalisation
+app/main.py                      Streamlit demo (thin UI)
+configs/                         data.yaml (split), clustering.yaml (K = 12), models.yaml (pinned encoder, final system)
+scripts/                         one script per pipeline step; reproduce.py runs or verifies them all
+src/preprocessing/text.py        minimal normalisation (keeps negation, numbers)
+src/features/                    lexical.py (overlap features), constraints.py (entity/number/date/negation/specificity)
+src/models/                      siamese_bilstm.py, sentence_encoder.py, meta.py, predictors.py
+src/clustering/                  core.py (K-Means, frozen centroids), pairs.py (pair-to-cluster rules)
+src/calibration/thresholds.py    global / per-cluster threshold policies with fallback, cross-fitting
+src/evaluation/                  metrics, per-cluster analysis, error tags
+src/service/matcher.py           demo service layer: frozen system + deterministic explanations
+artifacts/phase1..8/             results, frozen models, thresholds, freeze manifest, test results
+artifacts/MODEL_REGISTRY.json    artifact hashes and regeneration commands
+tests/                           133 tests incl. golden outputs
+docs/                            phase reports and summaries
 ```
