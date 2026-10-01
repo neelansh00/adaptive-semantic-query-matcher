@@ -1,0 +1,282 @@
+{
+  "overall_f1": 0.7710969429458885,
+  "macro_cluster_f1": 0.7699619119302267,
+  "worst_cluster_f1": 0.7076326002587322,
+  "worst_cluster": 6,
+  "best_cluster_f1": 0.8084932625561454,
+  "best_cluster": 11,
+  "f1_range": 0.1008606622974132,
+  "f1_std": 0.03321855447331129,
+  "global_threshold": 0.32,
+  "opt_threshold_min": 0.2,
+  "opt_threshold_max": 0.46,
+  "opt_threshold_range": 0.26,
+  "opt_threshold_std": 0.06550551291473278,
+  "opt_threshold_median": 0.32,
+  "null_comparison": {
+    "f1_std": {
+      "observed": 0.03321855447331129,
+      "null_mean": 0.0088082942356661,
+      "null_p95": 0.01241547701414669,
+      "null_max": 0.01640051846979446,
+      "p_value_one_sided": 0.0
+    },
+    "opt_threshold_std": {
+      "observed": 0.06550551291473278,
+      "null_mean": 0.03399521351731979,
+      "null_p95": 0.04810830662794918,
+      "null_max": 0.06027713773341709,
+      "p_value_one_sided": 0.0
+    },
+    "f1_range": {
+      "observed": 0.1008606622974132,
+      "null_mean": 0.03069755886131325,
+      "null_p95": 0.0441694208694709,
+      "null_max": 0.06423065751569534,
+      "p_value_one_sided": 0.0
+    },
+    "opt_threshold_range": {
+      "observed": 0.26,
+      "null_mean": 0.12483999999999999,
+      "null_p95": 0.18,
+      "null_max": 0.25,
+      "p_value_one_sided": 0.0
+    },
+    "roc_auc_range": {
+      "observed": 0.056619733038077324,
+      "null_mean": 0.01656267123577263,
+      "null_p95": 0.024187616768221332,
+      "null_max": 0.03240631675370842,
+      "p_value_one_sided": 0.0
+    }
+  },
+  "corr_n_vs_threshold_ci_width": 0.16332025350938054,
+  "in_sample_gain_overall_if_all_cluster_thresholds": 0.005688184821305842,
+  "weakest_by_f1": [
+    6,
+    0,
+    2
+  ],
+  "rank_table": {
+    "0": {
+      "f1": 2.0,
+      "precision": 1.0,
+      "recall": 6.0,
+      "fpr": 5.0,
+      "fnr": 6.0,
+      "mean_rank": 4.0
+    },
+    "1": {
+      "f1": 4.0,
+      "precision": 6.0,
+      "recall": 4.0,
+      "fpr": 8.0,
+      "fnr": 4.0,
+      "mean_rank": 5.2
+    },
+    "2": {
+      "f1": 3.0,
+      "precision": 3.0,
+      "recall": 3.0,
+      "fpr": 10.0,
+      "fnr": 3.0,
+      "mean_rank": 4.4
+    },
+    "3": {
+      "f1": 5.0,
+      "precision": 4.0,
+      "recall": 8.0,
+      "fpr": 2.0,
+      "fnr": 8.0,
+      "mean_rank": 5.4
+    },
+    "4": {
+      "f1": 9.0,
+      "precision": 12.0,
+      "recall": 5.0,
+      "fpr": 4.0,
+      "fnr": 5.0,
+      "mean_rank": 7.0
+    },
+    "5": {
+      "f1": 10.0,
+      "precision": 8.0,
+      "recall": 9.0,
+      "fpr": 11.0,
+      "fnr": 9.0,
+      "mean_rank": 9.4
+    },
+    "6": {
+      "f1": 1.0,
+      "precision": 2.0,
+      "recall": 1.0,
+      "fpr": 12.0,
+      "fnr": 1.0,
+      "mean_rank": 3.4
+    },
+    "7": {
+      "f1": 6.0,
+      "precision": 11.0,
+      "recall": 2.0,
+      "fpr": 9.0,
+      "fnr": 2.0,
+      "mean_rank": 6.0
+    },
+    "8": {
+      "f1": 7.0,
+      "precision": 7.0,
+      "recall": 7.0,
+      "fpr": 7.0,
+      "fnr": 7.0,
+      "mean_rank": 7.0
+    },
+    "9": {
+      "f1": 11.0,
+      "precision": 9.0,
+      "recall": 10.0,
+      "fpr": 6.0,
+      "fnr": 10.0,
+      "mean_rank": 9.2
+    },
+    "10": {
+      "f1": 8.0,
+      "precision": 5.0,
+      "recall": 11.0,
+      "fpr": 1.0,
+      "fnr": 11.0,
+      "mean_rank": 7.2
+    },
+    "11": {
+      "f1": 12.0,
+      "precision": 10.0,
+      "recall": 12.0,
+      "fpr": 3.0,
+      "fnr": 12.0,
+      "mean_rank": 9.8
+    }
+  },
+  "tag_rates_by_cluster": {
+    "0": {
+      "share_of_FP_with_entity_diff": 0.14008321775312066,
+      "share_of_FP_with_number_diff": 0.06102635228848821,
+      "share_of_FP_with_negation_diff": 0.049930651872399444,
+      "share_of_FP_with_date_diff": 0.004160887656033287,
+      "share_of_FP_high_overlap(j>0.6)": 0.34257975034674065,
+      "share_of_FN_low_overlap(j<=0.2)": 0.23417721518987342,
+      "fpr_high_overlap_negatives": 0.4565619223659889,
+      "fnr_low_overlap_positives": 0.4805194805194805
+    },
+    "1": {
+      "share_of_FP_with_entity_diff": 0.29411764705882354,
+      "share_of_FP_with_number_diff": 0.10021786492374728,
+      "share_of_FP_with_negation_diff": 0.10675381263616558,
+      "share_of_FP_with_date_diff": 0.037037037037037035,
+      "share_of_FP_high_overlap(j>0.6)": 0.22004357298474944,
+      "share_of_FN_low_overlap(j<=0.2)": 0.17894736842105263,
+      "fpr_high_overlap_negatives": 0.6733333333333333,
+      "fnr_low_overlap_positives": 0.39080459770114945
+    },
+    "2": {
+      "share_of_FP_with_entity_diff": 0.23060344827586207,
+      "share_of_FP_with_number_diff": 0.10991379310344827,
+      "share_of_FP_with_negation_diff": 0.10775862068965517,
+      "share_of_FP_with_date_diff": 0.010775862068965518,
+      "share_of_FP_high_overlap(j>0.6)": 0.21551724137931033,
+      "share_of_FN_low_overlap(j<=0.2)": 0.13836477987421383,
+      "fpr_high_overlap_negatives": 0.4830917874396135,
+      "fnr_low_overlap_positives": 0.29333333333333333
+    },
+    "3": {
+      "share_of_FP_with_entity_diff": 0.06039076376554174,
+      "share_of_FP_with_number_diff": 0.0905861456483126,
+      "share_of_FP_with_negation_diff": 0.056838365896980464,
+      "share_of_FP_with_date_diff": 0.0017761989342806395,
+      "share_of_FP_high_overlap(j>0.6)": 0.21847246891651864,
+      "share_of_FN_low_overlap(j<=0.2)": 0.2413793103448276,
+      "fpr_high_overlap_negatives": 0.6507936507936508,
+      "fnr_low_overlap_positives": 0.18502202643171806
+    },
+    "4": {
+      "share_of_FP_with_entity_diff": 0.03036876355748373,
+      "share_of_FP_with_number_diff": 0.026030368763557483,
+      "share_of_FP_with_negation_diff": 0.11062906724511931,
+      "share_of_FP_with_date_diff": 0.0,
+      "share_of_FP_high_overlap(j>0.6)": 0.2754880694143167,
+      "share_of_FN_low_overlap(j<=0.2)": 0.2974137931034483,
+      "fpr_high_overlap_negatives": 0.6649214659685864,
+      "fnr_low_overlap_positives": 0.3382352941176471
+    },
+    "5": {
+      "share_of_FP_with_entity_diff": 0.3592814371257485,
+      "share_of_FP_with_number_diff": 0.04790419161676647,
+      "share_of_FP_with_negation_diff": 0.09880239520958084,
+      "share_of_FP_with_date_diff": 0.005988023952095809,
+      "share_of_FP_high_overlap(j>0.6)": 0.281437125748503,
+      "share_of_FN_low_overlap(j<=0.2)": 0.08247422680412371,
+      "fpr_high_overlap_negatives": 0.19381443298969073,
+      "fnr_low_overlap_positives": 0.17391304347826086
+    },
+    "6": {
+      "share_of_FP_with_entity_diff": 0.3865814696485623,
+      "share_of_FP_with_number_diff": 0.12779552715654952,
+      "share_of_FP_with_negation_diff": 0.03194888178913738,
+      "share_of_FP_with_date_diff": 0.038338658146964855,
+      "share_of_FP_high_overlap(j>0.6)": 0.34185303514376997,
+      "share_of_FN_low_overlap(j<=0.2)": 0.1223021582733813,
+      "fpr_high_overlap_negatives": 0.4053030303030303,
+      "fnr_low_overlap_positives": 0.4473684210526316
+    },
+    "7": {
+      "share_of_FP_with_entity_diff": 0.1827956989247312,
+      "share_of_FP_with_number_diff": 0.12365591397849462,
+      "share_of_FP_with_negation_diff": 0.04032258064516129,
+      "share_of_FP_with_date_diff": 0.01881720430107527,
+      "share_of_FP_high_overlap(j>0.6)": 0.260752688172043,
+      "share_of_FN_low_overlap(j<=0.2)": 0.1288888888888889,
+      "fpr_high_overlap_negatives": 0.2852941176470588,
+      "fnr_low_overlap_positives": 0.23577235772357724
+    },
+    "8": {
+      "share_of_FP_with_entity_diff": 0.26706231454005935,
+      "share_of_FP_with_number_diff": 0.16023738872403562,
+      "share_of_FP_with_negation_diff": 0.02373887240356083,
+      "share_of_FP_with_date_diff": 0.02967359050445104,
+      "share_of_FP_high_overlap(j>0.6)": 0.3056379821958457,
+      "share_of_FN_low_overlap(j<=0.2)": 0.14655172413793102,
+      "fpr_high_overlap_negatives": 0.3931297709923664,
+      "fnr_low_overlap_positives": 0.3269230769230769
+    },
+    "9": {
+      "share_of_FP_with_entity_diff": 0.3908355795148248,
+      "share_of_FP_with_number_diff": 0.09973045822102426,
+      "share_of_FP_with_negation_diff": 0.11590296495956873,
+      "share_of_FP_with_date_diff": 0.03773584905660377,
+      "share_of_FP_high_overlap(j>0.6)": 0.22641509433962265,
+      "share_of_FN_low_overlap(j<=0.2)": 0.18181818181818182,
+      "fpr_high_overlap_negatives": 0.4019138755980861,
+      "fnr_low_overlap_positives": 0.2608695652173913
+    },
+    "10": {
+      "share_of_FP_with_entity_diff": 0.16179775280898875,
+      "share_of_FP_with_number_diff": 0.12134831460674157,
+      "share_of_FP_with_negation_diff": 0.04719101123595506,
+      "share_of_FP_with_date_diff": 0.020224719101123594,
+      "share_of_FP_high_overlap(j>0.6)": 0.23370786516853934,
+      "share_of_FN_low_overlap(j<=0.2)": 0.22330097087378642,
+      "fpr_high_overlap_negatives": 0.5360824742268041,
+      "fnr_low_overlap_positives": 0.17829457364341086
+    },
+    "11": {
+      "share_of_FP_with_entity_diff": 0.08064516129032258,
+      "share_of_FP_with_number_diff": 0.08602150537634409,
+      "share_of_FP_with_negation_diff": 0.03494623655913978,
+      "share_of_FP_with_date_diff": 0.03763440860215054,
+      "share_of_FP_high_overlap(j>0.6)": 0.2768817204301075,
+      "share_of_FN_low_overlap(j<=0.2)": 0.08247422680412371,
+      "fpr_high_overlap_negatives": 0.42916666666666664,
+      "fnr_low_overlap_positives": 0.2222222222222222
+    }
+  },
+  "primary_rule": "pair_avg",
+  "primary_model": "sbert_mlp"
+}

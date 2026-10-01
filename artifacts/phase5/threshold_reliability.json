@@ -1,0 +1,605 @@
+{
+  "reps": 300,
+  "pooled": [
+    {
+      "n": 100,
+      "threshold_std": 0.13500956344726925,
+      "threshold_p5": 0.1295,
+      "threshold_p95": 0.5705000000000001,
+      "regret_mean": 0.016316654163509376,
+      "regret_p95": 0.058721270354986754
+    },
+    {
+      "n": 250,
+      "threshold_std": 0.09387586957727151,
+      "threshold_p5": 0.19,
+      "threshold_p95": 0.49,
+      "regret_mean": 0.007847879786027481,
+      "regret_p95": 0.024770923403372058
+    },
+    {
+      "n": 500,
+      "threshold_std": 0.07806532876735711,
+      "threshold_p5": 0.2095,
+      "threshold_p95": 0.47,
+      "regret_mean": 0.00571330761227224,
+      "regret_p95": 0.018673594403220025
+    },
+    {
+      "n": 1000,
+      "threshold_std": 0.056858655160552884,
+      "threshold_p5": 0.23,
+      "threshold_p95": 0.43,
+      "regret_mean": 0.0032814159562983536,
+      "regret_p95": 0.010888956584257816
+    },
+    {
+      "n": 2000,
+      "threshold_std": 0.04394946593026536,
+      "threshold_p5": 0.26,
+      "threshold_p95": 0.4105000000000001,
+      "regret_mean": 0.0021690297216910054,
+      "regret_p95": 0.007377323361527743
+    },
+    {
+      "n": 4000,
+      "threshold_std": 0.03136211444118879,
+      "threshold_p5": 0.28,
+      "threshold_p95": 0.38,
+      "regret_mean": 0.0013212431559217652,
+      "regret_p95": 0.004742971713868505
+    }
+  ],
+  "by_cluster": {
+    "0": [
+      {
+        "n": 100,
+        "threshold_std": 0.13816920383677722,
+        "threshold_p5": 0.2095,
+        "threshold_p95": 0.65,
+        "regret_mean": 0.015193087405764345,
+        "regret_p95": 0.06173360995524255
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.10506313445839231,
+        "threshold_p5": 0.2595,
+        "threshold_p95": 0.5705000000000001,
+        "regret_mean": 0.007139358340123415,
+        "regret_p95": 0.02878244335437119
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.09707795264059131,
+        "threshold_p5": 0.27,
+        "threshold_p95": 0.57,
+        "regret_mean": 0.005523163321016815,
+        "regret_p95": 0.016059878418956064
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.08021894345408004,
+        "threshold_p5": 0.3,
+        "threshold_p95": 0.56,
+        "regret_mean": 0.003406285459731635,
+        "regret_p95": 0.007300033330092981
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.06557502065065123,
+        "threshold_p5": 0.31,
+        "threshold_p95": 0.55,
+        "regret_mean": 0.002151241752950412,
+        "regret_p95": 0.006740216475878386
+      },
+      {
+        "n": 4000,
+        "threshold_std": 0.0294905634624592,
+        "threshold_p5": 0.42,
+        "threshold_p95": 0.52,
+        "regret_mean": 0.0004896213251716664,
+        "regret_p95": 0.002498481386132956
+      }
+    ],
+    "1": [
+      {
+        "n": 100,
+        "threshold_std": 0.12361573075013102,
+        "threshold_p5": 0.12,
+        "threshold_p95": 0.52,
+        "regret_mean": 0.017584730050686462,
+        "regret_p95": 0.04957668243707247
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.08551654160973121,
+        "threshold_p5": 0.16,
+        "threshold_p95": 0.47,
+        "regret_mean": 0.009526933081178631,
+        "regret_p95": 0.03312819664066169
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.060150284011521234,
+        "threshold_p5": 0.2,
+        "threshold_p95": 0.4105000000000001,
+        "regret_mean": 0.005777485696517569,
+        "regret_p95": 0.0202065273251957
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.039826442918688525,
+        "threshold_p5": 0.21,
+        "threshold_p95": 0.35,
+        "regret_mean": 0.0031894079092460964,
+        "regret_p95": 0.0084431115044414
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.01512775227483875,
+        "threshold_p5": 0.3,
+        "threshold_p95": 0.34,
+        "regret_mean": 0.0007415188623784704,
+        "regret_p95": 0.004597143845960994
+      }
+    ],
+    "2": [
+      {
+        "n": 100,
+        "threshold_std": 0.1235296590567086,
+        "threshold_p5": 0.14,
+        "threshold_p95": 0.57,
+        "regret_mean": 0.021135547034279983,
+        "regret_p95": 0.07303963328059715
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.08485192330695214,
+        "threshold_p5": 0.2,
+        "threshold_p95": 0.49,
+        "regret_mean": 0.01083305707129293,
+        "regret_p95": 0.039641603471390785
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.06051277183831158,
+        "threshold_p5": 0.23,
+        "threshold_p95": 0.42,
+        "regret_mean": 0.006137936946280193,
+        "regret_p95": 0.018128962849999528
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.04019302040017506,
+        "threshold_p5": 0.27,
+        "threshold_p95": 0.41,
+        "regret_mean": 0.0027879572174629792,
+        "regret_p95": 0.010864249611349464
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.019484324183529918,
+        "threshold_p5": 0.28,
+        "threshold_p95": 0.32,
+        "regret_mean": 0.0011006504902846541,
+        "regret_p95": 0.003583896221933114
+      }
+    ],
+    "3": [
+      {
+        "n": 100,
+        "threshold_std": 0.12058934447122598,
+        "threshold_p5": 0.1695,
+        "threshold_p95": 0.56,
+        "regret_mean": 0.014782172556094207,
+        "regret_p95": 0.05090074269720957
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.08428793903439963,
+        "threshold_p5": 0.2295,
+        "threshold_p95": 0.5,
+        "regret_mean": 0.0078099131069975765,
+        "regret_p95": 0.027834315041540103
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.06571888786507439,
+        "threshold_p5": 0.25,
+        "threshold_p95": 0.4705000000000001,
+        "regret_mean": 0.004981768284953604,
+        "regret_p95": 0.017074739034108943
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.0447322280042278,
+        "threshold_p5": 0.27,
+        "threshold_p95": 0.41,
+        "regret_mean": 0.00218507845146339,
+        "regret_p95": 0.00790165767331249
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.029471719023874767,
+        "threshold_p5": 0.31,
+        "threshold_p95": 0.37,
+        "regret_mean": 0.0006685654907142924,
+        "regret_p95": 0.0022455501712915233
+      }
+    ],
+    "4": [
+      {
+        "n": 100,
+        "threshold_std": 0.10218858383726954,
+        "threshold_p5": 0.08950000000000001,
+        "threshold_p95": 0.41,
+        "regret_mean": 0.013133986504744819,
+        "regret_p95": 0.03830367996486765
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.07435903143233884,
+        "threshold_p5": 0.12,
+        "threshold_p95": 0.36,
+        "regret_mean": 0.007344815713752478,
+        "regret_p95": 0.02316249913894053
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.04895888297563806,
+        "threshold_p5": 0.14,
+        "threshold_p95": 0.32,
+        "regret_mean": 0.0036852182000088078,
+        "regret_p95": 0.014497433349892397
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.02506283215352079,
+        "threshold_p5": 0.16,
+        "threshold_p95": 0.25,
+        "regret_mean": 0.0013416993811314123,
+        "regret_p95": 0.005896561523159982
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.00873282441265266,
+        "threshold_p5": 0.18,
+        "threshold_p95": 0.2,
+        "regret_mean": 0.00019883238119480006,
+        "regret_p95": 0.0016125106486551966
+      }
+    ],
+    "5": [
+      {
+        "n": 100,
+        "threshold_std": 0.11612010544642513,
+        "threshold_p5": 0.19,
+        "threshold_p95": 0.5605000000000001,
+        "regret_mean": 0.01691993504576578,
+        "regret_p95": 0.05178332302063777
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.084706526050568,
+        "threshold_p5": 0.21,
+        "threshold_p95": 0.51,
+        "regret_mean": 0.010043097032482873,
+        "regret_p95": 0.0296724387639743
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.05790807849994295,
+        "threshold_p5": 0.28,
+        "threshold_p95": 0.49,
+        "regret_mean": 0.005811433442104003,
+        "regret_p95": 0.0203929497806139
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.03444602863740447,
+        "threshold_p5": 0.34,
+        "threshold_p95": 0.45,
+        "regret_mean": 0.0029103796946793655,
+        "regret_p95": 0.009094662322689073
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.00618699352584831,
+        "threshold_p5": 0.38,
+        "threshold_p95": 0.39,
+        "regret_mean": 0.0002413613129088632,
+        "regret_p95": 0.0019207115215750248
+      }
+    ],
+    "6": [
+      {
+        "n": 100,
+        "threshold_std": 0.1269564054661634,
+        "threshold_p5": 0.18,
+        "threshold_p95": 0.59,
+        "regret_mean": 0.0223374292961051,
+        "regret_p95": 0.060016968492594414
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.10083193387458603,
+        "threshold_p5": 0.19,
+        "threshold_p95": 0.56,
+        "regret_mean": 0.0147223995725176,
+        "regret_p95": 0.04053162172380409
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.07156562644795955,
+        "threshold_p5": 0.24,
+        "threshold_p95": 0.5,
+        "regret_mean": 0.009268627515350722,
+        "regret_p95": 0.032274777709523916
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.04391486713580671,
+        "threshold_p5": 0.28,
+        "threshold_p95": 0.43,
+        "regret_mean": 0.004620680711141112,
+        "regret_p95": 0.018523939154445834
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.007899085741752373,
+        "threshold_p5": 0.31,
+        "threshold_p95": 0.33,
+        "regret_mean": 0.0005479651329039489,
+        "regret_p95": 0.0031875817059359157
+      }
+    ],
+    "7": [
+      {
+        "n": 100,
+        "threshold_std": 0.12249451688409023,
+        "threshold_p5": 0.09950000000000002,
+        "threshold_p95": 0.4805000000000001,
+        "regret_mean": 0.01168347601968706,
+        "regret_p95": 0.04071999757902664
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.09567432605807405,
+        "threshold_p5": 0.13,
+        "threshold_p95": 0.44,
+        "regret_mean": 0.006508839713300996,
+        "regret_p95": 0.01924841473576444
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.08157681451654426,
+        "threshold_p5": 0.13,
+        "threshold_p95": 0.41,
+        "regret_mean": 0.004668485813545981,
+        "regret_p95": 0.015519285900919702
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.06542832380212377,
+        "threshold_p5": 0.15,
+        "threshold_p95": 0.36,
+        "regret_mean": 0.002745384506274974,
+        "regret_p95": 0.008564548903531977
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.04106964274930518,
+        "threshold_p5": 0.19,
+        "threshold_p95": 0.29,
+        "regret_mean": 0.0009380428246539696,
+        "regret_p95": 0.001448470686192763
+      }
+    ],
+    "8": [
+      {
+        "n": 100,
+        "threshold_std": 0.12421888834723253,
+        "threshold_p5": 0.14,
+        "threshold_p95": 0.57,
+        "regret_mean": 0.013318325233955368,
+        "regret_p95": 0.04726668959813762
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.08643350044976773,
+        "threshold_p5": 0.2195,
+        "threshold_p95": 0.52,
+        "regret_mean": 0.00589882528969366,
+        "regret_p95": 0.024226156199109616
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.0706462234580794,
+        "threshold_p5": 0.27,
+        "threshold_p95": 0.48,
+        "regret_mean": 0.003603054080942544,
+        "regret_p95": 0.014390202790350191
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.05577271336016883,
+        "threshold_p5": 0.28,
+        "threshold_p95": 0.42,
+        "regret_mean": 0.001683600370466939,
+        "regret_p95": 0.003590477514383794
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.05262217530027938,
+        "threshold_p5": 0.28,
+        "threshold_p95": 0.41,
+        "regret_mean": 0.0008713397855083686,
+        "regret_p95": 0.0019727893099092952
+      }
+    ],
+    "9": [
+      {
+        "n": 100,
+        "threshold_std": 0.1190283392959658,
+        "threshold_p5": 0.18,
+        "threshold_p95": 0.5605000000000001,
+        "regret_mean": 0.010832571064114812,
+        "regret_p95": 0.038708546536705336
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.0883781270073842,
+        "threshold_p5": 0.23,
+        "threshold_p95": 0.5,
+        "regret_mean": 0.005342855176295006,
+        "regret_p95": 0.024997972067279908
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.06837803415977646,
+        "threshold_p5": 0.2695,
+        "threshold_p95": 0.48,
+        "regret_mean": 0.0026712596424869847,
+        "regret_p95": 0.013113954184014483
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.052814675990675165,
+        "threshold_p5": 0.3,
+        "threshold_p95": 0.45,
+        "regret_mean": 0.0009333409513372645,
+        "regret_p95": 0.0022916889796293916
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.04678100279196911,
+        "threshold_p5": 0.3,
+        "threshold_p95": 0.43,
+        "regret_mean": 0.0004813208778923635,
+        "regret_p95": 0.0012844776619643783
+      }
+    ],
+    "10": [
+      {
+        "n": 100,
+        "threshold_std": 0.13361009193420484,
+        "threshold_p5": 0.1495,
+        "threshold_p95": 0.56,
+        "regret_mean": 0.010323588073336805,
+        "regret_p95": 0.03328504263144183
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.10736270302111436,
+        "threshold_p5": 0.17,
+        "threshold_p95": 0.51,
+        "regret_mean": 0.006413965993018919,
+        "regret_p95": 0.018490686480514995
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.08259445098390893,
+        "threshold_p5": 0.2,
+        "threshold_p95": 0.4405000000000001,
+        "regret_mean": 0.0037716258485449143,
+        "regret_p95": 0.007830025726286306
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.07285117249113657,
+        "threshold_p5": 0.2,
+        "threshold_p95": 0.43,
+        "regret_mean": 0.0027144730231143006,
+        "regret_p95": 0.007355277215757572
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.030760201559807764,
+        "threshold_p5": 0.3,
+        "threshold_p95": 0.38,
+        "regret_mean": 0.0005801401976563281,
+        "regret_p95": 0.0033476751243316505
+      }
+    ],
+    "11": [
+      {
+        "n": 100,
+        "threshold_std": 0.11393787781067366,
+        "threshold_p5": 0.2,
+        "threshold_p95": 0.5705000000000001,
+        "regret_mean": 0.01410495168435063,
+        "regret_p95": 0.04335313445379463
+      },
+      {
+        "n": 250,
+        "threshold_std": 0.07892738575565658,
+        "threshold_p5": 0.25,
+        "threshold_p95": 0.52,
+        "regret_mean": 0.007877972013173237,
+        "regret_p95": 0.02566308076704149
+      },
+      {
+        "n": 500,
+        "threshold_std": 0.05555813771776972,
+        "threshold_p5": 0.32,
+        "threshold_p95": 0.5,
+        "regret_mean": 0.004616557892809638,
+        "regret_p95": 0.01501091153828797
+      },
+      {
+        "n": 1000,
+        "threshold_std": 0.03389978695442724,
+        "threshold_p5": 0.39,
+        "threshold_p95": 0.4705000000000001,
+        "regret_mean": 0.0020557593839780927,
+        "regret_p95": 0.007484382191279337
+      },
+      {
+        "n": 2000,
+        "threshold_std": 0.011704699910719622,
+        "threshold_p5": 0.39,
+        "threshold_p95": 0.43,
+        "regret_mean": 0.00022720826008565287,
+        "regret_p95": 0.003192549317533211
+      }
+    ]
+  },
+  "within_cluster_median_by_n": [
+    {
+      "n": 100,
+      "threshold_std": 0.12301,
+      "regret_mean": 0.01444,
+      "regret_p95": 0.04842
+    },
+    {
+      "n": 250,
+      "threshold_std": 0.08598,
+      "regret_mean": 0.00758,
+      "regret_p95": 0.02675
+    },
+    {
+      "n": 500,
+      "threshold_std": 0.06705,
+      "regret_mean": 0.00483,
+      "regret_p95": 0.01579
+    },
+    {
+      "n": 1000,
+      "threshold_std": 0.04432,
+      "regret_mean": 0.00273,
+      "regret_p95": 0.00769
+    },
+    {
+      "n": 2000,
+      "threshold_std": 0.02448,
+      "regret_mean": 0.00062,
+      "regret_p95": 0.00272
+    },
+    {
+      "n": 4000,
+      "threshold_std": 0.02949,
+      "regret_mean": 0.00049,
+      "regret_p95": 0.0025
+    }
+  ]
+}

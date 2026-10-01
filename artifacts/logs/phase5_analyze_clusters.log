@@ -1,0 +1,113 @@
+{
+ "q1": {
+  "coverage": 1.0,
+  "min_count": 2391,
+  "max_count": 4889,
+  "size_entropy_normalised": 0.99,
+  "symmetric_share_unchanged_when_swapped": 0.6734,
+  "noise_robustness_share_unchanged": 0.97,
+  "noise_drops_to_unassigned": 0.0,
+  "margin_median": 0.0356,
+  "margin_p25": 0.0158
+ },
+ "pair_avg": {
+  "coverage": 1.0,
+  "min_count": 2447,
+  "max_count": 4561,
+  "size_entropy_normalised": 0.9932,
+  "symmetric_share_unchanged_when_swapped": 1.0,
+  "noise_robustness_share_unchanged": 0.9767,
+  "noise_drops_to_unassigned": 0.0,
+  "equals_q1_cluster": 0.8213,
+  "equals_q2_cluster": 0.826,
+  "equals_either_question_cluster": 0.9743,
+  "neither_question_cluster": 0.0257,
+  "margin_median": 0.0365,
+  "margin_p25": 0.0158
+ },
+ "same_only": {
+  "coverage": 0.6734,
+  "min_count": 1508,
+  "max_count": 3146,
+  "size_entropy_normalised": 0.9892,
+  "symmetric_share_unchanged_when_swapped": 1.0,
+  "noise_robustness_share_unchanged": 0.9995,
+  "noise_drops_to_unassigned": 0.0201
+ }
+}
+            n  prevalence  precision  recall     f1    fpr    fnr  roc_auc  pr_auc  opt_threshold  opt_threshold_ci_low  opt_threshold_ci_high  f1_ci_low  f1_ci_high
+cluster                                                                                                                                                              
+0        4561       0.272      0.600   0.872  0.711  0.217  0.128    0.911   0.794           0.46                 0.300                   0.55      0.693       0.729
+1        3602       0.351      0.700   0.850  0.768  0.196  0.150    0.903   0.805           0.30                 0.250                   0.34      0.750       0.784
+2        3584       0.283      0.648   0.843  0.733  0.180  0.157    0.906   0.753           0.30                 0.270                   0.40      0.712       0.753
+3        3608       0.395      0.689   0.878  0.772  0.258  0.122    0.891   0.826           0.37                 0.270                   0.37      0.756       0.787
+4        3476       0.446      0.741   0.850  0.792  0.239  0.150    0.881   0.823           0.20                 0.180                   0.21      0.777       0.807
+5        2889       0.329      0.719   0.898  0.799  0.172  0.102    0.936   0.864           0.38                 0.340                   0.45      0.780       0.817
+6        2754       0.249      0.636   0.797  0.708  0.151  0.203    0.904   0.766           0.33                 0.290                   0.39      0.683       0.732
+7        3298       0.380      0.734   0.821  0.775  0.182  0.179    0.908   0.849           0.25                 0.170                   0.36      0.758       0.792
+8        2594       0.358      0.707   0.875  0.782  0.202  0.125    0.914   0.835           0.29                 0.280                   0.42      0.763       0.801
+9        2786       0.384      0.724   0.907  0.805  0.216  0.093    0.920   0.853           0.33                 0.300                   0.45      0.786       0.821
+10       2447       0.456      0.695   0.908  0.787  0.334  0.092    0.879   0.840           0.31                 0.200                   0.43      0.769       0.805
+11       2539       0.428      0.727   0.911  0.808  0.256  0.089    0.912   0.875           0.39                 0.389                   0.48      0.791       0.825
+{
+ "overall_f1": 0.7710969429458885,
+ "macro_cluster_f1": 0.7699619119302267,
+ "worst_cluster_f1": 0.7076326002587322,
+ "worst_cluster": 6,
+ "best_cluster_f1": 0.8084932625561454,
+ "best_cluster": 11,
+ "f1_range": 0.1008606622974132,
+ "f1_std": 0.03321855447331129,
+ "global_threshold": 0.32,
+ "opt_threshold_min": 0.2,
+ "opt_threshold_max": 0.46,
+ "opt_threshold_range": 0.26,
+ "opt_threshold_std": 0.06550551291473278,
+ "opt_threshold_median": 0.32,
+ "null_comparison": {
+  "f1_std": {
+   "observed": 0.03321855447331129,
+   "null_mean": 0.0088082942356661,
+   "null_p95": 0.01241547701414669,
+   "null_max": 0.01640051846979446,
+   "p_value_one_sided": 0.0
+  },
+  "opt_threshold_std": {
+   "observed": 0.06550551291473278,
+   "null_mean": 0.03399521351731979,
+   "null_p95": 0.04810830662794918,
+   "null_max": 0.06027713773341709,
+   "p_value_one_sided": 0.0
+  },
+  "f1_range": {
+   "observed": 0.1008606622974132,
+   "null_mean": 0.03069755886131325,
+   "null_p95": 0.0441694208694709,
+   "null_max": 0.06423065751569534,
+   "p_value_one_sided": 0.0
+  },
+  "opt_threshold_range": {
+   "observed": 0.26,
+   "null_mean": 0.12483999999999999,
+   "null_p95": 0.18,
+   "null_max": 0.25,
+   "p_value_one_sided": 0.0
+  },
+  "roc_auc_range": {
+   "observed": 0.056619733038077324,
+   "null_mean": 0.01656267123577263,
+   "null_p95": 0.024187616768221332,
+   "null_max": 0.03240631675370842,
+   "p_value_one_sided": 0.0
+  }
+ },
+ "corr_n_vs_threshold_ci_width": 0.16332025350938054,
+ "in_sample_gain_overall_if_all_cluster_thresholds": 0.005688184821305842,
+ "weakest_by_f1": [
+  6,
+  0,
+  2
+ ],
+ "primary_rule": "pair_avg",
+ "primary_model": "sbert_mlp"
+}

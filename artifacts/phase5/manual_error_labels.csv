@@ -1,0 +1,121 @@
+id,category,note
+34019,broader_narrower,from abroad constraint vs generic
+36564,likely_label_noise,same VITEEE CSE marks question
+254719,likely_label_noise,identical except 'realistically'
+303150,date_time_mismatch,internship 2017 vs unspecified year
+74283,broader_narrower,IAF qualification vs IAF pilot qualification
+280237,likely_label_noise,career scope vs career opportunities
+398127,broader_narrower,generic NIT vs EEE at NIT Calicut with 96%
+284918,attribute_swap,best programs vs best colleges
+172950,likely_label_noise,same biotech-at-NIT scope question
+330828,attribute_swap,structural vs mechanical engineering professor
+171124,likely_label_noise,GPA 4.10 detail only
+212061,entity_mismatch,Portfolio Recovery vs Altisource Portfolio
+293060,likely_label_noise,same MBA operations question
+266490,broader_narrower,govt jobs vs central govt jobs for freshers
+395426,likely_label_noise,identical apart from 'start learning and'
+195555,broader_narrower,positive: Q2 adds what does it look like
+36745,debatable_topical_merge,fees vs how to apply - labelled duplicate
+110034,paraphrase_low_overlap,skills vs languages on resume
+157933,broader_narrower,positive: Mumbai and Pune vs Mumbai
+296958,debatable_topical_merge,review vs comparison with EduPristine
+322493,debatable_topical_merge,after engineering vs after BBA
+83476,debatable_topical_merge,army after hotel mgmt vs IAF after MBBS
+145857,debatable_topical_merge,IAF/Navy after engineering vs IAF after MBBS
+29822,likely_label_noise,ISI vs RBI selection labelled duplicate
+71985,paraphrase_low_overlap,educational gap answer in interview
+326557,debatable_topical_merge,CAT vs MBA prep - engineering vs BTech
+242538,paraphrase_low_overlap,what did X do for you vs review of X
+333477,paraphrase_low_overlap,placement after MS vs job prospects
+272237,paraphrase_low_overlap,jobs based on resume website
+159034,paraphrase_low_overlap,develop vs build profile for B-schools
+171954,entity_mismatch,Zero Gravity club vs zero gravity
+69402,broader_narrower,AI applications vs computational maths in AI
+358273,different_aspect_same_topic,who invented zero vs invented or discovered
+26323,likely_label_noise,stars in motion - same question
+131598,broader_narrower,routing protocol and types vs routing protocol
+288668,likely_label_noise,CSS class vs id
+173491,different_aspect_same_topic,Powerwall portability vs how it works
+116231,broader_narrower,sin in physics vs sin (ambiguous)
+314355,entity_mismatch,Pitbull-Pomeranian vs Lab-Pitbull
+385841,negation_mismatch,no right angles vs 4 right angles
+364161,entity_mismatch,Doberman/Lab vs Lab/Pitbull
+291294,different_aspect_same_topic,who investigates FBI vs what FBI does
+148052,likely_label_noise,why named Quora vs what Quora means
+134376,context_dependent_reference,'this Arabic text' refers to different texts
+265516,broader_narrower,relationship of class/object vs what are classes and objects
+324427,paraphrase_low_overlap,what Quora means
+335870,broader_narrower,positive: why cloud computing vs what is it
+174988,broader_narrower,positive: created vs what and how created
+239198,paraphrase_low_overlap,answer collapse basis
+301974,paraphrase_low_overlap,synchronized plane vs coplanar
+86706,debatable_topical_merge,what is sliding round vs reservation in it
+277414,likely_label_noise,aspiration in life vs your aspiration
+314208,paraphrase_low_overlap,brain memory in bytes vs hard drive
+298314,broader_narrower,positive: how it works vs what and advantages
+161476,paraphrase_low_overlap,reactions on NEET 2 vs how was the paper
+114846,paraphrase_low_overlap,rover pictures vs Curiosity self pictures
+95999,paraphrase_low_overlap,solar system on a plane
+259073,paraphrase_low_overlap,answers collapsed
+117048,paraphrase_low_overlap,collapse vs answers not shown
+61091,paraphrase_low_overlap,planar orbits
+218077,broader_narrower,log out on computer vs log out
+221853,broader_narrower,upload with a PC vs upload
+310379,likely_label_noise,start car in Uber vs register car
+159922,different_aspect_same_topic,get birth certificate vs passport without one
+243077,entity_mismatch,Moto G2 vs Moto G 1st gen
+254527,different_aspect_same_topic,learn Stata free vs download Stata free
+34821,broader_narrower,find IFSC by account vs what is IFSC
+88044,entity_mismatch,Mail.com vs AT&T email
+14457,different_aspect_same_topic,how you use Facebook vs best way to use it
+248342,negation_mismatch,scan document vs scan without a scanner
+41678,likely_label_noise,can I write long question vs why can't I
+214042,attribute_swap,4G dongle vs 3G phone
+174223,attribute_swap,photos in question vs in answer
+52973,broader_narrower,is it legal vs legal and ethical ways
+342634,date_time_mismatch,notifications per week vs per day
+303561,paraphrase_low_overlap,create vs start social media app
+363117,broader_narrower,positive: via Opinion Rewards vs any free coins
+102901,paraphrase_low_overlap,JioFi other SIMs
+257261,broader_narrower,positive: free iPhone vs free iPhone 7
+227998,paraphrase_low_overlap,messing with vs editing my question
+317477,paraphrase_low_overlap,Street View privacy - long rephrasing
+198578,paraphrase_low_overlap,install Tableau on Ubuntu (.dmg detail)
+7222,broader_narrower,positive: download playlists vs without software
+88412,paraphrase_low_overlap,is my computer safe vs how to keep it safe
+106897,broader_narrower,positive: hack non-friend account vs hack account
+43077,broader_narrower,positive: iPhone vs iPhone 6 Plus
+16913,paraphrase_low_overlap,ask instead of search vs google-able questions
+329645,paraphrase_low_overlap,deleted files vs photos in KeepSafe
+162926,paraphrase_low_overlap,Milky Way image from inside
+318491,paraphrase_low_overlap,green phone icon meaning
+195248,likely_label_noise,Mint friendlier vs Mint a noob distro
+378241,likely_label_noise,near-identical long question
+197594,attribute_swap,accomplishment vs occupation
+181793,different_aspect_same_topic,what to know before day trading vs why day trade
+95899,number_mismatch,budget Rs 25000 vs no budget
+176280,broader_narrower,with a Q-tip vs good ways
+65466,likely_label_noise,start photography career
+283100,likely_label_noise,download free audiobooks
+276723,number_mismatch,5'3 tall vs 5'1.5 short
+149747,attribute_swap,French elections vs French people
+63695,broader_narrower,high-fat vs high-carb comparison vs do low-carb diets work
+60565,broader_narrower,memorize for a test vs memorize things
+196323,attribute_swap,age at death vs cause of death
+277242,different_aspect_same_topic,what is MTurk vs MTurk jobs
+363410,different_aspect_same_topic,not just a theory vs why important
+281807,debatable_topical_merge,start business vs find investor
+388869,broader_narrower,positive: interest in programming vs via Minecraft
+32682,broader_narrower,positive: song to lyric vs lyric prank song
+273905,paraphrase_low_overlap,Bollywood vs Indian cinema
+179730,paraphrase_low_overlap,find psychotherapist vs Yelp for therapists
+299508,broader_narrower,positive: onion-juice shampoo vs onion juice
+289708,debatable_topical_merge,workspace vs public - labelled duplicate
+309840,broader_narrower,positive: missing flights vs MH370
+38478,paraphrase_low_overlap,what turns women on
+109110,broader_narrower,positive: preference vs preference plus eye health
+108650,paraphrase_low_overlap,LEO vs police officers
+108847,paraphrase_low_overlap,Mona Lisa special
+181500,paraphrase_low_overlap,reasons to live in Japan
+114200,paraphrase_low_overlap,shaking ears vs shaking head
+306148,paraphrase_low_overlap,grow taller after period

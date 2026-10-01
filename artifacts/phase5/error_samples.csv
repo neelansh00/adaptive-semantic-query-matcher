@@ -1,0 +1,121 @@
+id,group,cluster,outcome,score,jaccard,question1,question2
+34019,C6,6,FP,0.632,0.12,What is a way to get a job in Dubai from abroad?,How should I apply for jobs in Dubai?
+36564,C6,6,FP,0.326,0.5,What are the minimum marks required in VITEEE to get CSE at VIT Vellore?,What marks and rank in VITEEE are required to get a CSE branch?
+254719,C6,6,FP,0.85,0.95,What percentile do I need to score to offset my poor academic history and get calls from IIM A/B/C?,What percentile do I realistically need to score to offset my poor academic history and get calls from IIM A/B/C?
+303150,C6,6,FP,0.794,0.58,When should I start applying for summer internship 2017?,Career Advice: When should I start applying for summer internships?
+74283,C6,6,FP,0.76,0.31,What qualification for Indian Air Force?,What are the qualifications fo being an Indian Air Force pilot?
+280237,C6,6,FP,0.567,0.78,What are the career scope in information technology?,What are the career opporunities in information technology?
+398127,C6,6,FP,0.347,0.36,What is the minimum mark required in JEE main to get nit?,What are the minimum marks to score in JEE Mains to get EEE in NIT Calicut with 96 % AP board?
+284918,C6,6,FP,0.448,0.45,What is the best programs for mechanical engineerings?,What are the best colleges for mechanical engineering?
+172950,C6,6,FP,0.55,0.58,Does biotechnology from NITs has a good scope?,Does a B.Tech in biotechnology from NITs have a good scope?
+330828,C6,6,FP,0.425,0.88,What is the typical career path for someone who becomes a professor in structural engineering?,What is the typical career path for someone who becomes a professor in mechanical engineering?
+171124,C6,6,FP,0.805,0.58,I have a very low GPA of 4.10. Is my life destroyed?,My GPA is very low. Is my life destroyed?
+212061,C6,6,FP,0.439,0.87,What universities does Portfolio Recovery recruit new grads from? What majors are they looking for?,What universities does Altisource Portfolio recruit new grads from? What majors are they looking for?
+293060,C6,6,FP,0.838,0.57,Which MBA college is the best for operations management in India?,Which are the top MBA Colleges in India for Operations Management?
+266490,C6,6,FP,0.446,0.3,What are the Government jobs possible in Computer Engineering field in India?,What are some Central Government job opportunities for freshers in B Tech Computer Science in India?
+395426,C6,6,FP,0.658,0.83,What sort of programming experience does one need to start learning and become an AWS Certified Solutions architect?,What sort of programming experience does one need to become an AWS Certified Solutions architect?
+195555,C6,6,FN,0.223,0.5,Who can write the counselor letter of recommendation ?,What does the counselor letter of recommendation look like? And who can write it for me?
+36745,C6,6,FN,0.121,0.21,What will be the fees for SRM college management quota Chennai for CSE in B.Tech?,How do I apply for management quota SRM?
+110034,C6,6,FN,0.216,0.58,How long are unused programming skills relevant on a resume?,How long are programming languages relevant on your resume?
+157933,C6,6,FN,0.249,0.87,"How many students from Mumbai and Pune are studying in Walchand College of Engineering, Sangli?","How many students from Mumbai are studying in Walchand College of Engineering, Sangli?"
+296958,C6,6,FN,0.169,0.18,What are the reviews of IMS Proschool financial modelling course?,Which is better for Financial Modeling EduPristine or IMS ProSchool?
+322493,C6,6,FN,0.267,0.44,Should I drop a year after engineering for CAT preparation or join Capgemini as a fresher?,Should I drop one year after my BBA for CAT preparation?
+83476,C6,6,FN,0.012,0.5,How do I join army after hotel management?,How do I join IAF after mbbs?
+145857,C6,6,FN,0.037,0.27,How can I join indian air force or indian Navy after completing engineering?,How do I join IAF after mbbs?
+29822,C6,6,FN,0.179,0.58,Does past academic record matter in the ISI selection process?,Does past academic record matters in RBI selection process?
+71985,C6,6,FN,0.01,0.41,What is answer about educational gap in job interview?,What is the best answer to what you did in two years gap in a job interview?
+326557,C6,6,FN,0.013,0.32,Should I drop a year after engineering for CAT preparation or join Capgemini as a fresher?,Should I drop one year after BTech for mba preparations?
+242538,C6,6,FN,0.265,0.27,What did Draper University do for you?,What is your review of Draper University?
+333477,C6,6,FN,0.108,0.36,"What is the placement scenario after an MS in CS from University of North Carolina, Charlotte (UNCC)?",How is University of North Carolina Charlotte for MS in computer science? And how are the job prospects?
+272237,C6,6,FN,0.312,0.2,Is there a website that shows you jobs your qualified to do based off your resume?,What website makes job suggestions based on your resume?
+159034,C6,6,FN,0.218,0.35,How can I develop my profile to apply to top 20 global B-schools?,How should I build my profile for top business schools?
+171954,C0,0,FP,0.565,0.8,What is Zero Gravity club?,What is zero gravity?
+69402,C0,0,FP,0.717,0.7,What are the applications of artificial intelligence?,What are the applications of computational mathematics to artificial intelligence?
+358273,C0,0,FP,0.659,0.25,Who invented zero and how?,Was zero invented or discovered?
+26323,C0,0,FP,0.472,0.43,Is the position of stars fixed or they are in motion?,"Is the sun, and are other stars, in motion?"
+131598,C0,0,FP,0.657,0.5,What is routing protocol and their types?,What is a routing protocol?
+288668,C0,0,FP,0.585,0.22,What's the difference between a CSS Class and ID?,"When styling CSS, is it better to give an element an ""id"" or a ""class"" to implement styles? Is there a functional difference?"
+173491,C0,0,FP,0.829,0.1,How is the Tesla Powerwall's portability?,How does Tesla's Powerwall work?
+116231,C0,0,FP,0.587,0.6,What is sin in physics?,What is sin?
+314355,C0,0,FP,0.397,0.8,What is the temperament of a Pitbull Pomeranian mix?,What is the temperament of a Lab/Pitbull mix?
+385841,C0,0,FP,0.532,0.55,What are some shapes with no right angles?,What are some shapes that have 4 right angles?
+364161,C0,0,FP,0.403,0.8,What is the temperament of a Doberman/Lab mix?,What is the temperament of a Lab/Pitbull mix?
+291294,C0,0,FP,0.487,0.4,Who investigates the Federal Bureau of Investigation?,What does Federal Bureau of Investigation do?
+148052,C0,0,FP,0.447,0.11,Why is this site named Quora?,"What does ""Quora"" mean?"
+134376,C0,0,FP,0.895,0.5,What does this Arabic text mean in english?,What is the meaning of this Arabic text in English?
+265516,C0,0,FP,0.415,0.21,What is the relationship between class and object in Java?,What are classes and objects in programming?
+324427,C0,0,FN,0.253,0.12,"Does Quora means"" question or answer""?",What Quora mean?
+335870,C0,0,FN,0.304,0.44,Why cloud computing? What is so great about it?,What is cloud computing?
+174988,C0,0,FN,0.21,0.18,How were subtopics created?,What are subtopics and how do you create them?
+239198,C0,0,FN,0.114,0.13,On what basis does an answer in Quora gets collapsed?,Why are my Quora answers getting collapsed?
+301974,C0,0,FN,0.184,0.45,Are the orbits of the planets synchronized on the same plane?,Are the orbits of each planets coplanar?
+86706,C0,0,FN,0.064,0.27,What is sliding round in IPU?,Is there any reservation in sliding round of IPU and what if no seat is allotted in sliding round can I retain my seat of 3rd round as?
+277414,C0,0,FN,0.272,0.43,What is aspiration in life?,What's your aspiration in life?
+314208,C0,0,FN,0.226,0.24,How brain memory capacity can be meassured in bytes?,"If we convert our brain memory storage capacity into hard drive capacity, how big it will be approximately?"
+298314,C0,0,FN,0.273,0.22,How cloud computing works?,What is cloud computing and it's advantages?
+161476,C0,0,FN,0.026,0.3,What are the reactions on neet 2?,How was the NEET 2 paper?
+114846,C0,0,FN,0.247,0.36,How were these pictures of the rover taken on Mars?,How does Curiosity Mars Rover take pictures of itself?
+95999,C0,0,FN,0.231,0.35,Why does even NASA show the Solar System as on a plane? It's all 2D - aren't our celestial neighbors surrounding us in 3 dimensions?,Why are most planet orbits in our solar system on relatively the same 2D plane?
+259073,C0,0,FN,0.135,0.44,Why are answers and reviews on Quora collapsed?,Why are some answers collapsed?
+117048,C0,0,FN,0.017,0.16,What does it mean when answers on Quora collapse?,"Why do some questions on Quora have answers, but the answers aren't shown?"
+61091,C0,0,FN,0.182,0.19,What keeps all the 8 planets in a planer orbit? How come the planets not loose their plane?,Why do all the planets rotate on the same plane?
+218077,C2,2,FP,0.853,0.55,How do I log out of instagram on my computer?,How do you log out of Instagram?
+221853,C2,2,FP,0.696,0.38,How do I upload photos to Quora with a pc?,How do I upload my photo on Quora?
+310379,C2,2,FP,0.405,0.45,How can I start my car in uber?,How do I register my car with Uber?
+159922,C2,2,FP,0.339,0.6,How can I get my birth certificate?,How can I get a passport without a birth certificate?
+243077,C2,2,FP,0.467,0.12,What is moto g2 screen replacement cost in india?,How much would it cost to replace my broken screen for a Motorola Moto G 1st gen?
+254527,C2,2,FP,0.352,0.13,Is there a good (free) way to learn Stata?,How can I download Stata 12 for free?
+34821,C2,2,FP,0.465,0.08,How can I find an IFSC code by using a bank account number?,What is use of IFSC bank codes and where from to get it?
+88044,C2,2,FP,0.549,0.46,How do you delete your email account with Mail.com?,How do you delete an AT&T email account?
+14457,C2,2,FP,0.441,0.14,How do you use Facebook (if you do)?,What would be the best way to use Facebook usefully?
+248342,C2,2,FP,0.719,0.31,What is the best way to scan a document into a computer?,How can I scan a document into a computer without a scanner?
+41678,C2,2,FP,0.683,0.38,Can I write a long question on Quora?,Why can't I type a long questions at Quora?
+214042,C2,2,FP,0.555,0.67,Can I use the Reliance Jio SIM Card in a 4G Dongle?,Can I use a Reliance Jio 4G SIM in a 3G phone?
+174223,C2,2,FP,0.72,0.44,How can I add photos to my question in Quora?,How can I add photos or video on Quora when I want to answer?
+52973,C2,2,FP,0.4,0.25,Is it legal to download videos from Youtube?,What are some ethical and legal ways to download a YouTube video?
+342634,C2,2,FP,0.593,0.43,About how many notifications do you receive on Quora in a week?,How many notifications you daily get on Quora?
+303561,C2,2,FN,0.3,0.27,What does it take to create a social media android app?,How would I start a social media app?
+363117,C2,2,FN,0.15,0.25,How can one use Google Opinion rewards to get Pokémon GO coins?,How do I get free Pokemon go coins?
+102901,C2,2,FN,0.262,0.25,"Do reliance Jio Mifi device support other sim cards like airtel, vodafone?",Will Jio-Fi support any other SIM than Jio?
+257261,C2,2,FN,0.123,0.23,What is best way to get free iPhone?,How do I get a free Iphone 7?
+227998,C2,2,FN,0.139,0.31,How do I stop people from messing with my question?,How can I prevent people from editing my anonymous Quora questions?
+317477,C2,2,FN,0.279,0.3,What would happen if privacy regulations were suddenly changed to allow keeping Google Street View backups in unblurred form?,"If EU and German privacy regulations suddenly added exemption, which legalizes offline storage of unblurred Google Street View, requiring only that online version of Google Street View is blurred, what would happen next?"
+198578,C2,2,FN,0.196,0.54,How do I install Tableau on Ubuntu 16.04?,How do I install a Tableau.dmg file in an Ubuntu 16.04?
+7222,C2,2,FN,0.28,0.31,How can I download youtube playlists?,How do I download complete YouTube playlist videos without any software?
+88412,C2,2,FN,0.168,0.33,Is my computer safe from viruses?,how to keep your computer secure and safe from viruses?
+106897,C2,2,FN,0.182,0.28,How can I hack somebody's Facebook account if that person is not added as a friend?,How can a Facebook account be hacked?
+43077,C2,2,FN,0.051,0.4,How can I unlock my iphone if I forget the passcode?,How can I unlock an iPhone 6 Plus without a passcode?
+16913,C2,2,FN,0.276,0.27,Why do so many people prefer to ask questions on here and wait for an answer rather than type one or two words in a search engine?,Why do so many people ask google-able questions on Quora?
+329645,C2,2,FN,0.22,0.36,How do I recover deleted files with the KeepSafe application?,How can I recover deleted photos from a keepsafe?
+162926,C2,2,FN,0.231,0.38,How is the picture of our Milky Way galaxy taken from the outside if we are inside the galaxy?,How did we humans take spiral images of the Milky Way from inside of the Milky Way?
+318491,C2,2,FN,0.311,0.4,What does green phone icon on messenger mean?,What does it mean if the phone icon in messenger is lit up?
+195248,other clusters,8,FP,0.392,0.36,What makes linux mint more user friendly than Ubuntu?,"Is Linux Mint considered a more ""noob"" distro than Ubuntu?"
+378241,other clusters,5,FP,0.625,0.95,"What were the major contributions of the political leaders during WW1, and how are the compared to the ones during the Russian War?","What were the major contributions of the political leaders during WW1, and how are the compared to the ones during the Russian Civil War?"
+197594,other clusters,1,FP,0.471,0.43,What did Rosa Parks accomplish?,What was Rosa Parks' occupation?
+181793,other clusters,7,FP,0.333,0.29,What one must know before buying and selling stocks on day to day (daily) basis?,Why does one is buying/selling shares of company within a day? And what influence us to buy their stocks only in a day?
+95899,other clusters,8,FP,0.394,0.32,I want to buy a good point & shoot camera.My budget is Rs 25000.Plz suggest?,Could you suggest a good point and shoot camera?
+176280,other clusters,3,FP,0.497,0.13,How do you clean ears with a Q-tip?,What are some good ways to clean ears?
+65466,other clusters,10,FP,0.917,0.45,How should I start photography as my career?,How should one start a career in photography?
+283100,other clusters,8,FP,0.569,0.27,Where can I download audio books (novels) for free?,What are some good websites to download free audio books?
+276723,other clusters,1,FP,0.375,0.64,Is 5'3 tall for an 11 year old?,Is 5'1.5 short for an 11 year old?
+149747,other clusters,5,FP,0.508,0.25,What are your opinions on the French elections?,What is your opinion of French people?
+63695,other clusters,3,FP,0.461,0.17,Is a high fat low carb diet better than a high carb diet?,Do low-carb diets work?
+60565,other clusters,10,FP,0.803,0.27,What are some good ways to memorize things for a test?,What is the best way to memorize things?
+196323,other clusters,1,FP,0.446,0.22,How old was Napoleon when he died?,How did Napoleon die?
+277242,other clusters,7,FP,0.334,0.2,What is Amazon MTurks?,What are jobs related to MTurk in Amazon?
+363410,other clusters,1,FP,0.456,0.5,Is the Big Bang theory not just a theory?,Why is the Big Bang theory important?
+281807,other clusters,7,FN,0.203,0.31,How can I start a successful small business?,How can I find an investor for my business?
+388869,other clusters,10,FN,0.278,0.62,How do I get my 13-year-old daughter interested in programming?,How can I use Minecraft to get my 13 year old interested in programming?
+32682,other clusters,11,FN,0.142,0.27,What is a good song I can use to lyric?,What's good song for a best friend lyric prank?
+273905,other clusters,9,FN,0.297,0.67,Who is the best actor in the Bollywood cinema?,Who is best actor in Indian cinema?
+179730,other clusters,4,FN,0.06,0.07,Psychotherapy: How do I find an individual psychotherapist?,Psychotherapy: What is the Yelp for therapists?
+299508,other clusters,3,FN,0.281,0.6,Is onion juice mixed shampoo good for hAir growth?,Is onion juice helpful for hair growth?
+289708,other clusters,4,FN,0.196,0.5,How do I start conversation with a girl at my workspace?,How do you start a conversation with a girl in public?
+309840,other clusters,1,FN,0.257,0.41,Is it possible that those missing flights were abducted by aliens?,Is it possible that aliens abducted the missing Malaysia Airlines Flight MH370? How?
+38478,other clusters,11,FN,0.254,0.31,What things women turn on for sex?,What are the most crazy things women find in men which turn them on?
+109110,other clusters,8,FN,0.218,0.27,What do you prefer: paper books or e-books? Why?,Do you like reading traditional paper books or e-books? Do you think e-books are harmful to our eyes? And paper books cost a lot.
+108650,other clusters,1,FN,0.02,0.46,"As an LEO, how do you feel about open carry?",How do police officers feel about open carry laws?
+108847,other clusters,1,FN,0.144,0.19,What's so special about Mona Lisa?,What is so special about Monalisa painting? Why is it considered a master piece?
+181500,other clusters,5,FN,0.192,0.35,What makes some foreign people want to live in Japan?,"For people who were not born in Japan, what are some reasons that you decided to live in Japan?"
+114200,other clusters,3,FN,0.122,0.19,What should I do if my dog keeps shaking his ears?,Why does my dog keep shaking her head?
+306148,other clusters,3,FN,0.24,0.31,Can I still grow taller after two and a half years of having my period?,Can you still grow after period?

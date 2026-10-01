@@ -1,0 +1,15 @@
+pooled n=  100: threshold std 0.135 [p5 0.13, p95 0.57]  regret mean 0.0163 p95 0.0587
+pooled n=  250: threshold std 0.094 [p5 0.19, p95 0.49]  regret mean 0.0078 p95 0.0248
+pooled n=  500: threshold std 0.078 [p5 0.21, p95 0.47]  regret mean 0.0057 p95 0.0187
+pooled n= 1000: threshold std 0.057 [p5 0.23, p95 0.43]  regret mean 0.0033 p95 0.0109
+pooled n= 2000: threshold std 0.044 [p5 0.26, p95 0.41]  regret mean 0.0022 p95 0.0074
+pooled n= 4000: threshold std 0.031 [p5 0.28, p95 0.38]  regret mean 0.0013 p95 0.0047
+within-cluster (median across clusters):
+       threshold_std  regret_mean  regret_p95
+n                                           
+100          0.1230       0.0144      0.0484
+250          0.0860       0.0076      0.0267
+500          0.0670       0.0048      0.0158
+1000         0.0443       0.0027      0.0077
+2000         0.0245       0.0006      0.0027
+4000         0.0295       0.0005      0.0025

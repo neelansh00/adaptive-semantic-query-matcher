@@ -6,8 +6,8 @@ embedding-similarity threshold?
 
 Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_audit.md](docs/data_audit.md)).
 
-> **Status: Phase 4 complete** (1: audit and frozen splits; 2: lexical baselines; 3: deep models;
-> 4: unsupervised query clustering). Cluster-level error analysis starts in Phase 5. The full README (architecture, results, demo) is written in Phase 11.
+> **Status: Phase 5 complete** (1: audit and frozen splits; 2: lexical baselines; 3: deep models;
+> 4: unsupervised query clustering; 5: cluster-level error analysis). Entity/constraint features start in Phase 6. The full README (architecture, results, demo) is written in Phase 11.
 
 ## Phase 1 key findings
 
@@ -61,6 +61,18 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
   and exam preparation, relationships, health, India-specific, and personal-experience questions.
 - **Soft boundaries:** a third of validation pairs straddle two clusters. The centroids are frozen because K-Means refits are not bit-reproducible.
 
+## Phase 5 key findings (validation; frozen clusters and model; nothing tuned)
+
+- **Pairs are assigned by the pair-average embedding**, chosen on label-free grounds: it is symmetric and has full coverage. The question-1 rule changes a third
+  of assignments if the questions are swapped.
+- **Performance varies beyond chance.** Cluster F1 ranges 0.708–0.808 (std 0.033, against 0.009 for random groups), but F1 largely tracks
+  duplicate prevalence (ρ = 0.69). The lowest-F1 regions (Education, Definitions, Accounts/apps) rank pairs normally; the advice regions
+  (Learning, Relationships, Health) rank worst.
+- **Optimal thresholds vary from 0.20 to 0.46**, beyond chance, but F1 plateaus are wide. Only 3 of 12 clusters have CIs excluding the global
+  τ = 0.32, and the total in-sample headroom is just +0.006 F1. Thresholds tuned on fewer than about 500 pairs are mostly noise.
+- **Manual error analysis (120 pairs):** among false positives, 27% likely label noise, 25% scope, 20% explicit constraint mismatch, 12% attribute
+  swap. Among false negatives, 57% are low-overlap paraphrases.
+
 ## Documentation
 
 | Doc | Content |
@@ -73,6 +85,7 @@ Dataset: Quora Question Pairs (the labelled `train.csv` only; see [docs/data_aud
 | [docs/baseline_results.md](docs/baseline_results.md) | Phase 2 preprocessing, lexical features, baselines, failure analysis |
 | [docs/deep_models.md](docs/deep_models.md) | Phase 3 Siamese BiLSTM, sentence-transformer heads, contamination control, error analysis, latency |
 | [docs/clustering.md](docs/clustering.md) | Phase 4 K-Means vs HDBSCAN, K selection, stability, cluster interpretation |
+| [docs/cluster_error_analysis.md](docs/cluster_error_analysis.md) | Phase 5 pair assignment, per-cluster metrics, threshold variation, error categories |
 
 ## Reproduce
 
@@ -105,7 +118,12 @@ python scripts/compare_clustering.py
 python scripts/stability_recheck.py --k 5 8 10 12 15 20
 python scripts/build_clusters.py        # uses frozen centroids; --refit to re-fit deliberately
 
-# 7. Tests
+# 7. Phase 5 cluster-level error analysis (validation only)
+python scripts/analyze_clusters.py
+python scripts/threshold_reliability.py
+python scripts/summarize_manual_errors.py
+
+# 8. Tests
 python -m pytest
 ```
 
@@ -122,6 +140,7 @@ data/processed/splits/     frozen train/val/test + split_metadata.json
 scripts/                   Phase 1-2: audit_dataset, make_splits, run_baselines, analyze_baseline_errors
                            Phase 3: encode_questions, run_sbert, train_bilstm, run_encoder_control, compare_phase3
                            Phase 4: compare_clustering, stability_recheck, build_clusters
+                           Phase 5: analyze_clusters, threshold_reliability, summarize_manual_errors
 src/utils/                 data loading (data.py), split strategies + leakage metrics (splits.py)
 src/evaluation/            metrics.py (F1/PR/ROC, threshold sweep, ECE, per-cluster metrics)
 src/preprocessing/         minimal text normalisation + tokenisation
@@ -130,12 +149,15 @@ src/evaluation/error_analysis.py   heuristic error tags (analysis only)
 src/models/                 siamese_bilstm.py, sentence_encoder.py (cached embeddings), predictors.py (raw text -> score)
 src/utils/torch_utils.py   device (CUDA if present, else CPU), seeding, threads
 src/clustering/core.py     K-Means fitting, frozen centroid model, metrics, stability, c-TF-IDF descriptions
+src/clustering/pairs.py    pair-to-cluster rules (q1 / pair-average / same-only), assignment margin
+src/evaluation/cluster_analysis.py   per-cluster metrics, bootstrap CIs, random-partition null
 src/calibration/           placeholder for later phases
-tests/                     Phase 1-4 tests
+tests/                     Phase 1-5 tests
 docs/                      documentation + figures
 artifacts/phase1/          audit statistics, split comparison
 artifacts/phase2/          baseline metrics, val predictions, error analysis, fitted models (joblib)
 artifacts/phase3/          BiLSTM + SBERT heads, val scores, encoder control, comparison.json
 data/processed/embeddings/ cached MiniLM question embeddings (train, val)
 artifacts/phase4/          K sweep, stability, HDBSCAN, frozen cluster centroids, cluster descriptions/names
+artifacts/phase5/          per-cluster metrics, null, threshold reliability, pair assignments, manual error labels
 ```

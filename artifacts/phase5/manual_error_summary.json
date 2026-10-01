@@ -1,0 +1,117 @@
+{
+  "n_labelled": 120,
+  "annotation": "single annotator, model score visible, one primary category per pair",
+  "FP": {
+    "counts": {
+      "likely_label_noise": 16,
+      "broader_narrower": 15,
+      "different_aspect_same_topic": 9,
+      "attribute_swap": 7,
+      "entity_mismatch": 6,
+      "date_time_mismatch": 2,
+      "negation_mismatch": 2,
+      "number_mismatch": 2,
+      "context_dependent_reference": 1
+    },
+    "share": {
+      "likely_label_noise": 0.267,
+      "broader_narrower": 0.25,
+      "different_aspect_same_topic": 0.15,
+      "attribute_swap": 0.117,
+      "entity_mismatch": 0.1,
+      "date_time_mismatch": 0.033,
+      "negation_mismatch": 0.033,
+      "number_mismatch": 0.033,
+      "context_dependent_reference": 0.017
+    },
+    "by_group": {
+      "C0": {
+        "attribute_swap": 0,
+        "broader_narrower": 4,
+        "context_dependent_reference": 1,
+        "date_time_mismatch": 0,
+        "different_aspect_same_topic": 3,
+        "entity_mismatch": 3,
+        "likely_label_noise": 3,
+        "negation_mismatch": 1,
+        "number_mismatch": 0
+      },
+      "C2": {
+        "attribute_swap": 2,
+        "broader_narrower": 4,
+        "context_dependent_reference": 0,
+        "date_time_mismatch": 1,
+        "different_aspect_same_topic": 3,
+        "entity_mismatch": 2,
+        "likely_label_noise": 2,
+        "negation_mismatch": 1,
+        "number_mismatch": 0
+      },
+      "C6": {
+        "attribute_swap": 2,
+        "broader_narrower": 4,
+        "context_dependent_reference": 0,
+        "date_time_mismatch": 1,
+        "different_aspect_same_topic": 0,
+        "entity_mismatch": 1,
+        "likely_label_noise": 7,
+        "negation_mismatch": 0,
+        "number_mismatch": 0
+      },
+      "other clusters": {
+        "attribute_swap": 3,
+        "broader_narrower": 3,
+        "context_dependent_reference": 0,
+        "date_time_mismatch": 0,
+        "different_aspect_same_topic": 3,
+        "entity_mismatch": 0,
+        "likely_label_noise": 4,
+        "negation_mismatch": 0,
+        "number_mismatch": 2
+      }
+    },
+    "share_explicit_constraint_mismatch": 0.2,
+    "share_constraint_or_attribute_swap": 0.31666666666666665,
+    "share_likely_label_noise": 0.26666666666666666
+  },
+  "FN": {
+    "counts": {
+      "paraphrase_low_overlap": 34,
+      "broader_narrower": 15,
+      "debatable_topical_merge": 9,
+      "likely_label_noise": 2
+    },
+    "share": {
+      "paraphrase_low_overlap": 0.567,
+      "broader_narrower": 0.25,
+      "debatable_topical_merge": 0.15,
+      "likely_label_noise": 0.033
+    },
+    "by_group": {
+      "C0": {
+        "broader_narrower": 3,
+        "debatable_topical_merge": 1,
+        "likely_label_noise": 1,
+        "paraphrase_low_overlap": 10
+      },
+      "C2": {
+        "broader_narrower": 5,
+        "debatable_topical_merge": 0,
+        "likely_label_noise": 0,
+        "paraphrase_low_overlap": 10
+      },
+      "C6": {
+        "broader_narrower": 2,
+        "debatable_topical_merge": 6,
+        "likely_label_noise": 1,
+        "paraphrase_low_overlap": 6
+      },
+      "other clusters": {
+        "broader_narrower": 5,
+        "debatable_topical_merge": 2,
+        "likely_label_noise": 0,
+        "paraphrase_low_overlap": 8
+      }
+    }
+  }
+}
