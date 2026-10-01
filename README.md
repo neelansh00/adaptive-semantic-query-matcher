@@ -166,7 +166,7 @@ Details: [docs/reproducibility.md](docs/reproducibility.md).
 Requires Python 3.12 (developed on 3.12.2, Windows 11, CPU only).
 
 ```bash
-git clone <this repository> && cd "Adaptive Semantic Query Matcher"
+git clone https://github.com/neelansh00/adaptive-semantic-query-matcher.git && cd adaptive-semantic-query-matcher
 python -m venv .venv && .venv\Scripts\activate          # Linux/macOS: source .venv/bin/activate
 pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements.txt
