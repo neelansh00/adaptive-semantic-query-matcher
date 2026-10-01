@@ -57,8 +57,15 @@ REFERENCE_THRESHOLDS = {  # frozen validation thresholds of the reference system
     "ref_bilstm": ("phase3/bilstm/metrics.json", ["tuned_threshold"]),
     "ref_cosine": ("phase3/sbert_all-MiniLM-L6-v2/metrics.json", ["sbert_cosine", "tuned_threshold"]),
 }
-# Known validation results that the dry run must reproduce (Phases 2, 3, 6, 7).
-EXPECTED_VAL_F1 = {"baseline": 0.7711, "final": 0.7829, "ref_tfidf_lexical": 0.7299, "ref_bilstm": 0.7323, "ref_cosine": 0.7347}
+def expected_val_f1() -> dict:
+    """Validation F1 recorded by the phases that produced each system (read from their result files, not hard-coded)."""
+    chosen = json.loads((ART / "phase6" / "chosen.json").read_text())
+    p2 = json.loads((ART / "phase2" / "baseline_metrics.json").read_text())
+    p3b = json.loads((ART / "phase3" / "bilstm" / "metrics.json").read_text())
+    p3s = json.loads((ART / "phase3" / "sbert_all-MiniLM-L6-v2" / "metrics.json").read_text())
+    return {"baseline": p3s["sbert_mlp"]["val_at_tuned_threshold"]["f1"], "final": chosen["metrics"]["f1"],
+            "ref_tfidf_lexical": p2["lr_tfidf_pair_lexical"]["val_at_tuned_threshold"]["f1"],
+            "ref_bilstm": p3b["val_at_tuned_threshold"]["f1"], "ref_cosine": p3s["sbert_cosine"]["val_at_tuned_threshold"]["f1"]}
 
 
 def verify_manifest() -> dict:
@@ -282,14 +289,19 @@ def main() -> None:
     print("transitions:", trans, flush=True)
 
     if split == "val":
-        check = {k: (round(res[k]["f1"], 4), v) for k, v in EXPECTED_VAL_F1.items()}
-        ok = all(abs(a - b) <= 0.0002 for a, b in check.values())
-        print("DRY RUN reproduces known validation F1:", ok, check, flush=True)
+        check = {k: (res[k]["f1"], v) for k, v in expected_val_f1().items()}
         stored = pd.read_csv(ART / "phase6" / "val_scores.csv")[["id", "B_base", "C_no_spacy_hgb"]].merge(scores, on="id")
+        flips = {"baseline": int(((stored.B_base >= thr["baseline"]) != (stored.baseline >= thr["baseline"])).sum()),
+                 "final": int(((stored.C_no_spacy_hgb >= thr["final"]) != (stored.final >= thr["final"])).sum())}
         diff = {"baseline_max_abs": float((stored.B_base - stored.baseline).abs().max()),
                 "final_max_abs": float((stored.C_no_spacy_hgb - stored.final).abs().max())}
-        print("score parity vs stored validation scores:", diff, flush=True)
-        (out_dir / "dry_run_check.json").write_text(json.dumps({"f1_check": check, "reproduced": ok, "score_parity": diff}, indent=2))
+        # stored CSV scores are rounded to 6 decimals, so parity means |diff| <= 5e-7 and zero decision flips
+        ok = (all(abs(a - b) < 1e-9 for a, b in check.values()) and all(v == 0 for v in flips.values())
+              and max(diff.values()) <= 5.1e-7)
+        print("DRY RUN reproduces validation:", ok, {k: (round(a, 6), round(b, 6)) for k, (a, b) in check.items()},
+              "decision flips:", flips, "max |score diff|:", diff, flush=True)
+        (out_dir / "dry_run_check.json").write_text(json.dumps({"f1_check": check, "decision_flips": flips,
+                                                                "score_parity": diff, "reproduced": ok}, indent=2))
         if not ok:
             raise SystemExit("Dry run did not reproduce validation results: do NOT evaluate on test")
 
