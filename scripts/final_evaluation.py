@@ -295,9 +295,11 @@ def main() -> None:
                  "final": int(((stored.C_no_spacy_hgb >= thr["final"]) != (stored.final >= thr["final"])).sum())}
         diff = {"baseline_max_abs": float((stored.B_base - stored.baseline).abs().max()),
                 "final_max_abs": float((stored.C_no_spacy_hgb - stored.final).abs().max())}
-        # stored CSV scores are rounded to 6 decimals, so parity means |diff| <= 5e-7 and zero decision flips
+        # stored CSV scores are rounded to 6 decimals (<= 5e-7) and the base head outputs float32 (+ <= ~6e-8 when
+        # compared in float64), so parity means |diff| <= 6e-7, exact F1 and zero decision flips. (The first dry run
+        # used 5.1e-7, which forgot the float32 term: observed 5.3e-7 with exact F1 and zero flips.)
         ok = (all(abs(a - b) < 1e-9 for a, b in check.values()) and all(v == 0 for v in flips.values())
-              and max(diff.values()) <= 5.1e-7)
+              and max(diff.values()) <= 6e-7)
         print("DRY RUN reproduces validation:", ok, {k: (round(a, 6), round(b, 6)) for k, (a, b) in check.items()},
               "decision flips:", flips, "max |score diff|:", diff, flush=True)
         (out_dir / "dry_run_check.json").write_text(json.dumps({"f1_check": check, "decision_flips": flips,
